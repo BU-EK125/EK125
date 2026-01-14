@@ -1,4 +1,4 @@
-1. ## **Introduction to Interactive Programming Using Google Colab**
+## **Class 1: Introduction to Interactive Programming Using Google Colab**
 
 In this course, we will write and execute Python code using Google Colab—short for "Collaboratory"—rather than spending class time configuring development environments. Colab provides a browser-based coding platform that is especially well-suited to interactive programming and data-driven tasks. It supports Python natively and includes built-in libraries commonly used in engineering and data science.
 
