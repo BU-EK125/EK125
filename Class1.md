@@ -325,6 +325,26 @@ Later in the notebook, you might update that value:
 
 This approach reinforces the **interactive nature of Colab notebooks**. You’re not tied to a fixed sequence of execution—each cell can be run and rerun independently, which makes it easy to refine your logic, explore hypotheses, and test different outcomes on the fly.
 
+### **Simultaneous Assignment**
+Python also supports **simultaneous assignment**, allowing you to assign multiple variables in a single line.  For example:
+
+```python
+quantity = 3
+cost = 5
+
+total_cost, unit_cost = quantity * cost, cost / quantity
+```
+
+Note that the expressions on the right are evaluated first, and then the results are assigned to the variables on the left.  Because of this, in Python, you can swap two variables without needing a temporary variable:
+
+```python
+x = 10
+y = 5
+x, y = y, x
+```
+
+will result in `x` being `5` and `y` being `10` because the expressions on the right are evaluated before any assignments occur.  In effect, Python creates a temporary tuple `(y, x)` and then unpacks it into `x` and `y`.
+
 ## **Saving and Accessing Notebooks via Google Drive**
 
 Colab notebooks live in the cloud, which means your work is automatically saved and easily accessible from any device with internet access. Throughout this course, all assignments and coding activities will be distributed as notebook links via our course site.
