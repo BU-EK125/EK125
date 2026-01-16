@@ -2,31 +2,4 @@ format: jb-book
 root: intro
 chapters:
   - file: Class1
-  - file: Week2A
-  - file: Week2B
-  - file: Week3A
-  - file: Week3B
-  - file: Week4A
-  - file: Week4B
-  - file: Week5A
-  - file: gpp-review
-  - file: Week6A
-  - file: Week6B
-  - file: Week7A
-  - file: Week7B
-  - file: Week8A
-  - file: Week8B
-  - file: Week9A
-  - file: Week9aappendix
-  - file: Week9B
-  - file: Week10A
-  - file: Week10B
-  - file: Week11A
-  - file: gpp-review-2
-  - file: Week12A
-  - file: Week12B
-  - file: Week13A
-  - file: Week14A
-  - file: GPP-review-3
-  - file: Week15A
-  - file: Week15B
+ 
