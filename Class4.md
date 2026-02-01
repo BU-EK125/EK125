@@ -1,4 +1,4 @@
-# Week3A Preread: Coding Basics Wrap-up and Selection Statements
+# Class 4: Coding Basics Wrap-up and Selection Statements
 
 # Coding Basics Wrap-up: Strings, Objects & Methods, Input, Casting, and Output Formatting
 
