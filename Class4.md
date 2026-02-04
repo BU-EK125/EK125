@@ -48,15 +48,15 @@ Certain characters cannot be typed directly into a string, so Python uses escape
 
 Examples:
 ```
-print("Hello\\nWorld")
+print("Hello\nWorld")
 
-print("Column1\\tColumn2")
+print("Column1\tColumn2")
 
-print('Isn\\'t this neat?')
+print('Isn\'t this neat?')
 
-print("The character \\"a\\" is a short string")
+print("The character \"a\" is a short string")
 
-print("A backslash looks like this: \\\\")
+print("A backslash looks like this: \\")
 ```
 Output:
 
