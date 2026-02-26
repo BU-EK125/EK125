@@ -1,0 +1,1334 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Class 7 Preread: Advanced Iteration and Nested Structures &#8212; EK125</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Class7';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Class 9 Preread: From Colab Notebooks to Running Python Locally" href="Class9.html" />
+    <link rel="prev" title="Class 6 Preread: Nested Loops" href="Class6.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">EK125</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction to this jupyter book: HTML rendered mardown files for EK125 Pre-readings
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Class1.html"><strong>Class 1: Introduction to Interactive Programming Using Google Colab</strong></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Class2.html">Class 2: Sequences, Strings, and Lists in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class3.html">Class 3: Booleans and Basic Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class4.html">Class 4: Coding Basics Wrap-up and Selection Statements</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="Class5.html">Class 5: Importing Modules and Basic Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class6.html">Class 6 Preread: Nested Loops</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Class 7 Preread: Advanced Iteration and Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class9.html">Class 9 Preread: From Colab Notebooks to Running Python Locally</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class10.html">Class 10 Pre-read: Mastering Slicing in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class11.html">Class 11: Digging into arrays with NumPy</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Class7.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Class 7 Preread: Advanced Iteration and Nested Structures</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-foundational-tools">Part 1: Foundational Tools</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#range-and-enumerate">Range and Enumerate</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-arguments-to-range">Optional Arguments to Range</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-enumerate-function">The Enumerate Function</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pause-and-think">Pause and Think</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples-a-quick-refresher">Tuples: A Quick Refresher</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-tuples">Creating Tuples</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-between-types">Converting Between Types</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#packing-and-unpacking">Packing and Unpacking</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Pause and Think</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-list-comprehensions">Part 2: List Comprehensions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-list-comprehensions">Basic List Comprehensions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-conditionals">Adding Conditionals</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Pause and Think</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-nested-structures">Part 3: Nested Structures</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-nested-structures-matter">Why Nested Structures Matter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-list-comprehensions">Nested List Comprehensions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-to-nested-loops">Comparison to Nested Loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-product-table">Example: Product Table</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Pause and Think</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-nested-lists">Working with Nested Lists</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-nested-list-example">A Nested List Example</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-enumerate-with-nested-lists">Using <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> with Nested Lists</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerate-in-a-list-comprehension"><code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> in a List Comprehension</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-tuples">Nested Tuples</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Pause and Think</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-multi-level-indexing">Part 4: Multi-Level Indexing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-matters">Why This Matters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-into-a-grid">Indexing Into a Grid</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-multi-level-indexing">Visualizing Multi-Level Indexing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-to-loops">Comparing to Loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-values">Modifying Values</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Pause and Think</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-slicing">Part 5: Slicing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Why This Matters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-basics">The Basics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loops-vs-slicing">Loops vs Slicing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#negative-indices">Negative Indices</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Pause and Think</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-table">Summary Table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-all-matters">Why This All Matters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-check-did-you-understand-this">Quick Check: Did You Understand This?</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="class-7-preread-advanced-iteration-and-nested-structures">
+<h1>Class 7 Preread: Advanced Iteration and Nested Structures<a class="headerlink" href="#class-7-preread-advanced-iteration-and-nested-structures" title="Link to this heading">#</a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>In the past few weeks, you’ve built a strong foundation with <strong>loops</strong>, <strong>lists</strong>, and <strong>basic indexing</strong>. You’ve learned how to repeat actions with for loops, how to store values in lists, and how to process data element by element.</p>
+<p>This week, we’re taking the next major step: working with <strong>nested structures</strong> and mastering more powerful ways to create and manipulate them. A nested structure is simply a list (or tuple) that contains other lists (or tuples). This creates data that looks like a grid or table—just like seats in a theater, squares in a chessboard, or entries in a multiplication table.</p>
+<p>⚠️ <strong>Important Note:</strong> These structures are <strong>not strictly</strong> organized into a grid (that’s an <strong>array</strong>, which we’ll study later!) but rather, the nesting structure can be <strong>interpreted</strong> as coordinates along a grid.</p>
+<p>This preread introduces you to several interconnected skills:</p>
+<ol class="arabic simple">
+<li><p><strong>Powerful iteration tools</strong>: <code class="docutils literal notranslate"><span class="pre">range</span></code>, <code class="docutils literal notranslate"><span class="pre">enumerate</span></code>, and iteration through sequences</p></li>
+<li><p><strong>Tuples</strong>: Quick refresher on this immutable sequence type</p></li>
+<li><p><strong>List comprehensions</strong>: A compact way to build lists in one line</p></li>
+<li><p><strong>Nested comprehensions</strong>: Building 2D structures compactly</p></li>
+<li><p><strong>Multi-level indexing</strong>: Accessing values in nested structures</p></li>
+<li><p><strong>Slicing</strong>: Extracting “windows” of values at once</p></li>
+</ol>
+<p>Everything we do this week builds directly on what you already know. We’re just adding more tools to your toolkit!</p>
+</section>
+<hr class="docutils" />
+<section id="part-1-foundational-tools">
+<h2>Part 1: Foundational Tools<a class="headerlink" href="#part-1-foundational-tools" title="Link to this heading">#</a></h2>
+<section id="range-and-enumerate">
+<h3>Range and Enumerate<a class="headerlink" href="#range-and-enumerate" title="Link to this heading">#</a></h3>
+<p>We’ve seen that the <code class="docutils literal notranslate"><span class="pre">range</span></code> function generates a sequence of integers. When called as <code class="docutils literal notranslate"><span class="pre">range(n)</span></code>, it generates the sequence of integers from 0 through n-1. The type returned from range is <code class="docutils literal notranslate"><span class="pre">range</span></code>, although it can be passed to the <code class="docutils literal notranslate"><span class="pre">list</span></code> function if a list consisting of the individual items is desired.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mr</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mr</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">mr</span><span class="p">))</span>
+<span class="go">range(0, 6) &lt;class &#39;range&#39;&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ml</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">mr</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">ml</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">ml</span><span class="p">))</span>
+<span class="go">[0, 1, 2, 3, 4, 5] &lt;class &#39;list&#39;&gt;</span>
+</pre></div>
+</div>
+<p>So, <code class="docutils literal notranslate"><span class="pre">range</span></code> does not create a list; it creates an <strong>iterator</strong>. An interesting aspect of iterators is that the values are created one at a time; the entire iterator is not created all at once.</p>
+<section id="optional-arguments-to-range">
+<h4>Optional Arguments to Range<a class="headerlink" href="#optional-arguments-to-range" title="Link to this heading">#</a></h4>
+<p>If two arguments are passed to the <code class="docutils literal notranslate"><span class="pre">range</span></code> function, they specify the first value (instead of the default of 0) and the last (minus 1). For example, <code class="docutils literal notranslate"><span class="pre">range(3,7)</span></code> generates the sequence of integers 3, 4, 5, 6.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mr</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ml</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">mr</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">ml</span><span class="p">)</span>
+<span class="go">[3, 4, 5, 6]</span>
+</pre></div>
+</div>
+<p>An integer “step” value can also be specified as a third argument (instead of the default of 1).</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mr</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ml</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">mr</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">ml</span><span class="p">)</span>
+<span class="go">[3, 5, 7, 9]</span>
+</pre></div>
+</div>
+<p>Step values can also be negative.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ml</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">ml</span><span class="p">)</span>
+<span class="go">[10, 8, 6, 4]</span>
+</pre></div>
+</div>
+</section>
+<section id="the-enumerate-function">
+<h4>The Enumerate Function<a class="headerlink" href="#the-enumerate-function" title="Link to this heading">#</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">range</span></code> function is frequently used with <code class="docutils literal notranslate"><span class="pre">for</span></code> loops to specify how many times to execute the action of a loop. But what if you need both the <strong>index</strong> and the <strong>value</strong> at the same time?</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">enumerate</span></code> function returns both an index and an item from a sequence such as a list.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numlist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">numlist</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Item&#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Item</span> <span class="mi">0</span> <span class="ow">is</span> <span class="mi">4</span>
+<span class="n">Item</span> <span class="mi">1</span> <span class="ow">is</span> <span class="mi">52</span>
+<span class="n">Item</span> <span class="mi">2</span> <span class="ow">is</span> <span class="mi">33</span>
+<span class="n">Item</span> <span class="mi">3</span> <span class="ow">is</span> <span class="mi">11</span>
+<span class="n">Item</span> <span class="mi">4</span> <span class="ow">is</span> <span class="o">-</span><span class="mi">3</span>
+</pre></div>
+</div>
+<p>Notice that this gives us two iterator variables: <code class="docutils literal notranslate"><span class="pre">i</span></code>, which is the index, and <code class="docutils literal notranslate"><span class="pre">item</span></code>, which is the value at that position in the list.</p>
+<p><strong>Why This Matters:</strong> Sometimes you need to know <strong>where</strong> you are in a sequence, not just <strong>what</strong> the value is. <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> saves you from having to manually manage counter variables.</p>
+</section>
+<section id="pause-and-think">
+<h4>Pause and Think<a class="headerlink" href="#pause-and-think" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>What would <code class="docutils literal notranslate"><span class="pre">list(range(5,</span> <span class="pre">1))</span></code> produce? Why?</p></li>
+<li><p>When would you use <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> instead of just iterating through the list directly?</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="tuples-a-quick-refresher">
+<h3>Tuples: A Quick Refresher<a class="headerlink" href="#tuples-a-quick-refresher" title="Link to this heading">#</a></h3>
+<p>We talked about tuples in Weeks 1 and 2, but we haven’t used them much. Let’s refresh our memory and introduce a few points about tuples we haven’t yet discussed.</p>
+<p>Tuples are similar to lists, but are <strong>immutable</strong> (cannot be changed after creation). Tuples are generally created by putting values in parentheses, separated by commas.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mytup</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">33</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Functions such as <code class="docutils literal notranslate"><span class="pre">len</span></code> and indexing/slicing work the same on tuples as on lists.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">mytup</span><span class="p">)</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mytup</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">11</span>
+</pre></div>
+</div>
+<section id="creating-tuples">
+<h4>Creating Tuples<a class="headerlink" href="#creating-tuples" title="Link to this heading">#</a></h4>
+<p>Parentheses are not always necessary:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">newtuple</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">19</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">newtuple</span>
+<span class="go">(5, 19)</span>
+</pre></div>
+</div>
+<p>The concatenation operator can be used to join two tuples together.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mytup</span> <span class="o">+</span> <span class="n">newtuple</span>
+<span class="go">(2, 11, 33, 5, 19)</span>
+</pre></div>
+</div>
+<p>An empty tuple is created using parentheses with nothing inside:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">emptup</span> <span class="o">=</span> <span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">emptup</span><span class="p">)</span>
+<span class="go">0</span>
+</pre></div>
+</div>
+<p>To create a tuple with one entry, the value must be followed by a comma, and both must be in parentheses.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">onetup</span> <span class="o">=</span> <span class="p">(</span><span class="mi">7</span><span class="p">,)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">onetup</span>
+<span class="go">(7,)</span>
+</pre></div>
+</div>
+<p>The parentheses and comma here are necessary. If the comma is omitted, the value is just an integer:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">((</span><span class="mi">7</span><span class="p">,)),</span> <span class="nb">type</span><span class="p">((</span><span class="mi">7</span><span class="p">)))</span>
+<span class="go">&lt;class &#39;tuple&#39;&gt; &lt;class &#39;int&#39;&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="converting-between-types">
+<h4>Converting Between Types<a class="headerlink" href="#converting-between-types" title="Link to this heading">#</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">list</span></code> function can be used to create a list from a tuple:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tl</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">mytup</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tl</span>
+<span class="go">[2, 11, 33]</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">tuple</span></code> function can be used to create a tuple from another sequence type such as a string or a list:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wordlist</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;howdy&#39;</span><span class="p">,</span> <span class="s1">&#39;hi&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wordtuple</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">wordlist</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chartuple</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">wordlist</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">wordlist</span><span class="p">,</span> <span class="n">wordtuple</span><span class="p">,</span> <span class="n">chartuple</span><span class="p">)</span>
+<span class="go">[&#39;howdy&#39;, &#39;hi&#39;] (&#39;howdy&#39;, &#39;hi&#39;) (&#39;h&#39;, &#39;o&#39;, &#39;w&#39;, &#39;d&#39;, &#39;y&#39;)</span>
+</pre></div>
+</div>
+</section>
+<section id="packing-and-unpacking">
+<h4>Packing and Unpacking<a class="headerlink" href="#packing-and-unpacking" title="Link to this heading">#</a></h4>
+<p>Putting values into a tuple is called “packing”:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mytup</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">33</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mytup</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">33</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The reverse is called “unpacking”. In order to unpack a tuple, it is necessary to know how many values are in the tuple and to have that many variables on the left-hand side of the assignment operator.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">mytup</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">mytup</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="go">(2, 11, 33) 2 11 33</span>
+</pre></div>
+</div>
+<p><strong>Why This Matters:</strong> Unpacking is very useful! You’ll see it used with <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> and when looping through nested structures.</p>
+<p>Here’s a practical example of why unpacking matters. Suppose you have coordinate pairs:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">coordinates</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p><strong>Without unpacking</strong>, you’d need extra lines to extract each value:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">coord</span> <span class="ow">in</span> <span class="n">coordinates</span><span class="p">:</span>
+    <span class="n">x_value</span> <span class="o">=</span> <span class="n">coord</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">y_value</span> <span class="o">=</span> <span class="n">coord</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x: </span><span class="si">{</span><span class="n">x_value</span><span class="si">}</span><span class="s2">, y: </span><span class="si">{</span><span class="n">y_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>With unpacking</strong>, it’s much cleaner:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">coordinates</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x: </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, y: </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mi">5</span>
+<span class="n">x</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mi">15</span>
+<span class="n">x</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="mi">25</span>
+</pre></div>
+</div>
+<p>This makes your code more readable and less error-prone. Instead of remembering “index 0 is x and index 1 is y,” you just use meaningful variable names directly.</p>
+<p>Unpacking is also possible for other sequence types such as lists and strings.</p>
+</section>
+<section id="id1">
+<h4>Pause and Think<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>What’s the difference between <code class="docutils literal notranslate"><span class="pre">(7)</span></code> and <code class="docutils literal notranslate"><span class="pre">(7,)</span></code>?</p></li>
+<li><p>When would you choose a tuple over a list?</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-2-list-comprehensions">
+<h2>Part 2: List Comprehensions<a class="headerlink" href="#part-2-list-comprehensions" title="Link to this heading">#</a></h2>
+<section id="basic-list-comprehensions">
+<h3>Basic List Comprehensions<a class="headerlink" href="#basic-list-comprehensions" title="Link to this heading">#</a></h3>
+<p>In general, <code class="docutils literal notranslate"><span class="pre">for</span></code> loops are used to iterate through data structures such as Python sequences in order to perform the same operation on every element. A common pattern is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Vectorizing code</strong> means getting rid of loops, and instead using built-in functions and compact expressions. One powerful way to vectorize Python code when creating lists is to use <strong>list comprehensions</strong>.</p>
+<p>Comprehensions do not add any power to the language, but provide a convenient, succinct way to create sequences. The simplest general form of a list comprehension is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">expression</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>which creates a list of the expressions for all values of <code class="docutils literal notranslate"><span class="pre">i</span></code>. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">i</span> <span class="o">**</span> <span class="mi">3</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+<span class="go">[0, 1, 8, 27, 64]</span>
+</pre></div>
+</div>
+<p>This creates a list of the cubes of all values of <code class="docutils literal notranslate"><span class="pre">i</span></code> in the range from 0 to 4 inclusive. Assigning this to a list variable:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cubelist</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">**</span><span class="mi">3</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>is equivalent to the loop we showed earlier:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cubelist</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">cubelist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="adding-conditionals">
+<h3>Adding Conditionals<a class="headerlink" href="#adding-conditionals" title="Link to this heading">#</a></h3>
+<p>Conditionals (such as <code class="docutils literal notranslate"><span class="pre">if-else</span></code>) can be added to the list comprehension to determine which expressions to include in the list. For example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cubelisteven</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">**</span><span class="mi">3</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>creates a list of cubes of the even integers in the range from 0 to 6 inclusive, and is equivalent to:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cubelisteven</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">cubelisteven</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>📎 <strong>Recall:</strong> This was your first glimpse of <strong>vectorization</strong>. Instead of looping step by step, you could build the whole list in one expression.</p>
+<section id="id2">
+<h4>Pause and Think<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>How would you create a list of squares of all odd numbers from 1 to 10 using a list comprehension?</p></li>
+<li><p>What’s shorter: a loop with append, or a list comprehension?</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-3-nested-structures">
+<h2>Part 3: Nested Structures<a class="headerlink" href="#part-3-nested-structures" title="Link to this heading">#</a></h2>
+<section id="why-nested-structures-matter">
+<h3>Why Nested Structures Matter<a class="headerlink" href="#why-nested-structures-matter" title="Link to this heading">#</a></h3>
+<p>So far, your comprehensions have created flat lists—just a single row of values. But what if you want a table or grid? That’s where <strong>nesting</strong> comes in.</p>
+<p>Nested structures come naturally out of nested loops (Week 4). Instead of just printing values row by row, you can now <strong>store</strong> them in memory in a way that preserves their row/column relationships.</p>
+</section>
+<section id="nested-list-comprehensions">
+<h3>Nested List Comprehensions<a class="headerlink" href="#nested-list-comprehensions" title="Link to this heading">#</a></h3>
+<p>The key idea is this:</p>
+<ul class="simple">
+<li><p>The <strong>inner comprehension</strong> builds one <strong>row</strong>.</p></li>
+<li><p>The <strong>outer comprehension</strong> repeats that row for each iteration.</p></li>
+</ul>
+<p>This mirrors what you did with <strong>nested for loops</strong> in Week 4—one loop for rows, one loop for columns. With nesting, you’re compacting that logic into a single expression.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p><strong>Step by step:</strong></p>
+<ol class="arabic simple">
+<li><p>The inner comprehension <code class="docutils literal notranslate"><span class="pre">[col</span> <span class="pre">for</span> <span class="pre">col</span> <span class="pre">in</span> <span class="pre">range(3)]</span></code> creates <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2]</span></code>.</p></li>
+<li><p>The outer comprehension repeats that inner list twice, once for each row.</p></li>
+</ol>
+<p>The final result is a list with two entries in the outer list, and three entries <em>within</em> each location of that outer list.</p>
+</section>
+<section id="comparison-to-nested-loops">
+<h3>Comparison to Nested Loops<a class="headerlink" href="#comparison-to-nested-loops" title="Link to this heading">#</a></h3>
+<p>You can do the same thing with a nested loop:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nested</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+    <span class="n">inner</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">inner</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">col</span><span class="p">)</span>
+    <span class="n">nested</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inner</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nested</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>Both approaches are identical in logic. The comprehension is just a shorthand.</p>
+</section>
+<section id="example-product-table">
+<h3>Example: Product Table<a class="headerlink" href="#example-product-table" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">products</span> <span class="o">=</span> <span class="p">[[</span><span class="n">r</span> <span class="o">*</span> <span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">products</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>Comparison to Nested Loop:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">products</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+    <span class="n">row</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+        <span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span>
+    <span class="n">products</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">products</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>Why this matters:</strong> Nested comprehensions let you <strong>construct</strong> the very structures that nested loops would otherwise only <strong>print</strong>, or that would be constructed in a nested loop via <code class="docutils literal notranslate"><span class="pre">.append()</span></code>. That’s the big shift this week.</p>
+<section id="id3">
+<h4>Pause and Think<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>How many items will this comprehension build in the <em>inner</em> comprehension: <code class="docutils literal notranslate"><span class="pre">[[c</span> <span class="pre">for</span> <span class="pre">c</span> <span class="pre">in</span> <span class="pre">range(4)]</span> <span class="pre">for</span> <span class="pre">r</span> <span class="pre">in</span> <span class="pre">range(3)]</span></code>?</p></li>
+<li><p>How many elements in total will the result contain?</p></li>
+<li><p>What happens if you swap the inner and outer loops?</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="working-with-nested-lists">
+<h3>Working with Nested Lists<a class="headerlink" href="#working-with-nested-lists" title="Link to this heading">#</a></h3>
+<section id="a-nested-list-example">
+<h4>A Nested List Example<a class="headerlink" href="#a-nested-list-example" title="Link to this heading">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">seats</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;A1&#39;</span><span class="p">,</span> <span class="s1">&#39;A2&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;B1&#39;</span><span class="p">,</span> <span class="s1">&#39;B2&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p><strong>Looping through:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">seats</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">seat</span> <span class="ow">in</span> <span class="n">row</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">seat</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A1</span>
+<span class="n">A2</span>
+<span class="n">B1</span>
+<span class="n">B2</span>
+</pre></div>
+</div>
+</section>
+<section id="using-enumerate-with-nested-lists">
+<h4>Using <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> with Nested Lists<a class="headerlink" href="#using-enumerate-with-nested-lists" title="Link to this heading">#</a></h4>
+<p>Sometimes, just looping through values isn’t enough—you also want to know <strong>where</strong> you are in the list. That’s where <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> comes in: it gives you both the <strong>index (position)</strong> and the <strong>value</strong> at the same time.</p>
+<p>This is especially useful for nested lists, where you often care about both the <strong>outer list index number</strong> and the <strong>inner list index number</strong>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">seats</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">seat</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Row </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">, Col </span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">seat</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Row</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Col</span> <span class="mi">0</span><span class="p">:</span> <span class="n">A1</span>
+<span class="n">Row</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Col</span> <span class="mi">1</span><span class="p">:</span> <span class="n">A2</span>
+<span class="n">Row</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Col</span> <span class="mi">0</span><span class="p">:</span> <span class="n">B1</span>
+<span class="n">Row</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Col</span> <span class="mi">1</span><span class="p">:</span> <span class="n">B2</span>
+</pre></div>
+</div>
+</section>
+<section id="enumerate-in-a-list-comprehension">
+<h4><code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> in a List Comprehension<a class="headerlink" href="#enumerate-in-a-list-comprehension" title="Link to this heading">#</a></h4>
+<p>Remember: comprehensions are just another way of expressing loops. That means you can combine <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> with <strong>comprehensions</strong> to directly build a new structured list in one step.</p>
+<p>This is especially useful when you want to <strong>tag</strong> values with their positions or transform data into a new form without writing extra loop code.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">indexed</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">seat</span><span class="p">)</span> 
+           <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">seats</span><span class="p">)</span> 
+           <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">seat</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">row</span><span class="p">)]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">indexed</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;A1&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;A2&#39;</span><span class="p">),</span> 
+ <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;B1&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;B2&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>Now each seat is tagged with both row and column indices—this is structured data in action.</p>
+</section>
+</section>
+<section id="nested-tuples">
+<h3>Nested Tuples<a class="headerlink" href="#nested-tuples" title="Link to this heading">#</a></h3>
+<p>Tuples are immutable but can still nest:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">blocks</span> <span class="o">=</span> <span class="p">((</span><span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">blocks</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">11</span>
+</pre></div>
+</div>
+<p>And can be looped over. Notice that here we are <strong>unpacking</strong> each tuple into two separate variables, <code class="docutils literal notranslate"><span class="pre">start</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span></code>, so they can be used directly:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="ow">in</span> <span class="n">blocks</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Starts at </span><span class="si">{</span><span class="n">start</span><span class="si">}</span><span class="s2">, ends at </span><span class="si">{</span><span class="n">end</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Starts</span> <span class="n">at</span> <span class="mi">8</span><span class="p">,</span> <span class="n">ends</span> <span class="n">at</span> <span class="mi">10</span>
+<span class="n">Starts</span> <span class="n">at</span> <span class="mi">11</span><span class="p">,</span> <span class="n">ends</span> <span class="n">at</span> <span class="mi">1</span>
+<span class="n">Starts</span> <span class="n">at</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ends</span> <span class="n">at</span> <span class="mi">4</span>
+</pre></div>
+</div>
+<section id="id4">
+<h4>Pause and Think<a class="headerlink" href="#id4" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>What’s the difference between <code class="docutils literal notranslate"><span class="pre">[(8,</span> <span class="pre">10),</span> <span class="pre">(11,</span> <span class="pre">1)]</span></code> and <code class="docutils literal notranslate"><span class="pre">[[8,</span> <span class="pre">10],</span> <span class="pre">[11,</span> <span class="pre">1]]</span></code>?</p></li>
+<li><p>Which one is better if the values need to change?</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-4-multi-level-indexing">
+<h2>Part 4: Multi-Level Indexing<a class="headerlink" href="#part-4-multi-level-indexing" title="Link to this heading">#</a></h2>
+<section id="why-this-matters">
+<h3>Why This Matters<a class="headerlink" href="#why-this-matters" title="Link to this heading">#</a></h3>
+<p>Nested loops build nested structures. But once those structures exist, you don’t need to loop over everything—you can jump straight to the element you want with <strong>multi-level indexing</strong>.</p>
+<p>This is like replacing a journey through the whole theater with a direct seat ticket: “Row 2, Seat 3.”</p>
+</section>
+<section id="indexing-into-a-grid">
+<h3>Indexing Into a Grid<a class="headerlink" href="#indexing-into-a-grid" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">]]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>      <span class="c1"># First row</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>      <span class="c1"># Third row</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>   <span class="c1"># Third row, first element</span>
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span>
+<span class="mi">50</span>
+</pre></div>
+</div>
+<p>Think of each bracket as peeling away a layer:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>grid        → entire 2D structure
+grid[2]     → one row: [50, 60]
+grid[2][0]  → one number: 50
+</pre></div>
+</div>
+<p>⚠️ <strong>Important:</strong> Recall again that this grid is not <strong>literally</strong> a square, but rather an interpretation of a grid where the outer list represents rows and the inner lists represent columns. For example, in this structure, each row does not have to have the same number of entries (which would be true for an actual grid). Later we will discuss <strong>arrays</strong> that are <strong>literally grids</strong>.</p>
+</section>
+<section id="visualizing-multi-level-indexing">
+<h3>Visualizing Multi-Level Indexing<a class="headerlink" href="#visualizing-multi-level-indexing" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Grid</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>   <span class="c1"># Row 0</span>
+  <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span>   <span class="c1"># Row 1</span>
+  <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span>    <span class="c1"># Row 2</span>
+<span class="p">]</span>
+
+<span class="n">Indexes</span><span class="p">:</span>   <span class="n">Row</span>   <span class="n">Col</span>
+           <span class="p">[</span><span class="mi">2</span><span class="p">]</span>   <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">Result</span><span class="p">:</span>    <span class="mi">50</span>
+</pre></div>
+</div>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">grid[2][0]</span></code> means:</p>
+<ol class="arabic simple">
+<li><p>Go to <strong>row 2</strong> → <code class="docutils literal notranslate"><span class="pre">[50,</span> <span class="pre">60]</span></code>.</p></li>
+<li><p>Then go to <strong>column 0</strong> inside that row → <code class="docutils literal notranslate"><span class="pre">50</span></code>.</p></li>
+</ol>
+</section>
+<section id="comparing-to-loops">
+<h3>Comparing to Loops<a class="headerlink" href="#comparing-to-loops" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">grid</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">row</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span>
+<span class="mi">20</span>
+<span class="mi">30</span>
+<span class="mi">40</span>
+<span class="mi">50</span>
+<span class="mi">60</span>
+</pre></div>
+</div>
+<p>Pinpointing with indexing:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># Second row, second column</span>
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">40</span>
+</pre></div>
+</div>
+</section>
+<section id="modifying-values">
+<h3>Modifying Values<a class="headerlink" href="#modifying-values" title="Link to this heading">#</a></h3>
+<p>Recall that lists are <em>mutable</em> (tuples are not) so you can modify individual entries within a nested list:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">99</span><span class="p">],</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">]]</span>
+</pre></div>
+</div>
+<section id="id5">
+<h4>Pause and Think<a class="headerlink" href="#id5" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">grid</span></code> has 3 rows, what happens if you ask for <code class="docutils literal notranslate"><span class="pre">grid[3][0]</span></code>?</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">grid[2]</span></code> is <code class="docutils literal notranslate"><span class="pre">[50,</span> <span class="pre">60]</span></code>, what type is <code class="docutils literal notranslate"><span class="pre">grid[2]</span></code>? What type is <code class="docutils literal notranslate"><span class="pre">grid[2][0]</span></code>?</p></li>
+<li><p>Why does indexing always go <strong>row first</strong>, then <strong>column</strong>?</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-5-slicing">
+<h2>Part 5: Slicing<a class="headerlink" href="#part-5-slicing" title="Link to this heading">#</a></h2>
+<section id="id6">
+<h3>Why This Matters<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>Indexing gives you one element. <strong>Slicing</strong> gives you a <strong>window</strong> of elements in one step. This is both convenient and powerful: it’s your <strong>next</strong> taste of <strong>vectorization</strong>.</p>
+<p>📎 <strong>Recall:</strong> Comprehensions were your first vectorization step. You could replace a loop with one line that built the whole list. Slicing is another, simpler vectorization: instead of looping to collect values into a new list, slicing produces that new list immediately.</p>
+</section>
+<section id="the-basics">
+<h3>The Basics<a class="headerlink" href="#the-basics" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>In slicing, the colon <code class="docutils literal notranslate"><span class="pre">:</span></code> separates the <strong>start index</strong> from the <strong>end index</strong>.</p></li>
+<li><p>The slice <strong>includes</strong> the element at the <strong>start</strong> index,</p></li>
+<li><p>but it <strong>stops right before</strong> the <strong>end</strong> index (<strong>exclusive</strong>).</p></li>
+</ul>
+<p>Think of it as: <em>start at the first number, go up to but not including the second.</em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>   <span class="c1"># Indices 1 through 3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nums</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>    <span class="c1"># Start from the beginning through index 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>    <span class="c1"># Start from index 2 to the end of the list</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>    <span class="c1"># Last element</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nums</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>   <span class="c1"># Everything but the last element</span>
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
+<span class="mi">25</span>
+<span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>Visual diagram for <code class="docutils literal notranslate"><span class="pre">nums[1:4]</span></code>:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Index</span><span class="p">:</span>   <span class="mi">0</span>    <span class="mi">1</span>    <span class="mi">2</span>    <span class="mi">3</span>    <span class="mi">4</span>
+<span class="n">Value</span><span class="p">:</span>   <span class="mi">5</span>   <span class="mi">10</span>   <span class="mi">15</span>   <span class="mi">20</span>   <span class="mi">25</span>
+<span class="n">Slice</span><span class="p">:</span>       <span class="p">[</span><span class="o">----|----|----</span><span class="p">)</span>   
+             <span class="o">^</span>              <span class="o">^</span>
+             <span class="n">start</span><span class="o">=</span><span class="mi">1</span>        <span class="n">end</span><span class="o">=</span><span class="mi">4</span> <span class="p">(</span><span class="n">exclusive</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Here, the slice starts at index <code class="docutils literal notranslate"><span class="pre">1</span></code> (value <code class="docutils literal notranslate"><span class="pre">10</span></code>) and goes up to but not including index <code class="docutils literal notranslate"><span class="pre">4</span></code>. That’s why you get <code class="docutils literal notranslate"><span class="pre">[10,</span> <span class="pre">15,</span> <span class="pre">20]</span></code>.</p>
+<p>👉 <strong>Note:</strong> A very common beginner mistake is to expect the slice <code class="docutils literal notranslate"><span class="pre">[1:4]</span></code> to include the element at index <code class="docutils literal notranslate"><span class="pre">4</span></code>. Remember: <strong>end is exclusive</strong>.</p>
+</section>
+<section id="loops-vs-slicing">
+<h3>Loops vs Slicing<a class="headerlink" href="#loops-vs-slicing" title="Link to this heading">#</a></h3>
+<p>Why compare loops to slicing? Because they solve the same problem: extracting a subset of values from a list.</p>
+<ul class="simple">
+<li><p>A loop does it <strong>step by step</strong>: you move through indices one by one, appending values to a new list.</p></li>
+<li><p>Slicing does it in <strong>one vectorized expression</strong>: you describe the block of data you want, and Python hands it back.</p></li>
+</ul>
+<p>This shift from “step-by-step instructions” to “whole-block operations” is at the heart of vectorized thinking.</p>
+<p><strong>Loop approach:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">subset</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+    <span class="n">subset</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">subset</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>Vectorized with slicing:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="negative-indices">
+<h3>Negative Indices<a class="headerlink" href="#negative-indices" title="Link to this heading">#</a></h3>
+<p>Negative indexing (or working backwards from the end of a list) is not limited to -1:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>   <span class="c1"># Last element</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>   <span class="c1"># Second to last</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nums</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># All but last</span>
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">25</span>
+<span class="mi">20</span>
+<span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>⚠️ <strong>Important:</strong> We’ll keep slicing simple in this preread—only working with <strong>flat lists</strong>, not nested ones. Advanced slicing (like selecting whole rows or columns of a grid) will come later.</p>
+<section id="id7">
+<h4>Pause and Think<a class="headerlink" href="#id7" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p>What is the length of <code class="docutils literal notranslate"><span class="pre">nums[2:5]</span></code>?</p></li>
+<li><p>What happens with <code class="docutils literal notranslate"><span class="pre">nums[1:10]</span></code>?</p></li>
+<li><p>Why might negative indices be safer than hardcoding <code class="docutils literal notranslate"><span class="pre">len(nums)-1</span></code>?</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="summary-table">
+<h2>Summary Table<a class="headerlink" href="#summary-table" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Concept</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Range with step</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">list(range(2,</span> <span class="pre">10,</span> <span class="pre">3))</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">5,</span> <span class="pre">8]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Enumerate</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i,</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">enumerate(['a',</span> <span class="pre">'b'])</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">'a'),</span> <span class="pre">(1,</span> <span class="pre">'b')</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Tuple unpacking</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a,</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">(5,</span> <span class="pre">10)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">a=5,</span> <span class="pre">b=10</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Basic list comp</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[x</span> <span class="pre">for</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">range(3)]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2]</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Nested list comp</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[[x</span> <span class="pre">for</span> <span class="pre">x</span> <span class="pre">in</span> <span class="pre">range(2)]</span> <span class="pre">for</span> <span class="pre">_</span> <span class="pre">in</span> <span class="pre">range(3)]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[[0,</span> <span class="pre">1],</span> <span class="pre">[0,</span> <span class="pre">1],</span> <span class="pre">[0,</span> <span class="pre">1]]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Nested list indexing</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">seats[1][0]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">'B1'</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Tuple in list</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">((8,</span> <span class="pre">10),</span> <span class="pre">(11,</span> <span class="pre">1))[1][0]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">11</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Slice of list</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">nums[1:4]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[10,</span> <span class="pre">15,</span> <span class="pre">20]</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Negative index</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">nums[-1]</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">25</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="why-this-all-matters">
+<h2>Why This All Matters<a class="headerlink" href="#why-this-all-matters" title="Link to this heading">#</a></h2>
+<p>This week is about moving from <strong>procedural thinking</strong> (loops that do everything step by step) to <strong>structural thinking</strong> (building and working with data structures efficiently).</p>
+<ul class="simple">
+<li><p><strong>Range and enumerate</strong> give you more control over iteration</p></li>
+<li><p><strong>Tuples</strong> provide immutable sequences for fixed data</p></li>
+<li><p><strong>List comprehensions</strong> let you build lists compactly in one line</p></li>
+<li><p><strong>Nested comprehensions and loops</strong> let you build <strong>2D data</strong></p></li>
+<li><p><strong>Multi-level indexing</strong> lets you access <strong>exactly</strong> what you need from that data</p></li>
+<li><p><strong>Slicing</strong> lets you work with <strong>spans of data</strong> at once—your first step into <strong>vectorization</strong></p></li>
+</ul>
+<p>These skills are foundational for later work in <strong>tabular data</strong>, <strong>2D arrays</strong>, and libraries that rely heavily on vectorized operations (like <strong>NumPy</strong> and <strong>pandas</strong>). They also reappear in <strong>string processing</strong>, since strings can be sliced just like lists.</p>
+</section>
+<hr class="docutils" />
+<section id="quick-check-did-you-understand-this">
+<h2>Quick Check: Did You Understand This?<a class="headerlink" href="#quick-check-did-you-understand-this" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Can I explain what <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> does and why it’s useful?</p></li>
+<li><p>Can I create both a tuple and a list, and explain when to use each?</p></li>
+<li><p>Can I write a simple list comprehension to replace a for loop?</p></li>
+<li><p>Can I explain how a nested list comprehension builds <strong>rows vs columns</strong>?</p></li>
+<li><p>Can I trace exactly what <code class="docutils literal notranslate"><span class="pre">grid[1][2]</span></code> refers to and <strong>why</strong>?</p></li>
+<li><p>Can I predict the <strong>length</strong> of <code class="docutils literal notranslate"><span class="pre">nums[1:4]</span></code> without running it?</p></li>
+<li><p>Can I write both a <strong>nested loop</strong> and a <strong>nested comprehension</strong> to create the same <strong>2D structure</strong>?</p></li>
+<li><p>Can I use <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> to <strong>track row/column positions</strong> in a nested loop?</p></li>
+<li><p>Can I explain <strong>why slicing is considered a simple form of vectorization</strong>?</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Class6.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Class 6 Preread: Nested Loops</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Class9.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Class 9 Preread: From Colab Notebooks to Running Python Locally</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-foundational-tools">Part 1: Foundational Tools</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#range-and-enumerate">Range and Enumerate</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-arguments-to-range">Optional Arguments to Range</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#the-enumerate-function">The Enumerate Function</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pause-and-think">Pause and Think</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuples-a-quick-refresher">Tuples: A Quick Refresher</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-tuples">Creating Tuples</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-between-types">Converting Between Types</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#packing-and-unpacking">Packing and Unpacking</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Pause and Think</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-list-comprehensions">Part 2: List Comprehensions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-list-comprehensions">Basic List Comprehensions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-conditionals">Adding Conditionals</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Pause and Think</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-nested-structures">Part 3: Nested Structures</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-nested-structures-matter">Why Nested Structures Matter</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-list-comprehensions">Nested List Comprehensions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-to-nested-loops">Comparison to Nested Loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-product-table">Example: Product Table</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Pause and Think</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-nested-lists">Working with Nested Lists</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-nested-list-example">A Nested List Example</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-enumerate-with-nested-lists">Using <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> with Nested Lists</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerate-in-a-list-comprehension"><code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> in a List Comprehension</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-tuples">Nested Tuples</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Pause and Think</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-multi-level-indexing">Part 4: Multi-Level Indexing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-matters">Why This Matters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-into-a-grid">Indexing Into a Grid</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-multi-level-indexing">Visualizing Multi-Level Indexing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-to-loops">Comparing to Loops</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-values">Modifying Values</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Pause and Think</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-slicing">Part 5: Slicing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Why This Matters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-basics">The Basics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loops-vs-slicing">Loops vs Slicing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#negative-indices">Negative Indices</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Pause and Think</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-table">Summary Table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-all-matters">Why This All Matters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-check-did-you-understand-this">Quick Check: Did You Understand This?</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Stormy Attaway, Brian DePasquale, Christine Mulvey, Kenn Sebesta
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
