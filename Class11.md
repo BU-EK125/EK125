@@ -1,4 +1,4 @@
-# Week 6B Preread: Digging into arrays with NumPy
+# Class 11: Digging into arrays with NumPy
 
 ## Overview
 
