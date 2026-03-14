@@ -1,4 +1,4 @@
-# Week 7A Preread: Dictionaries
+# Class 12 Preread: Dictionaries
 
 A Python dictionary is a built-in data structure that stores data as key–value pairs, allowing fast lookup, insertion, and deletion by key. It is enclosed in curly braces `{}` and uses a colon `:` to separate each key from its value.
 
