@@ -1,0 +1,1423 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Class 13: User-Defined Functions, Arguments, and Scope &#8212; EK125</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Class13';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Class 12 Preread: Dictionaries" href="Class12.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">EK125</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction to this jupyter book: HTML rendered mardown files for EK125 Pre-readings
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Class1.html"><strong>Class 1: Introduction to Interactive Programming Using Google Colab</strong></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Class2.html">Class 2: Sequences, Strings, and Lists in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class3.html">Class 3: Booleans and Basic Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class4.html">Class 4: Coding Basics Wrap-up and Selection Statements</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="Class5.html">Class 5: Importing Modules and Basic Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class6.html">Class 6 Preread: Nested Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class7.html">Class 7 Preread: Advanced Iteration and Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class9.html">Class 9 Preread: From Colab Notebooks to Running Python Locally</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class10.html">Class 10 Pre-read: Mastering Slicing in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class11.html">Class 11: Digging into arrays with NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class12.html">Class 12 Preread: Dictionaries</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Class 13: User-Defined Functions, Arguments, and Scope</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Class13.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Class 13: User-Defined Functions, Arguments, and Scope</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-user-defined-functions-morning">Part 1: User-Defined Functions (Morning)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-with-return">Functions with Return</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-with-no-return">Functions with no Return</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda-functions">Lambda Functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-function-arguments-and-parameter-passing-morning-afternoon">Part 2: Function Arguments and Parameter Passing (Morning/Afternoon)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-arguments-get-into-functions">How Arguments Get Into Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-parameter-values">Default Parameter Values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keyword-arguments">Keyword Arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-confusing-case-same-names-inside-and-outside">The Confusing Case: Same Names Inside and Outside</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-two-types-of-data-mutable-and-immutable">The Two Types of Data: Mutable and Immutable</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#immutable-objects-always-safe">Immutable Objects: Always Safe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mutable-objects-changes-affect-the-original">Mutable Objects: Changes Affect the Original</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-variable-scope-afternoon">Part 3: Variable Scope (Afternoon)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-scope">What is Scope?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-legb-rule">The LEGB Rule</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-vs-modifying-variables">Reading vs. Modifying Variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-global-keyword">The <code class="docutils literal notranslate"><span class="pre">global</span></code> Keyword</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-nonlocal-keyword">The <code class="docutils literal notranslate"><span class="pre">nonlocal</span></code> Keyword</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-modular-programs-and-function-stubs-afternoon">Part 4: Modular Programs and Function Stubs (Afternoon)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-programs">Modular Programs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-stubs">Function Stubs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-making-copies-when-you-need-them-afternoon">Part 5: Making Copies When You Need Them (Afternoon)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem-multiple-names-same-object">The Problem: Multiple Names, Same Object</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-1-shallow-copy">Solution 1: Shallow Copy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-2-deep-copy">Solution 2: Deep Copy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-use-each-type-of-copy">When to Use Each Type of Copy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-all-together">Putting It All Together</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-understanding-a-complex-case">Example: Understanding a Complex Case</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls-and-solutions">Common Pitfalls and Solutions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-the-mutable-default-parameter-trap">Appendix: The Mutable Default Parameter Trap</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem">The Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-happens">Why This Happens</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-solution">The Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-summary">Key Concepts Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-your-understanding">Check Your Understanding</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="class-13-user-defined-functions-arguments-and-scope">
+<h1>Class 13: User-Defined Functions, Arguments, and Scope<a class="headerlink" href="#class-13-user-defined-functions-arguments-and-scope" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this reading, you should understand:</p>
+<ul class="simple">
+<li><p>How to write and call your own functions</p></li>
+<li><p>How arguments get passed to functions (parameters, defaults, keyword arguments)</p></li>
+<li><p>Where variables “live” in your program (scope)</p></li>
+<li><p>When changes inside a function affect the original data</p></li>
+<li><p>How to structure modular programs using functions</p></li>
+</ul>
+</section>
+<section id="part-1-user-defined-functions-morning">
+<h2>Part 1: User-Defined Functions (Morning)<a class="headerlink" href="#part-1-user-defined-functions-morning" title="Link to this heading">#</a></h2>
+<p>We have seen many built-in functions in Python. You can also write your own functions, which are called user-defined functions. Related user-defined functions can be stored in user-defined modules, which can then be imported into programs for use.</p>
+<p>When we write a function, we write the function definition. The function can then be called, much like built-in functions.</p>
+<p>The general form of a function definition is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">functionname</span><span class="p">(</span><span class="n">parameters</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Documentation string. &quot;&quot;&quot;</span>
+    <span class="c1"># Function body</span>
+</pre></div>
+</div>
+<p>The first line is called the function header. It consists of the reserved word <code class="docutils literal notranslate"><span class="pre">def</span></code>, the name of the function, parameters (if any) in parentheses, followed by a colon. The rest of the function, which is indented, is the function body. This typically begins with a documentation string (docstring), in triple quotes. The docstring should be sentence(s) describing what the function does, beginning with a capitalized word and ending with a period. After the docstring there are the statements in the body of the function. It is common to indent the body of the function 4 spaces.</p>
+<p>The function is called by giving the name of the function, and passing arguments in parentheses that will correspond to the parameters in the function header:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">functionname</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Sometimes the arguments in the function call are referred to as actual parameters and the parameters in the function header are referred to as formal parameters.</p>
+<p>Two main reasons for writing our own functions are:</p>
+<ul class="simple">
+<li><p>To be able to reuse code by calling the function whenever it is needed</p></li>
+<li><p>To write modular programs</p></li>
+</ul>
+<p>If there is code that will be repeated at different times, perhaps using different values, it can be made into a function and then called whenever needed.</p>
+<p>Modular programs are programs that consist of a series of functions that do the actual work. The functions are called by a main program, which can be implemented as either a script or function.</p>
+<section id="functions-with-return">
+<h3>Functions with Return<a class="headerlink" href="#functions-with-return" title="Link to this heading">#</a></h3>
+<p>We have seen examples of built-in functions that calculate and return a value, such as the <code class="docutils literal notranslate"><span class="pre">round</span></code> function. User-defined functions can also accomplish this using the <code class="docutils literal notranslate"><span class="pre">return</span></code> statement.</p>
+<p>As an example, we will write a function that returns the area of a square. In order to calculate the area of a square, the function needs the length of each side of the square, so the side length must be passed as an argument to the function. Here is a function definition for a function named sqrarea that accomplishes this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sqrarea</span><span class="p">(</span><span class="n">sidelen</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This function calculates the area of a square.&quot;&quot;&quot;</span>
+    <span class="n">sqar</span> <span class="o">=</span> <span class="n">sidelen</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="n">sqar</span>
+</pre></div>
+</div>
+<p>The function can then be called by using the name of the function and passing a number for the length of a side of the square:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sqrarea</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">9</span>
+</pre></div>
+</div>
+<p>In the function call, the side length, 3, was passed to the parameter <code class="docutils literal notranslate"><span class="pre">sidelen</span></code> in the function. The function then squared this, and returned the result. We say that when the function is called, control is sent to the function, and the function begins executing. The return statement not only returns the value (in this case, 9), but also sends control out of the function.</p>
+<p>In general a docstring describes what a function does and can be displayed using the help function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">help</span><span class="p">(</span><span class="n">sqrarea</span><span class="p">)</span>
+<span class="go">Help on function sqrarea in module __main__:</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sqrarea</span><span class="p">(</span><span class="n">sidelen</span><span class="p">)</span>
+    <span class="n">This</span> <span class="n">function</span> <span class="n">calculates</span> <span class="n">the</span> <span class="n">area</span> <span class="n">of</span> <span class="n">a</span> <span class="n">square</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>The variable <code class="docutils literal notranslate"><span class="pre">sqar</span></code>, which was used in the function body, was not necessary. The return statement could just return an expression:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sqrarea</span><span class="p">(</span><span class="n">sidelen</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This function calculates the area of a square.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">sidelen</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>The value returned from the function would normally be stored in a variable, e.g.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mysquare</span> <span class="o">=</span> <span class="n">sqrarea</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mysquare</span>
+<span class="go">9</span>
+</pre></div>
+</div>
+<p>In this example, one argument was passed to the function. For a function to calculate the area of a rectangle, both the length and width of the rectangle must be passed to the function, so there will be two parameters in the function header and two arguments passed in the function call:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">rectarea</span><span class="p">(</span><span class="n">rlen</span><span class="p">,</span> <span class="n">rwid</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This function calculates the area of a rectangle.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">rlen</span> <span class="o">*</span> <span class="n">rwid</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">rectarea</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="go">8</span>
+</pre></div>
+</div>
+<p>The values of the arguments are passed to the corresponding parameters in the function, so the first argument, 2, is passed to the first parameter <code class="docutils literal notranslate"><span class="pre">rlen</span></code>, and the second argument 4 is passed to the second parameter <code class="docutils literal notranslate"><span class="pre">rwid</span></code>.</p>
+<p>Notice that the <code class="docutils literal notranslate"><span class="pre">return</span></code> statement returned the result of an expression; an intermediate variable could be used but is not necessary.</p>
+<p>In Python, the <code class="docutils literal notranslate"><span class="pre">return</span></code> statement can only return one object. If it is desired to have a function return more than one thing, they can be stored in one data structure (such as a tuple or list), and that can be returned. In the following example, a function calculates and returns both the area and the perimeter of a square, by storing both in a list.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sqrarea_perim</span><span class="p">(</span><span class="n">sidelen</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculates the area and perimeter of a square.&quot;&quot;&quot;</span>
+    <span class="n">sqar</span> <span class="o">=</span> <span class="n">sidelen</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">sqperim</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">sidelen</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">[</span><span class="n">sqar</span><span class="p">,</span> <span class="n">sqperim</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">results</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sqrarea_perim</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+<span class="go">[121, 44]</span>
+</pre></div>
+</div>
+<p>Using a tuple instead of a list is perhaps easier to understand, and it is easier to use the results.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sqrarea_perim</span><span class="p">(</span><span class="n">sidelen</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculates the area and perimeter of a square.&quot;&quot;&quot;</span>
+    <span class="n">sqar</span> <span class="o">=</span> <span class="n">sidelen</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">sqperim</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">sidelen</span>
+    <span class="k">return</span> <span class="n">sqar</span><span class="p">,</span> <span class="n">sqperim</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">area</span><span class="p">,</span> <span class="n">perim</span> <span class="o">=</span> <span class="n">sqrarea_perim</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">area</span><span class="p">,</span> <span class="n">perim</span><span class="p">)</span>
+<span class="go">121 44</span>
+</pre></div>
+</div>
+</section>
+<section id="functions-with-no-return">
+<h3>Functions with no Return<a class="headerlink" href="#functions-with-no-return" title="Link to this heading">#</a></h3>
+<p>In many cases functions calculate and return values, but in some cases functions just accomplish a task, such as printing.</p>
+<p>For example, the following function receives as parameters a string and an integer <code class="docutils literal notranslate"><span class="pre">n</span></code>, and prints the string n times in a row on one line. After that, it moves the cursor down.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">printstrs</span><span class="p">(</span><span class="n">instr</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This function prints instr n times.&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">instr</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Here are two examples of calling the function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">printstrs</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="go">xxx</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">printstrs</span><span class="p">(</span><span class="s2">&quot;Hi&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="go">HiHiHiHiHi</span>
+</pre></div>
+</div>
+<p>Notice that the function does not have a <code class="docutils literal notranslate"><span class="pre">return</span></code> statement, since it is not calculating anything. However, all functions return something regardless of whether there is a return statement or not. The default value that is returned is a special value <code class="docutils literal notranslate"><span class="pre">None</span></code>, as we can see by passing a call to the function <code class="docutils literal notranslate"><span class="pre">printstrs</span></code> to the print function. In the following example, <code class="docutils literal notranslate"><span class="pre">aa</span></code> and then the newline gets printed by the function, and then the result returned by the function call, <code class="docutils literal notranslate"><span class="pre">None</span></code>, is printed once the function stops executing and returns control.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">printstrs</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="go">aa</span>
+<span class="go">None</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">printstrs</span></code> function prints the line <code class="docutils literal notranslate"><span class="pre">aa</span></code> and returns <code class="docutils literal notranslate"><span class="pre">None</span></code>. The print function then prints the returned value, <code class="docutils literal notranslate"><span class="pre">None</span></code>. This is equivalent to:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">printstrs</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It is not always necessary to pass arguments to functions (whether they explicitly return something or not). For example, we may wish to have a function that just prints a set of instructions.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">printinstruct</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This function just prints stuff.&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Please sit up&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Do not slouch!&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Chew with your mouth closed&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">printinstruct</span><span class="p">()</span>
+<span class="go">Please sit up</span>
+<span class="go">Do not slouch!</span>
+<span class="go">Chew with your mouth closed</span>
+</pre></div>
+</div>
+<p>A function like this that just prints helps to facilitate modular programs. Of course, the instructions printed by a function would normally refer to actions that the user must take when running a program!</p>
+</section>
+<section id="lambda-functions">
+<h3>Lambda Functions<a class="headerlink" href="#lambda-functions" title="Link to this heading">#</a></h3>
+<p>Anonymous functions, called lambda functions in Python, are very short one line functions that do not require a formal function definition using <code class="docutils literal notranslate"><span class="pre">def</span></code>. Lambda functions are created using the keyword <code class="docutils literal notranslate"><span class="pre">lambda</span></code>. The general form is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">lambda</span> <span class="n">argument</span><span class="p">(</span><span class="n">s</span><span class="p">):</span> <span class="n">expression</span>
+</pre></div>
+</div>
+<p>The function begins with the reserved word <code class="docutils literal notranslate"><span class="pre">lambda</span></code>, then argument(s) followed by a colon and then an expression that uses the arguments; the result of the expression is returned.</p>
+<p>If the lambda function is stored in a variable, the variable can be used to call the function. For example,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">times3</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">num</span><span class="p">:</span> <span class="n">num</span> <span class="o">*</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">times3</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+<span class="go">33</span>
+</pre></div>
+</div>
+<p>One advantage of a lambda function is that it is shorter than a function definition and does not require the header with <code class="docutils literal notranslate"><span class="pre">def</span></code> or the <code class="docutils literal notranslate"><span class="pre">return</span></code> statement. A disadvantage is that the “body” of the function is confined to one simple expression.</p>
+</section>
+</section>
+<section id="part-2-function-arguments-and-parameter-passing-morning-afternoon">
+<h2>Part 2: Function Arguments and Parameter Passing (Morning/Afternoon)<a class="headerlink" href="#part-2-function-arguments-and-parameter-passing-morning-afternoon" title="Link to this heading">#</a></h2>
+<section id="how-arguments-get-into-functions">
+<h3>How Arguments Get Into Functions<a class="headerlink" href="#how-arguments-get-into-functions" title="Link to this heading">#</a></h3>
+<p>When you call a function, Python doesn’t copy your data. Instead, it gives the function access to your original data by creating a new name (the parameter name) that refers to it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">processData</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="c1"># &#39;data&#39; is a new name that gives access to whatever was passed in</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Parameter &#39;data&#39; has id: </span><span class="si">{</span><span class="nb">id</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+<span class="n">myList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Original &#39;myList&#39; has id: </span><span class="si">{</span><span class="nb">id</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">processData</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
+
+<span class="c1"># Output shows they have the SAME id - it&#39;s the same object!</span>
+</pre></div>
+</div>
+<p>Think of it like giving someone a nickname:</p>
+<ul class="simple">
+<li><p>You have a friend named “Elizabeth”</p></li>
+<li><p>You start calling her “Liz”</p></li>
+<li><p>Both names refer to the same person</p></li>
+<li><p>If “Liz” gets a haircut, “Elizabeth” has a new haircut too (same person!)</p></li>
+</ul>
+</section>
+<section id="default-parameter-values">
+<h3>Default Parameter Values<a class="headerlink" href="#default-parameter-values" title="Link to this heading">#</a></h3>
+<p>Parameters can have default values that are used when no argument is provided:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">greeting</span><span class="o">=</span><span class="s2">&quot;Hello&quot;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">greeting</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+
+<span class="n">greet</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">)</span>           <span class="c1"># Uses default: &quot;Hello, Alice!&quot;</span>
+<span class="n">greet</span><span class="p">(</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Hi&quot;</span><span class="p">)</span>       <span class="c1"># Overrides default: &quot;Hi, Bob!&quot;</span>
+</pre></div>
+</div>
+<p><strong>Order matters:</strong> Parameters with defaults must come after parameters without defaults:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># CORRECT</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">makeProfile</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">country</span><span class="o">=</span><span class="s2">&quot;USA&quot;</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">country</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="c1"># WRONG - SyntaxError!</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">makeProfile</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">country</span><span class="o">=</span><span class="s2">&quot;USA&quot;</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">country</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="keyword-arguments">
+<h3>Keyword Arguments<a class="headerlink" href="#keyword-arguments" title="Link to this heading">#</a></h3>
+<p>You can specify arguments by name, which gives you powerful flexibility. <strong>This is one of Python’s most useful features</strong> because it lets you:</p>
+<ol class="arabic simple">
+<li><p><strong>Skip over defaults you want to keep</strong> - you don’t have to provide every argument in order</p></li>
+<li><p><strong>Provide arguments in any order</strong> - as long as you use names, Python knows what goes where</p></li>
+<li><p><strong>Make your function calls more readable</strong> - the names document what each value means</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">createAccount</span><span class="p">(</span><span class="n">username</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">role</span><span class="o">=</span><span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="n">active</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">username</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">email</span><span class="si">}</span><span class="s2">): </span><span class="si">{</span><span class="n">role</span><span class="si">}</span><span class="s2">, active=</span><span class="si">{</span><span class="n">active</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="c1"># Positional arguments - must be in exact order</span>
+<span class="n">createAccount</span><span class="p">(</span><span class="s2">&quot;alice&quot;</span><span class="p">,</span> <span class="s2">&quot;alice@example.com&quot;</span><span class="p">,</span> <span class="s2">&quot;admin&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Keyword arguments - can be in ANY order!</span>
+<span class="n">createAccount</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;bob&quot;</span><span class="p">,</span> <span class="n">role</span><span class="o">=</span><span class="s2">&quot;admin&quot;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s2">&quot;bob@example.com&quot;</span><span class="p">)</span>
+<span class="c1"># Notice: role came before email, which is NOT the definition order</span>
+
+<span class="c1"># Mix positional and keyword (positional must come first)</span>
+<span class="c1"># This is especially useful to skip middle parameters</span>
+<span class="n">createAccount</span><span class="p">(</span><span class="s2">&quot;charlie&quot;</span><span class="p">,</span> <span class="s2">&quot;charlie@example.com&quot;</span><span class="p">,</span> <span class="n">active</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># We skipped &#39;role&#39; and kept its default, while still setting &#39;active&#39;</span>
+
+<span class="c1"># Without keyword arguments, you&#39;d have to do:</span>
+<span class="n">createAccount</span><span class="p">(</span><span class="s2">&quot;charlie&quot;</span><span class="p">,</span> <span class="s2">&quot;charlie@example.com&quot;</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="c1"># Must provide &quot;user&quot; explicitly even though it&#39;s the default!</span>
+</pre></div>
+</div>
+<p><strong>Why this matters:</strong> Imagine a function with many optional parameters:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">analyzeData</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">removeOutliers</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+                <span class="n">fillMissing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="c1"># Implementation</span>
+    <span class="k">pass</span>
+
+<span class="c1"># Want to only set verbose=True, keeping all other defaults?</span>
+<span class="c1"># With keyword arguments (EASY):</span>
+<span class="n">analyzeData</span><span class="p">(</span><span class="n">myData</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Without keyword arguments (TEDIOUS):</span>
+<span class="n">analyzeData</span><span class="p">(</span><span class="n">myData</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="c1"># Have to remember the order and provide every single value!</span>
+</pre></div>
+</div>
+</section>
+<section id="the-confusing-case-same-names-inside-and-outside">
+<h3>The Confusing Case: Same Names Inside and Outside<a class="headerlink" href="#the-confusing-case-same-names-inside-and-outside" title="Link to this heading">#</a></h3>
+<p>Sometimes the variable name outside the function matches the parameter name inside the function. This can be confusing at first:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">processGrades</span><span class="p">(</span><span class="n">grades</span><span class="p">):</span>
+    <span class="c1"># The parameter &#39;grades&#39; is a NEW name</span>
+    <span class="c1"># It refers to whatever was passed in</span>
+    <span class="n">grades</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Inside: </span><span class="si">{</span><span class="n">grades</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Our variable is also called &#39;grades&#39;</span>
+<span class="n">grades</span> <span class="o">=</span> <span class="p">[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">78</span><span class="p">]</span>
+<span class="n">processGrades</span><span class="p">(</span><span class="n">grades</span><span class="p">)</span>  <span class="c1"># Pass &#39;grades&#39; to parameter &#39;grades&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Outside: </span><span class="si">{</span><span class="n">grades</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># Outside: [85, 90, 78, 100] - Modified!</span>
+</pre></div>
+</div>
+<p>Even though both are named <code class="docutils literal notranslate"><span class="pre">grades</span></code>, they’re different names that happen to refer to the same object. The parameter <code class="docutils literal notranslate"><span class="pre">grades</span></code> inside the function is created fresh when you call the function.</p>
+<p><strong>This gets really confusing with keyword arguments:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">analyzeScores</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">threshold</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Analyzing </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span><span class="si">}</span><span class="s2"> scores with threshold </span><span class="si">{</span><span class="n">threshold</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="c1"># ... implementation ...</span>
+
+<span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">92</span><span class="p">]</span>
+<span class="n">threshold</span> <span class="o">=</span> <span class="mi">80</span>
+
+<span class="c1"># This looks bizarre but is perfectly valid!</span>
+<span class="n">analyzeScores</span><span class="p">(</span><span class="n">scores</span><span class="o">=</span><span class="n">scores</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">)</span>
+<span class="c1">#             ^^^^^^ parameter name</span>
+<span class="c1">#                    ^^^^^^ variable name (different!)</span>
+</pre></div>
+</div>
+<p>The pattern <code class="docutils literal notranslate"><span class="pre">scores=scores</span></code> means “assign the value of the variable <code class="docutils literal notranslate"><span class="pre">scores</span></code> to the parameter <code class="docutils literal notranslate"><span class="pre">scores</span></code>.” The first <code class="docutils literal notranslate"><span class="pre">scores</span></code> is the parameter name, the second is the variable name. They’re different names that happen to be spelled the same way.</p>
+</section>
+<section id="the-two-types-of-data-mutable-and-immutable">
+<h3>The Two Types of Data: Mutable and Immutable<a class="headerlink" href="#the-two-types-of-data-mutable-and-immutable" title="Link to this heading">#</a></h3>
+<p>Python data types fall into two categories:</p>
+<p><strong>Immutable (Cannot be changed):</strong></p>
+<ul class="simple">
+<li><p>Numbers: <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code></p></li>
+<li><p>Strings: <code class="docutils literal notranslate"><span class="pre">str</span></code></p></li>
+<li><p>Tuples: <code class="docutils literal notranslate"><span class="pre">tuple</span></code></p></li>
+</ul>
+<p><strong>Mutable (Can be changed):</strong></p>
+<ul class="simple">
+<li><p>Lists: <code class="docutils literal notranslate"><span class="pre">list</span></code></p></li>
+<li><p>Dictionaries: <code class="docutils literal notranslate"><span class="pre">dict</span></code></p></li>
+<li><p>Sets: <code class="docutils literal notranslate"><span class="pre">set</span></code></p></li>
+</ul>
+<p>This distinction determines what happens in functions.</p>
+</section>
+<section id="immutable-objects-always-safe">
+<h3>Immutable Objects: Always Safe<a class="headerlink" href="#immutable-objects-always-safe" title="Link to this heading">#</a></h3>
+<p>With immutable objects, any “change” creates a new object:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tryToModify</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>      <span class="c1"># Creates NEW number</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>  <span class="c1"># Creates NEW string</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="p">(</span><span class="mi">4</span><span class="p">,)</span>   <span class="c1"># Creates NEW tuple</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Inside: x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, s=</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s2">, t=</span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">num</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;hello&quot;</span>
+<span class="n">tup</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="n">tryToModify</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">tup</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Outside: num=</span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s2">, string=</span><span class="si">{</span><span class="n">string</span><span class="si">}</span><span class="s2">, tup=</span><span class="si">{</span><span class="n">tup</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># Outside: num=10, string=hello, tup=(1, 2, 3) - All unchanged!</span>
+</pre></div>
+</div>
+</section>
+<section id="mutable-objects-changes-affect-the-original">
+<h3>Mutable Objects: Changes Affect the Original<a class="headerlink" href="#mutable-objects-changes-affect-the-original" title="Link to this heading">#</a></h3>
+<p>With mutable objects, the function can modify your original data:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">modifyList</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+    <span class="n">lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">999</span><span class="p">)</span>        <span class="c1"># Modifies the original</span>
+    <span class="n">lst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;changed&quot;</span>     <span class="c1"># Modifies the original</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Inside: </span><span class="si">{</span><span class="n">lst</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">myData</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">modifyList</span><span class="p">(</span><span class="n">myData</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Outside: </span><span class="si">{</span><span class="n">myData</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># Outside: [&#39;changed&#39;, 2, 3, 999] - Changed!</span>
+</pre></div>
+</div>
+<p><strong>The key insight:</strong> Methods like <code class="docutils literal notranslate"><span class="pre">append()</span></code>, <code class="docutils literal notranslate"><span class="pre">remove()</span></code>, and index assignment modify the list in place. But reassignment (<code class="docutils literal notranslate"><span class="pre">lst</span> <span class="pre">=</span> <span class="pre">[]</span></code>) creates a new local variable.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">resetList</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+    <span class="n">lst</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Creates NEW local variable, doesn&#39;t affect original</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Inside: </span><span class="si">{</span><span class="n">lst</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">myData</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">resetList</span><span class="p">(</span><span class="n">myData</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Outside: </span><span class="si">{</span><span class="n">myData</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># Outside: [1, 2, 3] - Unchanged!</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="part-3-variable-scope-afternoon">
+<h2>Part 3: Variable Scope (Afternoon)<a class="headerlink" href="#part-3-variable-scope-afternoon" title="Link to this heading">#</a></h2>
+<section id="what-is-scope">
+<h3>What is Scope?<a class="headerlink" href="#what-is-scope" title="Link to this heading">#</a></h3>
+<p>The scope of a variable or object is where that object is valid. Variables defined in a function are <code class="docutils literal notranslate"><span class="pre">local</span></code> to that function, meaning that their scope is the function. Formally, what happens is that every function has its own symbol table, which contains the names of the variables and their values. Once a function is called and control is sent to the function, its symbol table is created. The function’s symbol table only exists while the function is executing.</p>
+<p>For example, for the <code class="docutils literal notranslate"><span class="pre">sqarea</span></code> function, the symbol table contains the local variable <code class="docutils literal notranslate"><span class="pre">sqar</span></code>, as well as the parameter <code class="docutils literal notranslate"><span class="pre">sidelen</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sqrarea</span><span class="p">(</span><span class="n">sidelen</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This function calculates the area of a square.&quot;&quot;&quot;</span>
+    <span class="n">sqar</span> <span class="o">=</span> <span class="n">sidelen</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="n">sqar</span>
+</pre></div>
+</div>
+<p>After the function is called, attempting to reference either <code class="docutils literal notranslate"><span class="pre">sqar</span></code> or <code class="docutils literal notranslate"><span class="pre">sidelen</span></code> will result in an error. This is because after the function stops executing, the symbol table, the variable <code class="docutils literal notranslate"><span class="pre">sqar</span></code>, and the parameter <code class="docutils literal notranslate"><span class="pre">sidelen</span></code> no longer exist.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">area</span> <span class="o">=</span> <span class="n">sqrarea</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">sqar</span><span class="p">)</span>
+
+<span class="go">NameError: name &#39;sqar&#39; is not defined</span>
+</pre></div>
+</div>
+</section>
+<section id="the-legb-rule">
+<h3>The LEGB Rule<a class="headerlink" href="#the-legb-rule" title="Link to this heading">#</a></h3>
+<p>When Python looks up a variable name, it searches in this order:</p>
+<ol class="arabic simple">
+<li><p><strong>Local</strong> - Inside the current function</p></li>
+<li><p><strong>Enclosing</strong> - In any enclosing functions (for nested functions)</p></li>
+<li><p><strong>Global</strong> - At the module level (outside all functions)</p></li>
+<li><p><strong>Built-in</strong> - Python’s built-in names</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;global&quot;</span>  <span class="c1"># Global scope</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">outer</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;enclosing&quot;</span>  <span class="c1"># Enclosing scope</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">inner</span><span class="p">():</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;local&quot;</span>  <span class="c1"># Local scope</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    
+    <span class="n">inner</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">outer</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Output:</span>
+<span class="c1"># local</span>
+<span class="c1"># enclosing</span>
+<span class="c1"># global</span>
+</pre></div>
+</div>
+</section>
+<section id="reading-vs-modifying-variables">
+<h3>Reading vs. Modifying Variables<a class="headerlink" href="#reading-vs-modifying-variables" title="Link to this heading">#</a></h3>
+<p>You can read variables from outer scopes without any special syntax:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">taxRate</span> <span class="o">=</span> <span class="mf">0.08</span>  <span class="c1"># Global</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">calculateTotal</span><span class="p">(</span><span class="n">price</span><span class="p">):</span>
+    <span class="c1"># Can read taxRate from global scope</span>
+    <span class="k">return</span> <span class="n">price</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">taxRate</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">calculateTotal</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>  <span class="c1"># 108.0</span>
+</pre></div>
+</div>
+<p>But if you try to modify a global variable, Python creates a new local variable instead:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">increment</span><span class="p">():</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># ERROR! Can&#39;t read global &#39;count&#39; before assigning</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+
+<span class="n">increment</span><span class="p">()</span>  <span class="c1"># UnboundLocalError</span>
+</pre></div>
+</div>
+</section>
+<section id="the-global-keyword">
+<h3>The <code class="docutils literal notranslate"><span class="pre">global</span></code> Keyword<a class="headerlink" href="#the-global-keyword" title="Link to this heading">#</a></h3>
+<p>To modify a global variable from inside a function, use the <code class="docutils literal notranslate"><span class="pre">global</span></code> keyword:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">increment</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">count</span>  <span class="c1"># Now refers to the global variable</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>
+
+<span class="n">increment</span><span class="p">()</span>  <span class="c1"># 1</span>
+<span class="n">increment</span><span class="p">()</span>  <span class="c1"># 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>  <span class="c1"># 2</span>
+</pre></div>
+</div>
+<p><strong>Use cases for <code class="docutils literal notranslate"><span class="pre">global</span></code>:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Configuration that changes during runtime</span>
+<span class="n">debugMode</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">enableDebug</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">debugMode</span>
+    <span class="n">debugMode</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># Maintaining state across function calls</span>
+<span class="n">requestCount</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">logRequest</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">requestCount</span>
+    <span class="n">requestCount</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Request #</span><span class="si">{</span><span class="n">requestCount</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Better alternatives when possible:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instead of global, use return values</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">incrementCounter</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">counter</span> <span class="o">=</span> <span class="n">incrementCounter</span><span class="p">(</span><span class="n">counter</span><span class="p">)</span>
+
+<span class="c1"># Or use a class to group related data</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">RequestLogger</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">logRequest</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Request #</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="the-nonlocal-keyword">
+<h3>The <code class="docutils literal notranslate"><span class="pre">nonlocal</span></code> Keyword<a class="headerlink" href="#the-nonlocal-keyword" title="Link to this heading">#</a></h3>
+<p>For nested functions that need to modify variables in the enclosing function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">outerFunction</span><span class="p">():</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="nf">increment</span><span class="p">():</span>
+        <span class="k">nonlocal</span> <span class="n">count</span>  <span class="c1"># Refers to count in outerFunction</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+    <span class="n">increment</span><span class="p">()</span>
+    <span class="n">increment</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">count</span><span class="p">)</span>  <span class="c1"># 2</span>
+
+<span class="n">outerFunction</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="part-4-modular-programs-and-function-stubs-afternoon">
+<h2>Part 4: Modular Programs and Function Stubs (Afternoon)<a class="headerlink" href="#part-4-modular-programs-and-function-stubs-afternoon" title="Link to this heading">#</a></h2>
+<section id="modular-programs">
+<h3>Modular Programs<a class="headerlink" href="#modular-programs" title="Link to this heading">#</a></h3>
+<p>In general in programming, a modular program is one in which the program is broken down into separate tasks, and each task is implemented as a function. This facilitates the top-down design approach of taking a problem, breaking it down into pieces, and implementing each as a function. The program then consists basically of calling the functions to complete each of the tasks.</p>
+<p>A basic algorithm for many programs is:</p>
+<ul class="simple">
+<li><p>Get input(s)</p></li>
+<li><p>Calculate result(s), using the input(s)</p></li>
+<li><p>Print and/or display the result(s)</p></li>
+</ul>
+<p>So, a simple outline of many programs would be to have:</p>
+<ul class="simple">
+<li><p>Function(s) to get the input(s)</p></li>
+<li><p>Function(s) to calculate result(s) using the input(s)</p></li>
+<li><p>Function(s) to display the result(s)</p></li>
+</ul>
+<p>As an example, we will write a program that will prompt the user for the cost of an item in a store, and then calculate and print the total cost with a tax of 3%. The program will call 3 functions:</p>
+<ul class="simple">
+<li><p>A function to prompt for and return the cost</p></li>
+<li><p>A function to calculate the total cost including the tax</p></li>
+<li><p>A function to print the total cost</p></li>
+</ul>
+<p>Here are the function definitions.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">getcost</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Prompts for item cost. &quot;&quot;&quot;</span>
+    <span class="n">cost</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter the item cost: &#39;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">cost</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">calctax</span><span class="p">(</span><span class="n">cost</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Calculates and returns cost plus tax. &quot;&quot;&quot;</span>
+    <span class="n">tax</span> <span class="o">=</span> <span class="n">cost</span> <span class="o">*</span> <span class="mf">.03</span>
+    <span class="k">return</span> <span class="n">cost</span> <span class="o">+</span> <span class="n">tax</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">printtotcost</span><span class="p">(</span><span class="n">totcost</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Prints cost plus tax. &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The total cost is $</span><span class="si">{</span><span class="n">totcost</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The functions could be called from a script, which is frequently called a main program. The program consists of calls to the functions. We will discuss scripts in future lectures. Other times the main program is implemented as a function rather than a script.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># main program</span>
+<span class="n">cost</span> <span class="o">=</span> <span class="n">getcost</span><span class="p">()</span>
+<span class="n">totalcost</span> <span class="o">=</span> <span class="n">calctax</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span>
+<span class="n">printtotcost</span><span class="p">(</span><span class="n">totalcost</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The output might look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Enter the item cost: 11.11
+The total cost is $11.44
+</pre></div>
+</div>
+<p>Of course, to be more complete, the <code class="docutils literal notranslate"><span class="pre">getcost</span></code> function would error-check to make sure that the user enters a valid cost.</p>
+</section>
+<section id="function-stubs">
+<h3>Function Stubs<a class="headerlink" href="#function-stubs" title="Link to this heading">#</a></h3>
+<p>When writing a program that consists of a script calling multiple functions, the best practice is not to write the entire program and then execute it to see the results. Frequently, there are errors. When an error is encountered in a particular function, the problem may be in that function, or it might be the result of an incorrect argument passed to the function, that was obtained from another function. A more effective method for constructing the program is to use function stubs, which are place-holders for the actual functions.</p>
+<p>The approach is:</p>
+<ul class="simple">
+<li><p>Sketch out the algorithm</p></li>
+<li><p>Decide what the functions are going to do</p></li>
+<li><p>Write the script, consisting of the calls to the functions (including the arguments that will get passed back and forth)</p></li>
+<li><p>Write function stubs for the individual functions</p></li>
+<li><p>Change each function stub to the actual function, one at a time</p></li>
+</ul>
+<p>This methodical method of writing a program helps cut down on mistakes, and makes it easier to find bugs when they occur.</p>
+<p>Function stubs should mimic what the function is eventually going to do, including using the arguments and returning the correct type(s).</p>
+<p>For example, let’s say we are going to write a program that will prompt the user for a temperature in degrees Celsius, convert that to Fahrenheit, and print the results.</p>
+<p>We might have functions to:</p>
+<ul class="simple">
+<li><p>Prompt the user for degrees C, error-checking to make sure it’s valid, and return the result</p></li>
+<li><p>Receive the degrees C and from that calculate and return degrees F</p></li>
+<li><p>Print both degrees C and degrees F in a nice sentence format</p></li>
+</ul>
+<p>The script for the main program might look like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert C to F</span>
+<span class="n">degC</span> <span class="o">=</span> <span class="n">getdegc</span><span class="p">()</span>
+<span class="n">degF</span> <span class="o">=</span> <span class="n">c2f</span><span class="p">(</span><span class="n">degC</span><span class="p">)</span>
+<span class="n">printCF</span><span class="p">(</span><span class="n">degC</span><span class="p">,</span> <span class="n">degF</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example function stubs might look like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">getdegc</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Prompts user for degrees Celsius.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="mi">33</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">c2f</span><span class="p">(</span><span class="n">degreesc</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Converts degrees C to degrees F&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">degreesc</span> <span class="o">+</span> <span class="mi">5</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">printCF</span><span class="p">(</span><span class="n">degreesc</span><span class="p">,</span> <span class="n">degreesf</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Prints degrees C and degrees F&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">degreesc</span><span class="p">,</span> <span class="n">degreesf</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The idea is to execute the program with the function stubs and make sure that values are being passed back and forth correctly. Eventually, after prompting the user and error-checking, the <code class="docutils literal notranslate"><span class="pre">getdegc</span></code> function will return a positive number. So, for now, we just return a positive number. Eventually, once we figure out the conversion, the <code class="docutils literal notranslate"><span class="pre">c2f</span></code> function will convert C to F. For now, we’ll just add 5 so we know that this function is correctly receiving the degrees C and using this number to calculate and return degrees F. Then, the <code class="docutils literal notranslate"><span class="pre">printCF</span></code> function will eventually print in a nice sentence format, but for now it will just print the values.</p>
+<p>The headers for the functions should not change. Putting the actual doc strings in the function stubs is a good idea.</p>
+<p>Then, once that is working, modify the stubs one at a time. For example, you might start by modifying the <code class="docutils literal notranslate"><span class="pre">getdegc</span></code> function to prompt the user. Then, modify that function to include the error-checking. Going about this systematically really does cut down on errors and makes it easier to find them.</p>
+</section>
+</section>
+<section id="part-5-making-copies-when-you-need-them-afternoon">
+<h2>Part 5: Making Copies When You Need Them (Afternoon)<a class="headerlink" href="#part-5-making-copies-when-you-need-them-afternoon" title="Link to this heading">#</a></h2>
+<section id="the-problem-multiple-names-same-object">
+<h3>The Problem: Multiple Names, Same Object<a class="headerlink" href="#the-problem-multiple-names-same-object" title="Link to this heading">#</a></h3>
+<p>Assignment doesn’t copy - it creates another name:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">original</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">alias</span> <span class="o">=</span> <span class="n">original</span>  <span class="c1"># NOT a copy!</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">original</span> <span class="ow">is</span> <span class="n">alias</span><span class="p">)</span>  <span class="c1"># True - same object</span>
+<span class="n">alias</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">original</span><span class="p">)</span>  <span class="c1"># [1, 2, 3, 4] - Changed!</span>
+</pre></div>
+</div>
+</section>
+<section id="solution-1-shallow-copy">
+<h3>Solution 1: Shallow Copy<a class="headerlink" href="#solution-1-shallow-copy" title="Link to this heading">#</a></h3>
+<p>Use <code class="docutils literal notranslate"><span class="pre">.copy()</span></code> for a new list with the same contents:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">original</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">shallowCopy</span> <span class="o">=</span> <span class="n">original</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">shallowCopy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">original</span><span class="p">)</span>  <span class="c1"># [1, 2, 3] - Unchanged</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">shallowCopy</span><span class="p">)</span>  <span class="c1"># [1, 2, 3, 4]</span>
+</pre></div>
+</div>
+<p><strong>Warning:</strong> Shallow copy only copies the outer container:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">original</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+<span class="n">shallowCopy</span> <span class="o">=</span> <span class="n">original</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">shallowCopy</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># Modifying the inner list</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">original</span><span class="p">)</span>  <span class="c1"># [1, 2, [3, 4, 5]] - Inner list changed!</span>
+</pre></div>
+</div>
+</section>
+<section id="solution-2-deep-copy">
+<h3>Solution 2: Deep Copy<a class="headerlink" href="#solution-2-deep-copy" title="Link to this heading">#</a></h3>
+<p>For complete independence with nested structures:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
+
+<span class="n">original</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+<span class="n">deepCopy</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">original</span><span class="p">)</span>
+
+<span class="n">deepCopy</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">original</span><span class="p">)</span>  <span class="c1"># [1, 2, [3, 4]] - Completely unchanged</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">deepCopy</span><span class="p">)</span>  <span class="c1"># [1, 2, [3, 4, 5]]</span>
+</pre></div>
+</div>
+</section>
+<section id="when-to-use-each-type-of-copy">
+<h3>When to Use Each Type of Copy<a class="headerlink" href="#when-to-use-each-type-of-copy" title="Link to this heading">#</a></h3>
+<p><strong>Use shallow copy when:</strong></p>
+<ul class="simple">
+<li><p>Your list contains only immutable items (numbers, strings)</p></li>
+<li><p>You’re copying simple structures</p></li>
+<li><p>Performance matters (shallow copy is faster)</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">processScores</span><span class="p">(</span><span class="n">scores</span><span class="p">):</span>
+    <span class="c1"># Make a copy so we don&#39;t modify the original</span>
+    <span class="n">localScores</span> <span class="o">=</span> <span class="n">scores</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">localScores</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">localScores</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">localScores</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># Median</span>
+</pre></div>
+</div>
+<p><strong>Use deep copy when:</strong></p>
+<ul class="simple">
+<li><p>Your list contains other lists, dicts, or mutable objects</p></li>
+<li><p>You need complete independence</p></li>
+<li><p>You’re okay with the performance cost</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">backupStudentData</span><span class="p">(</span><span class="n">students</span><span class="p">):</span>
+    <span class="c1"># students is a list of dicts with nested lists</span>
+    <span class="c1"># Need deep copy to protect all levels</span>
+    <span class="k">return</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">students</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Don’t copy when:</strong></p>
+<ul class="simple">
+<li><p>The function only reads data (no modifications)</p></li>
+<li><p>You want changes to persist (that’s the point!)</p></li>
+<li><p>Working with huge datasets (copying is expensive)</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculateAverage</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="c1"># No copy needed - just reading</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">sortInPlace</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="c1"># No copy needed - we WANT to modify original</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="putting-it-all-together">
+<h2>Putting It All Together<a class="headerlink" href="#putting-it-all-together" title="Link to this heading">#</a></h2>
+<section id="example-understanding-a-complex-case">
+<h3>Example: Understanding a Complex Case<a class="headerlink" href="#example-understanding-a-complex-case" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">processGrades</span><span class="p">(</span><span class="n">grades</span><span class="p">,</span> <span class="n">bonusPoints</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+    <span class="c1"># &#39;grades&#39; refers to the original list (mutable)</span>
+    <span class="c1"># &#39;bonusPoints&#39; has value 5 (immutable)</span>
+    
+    <span class="c1"># This modifies the original grades</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">grades</span><span class="p">)):</span>
+        <span class="n">grades</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">bonusPoints</span>
+    
+    <span class="c1"># This creates a new local variable</span>
+    <span class="n">bonusPoints</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># Doesn&#39;t affect anything outside</span>
+    
+    <span class="k">return</span> <span class="n">grades</span>
+
+<span class="c1"># First call</span>
+<span class="n">class1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">78</span><span class="p">]</span>
+<span class="n">result1</span> <span class="o">=</span> <span class="n">processGrades</span><span class="p">(</span><span class="n">class1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">class1</span><span class="p">)</span>  <span class="c1"># [90, 95, 83] - Modified!</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result1</span> <span class="ow">is</span> <span class="n">class1</span><span class="p">)</span>  <span class="c1"># True - same object</span>
+
+<span class="c1"># Second call with protection</span>
+<span class="n">class2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">88</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">86</span><span class="p">]</span>
+<span class="n">result2</span> <span class="o">=</span> <span class="n">processGrades</span><span class="p">(</span><span class="n">class2</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>  <span class="c1"># Pass a copy</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">class2</span><span class="p">)</span>  <span class="c1"># [88, 92, 86] - Original unchanged!</span>
+</pre></div>
+</div>
+</section>
+<section id="common-pitfalls-and-solutions">
+<h3>Common Pitfalls and Solutions<a class="headerlink" href="#common-pitfalls-and-solutions" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Problem</p></th>
+<th class="head"><p>Why It Happens</p></th>
+<th class="head"><p>Solution</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Function modifies your list</p></td>
+<td><p>Lists are mutable, function gets original</p></td>
+<td><p>Pass <code class="docutils literal notranslate"><span class="pre">myList.copy()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Can’t modify global in function</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">=</span></code> creates local variable</p></td>
+<td><p>Use <code class="docutils literal notranslate"><span class="pre">global</span></code> keyword</p></td>
+</tr>
+<tr class="row-even"><td><p>Nested lists change unexpectedly</p></td>
+<td><p>Shallow copy shares inner objects</p></td>
+<td><p>Use <code class="docutils literal notranslate"><span class="pre">copy.deepcopy()</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Can’t modify enclosing variable</p></td>
+<td><p>Assignment creates new local</p></td>
+<td><p>Use <code class="docutils literal notranslate"><span class="pre">nonlocal</span></code> keyword</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="appendix-the-mutable-default-parameter-trap">
+<h2>Appendix: The Mutable Default Parameter Trap<a class="headerlink" href="#appendix-the-mutable-default-parameter-trap" title="Link to this heading">#</a></h2>
+<p>This is an advanced topic that won’t affect most of your code, but you should be aware of it.</p>
+<section id="the-problem">
+<h3>The Problem<a class="headerlink" href="#the-problem" title="Link to this heading">#</a></h3>
+<p>Default parameter values are created once when Python first reads the function definition:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">addItem</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">itemList</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;List id: </span><span class="si">{</span><span class="nb">id</span><span class="p">(</span><span class="n">itemList</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">itemList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">itemList</span>
+
+<span class="c1"># Call it multiple times without providing a list</span>
+<span class="n">result1</span> <span class="o">=</span> <span class="n">addItem</span><span class="p">(</span><span class="s2">&quot;apple&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result1</span><span class="p">)</span>  <span class="c1"># [&#39;apple&#39;]</span>
+
+<span class="n">result2</span> <span class="o">=</span> <span class="n">addItem</span><span class="p">(</span><span class="s2">&quot;banana&quot;</span><span class="p">)</span>  
+<span class="nb">print</span><span class="p">(</span><span class="n">result2</span><span class="p">)</span>  <span class="c1"># [&#39;apple&#39;, &#39;banana&#39;] - WHAT?!</span>
+
+<span class="n">result3</span> <span class="o">=</span> <span class="n">addItem</span><span class="p">(</span><span class="s2">&quot;cherry&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result3</span><span class="p">)</span>  <span class="c1"># [&#39;apple&#39;, &#39;banana&#39;, &#39;cherry&#39;] - It keeps growing!</span>
+
+<span class="c1"># They&#39;re all the SAME list object!</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result1</span> <span class="ow">is</span> <span class="n">result2</span> <span class="ow">is</span> <span class="n">result3</span><span class="p">)</span>  <span class="c1"># True</span>
+</pre></div>
+</div>
+</section>
+<section id="why-this-happens">
+<h3>Why This Happens<a class="headerlink" href="#why-this-happens" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Python read the function definition and created ONE empty list</p></li>
+<li><p>Every call without providing <code class="docutils literal notranslate"><span class="pre">itemList</span></code> uses that SAME list</p></li>
+<li><p>Each call modifies the SAME list</p></li>
+<li><p>This list persists between function calls</p></li>
+</ol>
+</section>
+<section id="the-solution">
+<h3>The Solution<a class="headerlink" href="#the-solution" title="Link to this heading">#</a></h3>
+<p>Use <code class="docutils literal notranslate"><span class="pre">None</span></code> as the default and create a new list inside the function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">addItem</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">itemList</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">itemList</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">itemList</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Create a NEW list each time</span>
+    <span class="n">itemList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">itemList</span>
+
+<span class="c1"># Now each call gets its own list</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">addItem</span><span class="p">(</span><span class="s2">&quot;apple&quot;</span><span class="p">))</span>   <span class="c1"># [&#39;apple&#39;]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">addItem</span><span class="p">(</span><span class="s2">&quot;banana&quot;</span><span class="p">))</span>  <span class="c1"># [&#39;banana&#39;] - Correct!</span>
+</pre></div>
+</div>
+<p>This pattern works for any mutable default (lists, dicts, sets).</p>
+</section>
+</section>
+<section id="key-concepts-summary">
+<h2>Key Concepts Summary<a class="headerlink" href="#key-concepts-summary" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Parameters</strong>: Names defined in function definition</p></li>
+<li><p><strong>Arguments</strong>: Values passed when calling the function</p></li>
+<li><p><strong>Default values</strong>: Parameter values used when no argument provided</p></li>
+<li><p><strong>Keyword arguments</strong>: Arguments specified by parameter name</p></li>
+<li><p><strong>Docstring</strong>: Documentation string describing what a function does</p></li>
+<li><p><strong>Return statement</strong>: Returns a value and sends control out of function</p></li>
+<li><p><strong>Scope</strong>: Where a variable exists and can be accessed (LEGB rule)</p></li>
+<li><p><strong>Local variables</strong>: Variables defined inside a function</p></li>
+<li><p><strong>Global variables</strong>: Variables defined at module level</p></li>
+<li><p><strong>Mutable</strong>: Can be modified (lists, dicts, sets)</p></li>
+<li><p><strong>Immutable</strong>: Cannot be modified (numbers, strings, tuples)</p></li>
+<li><p><strong>Shallow copy</strong>: Copies container but shares nested objects</p></li>
+<li><p><strong>Deep copy</strong>: Complete independent copy of all levels</p></li>
+<li><p><strong>Function stubs</strong>: Placeholder functions for testing program structure</p></li>
+<li><p><strong>Modular program</strong>: Program broken down into separate functions</p></li>
+</ul>
+</section>
+<section id="check-your-understanding">
+<h2>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>What’s the difference between a parameter and an argument?</p></li>
+<li><p>Why does <code class="docutils literal notranslate"><span class="pre">lst.append(x)</span></code> modify the original list but <code class="docutils literal notranslate"><span class="pre">lst</span> <span class="pre">=</span> <span class="pre">[]</span></code> doesn’t?</p></li>
+<li><p>What’s the difference between <code class="docutils literal notranslate"><span class="pre">list2</span> <span class="pre">=</span> <span class="pre">list1</span></code> and <code class="docutils literal notranslate"><span class="pre">list2</span> <span class="pre">=</span> <span class="pre">list1.copy()</span></code>?</p></li>
+<li><p>When should you use shallow copy vs. deep copy?</p></li>
+<li><p>Why does Python search Local, Enclosing, Global, Built-in in that order?</p></li>
+<li><p>When is it better to return a value rather than use <code class="docutils literal notranslate"><span class="pre">global</span></code>?</p></li>
+<li><p>What happens if you define a function with <code class="docutils literal notranslate"><span class="pre">def</span> <span class="pre">func(a,</span> <span class="pre">b=5,</span> <span class="pre">c)</span></code>?</p></li>
+<li><p>How can you call a function with many parameters but only set one optional parameter?</p></li>
+<li><p>What are function stubs and why are they useful?</p></li>
+<li><p>Why should parameters with default values come after parameters without defaults?</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Class12.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Class 12 Preread: Dictionaries</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-user-defined-functions-morning">Part 1: User-Defined Functions (Morning)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-with-return">Functions with Return</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-with-no-return">Functions with no Return</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lambda-functions">Lambda Functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-function-arguments-and-parameter-passing-morning-afternoon">Part 2: Function Arguments and Parameter Passing (Morning/Afternoon)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-arguments-get-into-functions">How Arguments Get Into Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-parameter-values">Default Parameter Values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keyword-arguments">Keyword Arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-confusing-case-same-names-inside-and-outside">The Confusing Case: Same Names Inside and Outside</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-two-types-of-data-mutable-and-immutable">The Two Types of Data: Mutable and Immutable</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#immutable-objects-always-safe">Immutable Objects: Always Safe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mutable-objects-changes-affect-the-original">Mutable Objects: Changes Affect the Original</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-variable-scope-afternoon">Part 3: Variable Scope (Afternoon)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-scope">What is Scope?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-legb-rule">The LEGB Rule</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-vs-modifying-variables">Reading vs. Modifying Variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-global-keyword">The <code class="docutils literal notranslate"><span class="pre">global</span></code> Keyword</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-nonlocal-keyword">The <code class="docutils literal notranslate"><span class="pre">nonlocal</span></code> Keyword</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-modular-programs-and-function-stubs-afternoon">Part 4: Modular Programs and Function Stubs (Afternoon)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modular-programs">Modular Programs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#function-stubs">Function Stubs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-making-copies-when-you-need-them-afternoon">Part 5: Making Copies When You Need Them (Afternoon)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem-multiple-names-same-object">The Problem: Multiple Names, Same Object</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-1-shallow-copy">Solution 1: Shallow Copy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-2-deep-copy">Solution 2: Deep Copy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#when-to-use-each-type-of-copy">When to Use Each Type of Copy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-all-together">Putting It All Together</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-understanding-a-complex-case">Example: Understanding a Complex Case</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls-and-solutions">Common Pitfalls and Solutions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-the-mutable-default-parameter-trap">Appendix: The Mutable Default Parameter Trap</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem">The Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-happens">Why This Happens</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-solution">The Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-summary">Key Concepts Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-your-understanding">Check Your Understanding</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Stormy Attaway, Brian DePasquale, Christine Mulvey, Kenn Sebesta
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
