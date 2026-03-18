@@ -1,4 +1,4 @@
-# Class 15: Scripts, File I/O, and the Local File Environment
+# Class 14: Scripts, File I/O, and the Local File Environment
 
 ## Learning Objectives
 By the end of this reading, you should understand:
