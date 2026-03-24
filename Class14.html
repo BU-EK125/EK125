@@ -1,0 +1,1604 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Class 14: Scripts, File I/O, and the Local File Environment &#8212; EK125</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Class14';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Class 15: Visualizing Data and Plotting in Python" href="Class15.html" />
+    <link rel="prev" title="Class 13: User-Defined Functions, Arguments, and Scope" href="Class13.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">EK125</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction to this jupyter book: HTML rendered mardown files for EK125 Pre-readings
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Class1.html"><strong>Class 1: Introduction to Interactive Programming Using Google Colab</strong></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Class2.html">Class 2: Sequences, Strings, and Lists in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class3.html">Class 3: Booleans and Basic Logic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class4.html">Class 4: Coding Basics Wrap-up and Selection Statements</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="Class5.html">Class 5: Importing Modules and Basic Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class6.html">Class 6 Preread: Nested Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class7.html">Class 7 Preread: Advanced Iteration and Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class9.html">Class 9 Preread: From Colab Notebooks to Running Python Locally</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class10.html">Class 10 Pre-read: Mastering Slicing in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class11.html">Class 11: Digging into arrays with NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class12.html">Class 12 Preread: Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class13.html">Class 13: User-Defined Functions, Arguments, and Scope</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Class 14: Scripts, File I/O, and the Local File Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class15.html">Class 15: Visualizing Data and Plotting in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class16.html">Class 16: From Python to MATLAB: Syntax and Plotting</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Class14.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Class 14: Scripts, File I/O, and the Local File Environment</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-understanding-scripts">Part 1: Understanding Scripts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-script">What is a Script?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-notebooks-to-scripts-what-changes">From Notebooks to Scripts: What Changes?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-scripts">Why Use Scripts?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-if-name-main-pattern">The <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">"__main__":</span></code> Pattern</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#script-structure-best-practices">Script Structure Best Practices</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-file-input-and-output-i-o">Part 2: File Input and Output (I/O)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-work-with-files">Why Work with Files?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-basics-opening-and-closing-files">The Basics: Opening and Closing Files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-with-statement-context-manager">The <code class="docutils literal notranslate"><span class="pre">with</span></code> Statement (Context Manager)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-modes-opening-files-different-ways">File Modes: Opening Files Different Ways</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-files-different-methods">Reading Files: Different Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#method-1-read-everything-at-once">Method 1: Read Everything at Once</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#method-2-read-one-line-at-a-time">Method 2: Read One Line at a Time</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#method-3-read-all-lines-into-a-list">Method 3: Read All Lines into a List</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#method-4-iterate-directly-best-for-large-files">Method 4: Iterate Directly (Best for Large Files)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-files-creating-and-saving-data">Writing Files: Creating and Saving Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-writing">Basic Writing</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-multiple-lines">Writing Multiple Lines</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-to-files">Appending to Files</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-csv-files">Working with CSV Files</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-csv-files-simple-method">Reading CSV Files (Simple Method)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-csv-files-using-csv-module">Reading CSV Files (Using csv Module)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-csv-files">Writing CSV Files</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-example-temperature-logger">Practical Example: Temperature Logger</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-the-local-file-environment">Part 3: The Local File Environment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-your-computer-s-file-system">Understanding Your Computer’s File System</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-paths-absolute-vs-relative">File Paths: Absolute vs. Relative</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-path-full-address">Absolute Path (Full Address)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-path-from-current-location">Relative Path (From Current Location)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-os-module-working-with-files-and-directories">The <code class="docutils literal notranslate"><span class="pre">os</span></code> Module: Working with Files and Directories</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-out-where-you-are">Finding Out Where You Are</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#listing-files-and-folders">Listing Files and Folders</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-directories">Changing Directories</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-directories">Creating Directories</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-if-files-folders-exist">Checking if Files/Folders Exist</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#building-file-paths-correctly">Building File Paths Correctly</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-example-organizing-experiment-data">Practical Example: Organizing Experiment Data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-common-patterns-and-best-practices">Part 4: Common Patterns and Best Practices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pattern-1-reading-data-processing-saving-results">Pattern 1: Reading Data, Processing, Saving Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pattern-2-checking-before-acting">Pattern 2: Checking Before Acting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pattern-3-error-handling">Pattern 3: Error Handling</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-common-mistakes-and-how-to-avoid-them">Part 5: Common Mistakes and How to Avoid Them</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-1-forgetting-to-close-files-without-with">Mistake 1: Forgetting to Close Files (Without <code class="docutils literal notranslate"><span class="pre">with</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-2-using-w-mode-carelessly">Mistake 2: Using <code class="docutils literal notranslate"><span class="pre">'w'</span></code> Mode Carelessly</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-3-forgetting-to-strip-newlines">Mistake 3: Forgetting to Strip Newlines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-4-hardcoding-paths">Mistake 4: Hardcoding Paths</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-5-not-checking-if-file-exists">Mistake 5: Not Checking if File Exists</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-key-concepts">Summary: Key Concepts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-your-understanding">Check Your Understanding</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="class-14-scripts-file-i-o-and-the-local-file-environment">
+<h1>Class 14: Scripts, File I/O, and the Local File Environment<a class="headerlink" href="#class-14-scripts-file-i-o-and-the-local-file-environment" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this reading, you should understand:</p>
+<ul class="simple">
+<li><p>What scripts are and how they differ from interactive code</p></li>
+<li><p>How to read from and write to files</p></li>
+<li><p>How to work with your computer’s file system using Python</p></li>
+<li><p>When and how to use context managers (<code class="docutils literal notranslate"><span class="pre">with</span></code> statement)</p></li>
+<li><p>The difference between different file modes</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="part-1-understanding-scripts">
+<h2>Part 1: Understanding Scripts<a class="headerlink" href="#part-1-understanding-scripts" title="Link to this heading">#</a></h2>
+<section id="what-is-a-script">
+<h3>What is a Script?<a class="headerlink" href="#what-is-a-script" title="Link to this heading">#</a></h3>
+<p>Until now, you’ve been writing code in notebooks (Colab or Jupyter), where you could run individual cells and see results immediately. A <strong>script</strong> is different: it’s a complete Python program stored in a single <code class="docutils literal notranslate"><span class="pre">.py</span></code> file that runs from top to bottom, start to finish, when you execute it.</p>
+<p>Think of the difference like this:</p>
+<ul class="simple">
+<li><p><strong>Interactive code (notebooks)</strong>: Like having a conversation - you say something, get an immediate response, then continue</p></li>
+<li><p><strong>Scripts</strong>: Like writing a letter - you write the whole thing first, then send it off to be read completely</p></li>
+</ul>
+</section>
+<section id="from-notebooks-to-scripts-what-changes">
+<h3>From Notebooks to Scripts: What Changes?<a class="headerlink" href="#from-notebooks-to-scripts-what-changes" title="Link to this heading">#</a></h3>
+<p><strong>In a Notebook:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cell 1</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Alice&quot;</span>
+
+<span class="c1"># Cell 2 (run separately)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Cell 3 (run separately)</span>
+<span class="n">age</span> <span class="o">=</span> <span class="mi">21</span>
+</pre></div>
+</div>
+<p><strong>In a Script (temperature_converter.py):</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Everything runs together, top to bottom</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Alice&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">age</span> <span class="o">=</span> <span class="mi">21</span>
+</pre></div>
+</div>
+<p>The big differences:</p>
+<ol class="arabic simple">
+<li><p><strong>No cells</strong> - Everything runs in sequence</p></li>
+<li><p><strong>Output only appears if you print it</strong> - Unlike notebooks where the last expression in a cell displays automatically</p></li>
+<li><p><strong>Variables persist</strong> - Once defined, they exist for the entire script execution</p></li>
+<li><p><strong>Must save before running</strong> - The file must be saved to disk</p></li>
+</ol>
+</section>
+<section id="why-use-scripts">
+<h3>Why Use Scripts?<a class="headerlink" href="#why-use-scripts" title="Link to this heading">#</a></h3>
+<p><strong>Professional Development:</strong></p>
+<ul class="simple">
+<li><p>Industry standard for writing programs</p></li>
+<li><p>Easier to share and version control (Git/GitHub)</p></li>
+<li><p>Can be run from command line</p></li>
+<li><p>Better for larger projects</p></li>
+</ul>
+<p><strong>Practical Benefits:</strong></p>
+<ul class="simple">
+<li><p>Reusable programs you can run anytime</p></li>
+<li><p>Can schedule scripts to run automatically</p></li>
+<li><p>Better organization for complex programs</p></li>
+<li><p>Easier debugging</p></li>
+</ul>
+</section>
+<section id="the-if-name-main-pattern">
+<h3>The <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">&quot;__main__&quot;:</span></code> Pattern<a class="headerlink" href="#the-if-name-main-pattern" title="Link to this heading">#</a></h3>
+<p>You’ll often see this at the bottom of Python scripts:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_area</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate area of a rectangle.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">length</span> <span class="o">*</span> <span class="n">width</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Main program execution.&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rectangle Area Calculator&quot;</span><span class="p">)</span>
+    <span class="n">length</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter length: &quot;</span><span class="p">))</span>
+    <span class="n">width</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter width: &quot;</span><span class="p">))</span>
+    <span class="n">area</span> <span class="o">=</span> <span class="n">calculate_area</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Area: </span><span class="si">{</span><span class="n">area</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>What does this mean?</strong></p>
+<p>When you run a Python file directly (like <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">calculator.py</span></code>), Python sets a special variable <code class="docutils literal notranslate"><span class="pre">__name__</span></code> to <code class="docutils literal notranslate"><span class="pre">&quot;__main__&quot;</span></code>. This tells Python “this is the main program being run.”</p>
+<p><strong>Why do we use it?</strong></p>
+<p>Two reasons:</p>
+<ol class="arabic simple">
+<li><p><strong>Organization</strong>: Separates the main program logic from function definitions</p></li>
+<li><p><strong>Reusability</strong>: Other Python files can import your functions without running your main program</p></li>
+</ol>
+<p><strong>Simple analogy:</strong></p>
+<ul class="simple">
+<li><p>Imagine a cookbook (your script)</p></li>
+<li><p>The recipes (functions) can be used by anyone</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">&quot;__main__&quot;:</span></code> part says “only follow these dinner party instructions if you’re actually hosting the party (running this file directly)”</p></li>
+</ul>
+<p><strong>For now, you can think of it as:</strong> “This is where my program starts when I run this file.”</p>
+</section>
+<section id="script-structure-best-practices">
+<h3>Script Structure Best Practices<a class="headerlink" href="#script-structure-best-practices" title="Link to this heading">#</a></h3>
+<p>A well-organized script typically looks like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Script description at the top.</span>
+<span class="sd">Author: Your Name</span>
+<span class="sd">Date: 2026-03-16</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Imports</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Constants (values that don&#39;t change)</span>
+<span class="n">PI</span> <span class="o">=</span> <span class="mf">3.14159</span>
+<span class="n">GRAVITY</span> <span class="o">=</span> <span class="mf">9.81</span>
+
+<span class="c1"># Function definitions</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_something</span><span class="p">(</span><span class="n">param1</span><span class="p">,</span> <span class="n">param2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Function docstring explaining what it does.&quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">param1</span> <span class="o">+</span> <span class="n">param2</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">another_function</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Another helper function.&quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+
+<span class="c1"># Main program</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># Main program code goes here</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Program starting...&quot;</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">calculate_something</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Result: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Why this structure?</strong></p>
+<ul class="simple">
+<li><p><strong>Documentation at top</strong> - Anyone opening the file knows what it does</p></li>
+<li><p><strong>Imports together</strong> - Easy to see dependencies</p></li>
+<li><p><strong>Constants clearly defined</strong> - Magic numbers explained</p></li>
+<li><p><strong>Functions before use</strong> - Python needs to know about functions before calling them</p></li>
+<li><p><strong>Main at bottom</strong> - Standard convention, easy to find</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-2-file-input-and-output-i-o">
+<h2>Part 2: File Input and Output (I/O)<a class="headerlink" href="#part-2-file-input-and-output-i-o" title="Link to this heading">#</a></h2>
+<section id="why-work-with-files">
+<h3>Why Work with Files?<a class="headerlink" href="#why-work-with-files" title="Link to this heading">#</a></h3>
+<p>Until now, all your data disappeared when the program ended. Files let you:</p>
+<ul class="simple">
+<li><p>Save results to use later</p></li>
+<li><p>Process large datasets</p></li>
+<li><p>Share data with other programs</p></li>
+<li><p>Create logs and reports</p></li>
+<li><p>Read configuration settings</p></li>
+</ul>
+<p><strong>Real-world applications:</strong></p>
+<ul class="simple">
+<li><p>Reading sensor data from a CSV file</p></li>
+<li><p>Saving calculation results</p></li>
+<li><p>Processing experimental data</p></li>
+<li><p>Creating automated reports</p></li>
+<li><p>Logging program activity</p></li>
+</ul>
+</section>
+<section id="the-basics-opening-and-closing-files">
+<h3>The Basics: Opening and Closing Files<a class="headerlink" href="#the-basics-opening-and-closing-files" title="Link to this heading">#</a></h3>
+<p><strong>The old way (NOT recommended):</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Old way - you have to remember to close!</span>
+<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>  <span class="c1"># Easy to forget!</span>
+</pre></div>
+</div>
+<p><strong>The modern way (ALWAYS use this):</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Modern way - automatically closes the file</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="c1"># File is automatically closed here</span>
+</pre></div>
+</div>
+</section>
+<section id="the-with-statement-context-manager">
+<h3>The <code class="docutils literal notranslate"><span class="pre">with</span></code> Statement (Context Manager)<a class="headerlink" href="#the-with-statement-context-manager" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">with</span></code> statement is like having an assistant who:</p>
+<ol class="arabic simple">
+<li><p>Opens the door for you</p></li>
+<li><p>Lets you do your work</p></li>
+<li><p>Closes and locks the door when you’re done - even if something goes wrong</p></li>
+</ol>
+<p><strong>Why it’s better:</strong></p>
+<ul class="simple">
+<li><p><strong>Automatic cleanup</strong>: File always closes, even if there’s an error</p></li>
+<li><p><strong>Less code</strong>: No need to remember <code class="docutils literal notranslate"><span class="pre">file.close()</span></code></p></li>
+<li><p><strong>Safer</strong>: Prevents file corruption</p></li>
+<li><p><strong>Professional</strong>: Standard practice in Python</p></li>
+</ul>
+<p><strong>Analogy:</strong>
+Think of borrowing a book from the library:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Without &#39;with&#39; - you might forget to return the book!</span>
+<span class="n">book</span> <span class="o">=</span> <span class="n">library</span><span class="o">.</span><span class="n">borrow</span><span class="p">(</span><span class="s1">&#39;Python Guide&#39;</span><span class="p">)</span>
+<span class="n">knowledge</span> <span class="o">=</span> <span class="n">book</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">library</span><span class="o">.</span><span class="n">return_book</span><span class="p">(</span><span class="n">book</span><span class="p">)</span>  <span class="c1"># Easy to forget!</span>
+
+<span class="c1"># With &#39;with&#39; - automatic return</span>
+<span class="k">with</span> <span class="n">library</span><span class="o">.</span><span class="n">borrow</span><span class="p">(</span><span class="s1">&#39;Python Guide&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">book</span><span class="p">:</span>
+    <span class="n">knowledge</span> <span class="o">=</span> <span class="n">book</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="c1"># Book automatically returned here</span>
+</pre></div>
+</div>
+</section>
+<section id="file-modes-opening-files-different-ways">
+<h3>File Modes: Opening Files Different Ways<a class="headerlink" href="#file-modes-opening-files-different-ways" title="Link to this heading">#</a></h3>
+<p>When you open a file, you must specify a <strong>mode</strong> - what you want to do with the file:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Mode</p></th>
+<th class="head"><p>Meaning</p></th>
+<th class="head"><p>What it does</p></th>
+<th class="head"><p>If file doesn’t exist</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'r'</span></code></p></td>
+<td><p>Read</p></td>
+<td><p>Opens for reading</p></td>
+<td><p>Error</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'w'</span></code></p></td>
+<td><p>Write</p></td>
+<td><p>Opens for writing</p></td>
+<td><p>Creates new file</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">'a'</span></code></p></td>
+<td><p>Append</p></td>
+<td><p>Opens for appending</p></td>
+<td><p>Creates new file</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">'r+'</span></code></p></td>
+<td><p>Read/Write</p></td>
+<td><p>Opens for both</p></td>
+<td><p>Error</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Important warnings:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'w'</span></code> mode <strong>DELETES the entire file</strong> if it exists and creates a new empty one</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'a'</span></code> mode adds to the end without deleting existing content</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'r'</span></code> mode is read-only - you cannot write</p></li>
+</ul>
+</section>
+<section id="reading-files-different-methods">
+<h3>Reading Files: Different Methods<a class="headerlink" href="#reading-files-different-methods" title="Link to this heading">#</a></h3>
+<section id="method-1-read-everything-at-once">
+<h4>Method 1: Read Everything at Once<a class="headerlink" href="#method-1-read-everything-at-once" title="Link to this heading">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;story.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>When to use:</strong> Small files that fit easily in memory</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># story.txt contains:</span>
+<span class="c1"># Once upon a time</span>
+<span class="c1"># In a land far away</span>
+<span class="c1"># There lived a dragon</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;story.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">story</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">story</span><span class="p">)</span>
+
+<span class="c1"># Output:</span>
+<span class="c1"># Once upon a time</span>
+<span class="c1"># In a land far away</span>
+<span class="c1"># There lived a dragon</span>
+</pre></div>
+</div>
+</section>
+<section id="method-2-read-one-line-at-a-time">
+<h4>Method 2: Read One Line at a Time<a class="headerlink" href="#method-2-read-one-line-at-a-time" title="Link to this heading">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>When to use:</strong> When you only need the first few lines, or want to process one line at a time</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;grades.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">header</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>  <span class="c1"># First line</span>
+    <span class="n">first_student</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>  <span class="c1"># Second line</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">first_student</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="method-3-read-all-lines-into-a-list">
+<h4>Method 3: Read All Lines into a List<a class="headerlink" href="#method-3-read-all-lines-into-a-list" title="Link to this heading">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="c1"># lines is now a list where each element is one line</span>
+</pre></div>
+</div>
+<p><strong>When to use:</strong> When you need to process or analyze all lines</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># temperatures.txt contains:</span>
+<span class="c1"># 72</span>
+<span class="c1"># 68</span>
+<span class="c1"># 75</span>
+<span class="c1"># 71</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;temperatures.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    <span class="c1"># lines = [&#39;72\n&#39;, &#39;68\n&#39;, &#39;75\n&#39;, &#39;71\n&#39;]</span>
+    
+    <span class="c1"># Convert to numbers and calculate average</span>
+    <span class="n">temps</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">]</span>
+    <span class="n">average</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">temps</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">temps</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average temperature: </span><span class="si">{</span><span class="n">average</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Note:</strong> Each line includes the newline character <code class="docutils literal notranslate"><span class="pre">\n</span></code> at the end. Use <code class="docutils literal notranslate"><span class="pre">.strip()</span></code> to remove it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">line</span> <span class="o">=</span> <span class="s2">&quot;72</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="n">clean</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>  <span class="c1"># &quot;72&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="method-4-iterate-directly-best-for-large-files">
+<h4>Method 4: Iterate Directly (Best for Large Files)<a class="headerlink" href="#method-4-iterate-directly-best-for-large-files" title="Link to this heading">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+</pre></div>
+</div>
+<p><strong>When to use:</strong> Large files that don’t fit in memory, or when you only need to process each line once</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Count how many times &quot;error&quot; appears in a log file</span>
+<span class="n">error_count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;system.log&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s1">&#39;error&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+            <span class="n">error_count</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="n">error_count</span><span class="si">}</span><span class="s2"> errors&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="writing-files-creating-and-saving-data">
+<h3>Writing Files: Creating and Saving Data<a class="headerlink" href="#writing-files-creating-and-saving-data" title="Link to this heading">#</a></h3>
+<section id="basic-writing">
+<h4>Basic Writing<a class="headerlink" href="#basic-writing" title="Link to this heading">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;output.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Hello, World!</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;This is a new line.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Important:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.write()</span></code> does NOT add newlines automatically - you must add <code class="docutils literal notranslate"><span class="pre">\n</span></code> yourself</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'w'</span></code> mode overwrites the entire file - all previous content is lost</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a report</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;report.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Experiment Results</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;==================</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Average: </span><span class="si">{</span><span class="n">avg</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Maximum: </span><span class="si">{</span><span class="n">max_val</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="writing-multiple-lines">
+<h4>Writing Multiple Lines<a class="headerlink" href="#writing-multiple-lines" title="Link to this heading">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">lines</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Line 1</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;Line 2</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;Line 3</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;output.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Or use a loop:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;numbers.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="appending-to-files">
+<h4>Appending to Files<a class="headerlink" href="#appending-to-files" title="Link to this heading">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add new data without deleting old data</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;log.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;New log entry</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Use case: Logging</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">datetime</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">log_action</span><span class="p">(</span><span class="n">message</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add a timestamped entry to the log file.&quot;&quot;&quot;</span>
+    <span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;activity.log&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">timestamp</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">log_action</span><span class="p">(</span><span class="s1">&#39;Program started&#39;</span><span class="p">)</span>
+<span class="n">log_action</span><span class="p">(</span><span class="s1">&#39;Data loaded successfully&#39;</span><span class="p">)</span>
+<span class="n">log_action</span><span class="p">(</span><span class="s1">&#39;Calculation complete&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="working-with-csv-files">
+<h3>Working with CSV Files<a class="headerlink" href="#working-with-csv-files" title="Link to this heading">#</a></h3>
+<p>CSV (Comma-Separated Values) files are a common way to store tabular data, like spreadsheets.</p>
+<p><strong>Example CSV file (students.csv):</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span><span class="p">,</span><span class="n">Grade</span><span class="p">,</span><span class="n">Age</span>
+<span class="n">Alice</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mi">20</span>
+<span class="n">Bob</span><span class="p">,</span><span class="mi">87</span><span class="p">,</span><span class="mi">21</span>
+<span class="n">Charlie</span><span class="p">,</span><span class="mi">92</span><span class="p">,</span><span class="mi">19</span>
+</pre></div>
+</div>
+<section id="reading-csv-files-simple-method">
+<h4>Reading CSV Files (Simple Method)<a class="headerlink" href="#reading-csv-files-simple-method" title="Link to this heading">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;students.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">header</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Columns: </span><span class="si">{</span><span class="n">header</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+        <span class="n">name</span><span class="p">,</span> <span class="n">grade</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="n">values</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> scored </span><span class="si">{</span><span class="n">grade</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="reading-csv-files-using-csv-module">
+<h4>Reading CSV Files (Using csv Module)<a class="headerlink" href="#reading-csv-files-using-csv-module" title="Link to this heading">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;students.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">header</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>  <span class="c1"># Get first line</span>
+    
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="n">name</span><span class="p">,</span> <span class="n">grade</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="n">row</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">grade</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="writing-csv-files">
+<h4>Writing CSV Files<a class="headerlink" href="#writing-csv-files" title="Link to this heading">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">csv</span>
+
+<span class="n">students</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Grade&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">21</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Charlie&#39;</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">19</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;output.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">students</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Note:</strong> The <code class="docutils literal notranslate"><span class="pre">newline=''</span></code> argument prevents extra blank lines on Windows.</p>
+</section>
+</section>
+<section id="practical-example-temperature-logger">
+<h3>Practical Example: Temperature Logger<a class="headerlink" href="#practical-example-temperature-logger" title="Link to this heading">#</a></h3>
+<p>Let’s put it all together with a complete example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">temperature_logger.py</span>
+<span class="sd">Logs temperature readings to a file and calculates statistics.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">log_temperature</span><span class="p">(</span><span class="n">temp</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Append a temperature reading to the log file.&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;temps.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">temp</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">get_statistics</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate statistics from all logged temperatures.&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;temps.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">temps</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">]</span>
+    
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">temps</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    
+    <span class="n">avg</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">temps</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">temps</span><span class="p">)</span>
+    <span class="n">min_temp</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">temps</span><span class="p">)</span>
+    <span class="n">max_temp</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">temps</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">avg</span><span class="p">,</span> <span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">save_report</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a summary report.&quot;&quot;&quot;</span>
+    <span class="n">stats</span> <span class="o">=</span> <span class="n">get_statistics</span><span class="p">()</span>
+    
+    <span class="k">if</span> <span class="n">stats</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No data to report&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+    
+    <span class="n">avg</span><span class="p">,</span> <span class="n">min_temp</span><span class="p">,</span> <span class="n">max_temp</span> <span class="o">=</span> <span class="n">stats</span>
+    
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;temp_report.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Temperature Report</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;==================</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Average: </span><span class="si">{</span><span class="n">avg</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">°F</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Minimum: </span><span class="si">{</span><span class="n">min_temp</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">°F</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Maximum: </span><span class="si">{</span><span class="n">max_temp</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">°F</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Report saved to temp_report.txt&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># Log some temperatures</span>
+    <span class="n">log_temperature</span><span class="p">(</span><span class="mf">72.5</span><span class="p">)</span>
+    <span class="n">log_temperature</span><span class="p">(</span><span class="mf">68.3</span><span class="p">)</span>
+    <span class="n">log_temperature</span><span class="p">(</span><span class="mf">75.1</span><span class="p">)</span>
+    <span class="n">log_temperature</span><span class="p">(</span><span class="mf">71.9</span><span class="p">)</span>
+    
+    <span class="c1"># Generate report</span>
+    <span class="n">save_report</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-3-the-local-file-environment">
+<h2>Part 3: The Local File Environment<a class="headerlink" href="#part-3-the-local-file-environment" title="Link to this heading">#</a></h2>
+<section id="understanding-your-computer-s-file-system">
+<h3>Understanding Your Computer’s File System<a class="headerlink" href="#understanding-your-computer-s-file-system" title="Link to this heading">#</a></h3>
+<p>Your computer organizes files in a hierarchical structure - like a tree with branches:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Documents/                    (folder)
+├── EK125/                    (folder)
+│   ├── Class15/              (folder)
+│   │   ├── script.py         (file)
+│   │   └── data.txt          (file)
+│   └── Homework/             (folder)
+│       └── hw5.py            (file)
+└── Photos/                   (folder)
+</pre></div>
+</div>
+<p><strong>Key concepts:</strong></p>
+<ul class="simple">
+<li><p><strong>Directory</strong> = Folder (same thing, different names)</p></li>
+<li><p><strong>Path</strong> = The route to a file (like a file’s address)</p></li>
+<li><p><strong>Current working directory</strong> = Where Python thinks you are right now</p></li>
+</ul>
+</section>
+<section id="file-paths-absolute-vs-relative">
+<h3>File Paths: Absolute vs. Relative<a class="headerlink" href="#file-paths-absolute-vs-relative" title="Link to this heading">#</a></h3>
+<section id="absolute-path-full-address">
+<h4>Absolute Path (Full Address)<a class="headerlink" href="#absolute-path-full-address" title="Link to this heading">#</a></h4>
+<p>An absolute path specifies the complete location from the root of your file system:</p>
+<p><strong>Windows:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span><span class="p">:</span>\<span class="n">Users</span>\<span class="n">YourName</span>\<span class="n">Documents</span>\<span class="n">EK125</span>\<span class="n">data</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p><strong>Mac/Linux:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">YourName</span><span class="o">/</span><span class="n">Documents</span><span class="o">/</span><span class="n">EK125</span><span class="o">/</span><span class="n">data</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p><strong>Analogy:</strong> Like a complete mailing address: “123 Main St, Boston, MA 02115, USA”</p>
+</section>
+<section id="relative-path-from-current-location">
+<h4>Relative Path (From Current Location)<a class="headerlink" href="#relative-path-from-current-location" title="Link to this heading">#</a></h4>
+<p>A relative path specifies location relative to your current working directory:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># If you&#39;re currently in Documents/EK125/</span>
+<span class="s1">&#39;data.txt&#39;</span>              <span class="c1"># File in current directory</span>
+<span class="s1">&#39;Class15/script.py&#39;</span>     <span class="c1"># File in subfolder</span>
+<span class="s1">&#39;../Homework/hw5.py&#39;</span>    <span class="c1"># File in sibling folder</span>
+</pre></div>
+</div>
+<p><strong>Analogy:</strong> Like giving directions from where you are: “Go to the coffee shop, it’s two blocks down and on the right”</p>
+<p><strong>Special directory names:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.</span></code> = Current directory (where you are now)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">..</span></code> = Parent directory (one level up)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">~</span></code> = Home directory (your user folder)</p></li>
+</ul>
+</section>
+</section>
+<section id="the-os-module-working-with-files-and-directories">
+<h3>The <code class="docutils literal notranslate"><span class="pre">os</span></code> Module: Working with Files and Directories<a class="headerlink" href="#the-os-module-working-with-files-and-directories" title="Link to this heading">#</a></h3>
+<p>Python’s <code class="docutils literal notranslate"><span class="pre">os</span></code> module lets you interact with your computer’s file system - creating folders, checking what files exist, moving around directories, etc.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+</pre></div>
+</div>
+<section id="finding-out-where-you-are">
+<h4>Finding Out Where You Are<a class="headerlink" href="#finding-out-where-you-are" title="Link to this heading">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="c1"># Get current working directory</span>
+<span class="n">current</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;I am currently in: </span><span class="si">{</span><span class="n">current</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Example output:</span>
+<span class="c1"># I am currently in: /Users/alice/Documents/EK125</span>
+</pre></div>
+</div>
+<p><strong>Why this matters:</strong> When you open a file with a relative path, Python looks for it relative to this directory.</p>
+</section>
+<section id="listing-files-and-folders">
+<h4>Listing Files and Folders<a class="headerlink" href="#listing-files-and-folders" title="Link to this heading">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="c1"># List everything in current directory</span>
+<span class="n">contents</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span>
+
+<span class="c1"># List contents of a specific directory</span>
+<span class="n">contents</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;Class15&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span>
+
+<span class="c1"># Example output:</span>
+<span class="c1"># [&#39;script.py&#39;, &#39;data.txt&#39;, &#39;notes.md&#39;]</span>
+</pre></div>
+</div>
+</section>
+<section id="changing-directories">
+<h4>Changing Directories<a class="headerlink" href="#changing-directories" title="Link to this heading">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="c1"># Move to a different directory</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;Class15&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Now in: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Move up one level</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Now in: </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Analogy:</strong> Like using <code class="docutils literal notranslate"><span class="pre">cd</span></code> (change directory) in a terminal/command prompt</p>
+</section>
+<section id="creating-directories">
+<h4>Creating Directories<a class="headerlink" href="#creating-directories" title="Link to this heading">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="c1"># Create a new directory</span>
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s1">&#39;NewFolder&#39;</span><span class="p">)</span>
+
+<span class="c1"># Create multiple nested directories</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s1">&#39;Projects/Python/Data&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Difference:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">mkdir()</span></code> - Creates ONE directory (fails if path doesn’t exist)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">makedirs()</span></code> - Creates ALL necessary directories in the path</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This fails if &#39;Projects&#39; and &#39;Python&#39; don&#39;t exist:</span>
+<span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="s1">&#39;Projects/Python/Data&#39;</span><span class="p">)</span>  <span class="c1"># Error!</span>
+
+<span class="c1"># This works - creates all three folders:</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s1">&#39;Projects/Python/Data&#39;</span><span class="p">)</span>  <span class="c1"># Success!</span>
+</pre></div>
+</div>
+</section>
+<section id="checking-if-files-folders-exist">
+<h4>Checking if Files/Folders Exist<a class="headerlink" href="#checking-if-files-folders-exist" title="Link to this heading">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="c1"># Check if a file exists</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File found!&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;File not found!&quot;</span><span class="p">)</span>
+
+<span class="c1"># Check if it&#39;s a file</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It&#39;s a file&quot;</span><span class="p">)</span>
+
+<span class="c1"># Check if it&#39;s a directory</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="s1">&#39;Class15&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It&#39;s a directory&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Why this is useful:</strong> Prevents errors from trying to open files that don’t exist</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">safe_read_file</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read a file only if it exists.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2"> not found&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="building-file-paths-correctly">
+<h4>Building File Paths Correctly<a class="headerlink" href="#building-file-paths-correctly" title="Link to this heading">#</a></h4>
+<p>Different operating systems use different path separators:</p>
+<ul class="simple">
+<li><p>Windows: <code class="docutils literal notranslate"><span class="pre">\</span></code> (backslash)</p></li>
+<li><p>Mac/Linux: <code class="docutils literal notranslate"><span class="pre">/</span></code> (forward slash)</p></li>
+</ul>
+<p><strong>The problem:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This works on Mac/Linux but fails on Windows:</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;Documents/EK125/data.txt&#39;</span>
+
+<span class="c1"># This is messy and hard to read:</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;Documents&#39;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="s1">&#39;EK125&#39;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span> <span class="o">+</span> <span class="s1">&#39;data.txt&#39;</span>
+</pre></div>
+</div>
+<p><strong>The solution: <code class="docutils literal notranslate"><span class="pre">os.path.join()</span></code></strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="c1"># Works on ALL operating systems!</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;Documents&#39;</span><span class="p">,</span> <span class="s1">&#39;EK125&#39;</span><span class="p">,</span> <span class="s1">&#39;data.txt&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+<span class="c1"># Windows: Documents\EK125\data.txt</span>
+<span class="c1"># Mac/Linux: Documents/EK125/data.txt</span>
+</pre></div>
+</div>
+<p><strong>Always use <code class="docutils literal notranslate"><span class="pre">os.path.join()</span></code> to build paths!</strong></p>
+</section>
+<section id="practical-example-organizing-experiment-data">
+<h4>Practical Example: Organizing Experiment Data<a class="headerlink" href="#practical-example-organizing-experiment-data" title="Link to this heading">#</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">data_organizer.py</span>
+<span class="sd">Automatically organizes experimental data into dated folders.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">setup_experiment_folder</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create folder structure for today&#39;s experiment.&quot;&quot;&quot;</span>
+    <span class="c1"># Get today&#39;s date for folder name</span>
+    <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># Build paths</span>
+    <span class="n">base_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;Experiments&#39;</span><span class="p">,</span> <span class="n">today</span><span class="p">)</span>
+    <span class="n">raw_data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="s1">&#39;raw_data&#39;</span><span class="p">)</span>
+    <span class="n">results_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_path</span><span class="p">,</span> <span class="s1">&#39;results&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># Create all necessary folders</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">raw_data_path</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">results_path</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Created experiment folder: </span><span class="si">{</span><span class="n">base_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">base_path</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">save_measurement</span><span class="p">(</span><span class="n">experiment_folder</span><span class="p">,</span> <span class="n">sensor_id</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Save a sensor reading to the appropriate file.&quot;&quot;&quot;</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;sensor_</span><span class="si">{</span><span class="n">sensor_id</span><span class="si">}</span><span class="s1">.txt&#39;</span>
+    <span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">experiment_folder</span><span class="p">,</span> <span class="s1">&#39;raw_data&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+    
+    <span class="c1"># Append reading with timestamp</span>
+    <span class="n">timestamp</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%H:%M:%S&#39;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">timestamp</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saved reading to </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">list_experiments</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;List all experiment folders.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;Experiments&#39;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No experiments yet&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+    
+    <span class="n">experiments</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;Experiments&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Available experiments:&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">exp</span> <span class="ow">in</span> <span class="n">experiments</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  - </span><span class="si">{</span><span class="n">exp</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># Create today&#39;s experiment folder</span>
+    <span class="n">exp_folder</span> <span class="o">=</span> <span class="n">setup_experiment_folder</span><span class="p">()</span>
+    
+    <span class="c1"># Simulate taking measurements</span>
+    <span class="n">save_measurement</span><span class="p">(</span><span class="n">exp_folder</span><span class="p">,</span> <span class="s1">&#39;temp&#39;</span><span class="p">,</span> <span class="mf">72.5</span><span class="p">)</span>
+    <span class="n">save_measurement</span><span class="p">(</span><span class="n">exp_folder</span><span class="p">,</span> <span class="s1">&#39;temp&#39;</span><span class="p">,</span> <span class="mf">73.1</span><span class="p">)</span>
+    <span class="n">save_measurement</span><span class="p">(</span><span class="n">exp_folder</span><span class="p">,</span> <span class="s1">&#39;pressure&#39;</span><span class="p">,</span> <span class="mf">101.3</span><span class="p">)</span>
+    
+    <span class="c1"># List all experiments</span>
+    <span class="n">list_experiments</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-4-common-patterns-and-best-practices">
+<h2>Part 4: Common Patterns and Best Practices<a class="headerlink" href="#part-4-common-patterns-and-best-practices" title="Link to this heading">#</a></h2>
+<section id="pattern-1-reading-data-processing-saving-results">
+<h3>Pattern 1: Reading Data, Processing, Saving Results<a class="headerlink" href="#pattern-1-reading-data-processing-saving-results" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process_temperature_data</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="n">output_file</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read temperatures, convert to Celsius, save results.&quot;&quot;&quot;</span>
+    <span class="c1"># Read data</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">input_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">temps_f</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">]</span>
+    
+    <span class="c1"># Process</span>
+    <span class="n">temps_c</span> <span class="o">=</span> <span class="p">[(</span><span class="n">f</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span><span class="o">/</span><span class="mi">9</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">temps_f</span><span class="p">]</span>
+    
+    <span class="c1"># Save results</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Temperature (°C)</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="n">temps_c</span><span class="p">:</span>
+            <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">temp</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="pattern-2-checking-before-acting">
+<h3>Pattern 2: Checking Before Acting<a class="headerlink" href="#pattern-2-checking-before-acting" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">safe_write</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">content</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Only write if file doesn&#39;t exist, or ask permission.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s1"> exists. Overwrite? (y/n): &#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cancelled&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+    
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saved to </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="pattern-3-error-handling">
+<h3>Pattern 3: Error Handling<a class="headerlink" href="#pattern-3-error-handling" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">robust_file_read</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read file with error handling.&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2"> not found&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">except</span> <span class="ne">PermissionError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: No permission to read </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-5-common-mistakes-and-how-to-avoid-them">
+<h2>Part 5: Common Mistakes and How to Avoid Them<a class="headerlink" href="#part-5-common-mistakes-and-how-to-avoid-them" title="Link to this heading">#</a></h2>
+<section id="mistake-1-forgetting-to-close-files-without-with">
+<h3>Mistake 1: Forgetting to Close Files (Without <code class="docutils literal notranslate"><span class="pre">with</span></code>)<a class="headerlink" href="#mistake-1-forgetting-to-close-files-without-with" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># BAD - File might not close if there&#39;s an error</span>
+<span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">process</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>  <span class="c1"># If process() errors...</span>
+<span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>  <span class="c1"># ...this never runs!</span>
+
+<span class="c1"># GOOD - File always closes</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">process</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+<span class="c1"># File closed automatically</span>
+</pre></div>
+</div>
+</section>
+<section id="mistake-2-using-w-mode-carelessly">
+<h3>Mistake 2: Using <code class="docutils literal notranslate"><span class="pre">'w'</span></code> Mode Carelessly<a class="headerlink" href="#mistake-2-using-w-mode-carelessly" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># BAD - Accidentally deletes all data!</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;important_data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>  <span class="c1"># OOPS! File now empty</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;new data</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># GOOD - Use &#39;a&#39; to append or check first</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;important_data.txt&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning: File exists!&quot;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;important_data.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;new data</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="mistake-3-forgetting-to-strip-newlines">
+<h3>Mistake 3: Forgetting to Strip Newlines<a class="headerlink" href="#mistake-3-forgetting-to-strip-newlines" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># BAD - Numbers have &#39;\n&#39; at the end</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;numbers.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">]</span>  <span class="c1"># Error! &quot;72\n&quot; is not a float</span>
+
+<span class="c1"># GOOD - Strip whitespace first</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;numbers.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="mistake-4-hardcoding-paths">
+<h3>Mistake 4: Hardcoding Paths<a class="headerlink" href="#mistake-4-hardcoding-paths" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># BAD - Only works on your computer</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Users</span><span class="se">\\</span><span class="s1">Alice</span><span class="se">\\</span><span class="s1">Documents</span><span class="se">\\</span><span class="s1">data.txt&#39;</span>
+
+<span class="c1"># GOOD - Use relative paths or os.path.join</span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;input.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="mistake-5-not-checking-if-file-exists">
+<h3>Mistake 5: Not Checking if File Exists<a class="headerlink" href="#mistake-5-not-checking-if-file-exists" title="Link to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># BAD - Crashes if file doesn&#39;t exist</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;config.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1"># GOOD - Check first</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;config.txt&#39;</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;config.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Config file not found!&quot;</span><span class="p">)</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">create_default_config</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="summary-key-concepts">
+<h2>Summary: Key Concepts<a class="headerlink" href="#summary-key-concepts" title="Link to this heading">#</a></h2>
+<p><strong>Scripts:</strong></p>
+<ul class="simple">
+<li><p>Complete programs in <code class="docutils literal notranslate"><span class="pre">.py</span></code> files</p></li>
+<li><p>Run from top to bottom</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">&quot;__main__&quot;:</span></code> for main program</p></li>
+<li><p>Organize: docstring → imports → constants → functions → main</p></li>
+</ul>
+<p><strong>File I/O:</strong></p>
+<ul class="simple">
+<li><p>Always use <code class="docutils literal notranslate"><span class="pre">with</span></code> statement (context manager)</p></li>
+<li><p>Modes: <code class="docutils literal notranslate"><span class="pre">'r'</span></code> (read), <code class="docutils literal notranslate"><span class="pre">'w'</span></code> (write/overwrite), <code class="docutils literal notranslate"><span class="pre">'a'</span></code> (append)</p></li>
+<li><p>Read methods: <code class="docutils literal notranslate"><span class="pre">.read()</span></code>, <code class="docutils literal notranslate"><span class="pre">.readline()</span></code>, <code class="docutils literal notranslate"><span class="pre">.readlines()</span></code>, iterate directly</p></li>
+<li><p>Remember to <code class="docutils literal notranslate"><span class="pre">.strip()</span></code> to remove newlines</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'w'</span></code> mode deletes existing files!</p></li>
+</ul>
+<p><strong>Local File Environment:</strong></p>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">os.getcwd()</span></code> to see where you are</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">os.listdir()</span></code> to see what files exist</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">os.path.exists()</span></code> to check before acting</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">os.path.join()</span></code> to build paths (works on all systems)</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">os.makedirs()</span></code> to create folder structures</p></li>
+</ul>
+<p><strong>Best Practices:</strong></p>
+<ul class="simple">
+<li><p>Always use <code class="docutils literal notranslate"><span class="pre">with</span></code> for files</p></li>
+<li><p>Check if files exist before opening</p></li>
+<li><p>Use relative paths when possible</p></li>
+<li><p>Handle errors gracefully</p></li>
+<li><p>Close files properly (automatic with <code class="docutils literal notranslate"><span class="pre">with</span></code>)</p></li>
+<li><p>Strip whitespace from input lines</p></li>
+<li><p>Use meaningful filenames</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="check-your-understanding">
+<h2>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>What’s the difference between a script and interactive code?</p></li>
+<li><p>Why should you always use the <code class="docutils literal notranslate"><span class="pre">with</span></code> statement when working with files?</p></li>
+<li><p>What happens if you open a file in <code class="docutils literal notranslate"><span class="pre">'w'</span></code> mode when it already exists?</p></li>
+<li><p>How do you check if a file exists before trying to open it?</p></li>
+<li><p>What’s the difference between <code class="docutils literal notranslate"><span class="pre">os.mkdir()</span></code> and <code class="docutils literal notranslate"><span class="pre">os.makedirs()</span></code>?</p></li>
+<li><p>Why is <code class="docutils literal notranslate"><span class="pre">.strip()</span></code> important when reading lines from a file?</p></li>
+<li><p>When would you use <code class="docutils literal notranslate"><span class="pre">'a'</span></code> mode instead of <code class="docutils literal notranslate"><span class="pre">'w'</span></code> mode?</p></li>
+<li><p>Why should you use <code class="docutils literal notranslate"><span class="pre">os.path.join()</span></code> instead of concatenating strings with <code class="docutils literal notranslate"><span class="pre">/</span></code> or <code class="docutils literal notranslate"><span class="pre">\</span></code>?</p></li>
+<li><p>What does <code class="docutils literal notranslate"><span class="pre">os.getcwd()</span></code> tell you?</p></li>
+<li><p>What’s the difference between <code class="docutils literal notranslate"><span class="pre">.read()</span></code> and <code class="docutils literal notranslate"><span class="pre">.readlines()</span></code>?</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Class13.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Class 13: User-Defined Functions, Arguments, and Scope</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Class15.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Class 15: Visualizing Data and Plotting in Python</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-understanding-scripts">Part 1: Understanding Scripts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-script">What is a Script?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-notebooks-to-scripts-what-changes">From Notebooks to Scripts: What Changes?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-scripts">Why Use Scripts?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-if-name-main-pattern">The <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">__name__</span> <span class="pre">==</span> <span class="pre">"__main__":</span></code> Pattern</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#script-structure-best-practices">Script Structure Best Practices</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-file-input-and-output-i-o">Part 2: File Input and Output (I/O)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-work-with-files">Why Work with Files?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-basics-opening-and-closing-files">The Basics: Opening and Closing Files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-with-statement-context-manager">The <code class="docutils literal notranslate"><span class="pre">with</span></code> Statement (Context Manager)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-modes-opening-files-different-ways">File Modes: Opening Files Different Ways</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-files-different-methods">Reading Files: Different Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#method-1-read-everything-at-once">Method 1: Read Everything at Once</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#method-2-read-one-line-at-a-time">Method 2: Read One Line at a Time</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#method-3-read-all-lines-into-a-list">Method 3: Read All Lines into a List</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#method-4-iterate-directly-best-for-large-files">Method 4: Iterate Directly (Best for Large Files)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-files-creating-and-saving-data">Writing Files: Creating and Saving Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-writing">Basic Writing</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-multiple-lines">Writing Multiple Lines</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-to-files">Appending to Files</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#working-with-csv-files">Working with CSV Files</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-csv-files-simple-method">Reading CSV Files (Simple Method)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-csv-files-using-csv-module">Reading CSV Files (Using csv Module)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-csv-files">Writing CSV Files</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-example-temperature-logger">Practical Example: Temperature Logger</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-the-local-file-environment">Part 3: The Local File Environment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-your-computer-s-file-system">Understanding Your Computer’s File System</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-paths-absolute-vs-relative">File Paths: Absolute vs. Relative</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-path-full-address">Absolute Path (Full Address)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-path-from-current-location">Relative Path (From Current Location)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-os-module-working-with-files-and-directories">The <code class="docutils literal notranslate"><span class="pre">os</span></code> Module: Working with Files and Directories</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-out-where-you-are">Finding Out Where You Are</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#listing-files-and-folders">Listing Files and Folders</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-directories">Changing Directories</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-directories">Creating Directories</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-if-files-folders-exist">Checking if Files/Folders Exist</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#building-file-paths-correctly">Building File Paths Correctly</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-example-organizing-experiment-data">Practical Example: Organizing Experiment Data</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-common-patterns-and-best-practices">Part 4: Common Patterns and Best Practices</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pattern-1-reading-data-processing-saving-results">Pattern 1: Reading Data, Processing, Saving Results</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pattern-2-checking-before-acting">Pattern 2: Checking Before Acting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pattern-3-error-handling">Pattern 3: Error Handling</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-common-mistakes-and-how-to-avoid-them">Part 5: Common Mistakes and How to Avoid Them</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-1-forgetting-to-close-files-without-with">Mistake 1: Forgetting to Close Files (Without <code class="docutils literal notranslate"><span class="pre">with</span></code>)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-2-using-w-mode-carelessly">Mistake 2: Using <code class="docutils literal notranslate"><span class="pre">'w'</span></code> Mode Carelessly</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-3-forgetting-to-strip-newlines">Mistake 3: Forgetting to Strip Newlines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-4-hardcoding-paths">Mistake 4: Hardcoding Paths</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-5-not-checking-if-file-exists">Mistake 5: Not Checking if File Exists</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-key-concepts">Summary: Key Concepts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-your-understanding">Check Your Understanding</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Stormy Attaway, Brian DePasquale, Christine Mulvey, Kenn Sebesta
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
