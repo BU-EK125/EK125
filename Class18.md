@@ -10,9 +10,12 @@ A vector can be either a row vector or a column vector. If a vector has n elemen
 
 Here are some diagrams showing, from left to right, a scalar, a column vector, a row vector, and a matrix:
 
+```
 3       5       [8 3 11 9]      [6 3]
         8                       [5 7]
         4
+
+```
 
 - The scalar is 1 × 1
 - The column vector is 3 × 1 (three rows by one column)
