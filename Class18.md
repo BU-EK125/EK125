@@ -11,8 +11,8 @@ A vector can be either a row vector or a column vector. If a vector has n elemen
 Here are some diagrams showing, from left to right, a scalar, a column vector, a row vector, and a matrix:
 
 ```
-3       5       [8 3 11 9]      [6 3]
-        8                       [5 7]
+3       5       [8 3 11 9]      [6 3 8]
+        8                       [5 7 9]
         4
 
 ```
