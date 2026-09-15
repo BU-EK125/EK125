@@ -5,5 +5,5 @@ execute:
 launch_buttons:
   colab_url: "https://colab.research.google.com"
 repository:
-  url: "https://github.com/depasquale-lab/EK125-notebooks"
+  url: "https://github.com/BU-EK125/EK125-notebooks"
   branch: main
