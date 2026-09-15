@@ -119,25 +119,54 @@ Plan worked out (not yet implemented):
   cell that just happens not to raise, or to tweak the sample data so it
   actually reproduces the claimed failure.
 
+## Pilot status: done (2026-09-15)
+
+`Week10A.ipynb` was built (84 cells), executed clean end-to-end, and
+`Week10A.md` deleted. `_config.yml` now has `execute_notebooks: force`,
+`launch_buttons.colab_url`, and `repository.url`/`branch` pointed at
+`https://github.com/depasquale-lab/EK125-notebooks` (branch `main`) — a
+placeholder guess following the original repo's org, confirmed with the
+user; **fix this if the actual repo ends up elsewhere**. A full
+`jupyter-book build .` succeeds (124 warnings, only 1 more than the
+pre-conversion baseline of 123, and that one is unrelated — just
+`HANDOFF.md` not being in a toctree). Verified in the built HTML: the
+Colab launch button links to the right URL, all 6 hidden
+(`remove-cell`-tagged) setup cells are invisible in the rendered page,
+and the 4 `raises-exception`-tagged cells render real `FileNotFoundError`
+tracebacks.
+
+Implementation notes for whoever picks up the rollout:
+- The notebook was built with a script
+  (`nbformat`-based) that sliced `Week10A.md` by exact line ranges for
+  each fenced code block, rather than hand-retyping content — worth
+  reusing/adapting that approach for the other files rather than
+  converting by hand.
+- **Gotcha discovered during the pilot**: executing the notebook writes
+  its demo sample files (`data.txt`, `story.txt`, `output/`, etc.) into
+  whatever the current working directory is — which is the repo root
+  during `jupyter-book build`. These are now explicitly listed in
+  `.gitignore`; delete them after each local build (`git status` should
+  show a clean tree with nothing untracked besides `_build/`/`.venv/`).
+  Future per-file conversions will need the same treatment (identify the
+  demo filenames that file's execution creates, gitignore them too).
+- One content-accuracy question was surfaced and resolved with the user:
+  section 12's "WRONG: not stripping whitespace" example doesn't actually
+  raise when executed (Python's `int()` strips `\n`). Per the user's
+  choice, the sample `numbers.txt` was left clean/natural and the demo
+  just runs successfully rather than being rigged to fail — the prose
+  claim is technically inaccurate but was left untouched.
+- A second, smaller instance of the same accuracy issue turned up beyond
+  the original plan: Appendix A's "How to open" binary-file example opens
+  `image.jpg`, which (like `photo.jpg` in the adjacent "WRONG" example)
+  is never created anywhere in the doc. Tagged it `raises-exception` for
+  consistency with the `photo.jpg` cell rather than raising it as a
+  separate question, since it's the same kind of fix already decided.
+
 ## Not yet done
 
-- Actually build `Week10A.ipynb` from the plan above (nbformat script was
-  about to be written when the pivot to this new repo/handoff happened).
-- Execute the notebook and iterate until it runs clean end to end.
-- Delete the old `Week10A.md` (JupyterBook resolves `_toc.yml`'s
-  `file: Week10A` entry to whichever extension exists — can't have both).
-- Update `_config.yml`:
-  - `execute.execute_notebooks: force`
-  - add `launch_buttons.colab_url: "https://colab.research.google.com"`
-  - add `repository.url` / `repository.branch` — **note**: this should
-    eventually point at wherever `EK125-notebooks` gets pushed on GitHub
-    (not the original `EK125` remote, `https://github.com/depasquale-lab/EK125.git`),
-    since Colab links are built from that repository URL. Needs the actual
-    new repo URL once the user creates/pushes it.
-- Add a `.gitignore` for `.venv/` and `_build/`.
-- Rebuild the full site and manually verify: the launch/Colab button appears
-  on the Week10A page, the notebook's outputs render as real executed output
-  (not static text), and no other pages regressed.
+- Push `EK125-notebooks` to GitHub (user said they'll do this themselves)
+  and confirm the `repository.url` guess in `_config.yml` above is
+  correct once that exists.
 - Decide, based on how the pilot goes, whether/how to roll the same treatment
   out to the other ~24 `Week*.md` files (this was intentionally deferred
   until the pilot proves out).
