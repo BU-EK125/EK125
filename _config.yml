@@ -7,3 +7,7 @@ launch_buttons:
 repository:
   url: "https://github.com/BU-EK125/EK125-notebooks"
   branch: main
+sphinx:
+  config:
+    html_static_path: ["_static"]
+    html_css_files: ["custom.css"]

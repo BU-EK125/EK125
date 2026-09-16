@@ -1,0 +1,14 @@
+/* Make GPP (Group Practice Problem) links stand out from readings in the
+   sidebar navigation, without changing their level/indentation. Matched by
+   filename suffix, not path: from a page already inside gpp/, sibling
+   links are same-directory relative (e.g. "Class_2_GPP.html", no "gpp/"
+   segment at all), so a path-based selector would miss those. */
+.bd-sidenav a[href*="_GPP.html"] {
+  font-style: italic;
+  color: var(--pst-color-secondary);
+}
+
+.bd-sidenav a[href*="_GPP.html"]::before {
+  content: "📝 ";
+  font-style: normal;
+}
