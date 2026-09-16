@@ -2,17 +2,26 @@ format: jb-book
 root: intro
 chapters:
   - file: class/Class1
+  - file: gpp/Class_1_GPP
   - file: class/Class2
+  - file: gpp/Class_2_GPP
   - file: class/Class3
+  - file: gpp/Class_3_GPP
   - file: class/Class4
   - file: gpp/Class_4_GPP
   - file: class/Class5
+  - file: gpp/Class_5_GPP
   - file: class/Class6
+  - file: gpp/Class_6_GPP
   - file: class/Class7
+  - file: gpp/Class_7_GPP
   - file: class/Class9
+  - file: gpp/Class_9_GPP
   - file: class/Class10
   - file: class/Class11
+  - file: gpp/Class_11_GPP
   - file: class/Class12
+  - file: gpp/Class_12_GPP
   - file: class/Class13
   - file: class/Class14
   - file: class/Class15
