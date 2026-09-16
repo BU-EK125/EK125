@@ -2,42 +2,62 @@ format: jb-book
 root: intro
 chapters:
   - file: class/Class1
-  - file: gpp/Class_1_GPP
+    sections:
+      - file: gpp/Class_1_GPP
   - file: class/Class2
-  - file: gpp/Class_2_GPP
+    sections:
+      - file: gpp/Class_2_GPP
   - file: class/Class3
-  - file: gpp/Class_3_GPP
+    sections:
+      - file: gpp/Class_3_GPP
   - file: class/Class4
-  - file: gpp/Class_4_GPP
+    sections:
+      - file: gpp/Class_4_GPP
   - file: class/Class5
-  - file: gpp/Class_5_GPP
+    sections:
+      - file: gpp/Class_5_GPP
   - file: class/Class6
-  - file: gpp/Class_6_GPP
+    sections:
+      - file: gpp/Class_6_GPP
   - file: class/Class7
-  - file: gpp/Class_7_GPP
+    sections:
+      - file: gpp/Class_7_GPP
   - file: class/Class9
-  - file: gpp/Class_9_GPP
+    sections:
+      - file: gpp/Class_9_GPP
   - file: class/Class10
-  - file: gpp/Class_10_GPP
+    sections:
+      - file: gpp/Class_10_GPP
   - file: class/Class11
-  - file: gpp/Class_11_GPP
+    sections:
+      - file: gpp/Class_11_GPP
   - file: class/Class12
-  - file: gpp/Class_12_GPP
+    sections:
+      - file: gpp/Class_12_GPP
   - file: class/Class13
-  - file: gpp/Class_13_GPP
+    sections:
+      - file: gpp/Class_13_GPP
   - file: class/Class14
-  - file: gpp/Class_14_GPP
+    sections:
+      - file: gpp/Class_14_GPP
   - file: class/Class15
-  - file: gpp/Class_15_GPP
+    sections:
+      - file: gpp/Class_15_GPP
   - file: class/Class16
-  - file: gpp/Class_16_GPP
+    sections:
+      - file: gpp/Class_16_GPP
   - file: class/Class18
-  - file: gpp/Class_18_GPP
+    sections:
+      - file: gpp/Class_18_GPP
   - file: class/Class19
-  - file: gpp/Class_19_GPP
+    sections:
+      - file: gpp/Class_19_GPP
   - file: class/Class20
-  - file: gpp/Class_20_GPP
+    sections:
+      - file: gpp/Class_20_GPP
   - file: class/Class21
-  - file: gpp/Class_21_GPP
+    sections:
+      - file: gpp/Class_21_GPP
   - file: class/Class22
-  - file: gpp/Class_22_GPP
+    sections:
+      - file: gpp/Class_22_GPP

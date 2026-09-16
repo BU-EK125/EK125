@@ -3,25 +3,28 @@
 This is the interactive companion to EK125's readings — the same material
 your instructors wrote, except every code example here actually runs. Each
 page is a real Jupyter notebook: the code executes when the book is built,
-so if an example is broken, we find out before you do. Click the 🚀 rocket
-icon at the top of any page to open it directly in
-[Google Colab](https://colab.research.google.com) and start experimenting
-with the code yourself — change a value, break something, see what
-happens.
+so if an example is broken, we find out before you do.
+
+Look for the 🚀 rocket icon in the top-right corner of the page (next to
+the download button) — click it, then **Colab**, and the exact page
+you're reading opens directly in
+[Google Colab](https://colab.research.google.com) so you can start
+experimenting with the code yourself: change a value, break something, see
+what happens.
 
 ## How this book is organized
 
 The sidebar walks through the course roughly in the order you'll hit it in
-class. Each class has up to two pages:
+class. Each class has up to two pages, nested together and marked with
+different icons so they're easy to tell apart at a glance:
 
-- **The reading** (e.g. *Class 4: Coding Basics Wrap-up and Selection
-  Statements*) — the preread or in-class material, with runnable examples.
-- **The GPP** 📝 (e.g. *Class 4 GPP*) — that day's Group Practice Problems,
-  marked with an icon so it's easy to tell apart from the reading itself.
-  Some GPPs are notebooks you work through cell by cell; a few are meant to
-  be downloaded and run as a standalone script in PyCharm or VS Code once
-  the course moves off Colab — those pages say so explicitly and give you
-  a direct download link.
+- **📖 The reading** (e.g. *Class 4: Coding Basics Wrap-up and Selection
+  Statements*) — the in-class material, with runnable examples.
+- **📝 The GPP**, indented underneath it (e.g. *Class 4 GPP*) — that day's
+  Group Practice Problems. Some GPPs are notebooks you work through cell
+  by cell; a few are meant to be downloaded and run as a standalone script
+  in PyCharm or VS Code once the course moves off Colab — those pages say
+  so explicitly and give you a direct download link.
 
 Not every class has both pages (some classes don't have a GPP, and a
 couple of GPPs are just links out to an external MathWorks tutorial), but

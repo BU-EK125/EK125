@@ -1,14 +1,20 @@
-/* Make GPP (Group Practice Problem) links stand out from readings in the
-   sidebar navigation, without changing their level/indentation. Matched by
-   filename suffix, not path: from a page already inside gpp/, sibling
-   links are same-directory relative (e.g. "Class_2_GPP.html", no "gpp/"
-   segment at all), so a path-based selector would miss those. */
-.bd-sidenav a[href*="_GPP.html"] {
+/* Distinguish readings from GPPs (Group Practice Problems) in the sidebar
+   nav. GPPs are nested one level under their reading in _toc.yml, so they
+   land on distinct, robust structural classes (toctree-l1 = reading,
+   toctree-l2 = GPP) rather than needing to pattern-match hrefs/filenames.
+   Scoped to ul.bd-sidenav.current (the actual chapter list) rather than
+   the bare .bd-sidenav class, which also matches the separate "Welcome to
+   EK125" home-link container -- that one shouldn't get a reading icon. */
+ul.bd-sidenav.current li.toctree-l1 > a::before {
+  content: "📖 ";
+}
+
+ul.bd-sidenav.current li.toctree-l2 > a {
   font-style: italic;
   color: var(--pst-color-secondary);
 }
 
-.bd-sidenav a[href*="_GPP.html"]::before {
+ul.bd-sidenav.current li.toctree-l2 > a::before {
   content: "📝 ";
   font-style: normal;
 }

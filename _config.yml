@@ -8,6 +8,9 @@ repository:
   url: "https://github.com/BU-EK125/EK125-notebooks"
   branch: main
 sphinx:
+  recursive_update: true
   config:
     html_static_path: ["_static"]
     html_css_files: ["custom.css"]
+    html_theme_options:
+      show_navbar_depth: 2
