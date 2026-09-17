@@ -2,3 +2,8 @@ title: "EK125"
 author: "Stormy Attaway, Brian DePasquale, Christine Mulvey, Kenn Sebesta"
 execute:
   execute_notebooks: "off"
+launch_buttons:
+  colab_url: "https://colab.research.google.com"
+repository:
+  url: "https://github.com/depasquale-lab/EK125"
+  branch: main

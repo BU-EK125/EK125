@@ -6,6 +6,8 @@ chapters:
   - file: Class3
   - file: Class4
   - file: Class5
+    sections:
+      - file: gpps/Class5_GPP
   - file: Class6
   - file: Class7
   - file: Class9
