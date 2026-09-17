@@ -7,3 +7,6 @@ launch_buttons:
 repository:
   url: "https://github.com/depasquale-lab/EK125"
   branch: main
+
+# Superseded pages kept for reference, not part of the built book.
+exclude_patterns: ["archive/*"]
