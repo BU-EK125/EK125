@@ -2,6 +2,11 @@ title: "EK125"
 author: "Stormy Attaway, Brian DePasquale, Christine Mulvey, Kenn Sebesta"
 execute:
   execute_notebooks: "off"
+launch_buttons:
+  colab_url: "https://colab.research.google.com"
+repository:
+  url: "https://github.com/BU-EK125/EK125"
+  branch: main
 
 # Superseded/orphaned pages kept for reference, not part of the built book.
 exclude_patterns: ["archive/*", "archive/**/*"]

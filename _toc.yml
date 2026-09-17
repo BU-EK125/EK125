@@ -7,7 +7,9 @@ parts:
       - file: class/Class2
       - file: class/Class3
       - file: class/Class4
-      - file: Class5
+      - file: class/Class5
+        sections:
+          - file: gpps/Class5_GPP
       - file: class/Class6
       - file: class/Class7
       - file: class/Class9
