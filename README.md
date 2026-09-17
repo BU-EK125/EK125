@@ -1,5 +1,7 @@
 ## For instructors: How to modify this jupyter book
 
+This site is student-facing and permanent -- it stays up and publicly accessible indefinitely, not just for the current semester. Only add readings, lecture notes, GPPs (Group Practice Problems), and GPP solutions here. Do not add quizzes, tests/exams, homework, or IPPs (Individual Practice Problems) -- that material belongs on Blackboard or wherever your course keeps assessment content, not in this public repository. Even a page left out of `_toc.yml` still gets built to a public, directly-reachable URL, so "not linked from the sidebar" is not a safe way to keep something private -- if it shouldn't be public, don't add it here at all.
+
 Most class pages are plain markdown files (`ClassN.md`); a few (like Class 5) are executable Jupyter notebooks (`ClassN.ipynb`) with real, runnable code and their output already baked in.
 
 **To add or modify a reading:**
