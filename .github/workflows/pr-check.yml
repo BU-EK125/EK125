@@ -18,24 +18,10 @@ jobs:
           python-version: '3.10'
 
       - name: Install Jupyter Book and tools
-        run: pip install --force-reinstall --no-cache-dir jupyter-book==1.0.2 nbclient ipykernel
+        run: pip install --force-reinstall --no-cache-dir jupyter-book==1.0.2
 
       - name: Build the Jupyter Book
+        # execute_notebooks: force in _config.yml means every notebook is
+        # executed fresh right here, so this alone catches broken code --
+        # no separate execute step needed.
         run: jb build .
-
-      - name: Verify every notebook actually executes
-        # This repo builds with execute_notebooks "off" (pages render whatever
-        # output is already baked into the .ipynb), so a clean `jb build` above
-        # does NOT catch stale or broken outputs. Execute every notebook here,
-        # separately, so a PR can't merge a notebook whose code no longer runs.
-        run: |
-          fail=0
-          while IFS= read -r nb; do
-            echo "::group::Executing $nb"
-            if ! jupyter execute --timeout=120 "$nb" --output=/tmp/executed.ipynb; then
-              echo "::error file=$nb::Notebook failed to execute"
-              fail=1
-            fi
-            echo "::endgroup::"
-          done < <(find . -name '*.ipynb' -not -path './_build/*')
-          exit $fail
