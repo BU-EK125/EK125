@@ -3,25 +3,25 @@ root: intro
 parts:
   - caption: Python
     chapters:
-      - file: Class1
-      - file: Class2
-      - file: Class3
-      - file: Class4
+      - file: class/Class1
+      - file: class/Class2
+      - file: class/Class3
+      - file: class/Class4
       - file: Class5
-      - file: Class6
-      - file: Class7
-      - file: Class9
-      - file: Class10
-      - file: Class11
-      - file: Class12
-      - file: Class13
-      - file: Class14
-      - file: Class15
+      - file: class/Class6
+      - file: class/Class7
+      - file: class/Class9
+      - file: class/Class10
+      - file: class/Class11
+      - file: class/Class12
+      - file: class/Class13
+      - file: class/Class14
+      - file: class/Class15
   - caption: MATLAB
     chapters:
-      - file: Class16
-      - file: Class18
-      - file: Class19
-      - file: Class20
-      - file: Class21
-      - file: Class22
+      - file: class/Class16
+      - file: class/Class18
+      - file: class/Class19
+      - file: class/Class20
+      - file: class/Class21
+      - file: class/Class22
