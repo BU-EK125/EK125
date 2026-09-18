@@ -317,8 +317,6 @@ title('Histogram')
 
 ---
 
----
-
 ## MATLAB Documentation: Your Best Resource
 
 One of the biggest advantages of MATLAB is its exceptional documentation. As you learn MATLAB, you'll frequently reference the documentation for built-in functions. Below are summaries of the key functions we'll use in class, followed by links to the full documentation pages.

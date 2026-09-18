@@ -2,3 +2,6 @@ title: "EK125"
 author: "Stormy Attaway, Brian DePasquale, Christine Mulvey, Kenn Sebesta"
 execute:
   execute_notebooks: "off"
+
+# Superseded/orphaned pages kept for reference, not part of the built book.
+exclude_patterns: ["archive/*", "archive/**/*"]

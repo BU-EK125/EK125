@@ -246,6 +246,8 @@ imwrite(colorImg, 'output.jpg', 'Quality', 95);
 
 `.mat` files are MATLAB's native format and the most efficient way to save workspace data.
 
+### MAT Files - Best for MATLAB-to-MATLAB Reuse
+
 #### Advantages of .mat Files
 - Fast to read and write
 - Preserves variable names and data types
