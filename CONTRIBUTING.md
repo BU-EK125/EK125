@@ -44,6 +44,12 @@ git checkout -b fix-class7-typo
 
 Open the file in whatever editor you like (VS Code, Notepad, even TextEdit) and make your change. Readings live in `class/ClassN.md`, GPPs live in `gpps/`. If you're adding a brand-new page rather than editing an existing one, see the "Adding a new page" section in the [README](README.md) -- you'll also need to add one line to `_toc.yml`.
 
+**Want students to be able to click the 🚀 rocket icon and open your page in Colab?** That icon only shows up on `.ipynb` (Jupyter notebook) pages -- never on plain `.md` pages. So:
+- Write it as a notebook (`ClassN.ipynb` or `gpps/ClassN_GPP.ipynb`), not markdown. Look at Class 5's reading/GPP as a template -- explanations go in markdown cells, real runnable code goes in code cells.
+- Run every cell yourself (in Jupyter or Colab) before saving. This repo doesn't re-run notebooks when it builds the static site, so whatever output is baked into the file at save time is exactly what shows up for a non-Colab visitor.
+- The rocket button only works once your file is merged into `main` at its final path -- it links directly to that file on GitHub, so it 404s for anyone who clicks it while your change is still sitting in an unmerged PR.
+- Everything else (the launch button itself, linking to Colab) is already configured for the whole site -- you don't need to touch any settings, just get the `.ipynb` merged in the right place.
+
 Save the file when you're done.
 
 ### 4. Save your change to git ("commit") and upload it ("push")
