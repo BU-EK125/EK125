@@ -2,10 +2,10 @@
 
 This site is student-facing and permanent -- it stays up and publicly accessible indefinitely, not just for the current semester. Only add readings, lecture notes, GPPs (Group Practice Problems), and GPP solutions here. Do not add quizzes, tests/exams, homework, or IPPs (Individual Practice Problems) -- that material belongs on Blackboard or wherever your course keeps assessment content, not in this public repository. Even a page left out of `_toc.yml` still gets built to a public, directly-reachable URL, so "not linked from the sidebar" is not a safe way to keep something private -- if it shouldn't be public, don't add it here at all.
 
-Most class pages are plain markdown files (`ClassN.md`); a few (like Class 5) are executable Jupyter notebooks (`ClassN.ipynb`) with real, runnable code and their output already baked in.
+Most class pages are plain markdown files (`ClassN.md`); a few (like Classes 1 and 5) are executable Jupyter notebooks (`ClassN.ipynb`) with real, runnable code and their output already baked in.
 
 **Want the 🚀 "open in Colab" rocket icon on a page?** It only appears on pages that are actual Jupyter notebooks (`.ipynb`) -- a plain markdown page (`.md`) never gets it, no matter what's in it. To make a reading or GPP Colab-openable:
-1. Author it as a `.ipynb` file, not `.md` (see Class 5's reading and GPP for the pattern -- explanatory text in markdown cells, real code in code cells).
+1. Author it as a `.ipynb` file, not `.md` (see Class 1 or Class 5's reading for the pattern -- explanatory text in markdown cells, real code in code cells).
 2. Run it top to bottom yourself and save it with real outputs baked in (see point 1 below -- this repo doesn't execute notebooks at build time, so whatever's saved is what students see on the static page).
 3. Merge it to `main` at the exact path referenced in `_toc.yml`. The rocket button links straight to that file on GitHub's `main` branch, so it won't work from a branch that's still only in an open PR -- it 404s until merged.
 4. No extra config needed beyond that -- `launch_buttons`/`repository` are already set up in `_config.yml` for the whole book, so any `.ipynb` page automatically gets the rocket icon once it's live on `main`.
