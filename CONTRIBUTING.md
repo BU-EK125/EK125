@@ -44,9 +44,12 @@ git checkout -b fix-class7-typo
 
 Open the file in whatever editor you like (VS Code, Notepad, even TextEdit) and make your change. Readings live in `class/ClassN.md`, GPPs live in `gpps/`. If you're adding a brand-new page rather than editing an existing one, see the "Adding a new page" section in the [README](README.md) -- you'll also need to add one line to `_toc.yml`.
 
+If you're editing a notebook (`.ipynb`), just write real, working code in the code cells -- there's no separate "run it and save the outputs" step. The site executes every notebook itself, fresh, every time it builds, so whatever your code actually produces is exactly what gets published. All that matters is that it runs without erroring -- if it doesn't, step 6 below will catch it before your change can merge.
+
+**Want a cell to intentionally raise an error** -- e.g. to show students what a bug or a real error message looks like? Tag that cell `raises-exception`, otherwise the build treats the error as broken code and fails. In Jupyter/JupyterLab: View → Cell Toolbar → Tags, then type `raises-exception` in the tag box that appears at the top of the cell. Class 1's `del x; print(x)` cell does exactly this, if you want a working example to copy.
+
 **Want students to be able to click the 🚀 rocket icon and open your page in Colab?** That icon only shows up on `.ipynb` (Jupyter notebook) pages -- never on plain `.md` pages. So:
-- Write it as a notebook (`ClassN.ipynb` or `gpps/ClassN_GPP.ipynb`), not markdown. Look at Class 5's reading/GPP as a template -- explanations go in markdown cells, real runnable code goes in code cells.
-- Run every cell yourself (in Jupyter or Colab) before saving. This repo doesn't re-run notebooks when it builds the static site, so whatever output is baked into the file at save time is exactly what shows up for a non-Colab visitor.
+- Write it as a notebook (`ClassN.ipynb` or `gpps/ClassN_GPP.ipynb`), not markdown. Look at Class 1 or Class 5's reading as a template -- explanations go in markdown cells, real runnable code goes in code cells.
 - The rocket button only works once your file is merged into `main` at its final path -- it links directly to that file on GitHub, so it 404s for anyone who clicks it while your change is still sitting in an unmerged PR.
 - Everything else (the launch button itself, linking to Colab) is already configured for the whole site -- you don't need to touch any settings, just get the `.ipynb` merged in the right place.
 
@@ -75,7 +78,7 @@ Open that link in your browser (or go to the repo on github.com -- it'll show a 
 
 ### 6. Wait for the automatic check, then merge
 
-Every PR automatically runs a check called `pr-check` that rebuilds the whole site and (for notebooks) makes sure the code actually runs. You'll see a status at the bottom of the PR page:
+Every PR automatically runs a check called `pr-check` that rebuilds the whole site -- since that build executes every notebook, this is also where a broken notebook gets caught. You'll see a status at the bottom of the PR page:
 - 🟡 Yellow = still running, wait a few minutes.
 - ✅ Green = passed. Click **Merge pull request**.
 - ❌ Red = something's broken. Click "Details" next to the check to see what failed, fix it (edit the file, then repeat step 4 to push another commit to the same branch -- no need to open a new PR), and it'll re-run automatically.
@@ -100,7 +103,7 @@ git push -u origin my-branch-name
 
 - **"Permission denied" / "403" when pushing:** you're probably not yet added as a collaborator on the repo (see step 3 of setup), or you're not signed into git with the right GitHub account. Try `git config --global user.email` to check which email git thinks you are.
 - **"Your branch is behind" or a merge conflict:** someone else's change landed on `main` before yours. Run `git checkout main && git pull`, then from your branch run `git merge main` and resolve any conflicts it flags (or just ask for help -- conflicts are the one part of git that's genuinely easier with a second pair of eyes).
-- **You edited a notebook (`.ipynb`) and the check failed:** this repo does not run notebooks when it builds the site -- whatever output is saved in the file is exactly what students see. Run your notebook top-to-bottom yourself (in Jupyter or Colab) before saving/pushing, so the outputs baked into the file are current.
+- **You edited a notebook (`.ipynb`) and the check failed:** the site executes the whole notebook when it builds, so this almost always means a cell errors out. Open the "Details" link on the failed check to see which cell and why, fix the code, and push again.
 - **Not sure if your change is safe to make directly, or you'd like someone to look before it goes live:** that's exactly what the pull request is for -- it doesn't touch the live site until someone clicks "Merge." Feel free to open it and ask a question in the PR description rather than merging right away.
 
 🤖 Generated with [Claude Code](https://claude.com/claude-code)
