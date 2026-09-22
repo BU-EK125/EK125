@@ -9,6 +9,7 @@ repository:
   branch: main
 
 # Superseded/orphaned pages kept for reference, not part of the built book.
-# README.md and CONTRIBUTING.md are repo/instructor documentation, not
-# student-facing content, so they're excluded from the public site too.
-exclude_patterns: ["archive/*", "archive/**/*", "README.md", "CONTRIBUTING.md"]
+# README.md, CONTRIBUTING.md, and CONVENTIONS.md are repo/instructor
+# documentation, not student-facing content, so they're excluded from the
+# public site too.
+exclude_patterns: ["archive/*", "archive/**/*", "README.md", "CONTRIBUTING.md", "CONVENTIONS.md"]
