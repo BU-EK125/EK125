@@ -456,6 +456,7 @@ That's it!
 </ul>
 <p>The second loop, that loops over the characters, is called the inner loop. The action of the inner loop is a single <code class="docutils literal notranslate"><span class="pre">print</span></code> statement. After the nested loop, there is another <code class="docutils literal notranslate"><span class="pre">print</span></code> statement to print “That’s it!”. The outer loop iterates over the words in the list. For each word, the inner loop iterates over the characters in that word.</p>
 <p>So, the first time in the outer loop the variable myword will store ‘hello’. The inner loop variable will then iterate through all of the characters in the variable <code class="docutils literal notranslate"><span class="pre">myword</span></code>, and for each it will print the character and then a space (all on the same line). After the inner loop has completed, the <code class="docutils literal notranslate"><span class="pre">print()</span></code> statement will print a newline character, and that is it for the action of the outer loop. Once this action has completed, the variable <code class="docutils literal notranslate"><span class="pre">myword</span></code> will store the second string in the list, “hi”. The inner loop will then iterate through all of its characters and print each one followed by a space. After both characters have been printed, the <code class="docutils literal notranslate"><span class="pre">print()</span></code> moves the cursor down to the next line. Finally, myword gets the value ‘ciao’, and the inner loop prints all of its characters on one line and then a newline at the end. Once the variable myword has iterated through all 3 words in the list, the outer loop is done so the code prints “That’s it!” after the nested loop has completed.</p>
+<p>You’ll practice this exact pattern in today’s GPP – see <a class="reference external" href="https://BU-EK125.github.io/EK125/gpps/Class6_GPP.html#problem-5-printing-characters-from-strings-with-separators">Problem 5</a>.</p>
 <p>The following is an example of a nested loop, in which the outer loop repeats 3 times. Each time the action is executed, the next integer (0 then 1 then 2) is printed, followed by a colon and a space. The inner loop then prints, 5 times, a single ‘*’. The second argument, end=’’, keeps all of the *’s on the same line and does not print anything between them. The <code class="docutils literal notranslate"><span class="pre">print()</span></code> after the inner loop prints the newline character by default, so each of the 3 actions from the outer loop is on a separate line.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -534,6 +535,7 @@ That's it!
 <span class="mi">3</span><span class="p">:</span> <span class="o">***</span>
 </pre></div>
 </div>
+<p>You’ll practice this exact pattern in today’s GPP – see <a class="reference external" href="https://BU-EK125.github.io/EK125/gpps/Class6_GPP.html#problem-2-formatted-output-with-nested-loops">Problem 2</a> and <a class="reference external" href="https://BU-EK125.github.io/EK125/gpps/Class6_GPP.html#problem-7-triangle-of-stars">Problem 7</a>.</p>
 <p>These were examples of nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops. Nested loops can also contain <code class="docutils literal notranslate"><span class="pre">while</span></code> loops.
 For example, let’s say we want the user to enter 3 positive numbers. That means we will use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop to repeat the action 3 times. Each time, we will error-check using a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop to make sure that each time a positive number is entered. The algorithm is:</p>
 <ul class="simple">
@@ -658,6 +660,7 @@ Running total: 22.0
 Reached the target! Final total: 22.0
 </pre></div>
 </div>
+<p>Today’s GPP <a class="reference external" href="https://BU-EK125.github.io/EK125/gpps/Class6_GPP.html#problem-6-nested-while-and-for-loops">Problem 6</a> builds on this “keep going while valid input keeps coming” idea.</p>
 </section>
 </section>
 <section id="using-if-inside-a-loop">
@@ -770,7 +773,7 @@ Reached the target! Final total: 22.0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
 </pre></div>
 </div>
 </div>
@@ -890,6 +893,7 @@ Roll 5: 5
 </pre></div>
 </div>
 <p><strong>Important:</strong> If you want different random numbers each time you run your program for an actual application (not testing), simply don’t set a seed!</p>
+<p>You’ll extend this into a nested loop in today’s GPP – see <a class="reference external" href="https://BU-EK125.github.io/EK125/gpps/Class6_GPP.html#problem-8-simulating-multiple-trials-with-random-numbers">Problem 8</a>.</p>
 </section>
 <section id="when-to-use-seeds">
 <h3>When to Use Seeds<a class="headerlink" href="#when-to-use-seeds" title="Link to this heading">#</a></h3>
