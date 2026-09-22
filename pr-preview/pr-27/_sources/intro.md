@@ -1,6 +1,6 @@
 # Welcome to EK125
 
-This is the companion site to EK125's in-class readings and Group Practice Problems (GPPs) -- the material your instructors wrote, organized by class and kept up to date as the course goes on.
+This site collects EK125's in-class readings and Group Practice Problems (GPPs) -- the material your instructors wrote, organized by class and kept up to date as the course goes on.
 
 ## How this book is organized
 
