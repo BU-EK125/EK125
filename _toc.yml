@@ -29,3 +29,6 @@ parts:
       - file: class/Class20
       - file: class/Class21
       - file: class/Class22
+  - caption: Appendix
+    chapters:
+      - file: appendix/Syllabus
