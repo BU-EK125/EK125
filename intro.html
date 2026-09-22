@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Introduction to this jupyter book: HTML rendered mardown files for EK125 Pre-readings &#8212; EK125</title>
+    <title>Welcome to EK125 &#8212; EK125</title>
   
   
   
@@ -170,7 +170,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Introduction to this jupyter book: HTML rendered mardown files for EK125 Pre-readings
+                    Welcome to EK125
                 </a>
             </li>
         </ul>
@@ -207,6 +207,10 @@
 <li class="toctree-l1"><a class="reference internal" href="class/Class20.html">Class 20: MATLAB Scripts, Documentation, and File I/O</a></li>
 <li class="toctree-l1"><a class="reference internal" href="class/Class21.html">Class 21: User Functions and Modular Programming in MATLAB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="class/Class22.html">Class 22: Useful MATLAB Toolboxes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="appendix/Syllabus.html">Course Syllabus</a></li>
 </ul>
 
     </div>
@@ -345,7 +349,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introduction to this jupyter book: HTML rendered mardown files for EK125 Pre-readings</h1>
+    <h1>Welcome to EK125</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -355,7 +359,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-this-book-is-organized">How this book is organized</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-ll-actually-learn">What you’ll actually learn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-tip">A tip</a></li>
 </ul>
             </nav>
         </div>
@@ -367,31 +373,40 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-this-jupyter-book-html-rendered-mardown-files-for-ek125-pre-readings">
-<h1>Introduction to this <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">book</span></code>: HTML rendered mardown files for EK125 Pre-readings<a class="headerlink" href="#introduction-to-this-jupyter-book-html-rendered-mardown-files-for-ek125-pre-readings" title="Link to this heading">#</a></h1>
-<ul class="simple">
-<li><p>Each class reading will be a chapeter, labeled e.g., Week2A for the first (Monday) class meeting on week 2.</p></li>
-<li><p>It will update cumulatively as the course goes on.</p></li>
-<li><p>You can use the ‘search’ function to identify content from previous lectures.</p></li>
-<li><p><strong>Classes 1, 5, and 6</strong> are available as interactive, runnable notebooks — the same readings, except every code example actually executes, so if something’s broken, we find out before you do. Look for the 🚀 rocket icon in the top-right corner of the page (next to the download button); click it, then <strong>Colab</strong>, and the page opens directly in <a class="reference external" href="https://colab.research.google.com">Google Colab</a> so you can experiment with the code yourself: change a value, break something, see what happens. Their Group Practice Problems are nested underneath each one in the sidebar.</p></li>
-</ul>
+  <section class="tex2jax_ignore mathjax_ignore" id="welcome-to-ek125">
+<h1>Welcome to EK125<a class="headerlink" href="#welcome-to-ek125" title="Link to this heading">#</a></h1>
+<p>This site collects EK125’s in-class readings and Group Practice Problems (GPPs) – the material your instructors wrote, organized by class and kept up to date as the course goes on.</p>
+<section id="how-this-book-is-organized">
+<h2>How this book is organized<a class="headerlink" href="#how-this-book-is-organized" title="Link to this heading">#</a></h2>
+<p>The sidebar is organized into parts matching the course’s acts (see below): Python, then MATLAB. Each class gets its own page, numbered <code class="docutils literal notranslate"><span class="pre">Class</span> <span class="pre">1</span></code> through <code class="docutils literal notranslate"><span class="pre">Class</span> <span class="pre">22</span></code> (aside from a couple of numbers the course doesn’t use).</p>
+<p>Most readings are plain pages. A few – currently <strong>Classes 1, 5, and 6</strong> – are interactive Jupyter notebooks: every code example actually runs when the site is built, so if something’s broken, we find out before you do. Look for the 🚀 rocket icon in the top-right corner of the page (next to the download button); click it, then <strong>Colab</strong>, and the page opens directly in <a class="reference external" href="https://colab.research.google.com">Google Colab</a> so you can experiment with the code yourself: change a value, break something, see what happens. When a class has a Group Practice Problem, it’s nested right underneath that class’s reading in the sidebar.</p>
+<p>There’s also an appendix with the course syllabus.</p>
+</section>
 <section id="what-you-ll-actually-learn">
 <h2>What you’ll actually learn<a class="headerlink" href="#what-you-ll-actually-learn" title="Link to this heading">#</a></h2>
-<p>The course has two acts.</p>
-<p><strong>Act 1 is Python</strong>, and it builds in the order you’d expect: variables
-and types, then strings and lists, booleans and conditionals, loops
-(plain and nested), and by around Class 9 you’ll graduate from Colab to
-running Python locally in PyCharm. From there it’s slicing and NumPy
-arrays, dictionaries, writing your own functions, and finally file I/O
-and data visualization — the tools you need to actually <em>do</em> something
+<p>The course has three acts.</p>
+<p><strong>Act 1 is Python in Colab</strong>: variables and types, then strings and
+lists, booleans and conditionals, and loops (plain and nested) — all
+in the browser, no local setup required.</p>
+<p><strong>Act 2 is Python in an IDE.</strong> Around Class 9 you’ll graduate from
+Colab to running Python locally in PyCharm (see the course lectures
+for that transition). From there it’s slicing and NumPy arrays,
+dictionaries, writing your own functions, and finally file I/O and
+data visualization — the tools you need to actually <em>do</em> something
 with data, not just print it.</p>
-<p><strong>Act 2 is MATLAB.</strong> Class 16 is the bridge: a Python-to-MATLAB Rosetta
-Stone covering syntax differences and plotting. From there the course
-covers vectors and matrices, scripts and documentation, user-defined
-functions, and a tour of MATLAB’s toolboxes — the same engineering
-problem-solving skills from Act 1, in the language you’ll actually meet
-in most other engineering courses.</p>
+<p><strong>Act 3 is MATLAB.</strong> Class 16 is the bridge: a Python-to-MATLAB
+Rosetta Stone covering syntax differences and plotting. From there
+the course covers vectors and matrices, scripts and documentation,
+user-defined functions, and a tour of MATLAB’s toolboxes — the same
+engineering problem-solving skills from Acts 1 and 2, in the language
+you’ll actually meet in most other engineering courses.</p>
 </section>
+<section id="a-tip">
+<h2>A tip<a class="headerlink" href="#a-tip" title="Link to this heading">#</a></h2>
+<p>Use the search bar in the top navigation to find something from a previous class – it searches the full text of every reading and GPP, so if you remember a function name or a concept but not which class covered it, that’s the fastest way back to it.</p>
+</section>
+<div class="toctree-wrapper compound">
+</div>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -453,7 +468,9 @@ in most other engineering courses.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-this-book-is-organized">How this book is organized</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-you-ll-actually-learn">What you’ll actually learn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-tip">A tip</a></li>
 </ul>
   </nav></div>
 
