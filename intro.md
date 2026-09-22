@@ -3,7 +3,7 @@
 - Each class reading will be a chapeter, labeled e.g., Week2A for the first (Monday) class meeting on week 2.
 - It will update cumulatively as the course goes on.
 - You can use the 'search' function to identify content from previous lectures.
-- **Classes 1 and 5** are available as interactive, runnable notebooks — the same readings, except every code example actually executes, so if something's broken, we find out before you do. Look for the 🚀 rocket icon in the top-right corner of the page (next to the download button); click it, then **Colab**, and the page opens directly in [Google Colab](https://colab.research.google.com) so you can experiment with the code yourself: change a value, break something, see what happens. Class 5's Group Practice Problems are nested underneath it in the sidebar.
+- **Classes 1, 5, and 6** are available as interactive, runnable notebooks — the same readings, except every code example actually executes, so if something's broken, we find out before you do. Look for the 🚀 rocket icon in the top-right corner of the page (next to the download button); click it, then **Colab**, and the page opens directly in [Google Colab](https://colab.research.google.com) so you can experiment with the code yourself: change a value, break something, see what happens. Their Group Practice Problems are nested underneath each one in the sidebar.
 
 ## What you'll actually learn
 
