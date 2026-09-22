@@ -14,6 +14,8 @@ parts:
         sections:
           - file: gpps/Class6_GPP
       - file: class/Class7
+        sections:
+          - file: gpps/Class7_GPP
       - file: class/Class9
       - file: class/Class10
       - file: class/Class11
