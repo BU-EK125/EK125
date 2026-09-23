@@ -53,7 +53,7 @@ See the reading's [Simplest Slice Notation](https://BU-EK125.github.io/EK125/cla
 
 ```{literalinclude} Class10_GPP.py
 :language: python
-:lines: 47-63
+:lines: 26-63
 ```
 
 ## Warm-Up 2: Negative Index Drills
@@ -76,7 +76,7 @@ See the reading's [Negative Indices in Slices](https://BU-EK125.github.io/EK125/
 
 ```{literalinclude} Class10_GPP.py
 :language: python
-:lines: 83-95
+:lines: 69-95
 ```
 
 ## Problem 1: Basic Slice Practice
@@ -100,7 +100,7 @@ See the reading's [The Step Parameter](https://BU-EK125.github.io/EK125/class/Cl
 
 ```{literalinclude} Class10_GPP.py
 :language: python
-:lines: 116-130
+:lines: 101-130
 ```
 
 ## Problem 2: Working with Negative Indices
@@ -123,7 +123,7 @@ See the reading's [Negative Indices in Slices](https://BU-EK125.github.io/EK125/
 
 ```{literalinclude} Class10_GPP.py
 :language: python
-:lines: 150-162
+:lines: 136-162
 ```
 
 ## Problem 3: Step Practice
@@ -146,7 +146,7 @@ See the reading's [The Step Parameter](https://BU-EK125.github.io/EK125/class/Cl
 
 ```{literalinclude} Class10_GPP.py
 :language: python
-:lines: 182-194
+:lines: 168-194
 ```
 
 ## Problem 4: Reversing Practice
@@ -172,7 +172,7 @@ See the reading's [Negative Steps (Reversing)](https://BU-EK125.github.io/EK125/
 
 ```{literalinclude} Class10_GPP.py
 :language: python
-:lines: 217-229
+:lines: 200-229
 ```
 
 ## Problem 5: Palindrome Checker
@@ -196,7 +196,7 @@ Enter a word: racecar
 
 ```{literalinclude} Class10_GPP.py
 :language: python
-:lines: 252-258
+:lines: 235-258
 ```
 
 ## Problem 6: Extracting Parts of a Sentence
@@ -221,7 +221,7 @@ See the reading's [Slicing with Variables](https://BU-EK125.github.io/EK125/clas
 
 ```{literalinclude} Class10_GPP.py
 :language: python
-:lines: 280-292
+:lines: 264-292
 ```
 
 ## Problem 7: Combining Slices
@@ -242,7 +242,7 @@ See the reading's [Building New Sequences from Slices](https://BU-EK125.github.i
 
 ```{literalinclude} Class10_GPP.py
 :language: python
-:lines: 310-316
+:lines: 298-316
 ```
 
 ## Problem 8: Slice Assignment
@@ -279,5 +279,5 @@ See the reading's [Slice Assignment (Lists Only)](https://BU-EK125.github.io/EK1
 
 ```{literalinclude} Class10_GPP.py
 :language: python
-:lines: 346-369
+:lines: 322-369
 ```
