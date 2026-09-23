@@ -422,6 +422,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-5-error-checking-modules-and-more">Problem 2.5 Error checking, modules and more!</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-mistakes">Common Mistakes</a></li>
 </ul>
             </nav>
         </div>
@@ -700,6 +701,35 @@ Done!
 </div>
 </section>
 </section>
+<section id="common-mistakes">
+<h2>Common Mistakes<a class="headerlink" href="#common-mistakes" title="Link to this heading">#</a></h2>
+<p>A few mistakes that come up repeatedly across these problems:</p>
+<p>🚩 <strong><code class="docutils literal notranslate"><span class="pre">range()</span></code> isn’t a list.</strong> In Problem 1.1, printing <code class="docutils literal notranslate"><span class="pre">myr</span></code> directly (before
+converting it) shows <code class="docutils literal notranslate"><span class="pre">range(0,</span> <span class="pre">6)</span></code>, not <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5]</span></code> – <code class="docutils literal notranslate"><span class="pre">range()</span></code>
+produces a lazy sequence, and you need <code class="docutils literal notranslate"><span class="pre">list(myr)</span></code> to see the actual values.
+See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#loops-using-range">Loops using range</a> section for a refresher.</p>
+<p>🚩 <strong>Running sums start at 0; running products start at 1.</strong> Problems 1.6 and
+1.7 use both patterns back to back – initializing a running <em>product</em> to
+<code class="docutils literal notranslate"><span class="pre">0</span></code> (instead of <code class="docutils literal notranslate"><span class="pre">1</span></code>) makes every result <code class="docutils literal notranslate"><span class="pre">0</span></code> no matter what you multiply by,
+and initializing a running <em>sum</em> to <code class="docutils literal notranslate"><span class="pre">1</span></code> (instead of <code class="docutils literal notranslate"><span class="pre">0</span></code>) throws off every
+total by exactly 1. See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#calculating-running-sums">Calculating Running Sums</a> section.</p>
+<p>🚩 <strong>Mixing <code class="docutils literal notranslate"><span class="pre">random</span></code> import styles.</strong> Problems 1.8, 1.9, 2.2, and 2.5 all use
+the <code class="docutils literal notranslate"><span class="pre">random</span></code> module – if you <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">random</span> <span class="pre">import</span> <span class="pre">random,</span> <span class="pre">randint</span></code> and then
+try <code class="docutils literal notranslate"><span class="pre">random.randint(...)</span></code>, you’ll get an <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code>, because that
+import style binds the name <code class="docutils literal notranslate"><span class="pre">random</span></code> to the <code class="docutils literal notranslate"><span class="pre">random()</span></code> <em>function</em>, not the
+module. See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#random-random-float">common mistake about this exact trap</a>.</p>
+<p>🚩 <strong>Forgetting to update the loop-control variable in a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop.</strong>
+Problems 2.1-2.4 all depend on something changing inside the loop body so
+the condition eventually becomes false – if you copy the loop structure but
+forget the line that updates the variable being checked, the loop never
+ends. See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#while-and-while-else">While and while-else</a> section.</p>
+<p>🚩 <strong>Validating input once instead of on every attempt.</strong> In Problem 2.4’s
+error-checking loop, it’s easy to check whether the <em>first</em> input is valid
+but forget that each <em>re-prompted</em> value needs the same check – the loop’s
+condition has to re-test the variable that gets reassigned inside it, not
+the original value from before the loop started. See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#error-checking">Error
+Checking</a> section.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -788,6 +818,7 @@ Done!
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-5-error-checking-modules-and-more">Problem 2.5 Error checking, modules and more!</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-mistakes">Common Mistakes</a></li>
 </ul>
   </nav></div>
 
