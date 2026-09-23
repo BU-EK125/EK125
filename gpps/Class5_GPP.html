@@ -422,7 +422,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-5-error-checking-modules-and-more">Problem 2.5 Error checking, modules and more!</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-mistakes">Common Mistakes</a></li>
 </ul>
             </nav>
         </div>
@@ -454,6 +453,10 @@ Work together to complete the following tasks!</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">range</span></code> by itself doesn’t immediately display as a list of numbers - think about how you can convert it into a list.</p></li>
 <li><p>To find out how many numbers were generated, recall the function that gives the size of a sequence, like how you’d check the length of a string or list.</p></li>
 </ul>
+<p>🚩 <strong>Common mistake:</strong> <code class="docutils literal notranslate"><span class="pre">range()</span></code> isn’t a list. Printing <code class="docutils literal notranslate"><span class="pre">myr</span></code> directly
+(before converting it) shows <code class="docutils literal notranslate"><span class="pre">range(0,</span> <span class="pre">6)</span></code>, not <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5]</span></code> –
+<code class="docutils literal notranslate"><span class="pre">range()</span></code> produces a lazy sequence, and you need <code class="docutils literal notranslate"><span class="pre">list(myr)</span></code> to see the
+actual values. See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#loops-using-range">Loops using range</a> section for a refresher.</p>
 </section>
 <section id="problem-1-2-for-loops-with-input">
 <h3>Problem 1.2: <code class="docutils literal notranslate"><span class="pre">for</span></code> loops with <code class="docutils literal notranslate"><span class="pre">input()</span></code><a class="headerlink" href="#problem-1-2-for-loops-with-input" title="Link to this heading">#</a></h3>
@@ -503,6 +506,10 @@ Work together to complete the following tasks!</p>
    <span class="nb">print</span><span class="p">(</span><span class="s1">'The product so far is'</span><span class="p">,</span> <span class="n">runprod</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>🚩 <strong>Common mistake:</strong> running sums start at <code class="docutils literal notranslate"><span class="pre">0</span></code>; running products
+start at <code class="docutils literal notranslate"><span class="pre">1</span></code>. It’s easy to carry over the <code class="docutils literal notranslate"><span class="pre">0</span></code> habit from Problem 1.6 –
+initializing a running product to <code class="docutils literal notranslate"><span class="pre">0</span></code> makes every result <code class="docutils literal notranslate"><span class="pre">0</span></code> no matter
+what you multiply by. See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#calculating-running-sums">Calculating Running Sums</a> section.</p>
 </section>
 <section id="problem-1-8-loops-and-selection">
 <h3>Problem 1.8: Loops and selection<a class="headerlink" href="#problem-1-8-loops-and-selection" title="Link to this heading">#</a></h3>
@@ -632,6 +639,11 @@ Done!
 <li><p>Write code with an initial value for <code class="docutils literal notranslate"><span class="pre">count</span></code> that makes the loop body run <strong>exactly once</strong>?</p></li>
 <li><p>Write code with an initial value for <code class="docutils literal notranslate"><span class="pre">count</span></code> that makes the loop body <strong>never run at all</strong>?</p></li>
 </ul>
+<p>🚩 <strong>Common mistake:</strong> forgetting to update the loop-control variable
+inside a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop’s body. Every <code class="docutils literal notranslate"><span class="pre">while</span></code> loop you write from here on
+depends on something changing inside the loop so the condition
+eventually becomes false – skip that update and the loop never ends.
+See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#while-and-while-else">While and while-else</a> section.</p>
 </section>
 <section id="problem-2-2-while-and-random-numbers">
 <h3>Problem 2.2 <code class="docutils literal notranslate"><span class="pre">while()</span></code> and random numbers<a class="headerlink" href="#problem-2-2-while-and-random-numbers" title="Link to this heading">#</a></h3>
@@ -676,6 +688,11 @@ Done!
 <p>Error-checking is an important application of <code class="docutils literal notranslate"><span class="pre">while</span></code> loops. Whenever the user is asked for input, there is almost always a valid range of values. When prompted, the code should loop until the user enters a valid value.</p>
 <p>Write code that will prompt the user for a number in the range from 1 to 10. Tthe code will keep prompting as long as the user is not entering a number in the valid range, meaning that as long as the user is entering a number that is either less than 1 or greater than 10. So, there will be two parts to the condition (so remember your logicals!)</p>
 <p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#error-checking">Error Checking</a> section for the pattern this builds on.</p>
+<p>🚩 <strong>Common mistake:</strong> validating input once instead of on every
+attempt. It’s easy to check whether the <em>first</em> input is valid but
+forget that each <em>re-prompted</em> value needs the same check – the
+loop’s condition has to re-test the variable that gets reassigned
+inside the loop, not the original value from before the loop started.</p>
 </section>
 <section id="problem-2-5-error-checking-modules-and-more">
 <h3>Problem 2.5 Error checking, modules and more!<a class="headerlink" href="#problem-2-5-error-checking-modules-and-more" title="Link to this heading">#</a></h3>
@@ -687,7 +704,7 @@ Done!
 </ul>
 <p>Error-check by looping to display the choices until the user enters 1, 2, or 3. Then, generate a <strong>random real number</strong> between 0 and 1, and print the result of the user’s chosen function on that number.</p>
 <p><strong>Hint</strong>: To generate random <em>real numbers</em> between 0 and 1, you will need a special function from the <code class="docutils literal notranslate"><span class="pre">random</span></code> library, which is confusingly <em>also called</em> <code class="docutils literal notranslate"><span class="pre">random()</span></code>. Be sure to import <code class="docutils literal notranslate"><span class="pre">random()</span></code> from the <code class="docutils literal notranslate"><span class="pre">random</span></code> library using the same syntax as above. Use <code class="docutils literal notranslate"><span class="pre">help()</span></code> to get some information about how <code class="docutils literal notranslate"><span class="pre">random()</span></code> works!</p>
-<p>🚩 If you’re combining this with <code class="docutils literal notranslate"><span class="pre">randint</span></code> from earlier problems (e.g. <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">random</span> <span class="pre">import</span> <span class="pre">randint,</span> <span class="pre">random</span></code>), watch out: see the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#random-random-float">common mistake about mixing import styles</a> if you get an <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code> trying <code class="docutils literal notranslate"><span class="pre">random.randint(...)</span></code>.</p>
+<p>🚩 <strong>Common mistake:</strong> if you’re combining this with <code class="docutils literal notranslate"><span class="pre">randint</span></code> from earlier problems (e.g. <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">random</span> <span class="pre">import</span> <span class="pre">randint,</span> <span class="pre">random</span></code>), calling <code class="docutils literal notranslate"><span class="pre">random.randint(...)</span></code> raises an <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code> – see the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#random-random-float">common mistake about mixing import styles</a>.</p>
 <p>You will see something like this</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">random</span>
 <span class="n">help</span><span class="p">(</span><span class="n">random</span><span class="p">)</span>
@@ -700,35 +717,6 @@ Done!
 </pre></div>
 </div>
 </section>
-</section>
-<section id="common-mistakes">
-<h2>Common Mistakes<a class="headerlink" href="#common-mistakes" title="Link to this heading">#</a></h2>
-<p>A few mistakes that come up repeatedly across these problems:</p>
-<p>🚩 <strong><code class="docutils literal notranslate"><span class="pre">range()</span></code> isn’t a list.</strong> In Problem 1.1, printing <code class="docutils literal notranslate"><span class="pre">myr</span></code> directly (before
-converting it) shows <code class="docutils literal notranslate"><span class="pre">range(0,</span> <span class="pre">6)</span></code>, not <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5]</span></code> – <code class="docutils literal notranslate"><span class="pre">range()</span></code>
-produces a lazy sequence, and you need <code class="docutils literal notranslate"><span class="pre">list(myr)</span></code> to see the actual values.
-See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#loops-using-range">Loops using range</a> section for a refresher.</p>
-<p>🚩 <strong>Running sums start at 0; running products start at 1.</strong> Problems 1.6 and
-1.7 use both patterns back to back – initializing a running <em>product</em> to
-<code class="docutils literal notranslate"><span class="pre">0</span></code> (instead of <code class="docutils literal notranslate"><span class="pre">1</span></code>) makes every result <code class="docutils literal notranslate"><span class="pre">0</span></code> no matter what you multiply by,
-and initializing a running <em>sum</em> to <code class="docutils literal notranslate"><span class="pre">1</span></code> (instead of <code class="docutils literal notranslate"><span class="pre">0</span></code>) throws off every
-total by exactly 1. See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#calculating-running-sums">Calculating Running Sums</a> section.</p>
-<p>🚩 <strong>Mixing <code class="docutils literal notranslate"><span class="pre">random</span></code> import styles.</strong> Problems 1.8, 1.9, 2.2, and 2.5 all use
-the <code class="docutils literal notranslate"><span class="pre">random</span></code> module – if you <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">random</span> <span class="pre">import</span> <span class="pre">random,</span> <span class="pre">randint</span></code> and then
-try <code class="docutils literal notranslate"><span class="pre">random.randint(...)</span></code>, you’ll get an <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code>, because that
-import style binds the name <code class="docutils literal notranslate"><span class="pre">random</span></code> to the <code class="docutils literal notranslate"><span class="pre">random()</span></code> <em>function</em>, not the
-module. See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#random-random-float">common mistake about this exact trap</a>.</p>
-<p>🚩 <strong>Forgetting to update the loop-control variable in a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop.</strong>
-Problems 2.1-2.4 all depend on something changing inside the loop body so
-the condition eventually becomes false – if you copy the loop structure but
-forget the line that updates the variable being checked, the loop never
-ends. See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#while-and-while-else">While and while-else</a> section.</p>
-<p>🚩 <strong>Validating input once instead of on every attempt.</strong> In Problem 2.4’s
-error-checking loop, it’s easy to check whether the <em>first</em> input is valid
-but forget that each <em>re-prompted</em> value needs the same check – the loop’s
-condition has to re-test the variable that gets reassigned inside it, not
-the original value from before the loop started. See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#error-checking">Error
-Checking</a> section.</p>
 </section>
 </section>
 
@@ -818,7 +806,6 @@ Checking</a> section.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-5-error-checking-modules-and-more">Problem 2.5 Error checking, modules and more!</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-mistakes">Common Mistakes</a></li>
 </ul>
   </nav></div>
 
