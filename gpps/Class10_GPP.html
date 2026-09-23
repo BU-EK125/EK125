@@ -444,7 +444,28 @@ should be a single slice expression on one line.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">[70,</span> <span class="pre">80,</span> <span class="pre">90]</span></code> as a list (using a negative index)</p></li>
 </ol>
 <p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class10.html#simplest-slice-notation">Simplest Slice Notation</a> section for a refresher.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s2">"Python"</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">Complete these quick exercises to practice basic slicing.</span>
+<span class="sd">Each answer should be a single slice expression on one line.</span>
+
+<span class="sd">Given:</span>
+<span class="sd">    word = "Python"</span>
+<span class="sd">    numbers = [10, 20, 30, 40, 50, 60, 70, 80, 90]</span>
+
+<span class="sd">Write slices to extract:</span>
+<span class="sd">  1.  "Pyt" from word</span>
+<span class="sd">  2.  "hon" from word</span>
+<span class="sd">  3.  "th"  from word</span>
+<span class="sd">  4.  [10, 20, 30] from numbers</span>
+<span class="sd">  5.  [40, 50, 60] from numbers</span>
+<span class="sd">  6.  [70, 80, 90] from numbers</span>
+<span class="sd">  7.  [10, 30, 50, 70, 90] from numbers  (every other, starting at index 0)</span>
+<span class="sd">  8.  [20, 40, 60, 80] from numbers      (every other, starting at index 1)</span>
+<span class="sd">  9.  90 as a single value               (using a negative index)</span>
+<span class="sd">  10. [70, 80, 90] as a list             (using a negative index)</span>
+<span class="sd">"""</span>
+
+<span class="n">word</span> <span class="o">=</span> <span class="s2">"Python"</span>
 <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
@@ -481,7 +502,21 @@ should be a single slice expression on one line.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">40</span></code> as a single <strong>value</strong> using a negative index</p></li>
 </ol>
 <p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class10.html#negative-indices-in-slices">Negative Indices in Slices</a> section for a refresher.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">Given:</span>
+<span class="sd">    data = [5, 10, 15, 20, 25, 30, 35, 40]</span>
+<span class="sd">    text = "HelloWorld"</span>
+
+<span class="sd">Write slices to extract:</span>
+<span class="sd">  1. [30, 35, 40]              using negative indices</span>
+<span class="sd">  2. [5, 10, 15, 20, 25]       (all but last 3) using negative indices</span>
+<span class="sd">  3. "World" from text         using negative indices</span>
+<span class="sd">  4. "Hello" from text         using negative indices</span>
+<span class="sd">  5. [40] as a LIST            using negative indices</span>
+<span class="sd">  6. 40 as a single VALUE      using a negative index</span>
+<span class="sd">"""</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
 <span class="n">text</span> <span class="o">=</span> <span class="s2">"HelloWorld"</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
@@ -515,7 +550,22 @@ Every other character: Pormig
 </pre></div>
 </div>
 <p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class10.html#the-step-parameter">The Step Parameter</a> section for the “every other character” pattern.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">Ask the user for a word, then print:</span>
+<span class="sd">  1. The first 3 characters</span>
+<span class="sd">  2. The last 3 characters</span>
+<span class="sd">  3. Characters from index 2 to 5 (not including 5)</span>
+<span class="sd">  4. Every other character</span>
+
+<span class="sd">Example run:</span>
+<span class="sd">  Enter a word: Programming</span>
+<span class="sd">  First 3 characters: Pro</span>
+<span class="sd">  Last 3 characters: ing</span>
+<span class="sd">  Characters 2 to 5: ogr</span>
+<span class="sd">  Every other character: Pormig</span>
+<span class="sd">"""</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"PROBLEM 1: Basic Slice Practice"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
 
@@ -550,7 +600,21 @@ Second-to-last: 70
 </pre></div>
 </div>
 <p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class10.html#negative-indices-in-slices">Negative Indices in Slices</a> section for a refresher.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">Given the list below, use NEGATIVE indices or slices to print:</span>
+<span class="sd">  1. The last element (as a single value)</span>
+<span class="sd">  2. The last 4 elements (as a list)</span>
+<span class="sd">  3. All but the last 2 elements</span>
+<span class="sd">  4. The second-to-last element</span>
+
+<span class="sd">Expected output:</span>
+<span class="sd">  Last element: 80</span>
+<span class="sd">  Last 4 elements: [50, 60, 70, 80]</span>
+<span class="sd">  All but last 2: [10, 20, 30, 40, 50, 60]</span>
+<span class="sd">  Second-to-last: 70</span>
+<span class="sd">"""</span>
+
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">]</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"PROBLEM 2: Negative Indices"</span><span class="p">)</span>
@@ -583,7 +647,21 @@ Every 4th starting from 2: cgko
 </pre></div>
 </div>
 <p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class10.html#the-step-parameter">The Step Parameter</a> section for a refresher.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">letters</span> <span class="o">=</span> <span class="s2">"abcdefghijklmnop"</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">Given the string "abcdefghijklmnop", print:</span>
+<span class="sd">  1. Every 2nd character</span>
+<span class="sd">  2. Every 3rd character</span>
+<span class="sd">  3. Every 2nd character starting from index 1</span>
+<span class="sd">  4. Every 4th character starting from index 2</span>
+
+<span class="sd">Expected output:</span>
+<span class="sd">  Every 2nd character: acegikmo</span>
+<span class="sd">  Every 3rd character: adgjmp</span>
+<span class="sd">  Every 2nd starting from 1: bdfhjlnp</span>
+<span class="sd">  Every 4th starting from 2: cgko</span>
+<span class="sd">"""</span>
+
+<span class="n">letters</span> <span class="o">=</span> <span class="s2">"abcdefghijklmnop"</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"PROBLEM 3: Step Practice"</span><span class="p">)</span>
@@ -618,7 +696,24 @@ Every other character reversed: nhy
 </pre></div>
 </div>
 <p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class10.html#negative-steps-reversing">Negative Steps (Reversing)</a> section for the <code class="docutils literal notranslate"><span class="pre">[::-1]</span></code> idiom.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">Ask the user for a word, then print:</span>
+<span class="sd">  1. The word reversed</span>
+<span class="sd">  2. The first half of the word, reversed</span>
+<span class="sd">  3. The second half of the word, reversed</span>
+<span class="sd">  4. Every other character, reversed</span>
+
+<span class="sd">Hint: len(word) // 2 gives you the midpoint index.</span>
+
+<span class="sd">Example run:</span>
+<span class="sd">  Enter a word: Python</span>
+<span class="sd">  Reversed: nohtyP</span>
+<span class="sd">  First half reversed: tyP</span>
+<span class="sd">  Second half reversed: noh</span>
+<span class="sd">  Every other character reversed: nhy</span>
+<span class="sd">"""</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"PROBLEM 4: Reversing Practice"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
 
@@ -650,7 +745,24 @@ Enter a word: racecar
 "racecar" is a palindrome!
 </pre></div>
 </div>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">Ask the user for a word and check if it is a palindrome - a word that reads</span>
+<span class="sd">the same forwards and backwards.</span>
+
+<span class="sd">Use slicing to reverse the word, then compare it to the original.</span>
+
+<span class="sd">Example runs:</span>
+<span class="sd">  Enter a word: radar</span>
+<span class="sd">  "radar" is a palindrome!</span>
+
+<span class="sd">  Enter a word: python</span>
+<span class="sd">  "python" is not a palindrome.</span>
+
+<span class="sd">  Enter a word: racecar</span>
+<span class="sd">  "racecar" is a palindrome!</span>
+<span class="sd">"""</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"PROBLEM 5: Palindrome Checker"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
 
@@ -678,7 +790,23 @@ Middle: quick brown
 </pre></div>
 </div>
 <p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class10.html#slicing-with-variables">Slicing with Variables</a> section (the “Finding and extracting” example) for this exact pattern.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">Ask the user for a sentence with at least 3 words, then use slicing and</span>
+<span class="sd">.index() / .rfind() to extract:</span>
+<span class="sd">  1. The first word (everything before the first space)</span>
+<span class="sd">  2. The last word (everything after the last space)</span>
+<span class="sd">  3. The middle portion (everything between the first and last space)</span>
+
+<span class="sd">Hint: str.index(' ') finds the first space. str.rfind(' ') finds the last.</span>
+
+<span class="sd">Example run:</span>
+<span class="sd">  Enter a sentence: The quick brown fox</span>
+<span class="sd">  First word: The</span>
+<span class="sd">  Last word: fox</span>
+<span class="sd">  Middle: quick brown</span>
+<span class="sd">"""</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"PROBLEM 6: Extracting Parts of a Sentence"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
 
@@ -708,7 +836,19 @@ Middle: quick brown
 </pre></div>
 </div>
 <p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class10.html#building-new-sequences-from-slices">Building New Sequences from Slices</a> section for a refresher.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">Given the list below, build a NEW list that contains:</span>
+<span class="sd">  - The first 3 elements</span>
+<span class="sd">  - Every 2nd element from the middle section (indices 3 to 8)</span>
+<span class="sd">  - The last 2 elements</span>
+
+<span class="sd">Use slicing and the + operator to combine the pieces.</span>
+
+<span class="sd">Expected output:</span>
+<span class="sd">  Result: [1, 2, 3, 4, 6, 8, 9, 10]</span>
+<span class="sd">"""</span>
+
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"PROBLEM 7: Combining Slices"</span><span class="p">)</span>
@@ -743,7 +883,31 @@ list to be the same length as the slice.
 <strong>Hint for Task 3:</strong> assigning to an empty slice (<code class="docutils literal notranslate"><span class="pre">list3[3:3]</span></code>) inserts
 without removing anything.</p>
 <p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class10.html#slice-assignment-lists-only">Slice Assignment (Lists Only)</a> section for a refresher.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">Use SLICE ASSIGNMENT to modify three different lists in place.</span>
+
+<span class="sd">Task 1: On list1, replace indices 2, 3, 4 with the single value 99.</span>
+<span class="sd">  Original: [10, 20, 30, 40, 50, 60]</span>
+<span class="sd">  After:    [10, 20, 99, 60]</span>
+
+<span class="sd">Task 2: On list2, replace every third element (indices 0, 3, 6) with "SKIP".</span>
+<span class="sd">  Original: ["a", "b", "c", "d", "e", "f", "g", "h", "i"]</span>
+<span class="sd">  After:    ["SKIP", "b", "c", "SKIP", "e", "f", "SKIP", "h", "i"]</span>
+
+<span class="sd">Task 3: On list3, insert [100, 200, 300] between indices 3 and 4.</span>
+<span class="sd">  Original: [1, 2, 3, 4, 5]</span>
+<span class="sd">  After:    [1, 2, 3, 100, 200, 300, 4, 5]</span>
+
+<span class="sd">After each modification, print the before and after. Use the labels shown</span>
+<span class="sd">in the expected output below.</span>
+
+<span class="sd">Hint for Task 2: slice assignment with a step requires the replacement list</span>
+<span class="sd">to be the SAME LENGTH as the slice.</span>
+<span class="sd">Hint for Task 3: assigning to an empty slice (list3[3:3]) inserts without</span>
+<span class="sd">removing anything.</span>
+<span class="sd">"""</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"PROBLEM 8: Slice Assignment"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
 
