@@ -369,7 +369,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-cross-references">Reading cross-references</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">Instructions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-quick-slicing-drills">Warm-Up: Quick Slicing Drills</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-2-negative-index-drills">Warm-Up 2: Negative Index Drills</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-basic-slice-practice">Problem 1: Basic Slice Practice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-working-with-negative-indices">Problem 2: Working with Negative Indices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-step-practice">Problem 3: Step Practice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4-reversing-practice">Problem 4: Reversing Practice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-palindrome-checker">Problem 5: Palindrome Checker</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-6-extracting-parts-of-a-sentence">Problem 6: Extracting Parts of a Sentence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-7-combining-slices">Problem 7: Combining Slices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-8-slice-assignment">Problem 8: Slice Assignment</a></li>
 </ul>
             </nav>
         </div>
@@ -383,26 +393,13 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="class-10-gpp-mastering-slicing-in-python">
 <h1>Class 10 GPP: Mastering Slicing in Python<a class="headerlink" href="#class-10-gpp-mastering-slicing-in-python" title="Link to this heading">#</a></h1>
-<p>This is a script-based exercise: work through the problems directly in the
-<code class="docutils literal notranslate"><span class="pre">.py</span></code> file below in PyCharm/VS Code (not in a notebook). Download it, open
-it locally, and run it as you go.</p>
+<p>This is a script-based exercise: work through the problems directly in
+PyCharm/VS Code (not in a notebook). Download the file below, open it
+locally, and run it as you go – each section is also shown here so you
+can read the instructions and follow along on this page.</p>
 <p>Download: <a class="reference download internal" download="" href="../_downloads/0d1a2bb03afed890280143701c8135d8/Class10_GPP.py"><span class="xref download myst">Class_10_GPP.py</span></a></p>
-<section id="reading-cross-references">
-<h2>Reading cross-references<a class="headerlink" href="#reading-cross-references" title="Link to this heading">#</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">.py</span></code> file below has the same references as plain-text URLs in its
-comments (so they’re still visible once you download it), but they aren’t
-clickable in the code block on this page. Here they are as links:</p>
-<ul class="simple">
-<li><p><strong>Warm-Up</strong> – <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class10.html#simplest-slice-notation">Simplest Slice Notation</a></p></li>
-<li><p><strong>Warm-Up 2</strong> – <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class10.html#negative-indices-in-slices">Negative Indices in Slices</a></p></li>
-<li><p><strong>Problem 1</strong> – <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class10.html#the-step-parameter">The Step Parameter</a></p></li>
-<li><p><strong>Problem 2</strong> – <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class10.html#negative-indices-in-slices">Negative Indices in Slices</a></p></li>
-<li><p><strong>Problem 3</strong> – <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class10.html#the-step-parameter">The Step Parameter</a></p></li>
-<li><p><strong>Problem 4</strong> – <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class10.html#negative-steps-reversing">Negative Steps (Reversing)</a></p></li>
-<li><p><strong>Problem 6</strong> – <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class10.html#slicing-with-variables">Slicing with Variables</a></p></li>
-<li><p><strong>Problem 7</strong> – <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class10.html#building-new-sequences-from-slices">Building New Sequences from Slices</a></p></li>
-<li><p><strong>Problem 8</strong> – <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class10.html#slice-assignment-lists-only">Slice Assignment (Lists Only)</a></p></li>
-</ul>
+<section id="instructions">
+<h2>Instructions<a class="headerlink" href="#instructions" title="Link to this heading">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
 <span class="sd">Class 10: Mastering Slicing in Python - Group Practice Problems</span>
 <span class="sd">EK125 - Spring 2026</span>
@@ -426,8 +423,13 @@ clickable in the code block on this page. Here they are as links:</p>
 <span class="sd">"""</span>
 
 <span class="c1"># ==============================================================================</span>
-<span class="c1"># WARM-UP: Quick Slicing Drills</span>
-<span class="c1"># ==============================================================================</span>
+</pre></div>
+</div>
+</section>
+<section id="warm-up-quick-slicing-drills">
+<h2>Warm-Up: Quick Slicing Drills<a class="headerlink" href="#warm-up-quick-slicing-drills" title="Link to this heading">#</a></h2>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class10.html#simplest-slice-notation">Simplest Slice Notation</a> section for a refresher.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ==============================================================================</span>
 <span class="sd">"""</span>
 <span class="sd">Complete these quick exercises to practice basic slicing.</span>
 <span class="sd">Each answer should be a single slice expression on one line.</span>
@@ -447,9 +449,6 @@ clickable in the code block on this page. Here they are as links:</p>
 <span class="sd">  8.  [20, 40, 60, 80] from numbers      (every other, starting at index 1)</span>
 <span class="sd">  9.  90 as a single value               (using a negative index)</span>
 <span class="sd">  10. [70, 80, 90] as a list             (using a negative index)</span>
-
-<span class="sd">See the reading's "Simplest Slice Notation" section for a refresher:</span>
-<span class="sd">https://BU-EK125.github.io/EK125/class/Class10.html#simplest-slice-notation</span>
 <span class="sd">"""</span>
 
 <span class="n">word</span> <span class="o">=</span> <span class="s2">"Python"</span>
@@ -472,8 +471,13 @@ clickable in the code block on this page. Here they are as links:</p>
 
 
 <span class="c1"># ==============================================================================</span>
-<span class="c1"># WARM-UP 2: Negative Index Drills</span>
-<span class="c1"># ==============================================================================</span>
+</pre></div>
+</div>
+</section>
+<section id="warm-up-2-negative-index-drills">
+<h2>Warm-Up 2: Negative Index Drills<a class="headerlink" href="#warm-up-2-negative-index-drills" title="Link to this heading">#</a></h2>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class10.html#negative-indices-in-slices">Negative Indices in Slices</a> section for a refresher.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ==============================================================================</span>
 <span class="sd">"""</span>
 <span class="sd">Given:</span>
 <span class="sd">    data = [5, 10, 15, 20, 25, 30, 35, 40]</span>
@@ -486,9 +490,6 @@ clickable in the code block on this page. Here they are as links:</p>
 <span class="sd">  4. "Hello" from text         using negative indices</span>
 <span class="sd">  5. [40] as a LIST            using negative indices</span>
 <span class="sd">  6. 40 as a single VALUE      using a negative index</span>
-
-<span class="sd">See the reading's "Negative Indices in Slices" section for a refresher:</span>
-<span class="sd">https://BU-EK125.github.io/EK125/class/Class10.html#negative-indices-in-slices</span>
 <span class="sd">"""</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
@@ -507,8 +508,13 @@ clickable in the code block on this page. Here they are as links:</p>
 
 
 <span class="c1"># ==============================================================================</span>
-<span class="c1"># PROBLEM 1: Basic Slice Practice</span>
-<span class="c1"># ==============================================================================</span>
+</pre></div>
+</div>
+</section>
+<section id="problem-1-basic-slice-practice">
+<h2>Problem 1: Basic Slice Practice<a class="headerlink" href="#problem-1-basic-slice-practice" title="Link to this heading">#</a></h2>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class10.html#the-step-parameter">The Step Parameter</a> section for the “every other character” pattern.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ==============================================================================</span>
 <span class="sd">"""</span>
 <span class="sd">Ask the user for a word, then print:</span>
 <span class="sd">  1. The first 3 characters</span>
@@ -522,9 +528,6 @@ clickable in the code block on this page. Here they are as links:</p>
 <span class="sd">  Last 3 characters: ing</span>
 <span class="sd">  Characters 2 to 5: ogr</span>
 <span class="sd">  Every other character: Pormig</span>
-
-<span class="sd">See the reading's "The Step Parameter" section for the "every other</span>
-<span class="sd">character" pattern: https://BU-EK125.github.io/EK125/class/Class10.html#the-step-parameter</span>
 <span class="sd">"""</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
@@ -545,8 +548,13 @@ clickable in the code block on this page. Here they are as links:</p>
 
 
 <span class="c1"># ==============================================================================</span>
-<span class="c1"># PROBLEM 2: Working with Negative Indices</span>
-<span class="c1"># ==============================================================================</span>
+</pre></div>
+</div>
+</section>
+<section id="problem-2-working-with-negative-indices">
+<h2>Problem 2: Working with Negative Indices<a class="headerlink" href="#problem-2-working-with-negative-indices" title="Link to this heading">#</a></h2>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class10.html#negative-indices-in-slices">Negative Indices in Slices</a> section for a refresher.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ==============================================================================</span>
 <span class="sd">"""</span>
 <span class="sd">Given the list below, use NEGATIVE indices or slices to print:</span>
 <span class="sd">  1. The last element (as a single value)</span>
@@ -559,9 +567,6 @@ clickable in the code block on this page. Here they are as links:</p>
 <span class="sd">  Last 4 elements: [50, 60, 70, 80]</span>
 <span class="sd">  All but last 2: [10, 20, 30, 40, 50, 60]</span>
 <span class="sd">  Second-to-last: 70</span>
-
-<span class="sd">See the reading's "Negative Indices in Slices" section for a refresher:</span>
-<span class="sd">https://BU-EK125.github.io/EK125/class/Class10.html#negative-indices-in-slices</span>
 <span class="sd">"""</span>
 
 <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">]</span>
@@ -580,8 +585,13 @@ clickable in the code block on this page. Here they are as links:</p>
 
 
 <span class="c1"># ==============================================================================</span>
-<span class="c1"># PROBLEM 3: Step Practice</span>
-<span class="c1"># ==============================================================================</span>
+</pre></div>
+</div>
+</section>
+<section id="problem-3-step-practice">
+<h2>Problem 3: Step Practice<a class="headerlink" href="#problem-3-step-practice" title="Link to this heading">#</a></h2>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class10.html#the-step-parameter">The Step Parameter</a> section for a refresher.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ==============================================================================</span>
 <span class="sd">"""</span>
 <span class="sd">Given the string "abcdefghijklmnop", print:</span>
 <span class="sd">  1. Every 2nd character</span>
@@ -594,9 +604,6 @@ clickable in the code block on this page. Here they are as links:</p>
 <span class="sd">  Every 3rd character: adgjmp</span>
 <span class="sd">  Every 2nd starting from 1: bdfhjlnp</span>
 <span class="sd">  Every 4th starting from 2: cgko</span>
-
-<span class="sd">See the reading's "The Step Parameter" section for a refresher:</span>
-<span class="sd">https://BU-EK125.github.io/EK125/class/Class10.html#the-step-parameter</span>
 <span class="sd">"""</span>
 
 <span class="n">letters</span> <span class="o">=</span> <span class="s2">"abcdefghijklmnop"</span>
@@ -615,8 +622,13 @@ clickable in the code block on this page. Here they are as links:</p>
 
 
 <span class="c1"># ==============================================================================</span>
-<span class="c1"># PROBLEM 4: Reversing Practice</span>
-<span class="c1"># ==============================================================================</span>
+</pre></div>
+</div>
+</section>
+<section id="problem-4-reversing-practice">
+<h2>Problem 4: Reversing Practice<a class="headerlink" href="#problem-4-reversing-practice" title="Link to this heading">#</a></h2>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class10.html#negative-steps-reversing">Negative Steps (Reversing)</a> section for the <code class="docutils literal notranslate"><span class="pre">[::-1]</span></code> idiom.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ==============================================================================</span>
 <span class="sd">"""</span>
 <span class="sd">Ask the user for a word, then print:</span>
 <span class="sd">  1. The word reversed</span>
@@ -632,9 +644,6 @@ clickable in the code block on this page. Here they are as links:</p>
 <span class="sd">  First half reversed: tyP</span>
 <span class="sd">  Second half reversed: noh</span>
 <span class="sd">  Every other character reversed: nhy</span>
-
-<span class="sd">See the reading's "Negative Steps (Reversing)" section for the [::-1]</span>
-<span class="sd">idiom: https://BU-EK125.github.io/EK125/class/Class10.html#negative-steps-reversing</span>
 <span class="sd">"""</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
@@ -653,8 +662,12 @@ clickable in the code block on this page. Here they are as links:</p>
 
 
 <span class="c1"># ==============================================================================</span>
-<span class="c1"># PROBLEM 5: Palindrome Checker</span>
-<span class="c1"># ==============================================================================</span>
+</pre></div>
+</div>
+</section>
+<section id="problem-5-palindrome-checker">
+<h2>Problem 5: Palindrome Checker<a class="headerlink" href="#problem-5-palindrome-checker" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ==============================================================================</span>
 <span class="sd">"""</span>
 <span class="sd">Ask the user for a word and check if it is a palindrome - a word that reads</span>
 <span class="sd">the same forwards and backwards.</span>
@@ -682,8 +695,13 @@ clickable in the code block on this page. Here they are as links:</p>
 
 
 <span class="c1"># ==============================================================================</span>
-<span class="c1"># PROBLEM 6: Extracting Parts of a Sentence</span>
-<span class="c1"># ==============================================================================</span>
+</pre></div>
+</div>
+</section>
+<section id="problem-6-extracting-parts-of-a-sentence">
+<h2>Problem 6: Extracting Parts of a Sentence<a class="headerlink" href="#problem-6-extracting-parts-of-a-sentence" title="Link to this heading">#</a></h2>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class10.html#slicing-with-variables">Slicing with Variables</a> section (the “Finding and extracting” example) for this exact pattern.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ==============================================================================</span>
 <span class="sd">"""</span>
 <span class="sd">Ask the user for a sentence with at least 3 words, then use slicing and</span>
 <span class="sd">.index() / .rfind() to extract:</span>
@@ -698,10 +716,6 @@ clickable in the code block on this page. Here they are as links:</p>
 <span class="sd">  First word: The</span>
 <span class="sd">  Last word: fox</span>
 <span class="sd">  Middle: quick brown</span>
-
-<span class="sd">See the reading's "Slicing with Variables" section (the "Finding and</span>
-<span class="sd">extracting" example) for this exact pattern:</span>
-<span class="sd">https://BU-EK125.github.io/EK125/class/Class10.html#slicing-with-variables</span>
 <span class="sd">"""</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
@@ -720,8 +734,13 @@ clickable in the code block on this page. Here they are as links:</p>
 
 
 <span class="c1"># ==============================================================================</span>
-<span class="c1"># PROBLEM 7: Combining Slices</span>
-<span class="c1"># ==============================================================================</span>
+</pre></div>
+</div>
+</section>
+<section id="problem-7-combining-slices">
+<h2>Problem 7: Combining Slices<a class="headerlink" href="#problem-7-combining-slices" title="Link to this heading">#</a></h2>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class10.html#building-new-sequences-from-slices">Building New Sequences from Slices</a> section for a refresher.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ==============================================================================</span>
 <span class="sd">"""</span>
 <span class="sd">Given the list below, build a NEW list that contains:</span>
 <span class="sd">  - The first 3 elements</span>
@@ -732,9 +751,6 @@ clickable in the code block on this page. Here they are as links:</p>
 
 <span class="sd">Expected output:</span>
 <span class="sd">  Result: [1, 2, 3, 4, 6, 8, 9, 10]</span>
-
-<span class="sd">See the reading's "Building New Sequences from Slices" section for a</span>
-<span class="sd">refresher: https://BU-EK125.github.io/EK125/class/Class10.html#building-new-sequences-from-slices</span>
 <span class="sd">"""</span>
 
 <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
@@ -747,8 +763,13 @@ clickable in the code block on this page. Here they are as links:</p>
 
 
 <span class="c1"># ==============================================================================</span>
-<span class="c1"># PROBLEM 8: Slice Assignment</span>
-<span class="c1"># ==============================================================================</span>
+</pre></div>
+</div>
+</section>
+<section id="problem-8-slice-assignment">
+<h2>Problem 8: Slice Assignment<a class="headerlink" href="#problem-8-slice-assignment" title="Link to this heading">#</a></h2>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class10.html#slice-assignment-lists-only">Slice Assignment (Lists Only)</a> section for a refresher.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ==============================================================================</span>
 <span class="sd">"""</span>
 <span class="sd">Use SLICE ASSIGNMENT to modify three different lists in place.</span>
 
@@ -771,9 +792,6 @@ clickable in the code block on this page. Here they are as links:</p>
 <span class="sd">to be the SAME LENGTH as the slice.</span>
 <span class="sd">Hint for Task 3: assigning to an empty slice (list3[3:3]) inserts without</span>
 <span class="sd">removing anything.</span>
-
-<span class="sd">See the reading's "Slice Assignment (Lists Only)" section for a</span>
-<span class="sd">refresher: https://BU-EK125.github.io/EK125/class/Class10.html#slice-assignment-lists-only</span>
 <span class="sd">"""</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
@@ -869,7 +887,17 @@ clickable in the code block on this page. Here they are as links:</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-cross-references">Reading cross-references</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">Instructions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-quick-slicing-drills">Warm-Up: Quick Slicing Drills</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-2-negative-index-drills">Warm-Up 2: Negative Index Drills</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-basic-slice-practice">Problem 1: Basic Slice Practice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-working-with-negative-indices">Problem 2: Working with Negative Indices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-step-practice">Problem 3: Step Practice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4-reversing-practice">Problem 4: Reversing Practice</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-palindrome-checker">Problem 5: Palindrome Checker</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-6-extracting-parts-of-a-sentence">Problem 6: Extracting Parts of a Sentence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-7-combining-slices">Problem 7: Combining Slices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-8-slice-assignment">Problem 8: Slice Assignment</a></li>
 </ul>
   </nav></div>
 
