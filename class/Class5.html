@@ -509,7 +509,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You rolled: 5
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You rolled: 4
 </pre></div>
 </div>
 </div>
@@ -554,7 +554,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rolled: 2
-Probability: 0.09676763118057441
+Probability: 0.5757026135263984
 </pre></div>
 </div>
 </div>
@@ -624,8 +624,8 @@ Probability: 0.09676763118057441
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rolled: 6
-Random age: 46
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rolled: 1
+Random age: 42
 </pre></div>
 </div>
 </div>
@@ -650,13 +650,14 @@ Random age: 46
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Probability: 0.12316296109417524
-Percentage: 52.77944610581413
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Probability: 0.31096672251948254
+Percentage: 11.084050993703432
 </pre></div>
 </div>
 </div>
 </div>
 <p><strong>Note:</strong> Confusingly, the function <code class="docutils literal notranslate"><span class="pre">random()</span></code> is in the module <code class="docutils literal notranslate"><span class="pre">random</span></code>. So you write <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">random</span> <span class="pre">import</span> <span class="pre">random</span></code> or <code class="docutils literal notranslate"><span class="pre">random.random()</span></code> depending on import style!</p>
+<p>🚩 <strong>Common mistake:</strong> if you <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">random</span> <span class="pre">import</span> <span class="pre">random,</span> <span class="pre">randint</span></code> and then try <code class="docutils literal notranslate"><span class="pre">random.randint(...)</span></code>, you’ll get an <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code>. That import binds the name <code class="docutils literal notranslate"><span class="pre">random</span></code> to the <em>function</em> <code class="docutils literal notranslate"><span class="pre">random.random</span></code>, not the module – so <code class="docutils literal notranslate"><span class="pre">random</span></code> no longer refers to the module at all, and <code class="docutils literal notranslate"><span class="pre">random.randint</span></code> doesn’t exist. Either call <code class="docutils literal notranslate"><span class="pre">randint(...)</span></code> directly (it was imported by name too), or use <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">random</span></code> and always call <code class="docutils literal notranslate"><span class="pre">random.random()</span></code> / <code class="docutils literal notranslate"><span class="pre">random.randint()</span></code> through the module.</p>
 </section>
 <section id="using-both-functions">
 <h4>Using Both Functions<a class="headerlink" href="#using-both-functions" title="Link to this heading">#</a></h4>
@@ -675,8 +676,8 @@ Percentage: 52.77944610581413
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dice roll: 3
-Win probability: 0.69
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dice roll: 1
+Win probability: 0.44
 </pre></div>
 </div>
 </div>
