@@ -521,6 +521,7 @@ rolls. At the end, print: <code class="docutils literal notranslate"><span class
 <p>Write a new program that uses a <strong><code class="docutils literal notranslate"><span class="pre">while</span></code> loop</strong> to keep rolling a single
 die until a <strong>6</strong> appears. Print each roll as it happens. At the end, print
 how many rolls it took to get the six.</p>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#combining-while-loops-with-random-numbers">Combining While Loops with Random Numbers</a> section for this exact pattern.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
@@ -537,6 +538,7 @@ print how many rolls it took to get doubles.</p>
 <p><strong>Hint:</strong> Use <code class="docutils literal notranslate"><span class="pre">random.randint(1,</span> <span class="pre">6)</span></code> twice inside a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop. Keep
 rolling until the two values are equal, and use a counter variable to track
 how many rolls it took.</p>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#combining-while-loops-with-random-numbers">Combining While Loops with Random Numbers</a> section for this exact pattern.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
@@ -704,6 +706,7 @@ to solve problems through random sampling.</p>
 <li><p>Checks if inside the quarter-circle (distance ≤ 1)</p></li>
 <li><p>Prints: coordinates (3 decimals), distance, and whether it’s inside</p></li>
 </ol>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#random-random-float">random() - Random Float</a> section for a refresher on this function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
@@ -1018,6 +1021,8 @@ formula: <code class="docutils literal notranslate"><span class="pre">area</span
 <li><p>Run the program more than once – do you always get the same number of
 circles to enter? Why?</p></li>
 </ol>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#error-checking">Error Checking</a> section for the validation-loop pattern each radius needs.</p>
+<p>🚩 <strong>Common mistake:</strong> validating with one shared loop instead of one independent validation per radius. Each of the <code class="docutils literal notranslate"><span class="pre">n</span></code> radii needs its <em>own</em> “keep asking until valid” loop – a single loop that only checks the first (or last) input silently lets the other <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">-</span> <span class="pre">1</span></code> invalid entries through.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
@@ -1079,6 +1084,7 @@ code:</p>
 them to the sequence I gave you.</p></li>
 <li><p>When you find a match, you’ve found my seed!</p></li>
 </ul>
+<p>🚩 <strong>Common mistake:</strong> getting the range bound wrong in an exhaustive search. “Every possible integer seed from 1 to 200” means <code class="docutils literal notranslate"><span class="pre">range(1,</span> <span class="pre">201)</span></code> – <code class="docutils literal notranslate"><span class="pre">range(1,</span> <span class="pre">200)</span></code> silently skips checking 200 itself. This is the same exclusive-upper-bound rule as any other <code class="docutils literal notranslate"><span class="pre">range()</span></code>, but easy to miss when the number in the problem statement and the number you type don’t visually match.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
@@ -1122,6 +1128,7 @@ target.</p></li>
 <li><p>Print the seed and the cracked password.</p></li>
 </ol>
 <p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class6.html#when-to-use-seeds">When to Use Seeds</a> section for why a fixed seed is fine for testing but dangerous for anything security-related.</p>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class6.html#nesting-a-while-loop-inside-another-while-loop">Nesting a while Loop Inside Another while Loop</a> section for this exact nested-while structure.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
@@ -1181,6 +1188,7 @@ random values consumed?</p></li>
 underlying sequence of values <code class="docutils literal notranslate"><span class="pre">random</span></code> will hand out, in order – but
 which calls in your code actually <em>consume</em> values from that sequence,
 and in what order, depends entirely on your program’s control flow.</p>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class6.html#pseudo-random-numbers-in-python">Pseudo-Random Numbers in Python</a> section for how the underlying sequence actually works.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
