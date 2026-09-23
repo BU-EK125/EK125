@@ -62,6 +62,45 @@ if they weren't why you started the change:
   practices it cross-reference that callout specifically (not just the
   section in general)?
 
+## Porting a homework assignment
+
+As of Fall 2026, homework problem statements (not solutions) are allowed on
+this site, for assignments graded for submission only, not correctness --
+see README.md for why. Source material lives in the instructor's own
+working folder (not `EK125-notebooks`), organized by week, e.g.
+`EK125WIP/<term>/Class Materials/Week N/Homework N`. Porting one:
+
+1. **Read the whole source file first.** A week's homework is usually one
+   notebook spanning two classes (e.g. "Homework 4" covers Classes 5 and
+   6), already split into named parts (e.g. "Part A: Class 5 Problems" /
+   "Part B: Class 6 Problems") -- confirm that split before assuming it.
+2. **Verify any embedded example code, not just the blank scaffold
+   cells.** Homework often includes short "here's some code, what happens"
+   snippets as part of the problem statement itself (a bug to find, a
+   security lesson, a puzzle to solve) -- actually run each one and confirm
+   it produces the claimed behavior before publishing it. Don't assume a
+   snippet is correct just because it's already written.
+3. **Port as a single `homework/HWN.ipynb`, not split per class.** Unlike
+   a GPP, homework doesn't belong to one class -- give it a single page
+   with the source's own Part A/Part B (or similar) structure preserved as
+   section headings, and register it in `_toc.yml` as its own top-level
+   chapter entry, positioned after the last class it covers (not nested
+   under either class's `sections:`).
+4. **Preserve "discovery" framing.** Some problems are deliberately
+   designed for the student to find an undiscussed function themselves
+   (e.g. "`os.chdir()` wasn't shown in lecture -- discover it using
+   `help()`!") -- keep that framing as-is rather than adding a hint that
+   defeats the exercise.
+5. **Only code cells that were already filled in the source stay filled**
+   (e.g. a single worked first sub-part shown as a model for the rest);
+   leave every other code cell as a blank `# Your code here` scaffold,
+   matching GPP convention. Never port the assignment's solutions file.
+6. **Cross-reference links and common-mistake callouts** follow the exact
+   same rules as GPPs (see above) -- tie them to a genuine, specific
+   correspondence with the reading, don't force one where none exists.
+7. **Build and verify**, same as any other port (see "Verifying a build,"
+   below), then open a PR and wait for an explicit go-ahead to merge.
+
 ## Cross-reference links
 
 ### Why absolute URLs, not relative links
