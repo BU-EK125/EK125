@@ -20,6 +20,8 @@ parts:
         sections:
           - file: gpps/Class9_GPP
       - file: class/Class10
+        sections:
+          - file: gpps/Class10_GPP
       - file: class/Class11
       - file: class/Class12
       - file: class/Class13
