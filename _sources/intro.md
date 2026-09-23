@@ -6,7 +6,7 @@ This site collects EK125's in-class readings and Group Practice Problems (GPPs) 
 
 The sidebar is organized into parts matching the course's acts (see below): Python, then MATLAB. Each class gets its own page, numbered `Class 1` through `Class 22` (aside from a couple of numbers the course doesn't use).
 
-Most readings are plain pages. A few -- currently **Classes 1, 5, 6, 7, and 9** -- are interactive Jupyter notebooks: every code example actually runs when the site is built, so if something's broken, we find out before you do. Look for the 🚀 rocket icon in the top-right corner of the page (next to the download button); click it, then **Colab**, and the page opens directly in [Google Colab](https://colab.research.google.com) so you can experiment with the code yourself: change a value, break something, see what happens. When a class has a Group Practice Problem, it's nested right underneath that class's reading in the sidebar.
+Most readings are plain pages. A few -- currently **Classes 1, 5, 6, 7, 9, and 10** -- are interactive Jupyter notebooks: every code example actually runs when the site is built, so if something's broken, we find out before you do. Look for the 🚀 rocket icon in the top-right corner of the page (next to the download button); click it, then **Colab**, and the page opens directly in [Google Colab](https://colab.research.google.com) so you can experiment with the code yourself: change a value, break something, see what happens. When a class has a Group Practice Problem, it's nested right underneath that class's reading in the sidebar.
 
 There's also an appendix with the course syllabus.
 

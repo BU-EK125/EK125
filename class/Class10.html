@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Class 10 Pre-read: Mastering Slicing in Python &#8212; EK125</title>
+    <title>Class 10: Mastering Slicing in Python &#8212; EK125</title>
   
   
   
@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'class/Class10';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Class 11: Digging into arrays with NumPy" href="Class11.html" />
+    <link rel="next" title="Class 10 GPP: Mastering Slicing in Python" href="../gpps/Class10_GPP.html" />
     <link rel="prev" title="Class 9 GPP: Getting Comfortable with PyCharm" href="../gpps/Class9_GPP.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -197,7 +197,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../gpps/Class9_GPP.html">Class 9 GPP: Getting Comfortable with PyCharm</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Class 10 Pre-read: Mastering Slicing in Python</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Class 10: Mastering Slicing in Python</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class10_GPP.html">Class 10 GPP: Mastering Slicing in Python</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="Class11.html">Class 11: Digging into arrays with NumPy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Class12.html">Class 12 Preread: Dictionaries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Class13.html">Class 13: User-Defined Functions, Arguments, and Scope</a></li>
@@ -264,6 +267,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/BU-EK125/EK125/blob/main/class/Class10.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -272,7 +306,7 @@
       
       
       
-      <li><a href="../_sources/class/Class10.md" target="_blank"
+      <li><a href="../_sources/class/Class10.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -282,7 +316,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -356,7 +390,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Class 10 Pre-read: Mastering Slicing in Python</h1>
+    <h1>Class 10: Mastering Slicing in Python</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -367,38 +401,36 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-sequence-operators">0. Review: Sequence Operators</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-indexing-sequences">1. Review: Indexing Sequences</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simplest-slice-notation">2. Simplest Slice Notation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-sequence-operators">1. Review: Sequence Operators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-indexing-sequences">2. Review: Indexing Sequences</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simplest-slice-notation">3. Simplest Slice Notation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-up-to-but-not-including">Why “up to but not including”?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#omitting-start-and-end">3. Omitting Start and End</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#negative-indices-in-slices">4. Negative Indices in Slices</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-step-parameter">5. The Step Parameter</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#negative-steps-reversing">6. Negative Steps (Reversing)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-slicing-patterns">7. Common Slicing Patterns</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#omitting-start-and-end">4. Omitting Start and End</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#negative-indices-in-slices">5. Negative Indices in Slices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-step-parameter">6. The Step Parameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#negative-steps-reversing">7. Negative Steps (Reversing)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-slicing-patterns">8. Common Slicing Patterns</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-first-last-n-elements">Getting first/last n elements</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-first-last-n-elements">Removing first/last n elements</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#every-nth-element">Every nth element</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slice-assignment-lists-only">8. Slice Assignment (Lists Only)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-new-sequences-from-slices">9. Building New Sequences from Slices</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing-with-variables">10. Slicing with Variables</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-applications">11. Practical Applications</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slice-assignment-lists-only">9. Slice Assignment (Lists Only)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-new-sequences-from-slices">10. Building New Sequences from Slices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing-with-variables">11. Slicing with Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-applications">12. Practical Applications</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splitting-strings-into-parts">Splitting strings into parts</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-data-in-chunks">Processing data in chunks</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windowing-through-sequences">Windowing through sequences</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edge-cases-and-gotchas">12. Edge Cases and Gotchas</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edge-cases-and-gotchas">13. Edge Cases and Gotchas</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-confusing-behavior-of-1">The confusing behavior of -1</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#out-of-bounds-indices">Out-of-bounds indices</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#empty-slices">Empty slices</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-of-zero">Step of zero</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Empty slices</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Step of zero</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-terms-to-remember">Key Terms to Remember</a></li>
@@ -413,8 +445,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="class-10-pre-read-mastering-slicing-in-python">
-<h1>Class 10 Pre-read: Mastering Slicing in Python<a class="headerlink" href="#class-10-pre-read-mastering-slicing-in-python" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="class-10-mastering-slicing-in-python">
+<h1>Class 10: Mastering Slicing in Python<a class="headerlink" href="#class-10-mastering-slicing-in-python" title="Link to this heading">#</a></h1>
 <section id="learning-objectives">
 <h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
 <p>By the end of this reading, you should understand:</p>
@@ -428,10 +460,12 @@ document.write(`
 </ul>
 </section>
 <section id="review-sequence-operators">
-<h2>0. Review: Sequence Operators<a class="headerlink" href="#review-sequence-operators" title="Link to this heading">#</a></h2>
-<p>Before we dive into slicing, let’s review two operators that work on sequences. These should have been covered in Week 2, but we’ll briefly revisit them here since they’re useful when working with slices.</p>
+<h2>1. Review: Sequence Operators<a class="headerlink" href="#review-sequence-operators" title="Link to this heading">#</a></h2>
+<p>Before we dive into slicing, let’s review two operators that work on sequences. These should have been covered in Class 2, but we’ll briefly revisit them here since they’re useful when working with slices.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">+</span></code> operator concatenates (joins) sequences together:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">listA</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">listA</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="n">listB</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 <span class="n">combined</span> <span class="o">=</span> <span class="n">listA</span> <span class="o">+</span> <span class="n">listB</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">combined</span><span class="p">)</span>  <span class="c1"># [1, 2, 3, 4, 5, 6]</span>
@@ -440,8 +474,18 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span>  <span class="c1"># "Hello World"</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4, 5, 6]
+Hello World
+</pre></div>
+</div>
+</div>
+</div>
 <p>The <code class="docutils literal notranslate"><span class="pre">*</span></code> operator repeats a sequence:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">zeros</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">5</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zeros</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">5</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">zeros</span><span class="p">)</span>  <span class="c1"># [0, 0, 0, 0, 0]</span>
 
 <span class="n">dashes</span> <span class="o">=</span> <span class="s2">"-"</span> <span class="o">*</span> <span class="mi">10</span>
@@ -451,12 +495,23 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">pattern</span><span class="p">)</span>  <span class="c1"># [1, 2, 1, 2, 1, 2]</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 0, 0, 0, 0]
+----------
+[1, 2, 1, 2, 1, 2]
+</pre></div>
+</div>
+</div>
+</div>
 <p>These operators will be useful later when we combine slices to build new sequences.</p>
 </section>
 <section id="review-indexing-sequences">
-<h2>1. Review: Indexing Sequences<a class="headerlink" href="#review-indexing-sequences" title="Link to this heading">#</a></h2>
-<p>Recall from Week 2 that Python sequences (strings, lists, tuples) can be accessed by index:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s2">"Python"</span>
+<h2>2. Review: Indexing Sequences<a class="headerlink" href="#review-indexing-sequences" title="Link to this heading">#</a></h2>
+<p>Recall from Class 2 that Python sequences (strings, lists, tuples) can be accessed by index:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s2">"Python"</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>      <span class="c1"># 'P'</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>     <span class="c1"># 'n'</span>
 
@@ -465,16 +520,28 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># 40</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P
+n
+30
+40
+</pre></div>
+</div>
+</div>
+</div>
 <p>Indexing lets us access a single element. But what if we want to extract multiple consecutive elements? That’s where slicing comes in.</p>
 </section>
 <section id="simplest-slice-notation">
-<h2>2. Simplest Slice Notation<a class="headerlink" href="#simplest-slice-notation" title="Link to this heading">#</a></h2>
+<h2>3. Simplest Slice Notation<a class="headerlink" href="#simplest-slice-notation" title="Link to this heading">#</a></h2>
 <p>A <strong>slice</strong> extracts a portion of a sequence. The simplest syntax is:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sequence</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>This extracts elements from index <code class="docutils literal notranslate"><span class="pre">start</span></code> up to (but not including) index <code class="docutils literal notranslate"><span class="pre">end</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s2">"Programming"</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s2">"Programming"</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>    <span class="c1"># "Prog"</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">7</span><span class="p">])</span>    <span class="c1"># "gram"</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">11</span><span class="p">])</span>   <span class="c1"># "amming"</span>
@@ -489,31 +556,57 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>  <span class="c1"># ["red", "green", "blue", "yellow"]</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prog
+gram
+amming
+[20, 30, 40]
+[10, 20]
+[30, 40, 50]
+['green', 'blue']
+['red', 'green', 'blue', 'yellow']
+</pre></div>
+</div>
+</div>
+</div>
 <p><strong>Key rule: The end index is NOT included.</strong> Think of it as “start here, stop before end.”</p>
+<p>🚩 <strong>Common mistake:</strong> forgetting the end index is exclusive – <code class="docutils literal notranslate"><span class="pre">word[2:3]</span></code> grabs only one character; to include index 3 as well you need <code class="docutils literal notranslate"><span class="pre">word[2:4]</span></code>.</p>
 <section id="why-up-to-but-not-including">
 <h3>Why “up to but not including”?<a class="headerlink" href="#why-up-to-but-not-including" title="Link to this heading">#</a></h3>
 <p>This convention is counterintuitive at first. When you hear “elements 0 through 4,” you naturally expect to get element 4. Python doesn’t work this way, and it takes time to adjust.</p>
 <p>The payoff is that consecutive slices connect seamlessly:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s2">"Programming"</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s2">"Programming"</span>
 <span class="n">first</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>   <span class="c1"># "Prog"</span>
 <span class="n">second</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>  <span class="c1"># "ramm"</span>
 <span class="n">third</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="mi">8</span><span class="p">:]</span>    <span class="c1"># "ing"</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">first</span> <span class="o">+</span> <span class="n">second</span> <span class="o">+</span> <span class="n">third</span><span class="p">)</span>  <span class="c1"># "Programming"</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Programming
+</pre></div>
+</div>
+</div>
+</div>
 <p>Notice that the second slice starts at 4, exactly where the first slice ended. And the third slice starts at 8, exactly where the second slice ended.</p>
 <p>Another benefit: the length of any slice is simply <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">-</span> <span class="pre">start</span></code>.</p>
 </section>
 </section>
 <section id="omitting-start-and-end">
-<h2>3. Omitting Start and End<a class="headerlink" href="#omitting-start-and-end" title="Link to this heading">#</a></h2>
+<h2>4. Omitting Start and End<a class="headerlink" href="#omitting-start-and-end" title="Link to this heading">#</a></h2>
 <p>At the cost of readability, you can omit <code class="docutils literal notranslate"><span class="pre">start</span></code> or <code class="docutils literal notranslate"><span class="pre">end</span></code> to use default values:</p>
 <ul class="simple">
 <li><p>Omitting <code class="docutils literal notranslate"><span class="pre">start</span></code> defaults to 0 (beginning of sequence)</p></li>
 <li><p>Omitting <code class="docutils literal notranslate"><span class="pre">end</span></code> defaults to the length (end of sequence)</p></li>
 </ul>
 <p>Python doesn’t provide an <code class="docutils literal notranslate"><span class="pre">end</span></code> keyword to refer to the end of a sequence, so when you want to slice to the end, you’re forced to omit the <code class="docutils literal notranslate"><span class="pre">end</span></code> value. This makes some slices more compact but less explicit.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s2">"Python"</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s2">"Python"</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>     <span class="c1"># "Pyt" (same as word[0:3])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">3</span><span class="p">:])</span>     <span class="c1"># "hon" (from 3 to end)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[:])</span>      <span class="c1"># "Python" (entire sequence)</span>
@@ -529,12 +622,29 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">[</span><span class="mi">6</span><span class="p">:])</span>  <span class="c1"># "World"</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pyt
+hon
+Python
+[10, 20]
+[30, 40, 50]
+[40, 50]
+[10, 20, 30, 40]
+Hello
+World
+</pre></div>
+</div>
+</div>
+</div>
 <p>The slice <code class="docutils literal notranslate"><span class="pre">[:]</span></code> creates a copy of the entire sequence.</p>
 </section>
 <section id="negative-indices-in-slices">
-<h2>4. Negative Indices in Slices<a class="headerlink" href="#negative-indices-in-slices" title="Link to this heading">#</a></h2>
+<h2>5. Negative Indices in Slices<a class="headerlink" href="#negative-indices-in-slices" title="Link to this heading">#</a></h2>
 <p>Just like with single-element indexing, you can use negative numbers in slices to count from the end:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s2">"Programming"</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s2">"Programming"</span>
 <span class="c1"># P  r  o  g  r  a  m  m  i  n  g</span>
 <span class="c1"># 0  1  2  3  4  5  6  7  8  9  10</span>
 <span class="c1">#-11-10-9 -8 -7 -6 -5 -4 -3 -2 -1</span>
@@ -545,13 +655,25 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:])</span>        <span class="c1"># "mming" (last 5 characters)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ming
+rammi
+Programm
+mming
+</pre></div>
+</div>
+</div>
+</div>
 <p>Common patterns:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">sequence[-n:]</span></code> - last n elements</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sequence[:-n]</span></code> - all but last n elements</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sequence[-n:-m]</span></code> - slice from nth-to-last to mth-to-last</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">]</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:])</span>     <span class="c1"># [50, 60, 70]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>     <span class="c1"># [10, 20, 30, 40, 50]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>   <span class="c1"># [30, 40, 50]</span>
@@ -564,15 +686,31 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="o">-</span><span class="mi">11</span><span class="p">:</span><span class="o">-</span><span class="mi">6</span><span class="p">])</span>     <span class="c1"># "Hello"</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[50, 60, 70]
+[10, 20, 30, 40, 50]
+[30, 40, 50]
+[70]
+[10, 20, 30, 40, 50, 60]
+World
+Hello
+Hello
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="the-step-parameter">
-<h2>5. The Step Parameter<a class="headerlink" href="#the-step-parameter" title="Link to this heading">#</a></h2>
+<h2>6. The Step Parameter<a class="headerlink" href="#the-step-parameter" title="Link to this heading">#</a></h2>
 <p>The full slice syntax includes a third parameter:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sequence</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">:</span><span class="n">step</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">step</span></code> parameter determines how many indices to move forward each time. The default step is 1.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">8</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>   <span class="c1"># [0, 2, 4, 6] (every 2nd element)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">9</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>   <span class="c1"># [1, 4, 7] (every 3rd element)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span>     <span class="c1"># [0, 2, 4, 6, 8] (every 2nd, entire sequence)</span>
@@ -585,19 +723,47 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">alphabet</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">15</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span> <span class="c1"># "bfj" (every 4th starting from index 1)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 2, 4, 6]
+[1, 4, 7]
+[0, 2, 4, 6, 8]
+[0, 3, 6, 9]
+[1, 3, 5, 7, 9]
+acegi
+adgjmp
+bfjn
+</pre></div>
+</div>
+</div>
+</div>
 <p>You can omit <code class="docutils literal notranslate"><span class="pre">start</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span></code> while specifying <code class="docutils literal notranslate"><span class="pre">step</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">letters</span> <span class="o">=</span> <span class="s2">"abcdefghij"</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">letters</span> <span class="o">=</span> <span class="s2">"abcdefghij"</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">letters</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">3</span><span class="p">])</span>    <span class="c1"># "adgj" (every 3rd character, starting from 0)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">letters</span><span class="p">[::</span><span class="mi">3</span><span class="p">])</span>     <span class="c1"># "adgj" (every 3rd character)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">letters</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">3</span><span class="p">])</span>    <span class="c1"># "beh" (every 3rd character, starting from 1)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">letters</span><span class="p">[</span><span class="mi">2</span><span class="p">::</span><span class="mi">3</span><span class="p">])</span>    <span class="c1"># "cfi" (every 3rd character, starting from 2)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>adgj
+adgj
+beh
+cfi
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="negative-steps-reversing">
-<h2>6. Negative Steps (Reversing)<a class="headerlink" href="#negative-steps-reversing" title="Link to this heading">#</a></h2>
+<h2>7. Negative Steps (Reversing)<a class="headerlink" href="#negative-steps-reversing" title="Link to this heading">#</a></h2>
 <p>A negative <code class="docutils literal notranslate"><span class="pre">step</span></code> moves backwards through the sequence:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s2">"Python"</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s2">"Python"</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>       <span class="c1"># "nohtyP" (reversed)</span>
 
 <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
@@ -608,9 +774,21 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">alphabet</span><span class="p">[::</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>   <span class="c1"># "hfdb" (every 2nd element, backwards)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nohtyP
+[5, 4, 3, 2, 1]
+hgfedcba
+hfdb
+</pre></div>
+</div>
+</div>
+</div>
 <p>The slice <code class="docutils literal notranslate"><span class="pre">[::-1]</span></code> is a Python idiom for reversing any sequence.</p>
 <p>You can combine negative steps with start and end:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s2">"Programming"</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s2">"Programming"</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">8</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>     <span class="c1"># "immarg" (from index 8 down to 3)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">8</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>   <span class="c1"># "gimr" (backwards, every 2nd)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">5</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>    <span class="c1"># "gnimm" (from index 10 down to 6)</span>
@@ -621,6 +799,18 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">[:</span><span class="mi">3</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>   <span class="c1"># [9, 8, 7, 6, 5, 4] (from end down to 4)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>immarg
+gimr
+gnimm
+[9, 8, 7, 6, 5]
+[7, 5, 3]
+[9, 8, 7, 6, 5, 4]
+</pre></div>
+</div>
+</div>
+</div>
 <p>When using negative steps, remember:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">start</span></code> should be greater than <code class="docutils literal notranslate"><span class="pre">end</span></code> (you’re going backwards)</p></li>
@@ -628,11 +818,13 @@ document.write(`
 </ul>
 </section>
 <section id="common-slicing-patterns">
-<h2>7. Common Slicing Patterns<a class="headerlink" href="#common-slicing-patterns" title="Link to this heading">#</a></h2>
+<h2>8. Common Slicing Patterns<a class="headerlink" href="#common-slicing-patterns" title="Link to this heading">#</a></h2>
 <p>Here are idioms you’ll see frequently in Python code:</p>
 <section id="getting-first-last-n-elements">
 <h3>Getting first/last n elements<a class="headerlink" href="#getting-first-last-n-elements" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">]</span>
 <span class="n">firstThree</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>      <span class="c1"># [10, 20, 30]</span>
 <span class="n">lastTwo</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:]</span>        <span class="c1"># [50, 60]</span>
 <span class="n">firstFive</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>       <span class="c1"># [10, 20, 30, 40, 50]</span>
@@ -643,10 +835,14 @@ document.write(`
 <span class="n">lastWord</span> <span class="o">=</span> <span class="n">sentence</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span>   <span class="c1"># "fox"</span>
 </pre></div>
 </div>
+</div>
+</div>
 </section>
 <section id="removing-first-last-n-elements">
 <h3>Removing first/last n elements<a class="headerlink" href="#removing-first-last-n-elements" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
 <span class="n">withoutFirst</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>    <span class="c1"># [20, 30, 40, 50]</span>
 <span class="n">withoutLast</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>    <span class="c1"># [10, 20, 30, 40]</span>
 <span class="n">withoutFirstTwo</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="c1"># [30, 40, 50]</span>
@@ -656,10 +852,14 @@ document.write(`
 <span class="n">withoutProtocol</span> <span class="o">=</span> <span class="n">url</span><span class="p">[</span><span class="mi">8</span><span class="p">:]</span>  <span class="c1"># "example.com"</span>
 </pre></div>
 </div>
+</div>
+</div>
 </section>
 <section id="every-nth-element">
 <h3>Every nth element<a class="headerlink" href="#every-nth-element" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
 <span class="n">evens</span> <span class="o">=</span> <span class="n">numbers</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>       <span class="c1"># [0, 2, 4, 6, 8]</span>
 <span class="n">odds</span> <span class="o">=</span> <span class="n">numbers</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span>       <span class="c1"># [1, 3, 5, 7, 9]</span>
 <span class="n">everyThird</span> <span class="o">=</span> <span class="n">numbers</span><span class="p">[::</span><span class="mi">3</span><span class="p">]</span>  <span class="c1"># [0, 3, 6, 9]</span>
@@ -671,12 +871,17 @@ document.write(`
 <span class="n">everyOtherDay</span> <span class="o">=</span> <span class="n">days</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># ["Mon", "Wed", "Fri", "Sun"]</span>
 </pre></div>
 </div>
+</div>
+</div>
 </section>
 </section>
 <section id="slice-assignment-lists-only">
-<h2>8. Slice Assignment (Lists Only)<a class="headerlink" href="#slice-assignment-lists-only" title="Link to this heading">#</a></h2>
+<h2>9. Slice Assignment (Lists Only)<a class="headerlink" href="#slice-assignment-lists-only" title="Link to this heading">#</a></h2>
 <p>Slicing works the same way on strings, lists, and tuples. However, only lists allow you to assign to a slice to replace a section:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<p>🚩 <strong>Common mistake:</strong> the right-hand side must be an iterable (like a list), even for a single value – <code class="docutils literal notranslate"><span class="pre">numbers[1:3]</span> <span class="pre">=</span> <span class="pre">5</span></code> raises a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>. Use <code class="docutils literal notranslate"><span class="pre">numbers[1:3]</span> <span class="pre">=</span> <span class="pre">[5]</span></code> instead.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="n">numbers</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>  <span class="c1"># [1, 20, 30, 40, 5]</span>
 
@@ -685,13 +890,28 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>  <span class="c1"># [10, 20, 100, 200, 300, 60]</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 20, 30, 40, 5]
+[10, 20, 100, 200, 300, 60]
+</pre></div>
+</div>
+</div>
+</div>
 <p>With strings, you cannot assign to slices because strings are immutable:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">"Hello"</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">"Hello"</span>
 <span class="c1"># text[1:4] = "ELL"    # ERROR: strings are immutable</span>
 </pre></div>
 </div>
+</div>
+</div>
 <p>The replacement doesn’t need to be the same length:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+<p>🚩 <strong>Common mistake:</strong> assigning into a zero-width slice like <code class="docutils literal notranslate"><span class="pre">data[3:3]</span> <span class="pre">=</span> <span class="pre">[...]</span></code> <em>inserts</em> new elements at that position rather than replacing anything – there is nothing between index 3 and itself to remove.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
 <span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>  <span class="c1"># [10, 100, 200, 300, 400, 40, 50]</span>
 
@@ -700,8 +920,18 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">letters</span><span class="p">)</span>  <span class="c1"># ['a', 'X', 'e']</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10, 100, 200, 300, 400, 40, 50]
+['a', 'X', 'e']
+</pre></div>
+</div>
+</div>
+</div>
 <p>You can even delete elements by assigning an empty list:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="n">numbers</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>  <span class="c1"># [1, 4, 5]</span>
 
@@ -710,8 +940,19 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># [10, 20, 60]</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 4, 5]
+[10, 20, 60]
+</pre></div>
+</div>
+</div>
+</div>
 <p>Slice assignment with steps requires the replacement to match the slice length:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<p>🚩 <strong>Common mistake:</strong> with a stepped slice, the number of replacement elements must exactly match the number of elements being replaced, or Python raises a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>  <span class="c1"># [10, 1, 20, 3, 30, 5]</span>
 
@@ -722,11 +963,21 @@ document.write(`
 <span class="c1"># numbers[::2] = [10, 20]  # ERROR: length mismatch</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10, 1, 20, 3, 30, 5]
+[1, 100, 3, 200, 5, 300, 7, 8]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="building-new-sequences-from-slices">
-<h2>9. Building New Sequences from Slices<a class="headerlink" href="#building-new-sequences-from-slices" title="Link to this heading">#</a></h2>
+<h2>10. Building New Sequences from Slices<a class="headerlink" href="#building-new-sequences-from-slices" title="Link to this heading">#</a></h2>
 <p>Slicing is powerful for constructing new sequences from parts of existing ones:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extracting parts of a string</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extracting parts of a string</span>
 <span class="n">email</span> <span class="o">=</span> <span class="s2">"student@university.edu"</span>
 <span class="n">username</span> <span class="o">=</span> <span class="n">email</span><span class="p">[:</span><span class="n">email</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">'@'</span><span class="p">)]</span>
 <span class="n">domain</span> <span class="o">=</span> <span class="n">email</span><span class="p">[</span><span class="n">email</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">'@'</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span>  <span class="c1"># +1 to skip the '@' character</span>
@@ -747,11 +998,23 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">combined</span><span class="p">)</span>  <span class="c1"># [0, 1, 2, 3, 4, 5, 6, 7]</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>student
+university.edu
+[4, 5, 6, 1, 2, 3]
+[0, 1, 2, 3, 4, 5, 6, 7]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="slicing-with-variables">
-<h2>10. Slicing with Variables<a class="headerlink" href="#slicing-with-variables" title="Link to this heading">#</a></h2>
+<h2>11. Slicing with Variables<a class="headerlink" href="#slicing-with-variables" title="Link to this heading">#</a></h2>
 <p>Slice indices can be variables, making slicing very flexible:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">]</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">]</span>
 <span class="n">start</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">end</span> <span class="o">=</span> <span class="mi">6</span>
 <span class="n">step</span> <span class="o">=</span> <span class="mi">2</span>
@@ -766,8 +1029,20 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="n">chunkSize</span><span class="p">:])</span>     <span class="c1"># [60, 70, 80]</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[30, 50]
+[20, 30, 40, 50]
+[10, 20, 30]
+[60, 70, 80]
+</pre></div>
+</div>
+</div>
+</div>
 <p>Finding and extracting:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">"The quick brown fox"</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">"The quick brown fox"</span>
 <span class="n">spaceIndex</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">' '</span><span class="p">)</span>
 <span class="n">firstWord</span> <span class="o">=</span> <span class="n">text</span><span class="p">[:</span><span class="n">spaceIndex</span><span class="p">]</span>
 <span class="n">rest</span> <span class="o">=</span> <span class="n">text</span><span class="p">[</span><span class="n">spaceIndex</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span>  <span class="c1"># +1 to skip the space character</span>
@@ -789,12 +1064,26 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>  <span class="c1"># "/home/user/documents"</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The
+quick brown fox
+john.doe
+company.com
+file.txt
+/home/user/documents
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="practical-applications">
-<h2>11. Practical Applications<a class="headerlink" href="#practical-applications" title="Link to this heading">#</a></h2>
+<h2>12. Practical Applications<a class="headerlink" href="#practical-applications" title="Link to this heading">#</a></h2>
 <section id="splitting-strings-into-parts">
 <h3>Splitting strings into parts<a class="headerlink" href="#splitting-strings-into-parts" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s2">"report_2024_final.pdf"</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s2">"report_2024_final.pdf"</span>
 <span class="n">parts</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">lastIndex</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">filename</span><span class="p">)):</span>
@@ -818,10 +1107,20 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Year: </span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">, Month: </span><span class="si">{</span><span class="n">month</span><span class="si">}</span><span class="s2">, Day: </span><span class="si">{</span><span class="n">day</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>['report', '2024', 'final', 'pdf']
+Year: 2024, Month: 10, Day: 15
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="processing-data-in-chunks">
 <h3>Processing data in chunks<a class="headerlink" href="#processing-data-in-chunks" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]</span>
 <span class="n">chunkSize</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">chunks</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">chunkSize</span><span class="p">):</span>
@@ -836,10 +1135,20 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">pairs</span><span class="p">)</span>  <span class="c1"># [[10, 20], [30, 40], [50, 60], [70, 80], [90, 100]]</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]
+[[10, 20], [30, 40], [50, 60], [70, 80], [90, 100]]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="windowing-through-sequences">
 <h3>Windowing through sequences<a class="headerlink" href="#windowing-through-sequences" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">temperatures</span> <span class="o">=</span> <span class="p">[</span><span class="mi">72</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">69</span><span class="p">,</span> <span class="mi">73</span><span class="p">]</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperatures</span> <span class="o">=</span> <span class="p">[</span><span class="mi">72</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">69</span><span class="p">,</span> <span class="mi">73</span><span class="p">]</span>
 <span class="n">windowSize</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">temperatures</span><span class="p">)</span> <span class="o">-</span> <span class="n">windowSize</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
     <span class="n">window</span> <span class="o">=</span> <span class="n">temperatures</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">windowSize</span><span class="p">]</span>  <span class="c1"># Extract windowSize consecutive elements</span>
@@ -855,14 +1164,32 @@ document.write(`
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Window </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: Range from $</span><span class="si">{</span><span class="n">minPrice</span><span class="si">}</span><span class="s2"> to $</span><span class="si">{</span><span class="n">maxPrice</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Days 0 to 2: [72, 75, 78], Average: 75.0
+Days 1 to 3: [75, 78, 76], Average: 76.3
+Days 2 to 4: [78, 76, 74], Average: 76.0
+Days 3 to 5: [76, 74, 71], Average: 73.7
+Days 4 to 6: [74, 71, 69], Average: 71.3
+Days 5 to 7: [71, 69, 73], Average: 71.0
+Window 0: Range from $100 to $108
+Window 1: Range from $103 to $112
+Window 2: Range from $103 to $112
+Window 3: Range from $108 to $115
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="edge-cases-and-gotchas">
-<h2>12. Edge Cases and Gotchas<a class="headerlink" href="#edge-cases-and-gotchas" title="Link to this heading">#</a></h2>
+<h2>13. Edge Cases and Gotchas<a class="headerlink" href="#edge-cases-and-gotchas" title="Link to this heading">#</a></h2>
 <section id="the-confusing-behavior-of-1">
 <h3>The confusing behavior of -1<a class="headerlink" href="#the-confusing-behavior-of-1" title="Link to this heading">#</a></h3>
 <p>When used as a single index, <code class="docutils literal notranslate"><span class="pre">-1</span></code> refers to the last element. But when used as the <code class="docutils literal notranslate"><span class="pre">end</span></code> in a slice, it refers to the position before the last element (the penultimate position):</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
 
 <span class="c1"># As a single index: -1 is the last element</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>    <span class="c1"># 50</span>
@@ -877,12 +1204,27 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>     <span class="c1"># "Pytho" (same thing)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50
+[10, 20, 30, 40]
+[10, 20, 30, 40]
+n
+Pytho
+Pytho
+</pre></div>
+</div>
+</div>
+</div>
 <p>This is confusing but follows from the “up to but not including” rule. The slice <code class="docutils literal notranslate"><span class="pre">[0:-1]</span></code> means “from 0 up to (but not including) the last element.”</p>
+<p>🚩 <strong>Common mistake:</strong> confusing <code class="docutils literal notranslate"><span class="pre">numbers[-1]</span></code> (just the last element) with <code class="docutils literal notranslate"><span class="pre">numbers[:-1]</span></code> (everything <em>except</em> the last element) – they look similar but do very different things.</p>
 </section>
 <section id="out-of-bounds-indices">
 <h3>Out-of-bounds indices<a class="headerlink" href="#out-of-bounds-indices" title="Link to this heading">#</a></h3>
 <p>Unlike single-element indexing, slicing never raises an error for out-of-bounds indices:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s2">"Python"</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s2">"Python"</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">20</span><span class="p">])</span>   <span class="c1"># "" (empty string, not an error)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># "Py" (treated as word[0:2])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">100</span><span class="p">])</span>   <span class="c1"># "thon" (treated as word[2:6])</span>
@@ -893,11 +1235,24 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="o">-</span><span class="mi">99</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span> <span class="c1"># [1, 2] (starts at beginning)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Py
+thon
+[]
+[2, 3]
+[1, 2]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="empty-slices">
 <h3>Empty slices<a class="headerlink" href="#empty-slices" title="Link to this heading">#</a></h3>
 <p>Various slice specifications can result in empty sequences:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>     <span class="c1"># [] (start equals end)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>    <span class="c1"># [] (start beyond length)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">1</span><span class="p">])</span>     <span class="c1"># [] (start &gt; end with positive step)</span>
@@ -908,45 +1263,30 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">text</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">15</span><span class="p">])</span>   <span class="c1"># "" (beyond string length)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+[]
+[]
+[]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="step-of-zero">
 <h3>Step of zero<a class="headerlink" href="#step-of-zero" title="Link to this heading">#</a></h3>
 <p>A step of zero is not allowed:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="c1"># print(numbers[::0])  # ERROR: slice step cannot be zero</span>
 <span class="c1"># print(numbers[0:5:0])  # ERROR: slice step cannot be zero</span>
-<span class="err">```</span><span class="n">has</span>
-
-<span class="c1">### Out-of-bounds indices</span>
-<span class="n">Unlike</span> <span class="n">single</span><span class="o">-</span><span class="n">element</span> <span class="n">indexing</span><span class="p">,</span> <span class="n">slicing</span> <span class="n">never</span> <span class="n">raises</span> <span class="n">an</span> <span class="n">error</span> <span class="k">for</span> <span class="n">out</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">bounds</span> <span class="n">indices</span><span class="p">:</span>
-
-<span class="err">```</span><span class="n">python</span>
-<span class="n">word</span> <span class="o">=</span> <span class="s2">"Python"</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">20</span><span class="p">])</span>   <span class="c1"># "" (empty string, not an error)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># "Py" (treated as word[0:2])</span>
-
-<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span> <span class="c1"># [] (empty list, not an error)</span>
 </pre></div>
 </div>
-</section>
-<section id="id1">
-<h3>Empty slices<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<p>Various slice specifications can result in empty sequences:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>     <span class="c1"># [] (start equals end)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">10</span><span class="p">])</span>    <span class="c1"># [] (start beyond length)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">1</span><span class="p">])</span>     <span class="c1"># [] (start &gt; end with positive step)</span>
-</pre></div>
 </div>
-</section>
-<section id="id2">
-<h3>Step of zero<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<p>A step of zero is not allowed:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<span class="c1"># print(numbers[::0])  # ERROR: slice step cannot be zero</span>
-</pre></div>
 </div>
+<p>You’ll get hands-on practice with all of these slicing patterns – including some of these tricky edge cases – in today’s GPP: <a class="reference external" href="https://BU-EK125.github.io/EK125/gpps/Class10_GPP.html">Class 10 GPP</a>.</p>
 </section>
 </section>
 <section id="key-terms-to-remember">
@@ -958,6 +1298,8 @@ document.write(`
 <li><p><strong>Stride</strong>: Another term for the step value in a slice</p></li>
 </ul>
 </section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1000,11 +1342,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="Class11.html"
+       href="../gpps/Class10_GPP.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Class 11: Digging into arrays with NumPy</p>
+        <p class="prev-next-title">Class 10 GPP: Mastering Slicing in Python</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1025,38 +1367,36 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-sequence-operators">0. Review: Sequence Operators</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-indexing-sequences">1. Review: Indexing Sequences</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simplest-slice-notation">2. Simplest Slice Notation</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-sequence-operators">1. Review: Sequence Operators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-indexing-sequences">2. Review: Indexing Sequences</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simplest-slice-notation">3. Simplest Slice Notation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-up-to-but-not-including">Why “up to but not including”?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#omitting-start-and-end">3. Omitting Start and End</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#negative-indices-in-slices">4. Negative Indices in Slices</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-step-parameter">5. The Step Parameter</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#negative-steps-reversing">6. Negative Steps (Reversing)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-slicing-patterns">7. Common Slicing Patterns</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#omitting-start-and-end">4. Omitting Start and End</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#negative-indices-in-slices">5. Negative Indices in Slices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-step-parameter">6. The Step Parameter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#negative-steps-reversing">7. Negative Steps (Reversing)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-slicing-patterns">8. Common Slicing Patterns</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-first-last-n-elements">Getting first/last n elements</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-first-last-n-elements">Removing first/last n elements</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#every-nth-element">Every nth element</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slice-assignment-lists-only">8. Slice Assignment (Lists Only)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-new-sequences-from-slices">9. Building New Sequences from Slices</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing-with-variables">10. Slicing with Variables</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-applications">11. Practical Applications</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slice-assignment-lists-only">9. Slice Assignment (Lists Only)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-new-sequences-from-slices">10. Building New Sequences from Slices</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing-with-variables">11. Slicing with Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-applications">12. Practical Applications</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#splitting-strings-into-parts">Splitting strings into parts</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-data-in-chunks">Processing data in chunks</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windowing-through-sequences">Windowing through sequences</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edge-cases-and-gotchas">12. Edge Cases and Gotchas</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edge-cases-and-gotchas">13. Edge Cases and Gotchas</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-confusing-behavior-of-1">The confusing behavior of -1</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#out-of-bounds-indices">Out-of-bounds indices</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#empty-slices">Empty slices</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-of-zero">Step of zero</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Empty slices</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Step of zero</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-terms-to-remember">Key Terms to Remember</a></li>
