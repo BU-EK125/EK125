@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Class 9 Preread: From Colab Notebooks to Running Python Locally &#8212; EK125</title>
+    <title>Class 9: From Colab Notebooks to Running Python Locally &#8212; EK125</title>
   
   
   
@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'class/Class9';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Class 10 Pre-read: Mastering Slicing in Python" href="Class10.html" />
+    <link rel="next" title="Class 9 GPP: Getting Comfortable with PyCharm" href="../gpps/Class9_GPP.html" />
     <link rel="prev" title="Class 7 GPP: Advanced Iteration and Nested Structures" href="../gpps/Class7_GPP.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -193,7 +193,10 @@
 <li class="toctree-l2"><a class="reference internal" href="../gpps/Class7_GPP.html">Class 7 GPP: Advanced Iteration and Nested Structures</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Class 9 Preread: From Colab Notebooks to Running Python Locally</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Class 9: From Colab Notebooks to Running Python Locally</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class9_GPP.html">Class 9 GPP: Getting Comfortable with PyCharm</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="Class10.html">Class 10 Pre-read: Mastering Slicing in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Class11.html">Class 11: Digging into arrays with NumPy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Class12.html">Class 12 Preread: Dictionaries</a></li>
@@ -261,6 +264,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/BU-EK125/EK125/blob/main/class/Class9.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -269,7 +303,7 @@
       
       
       
-      <li><a href="../_sources/class/Class9.md" target="_blank"
+      <li><a href="../_sources/class/Class9.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -279,7 +313,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -353,7 +387,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Class 9 Preread: From Colab Notebooks to Running Python Locally</h1>
+    <h1>Class 9: From Colab Notebooks to Running Python Locally</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -363,27 +397,27 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-make-this-shift">Why Make This Shift?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-ide">What is an IDE?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-will-be-different">What Will Be Different?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-pycharm">Installing PyCharm</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-make-this-shift">1. Why Make This Shift?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-ide">2. What is an IDE?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-will-be-different">3. What Will Be Different?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-pycharm">4. Installing PyCharm</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#macos">macOS</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-launch-and-initial-configuration">First Launch and Initial Configuration</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disable-ai-assistance-features">Disable AI Assistance Features</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-launch-and-initial-configuration">5. First Launch and Initial Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disable-ai-assistance-features">6. Disable AI Assistance Features</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disable-the-ai-assistant-plugin">Disable the AI Assistant Plugin</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disable-inline-ai-completions-if-present">Disable Inline AI Completions (if present)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-should-still-work">What Should Still Work</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-sure-python-is-configured">Make Sure Python is Configured</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-sure-python-is-configured">7. Make Sure Python is Configured</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-you-already-have-python-installed">If You Already Have Python Installed</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-you-do-not-have-python-installed">If You Do Not Have Python Installed</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-your-first-project-and-run-a-program">Create Your First Project and Run a Program</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-your-first-project-and-run-a-program">8. Create Your First Project and Run a Program</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-project">Create a New Project</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-and-run-hello-py">Create and Run hello.py</a></li>
 </ul>
@@ -402,10 +436,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="class-9-preread-from-colab-notebooks-to-running-python-locally">
-<h1>Class 9 Preread: From Colab Notebooks to Running Python Locally<a class="headerlink" href="#class-9-preread-from-colab-notebooks-to-running-python-locally" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="class-9-from-colab-notebooks-to-running-python-locally">
+<h1>Class 9: From Colab Notebooks to Running Python Locally<a class="headerlink" href="#class-9-from-colab-notebooks-to-running-python-locally" title="Link to this heading">#</a></h1>
 <section id="why-make-this-shift">
-<h2>Why Make This Shift?<a class="headerlink" href="#why-make-this-shift" title="Link to this heading">#</a></h2>
+<h2>1. Why Make This Shift?<a class="headerlink" href="#why-make-this-shift" title="Link to this heading">#</a></h2>
 <p>Google Colab notebooks have served us well. They gave everyone a uniform coding environment from day one — no installation headaches, no “it works on my machine” mysteries. You could open a browser, start typing Python, and immediately see results. That was exactly what we needed while you were learning the fundamentals of the language.</p>
 <p>But Colab notebooks have a limitation that becomes more important as your programs grow: code lives in <strong>separate cells</strong> that are somewhat disjoint. You write a function in one cell, call it from another, define a variable somewhere else, and the relationships between these pieces depend on the order you happen to run the cells. If you restart the notebook and run cells out of order, things can break in confusing ways. This is fine for experimentation and quick data exploration (which is what notebooks were originally designed for), but it is not how most real programs are written.</p>
 <p>In practice, Python programs are written as <strong>single <code class="docutils literal notranslate"><span class="pre">.py</span></code> files</strong> (or collections of <code class="docutils literal notranslate"><span class="pre">.py</span></code> files) that run from top to bottom in one shot. Everything is in one place, the execution order is clear, and the program either works or it doesn’t — there’s no ambiguity about which cells have been run. This is the standard way that software is written, whether it’s a short homework script or a large application.</p>
@@ -413,7 +447,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="what-is-an-ide">
-<h2>What is an IDE?<a class="headerlink" href="#what-is-an-ide" title="Link to this heading">#</a></h2>
+<h2>2. What is an IDE?<a class="headerlink" href="#what-is-an-ide" title="Link to this heading">#</a></h2>
 <p>An IDE (Integrated Development Environment) bundles several tools into one application:</p>
 <ul class="simple">
 <li><p><strong>A code editor</strong> — where you write your <code class="docutils literal notranslate"><span class="pre">.py</span></code> files, with helpful features like syntax highlighting (coloring keywords, strings, etc.) and auto-completion of function names and variables.</p></li>
@@ -425,7 +459,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="what-will-be-different">
-<h2>What Will Be Different?<a class="headerlink" href="#what-will-be-different" title="Link to this heading">#</a></h2>
+<h2>3. What Will Be Different?<a class="headerlink" href="#what-will-be-different" title="Link to this heading">#</a></h2>
 <p>Here is a quick comparison of the workflow you’re used to vs. the new one:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -465,13 +499,16 @@ document.write(`
 <p>A few things to note:</p>
 <ul class="simple">
 <li><p><strong><code class="docutils literal notranslate"><span class="pre">print()</span></code> becomes essential.</strong> In Colab, if the last line of a cell is an expression, the notebook automatically displays its value. In a <code class="docutils literal notranslate"><span class="pre">.py</span></code> file, nothing is displayed unless you explicitly <code class="docutils literal notranslate"><span class="pre">print()</span></code> it. For example, in Colab you could put <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">5</span></code> as the last line of a cell and see the result. In a <code class="docutils literal notranslate"><span class="pre">.py</span></code> file, you need <code class="docutils literal notranslate"><span class="pre">print(x</span> <span class="pre">+</span> <span class="pre">5)</span></code>.</p></li>
+</ul>
+<p>🚩 <strong>Common mistake:</strong> writing a program in PyCharm the same way you wrote notebook cells in Colab – putting a bare expression like <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">5</span></code> or <code class="docutils literal notranslate"><span class="pre">total</span></code> on its own line, expecting to see the value. In a <code class="docutils literal notranslate"><span class="pre">.py</span></code> file this does <em>nothing</em> and produces no error, so the mistake can be easy to miss. If your program “runs” but shows no output at all, check for a missing <code class="docutils literal notranslate"><span class="pre">print()</span></code> first.</p>
+<ul class="simple">
 <li><p><strong><code class="docutils literal notranslate"><span class="pre">input()</span></code> works more naturally.</strong> If you’ve used <code class="docutils literal notranslate"><span class="pre">input()</span></code> in Colab, you may have noticed that the text box can be a little awkward. When running a <code class="docutils literal notranslate"><span class="pre">.py</span></code> file locally, <code class="docutils literal notranslate"><span class="pre">input()</span></code> prompts appear right in the console and the user types their response on the same line — much more like a real program.</p></li>
 <li><p><strong>No more “restart and run all” worries.</strong> Since a <code class="docutils literal notranslate"><span class="pre">.py</span></code> file always runs from the first line to the last, there’s no possibility of cells being out of sync.</p></li>
 </ul>
 </section>
 <hr class="docutils" />
 <section id="installing-pycharm">
-<h2>Installing PyCharm<a class="headerlink" href="#installing-pycharm" title="Link to this heading">#</a></h2>
+<h2>4. Installing PyCharm<a class="headerlink" href="#installing-pycharm" title="Link to this heading">#</a></h2>
 <p>Now let’s get PyCharm installed on your machine. Follow the instructions for your operating system below.</p>
 <section id="macos">
 <h3>macOS<a class="headerlink" href="#macos" title="Link to this heading">#</a></h3>
@@ -519,7 +556,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="first-launch-and-initial-configuration">
-<h2>First Launch and Initial Configuration<a class="headerlink" href="#first-launch-and-initial-configuration" title="Link to this heading">#</a></h2>
+<h2>5. First Launch and Initial Configuration<a class="headerlink" href="#first-launch-and-initial-configuration" title="Link to this heading">#</a></h2>
 <p>These steps are the same on both Mac and Windows.</p>
 <ol class="arabic simple">
 <li><p>On the <strong>Welcome to PyCharm</strong> screen, you may be asked to accept a privacy policy and choose a theme (Light or Dark). Pick whichever you prefer — this is purely cosmetic and can be changed later.</p></li>
@@ -529,7 +566,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="disable-ai-assistance-features">
-<h2>Disable AI Assistance Features<a class="headerlink" href="#disable-ai-assistance-features" title="Link to this heading">#</a></h2>
+<h2>6. Disable AI Assistance Features<a class="headerlink" href="#disable-ai-assistance-features" title="Link to this heading">#</a></h2>
 <p>PyCharm includes AI-powered coding features that we do <strong>not</strong> want you to use in this course. Standard auto-complete (suggesting function names, variable names, and syntax as you type) is perfectly fine and helpful — but AI-generated code suggestions go beyond that and would interfere with your learning. Let’s turn those off.</p>
 <section id="disable-the-ai-assistant-plugin">
 <h3>Disable the AI Assistant Plugin<a class="headerlink" href="#disable-the-ai-assistant-plugin" title="Link to this heading">#</a></h3>
@@ -565,7 +602,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="make-sure-python-is-configured">
-<h2>Make Sure Python is Configured<a class="headerlink" href="#make-sure-python-is-configured" title="Link to this heading">#</a></h2>
+<h2>7. Make Sure Python is Configured<a class="headerlink" href="#make-sure-python-is-configured" title="Link to this heading">#</a></h2>
 <p>PyCharm needs to know where Python is installed on your computer.</p>
 <section id="if-you-already-have-python-installed">
 <h3>If You Already Have Python Installed<a class="headerlink" href="#if-you-already-have-python-installed" title="Link to this heading">#</a></h3>
@@ -578,7 +615,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="create-your-first-project-and-run-a-program">
-<h2>Create Your First Project and Run a Program<a class="headerlink" href="#create-your-first-project-and-run-a-program" title="Link to this heading">#</a></h2>
+<h2>8. Create Your First Project and Run a Program<a class="headerlink" href="#create-your-first-project-and-run-a-program" title="Link to this heading">#</a></h2>
 <section id="create-a-new-project">
 <h3>Create a New Project<a class="headerlink" href="#create-a-new-project" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
@@ -603,9 +640,19 @@ document.write(`
 <li><p>Type <code class="docutils literal notranslate"><span class="pre">hello</span></code> as the file name and press <strong>Enter</strong>. PyCharm will create <code class="docutils literal notranslate"><span class="pre">hello.py</span></code> and open it in the editor.</p></li>
 <li><p>Type the following code in the editor:</p></li>
 </ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Hello, world!"</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Hello, world!"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"I am running Python on my own computer!"</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, world!
+I am running Python on my own computer!
+</pre></div>
+</div>
+</div>
 </div>
 <ol class="arabic simple" start="5">
 <li><p>To run the program, <strong>right-click</strong> anywhere in the editor and select <strong>Run ‘hello’</strong>. (Alternatively, you can click the green <strong>Run</strong> button (triangle/play icon) in the top-right area of the window, or use the keyboard shortcut: <strong>Ctrl+Shift+F10</strong> on Windows, <strong>Ctrl+Shift+R</strong> on Mac.)</p></li>
@@ -615,7 +662,7 @@ document.write(`
 I am running Python on my own computer!
 </pre></div>
 </div>
-<p>Congratulations — you just ran your first local Python program! We will practice more in class during the Group Practice Problems.</p>
+<p>Congratulations — you just ran your first local Python program! You’ll practice this exact workflow in today’s GPP – see <a class="reference external" href="https://BU-EK125.github.io/EK125/gpps/Class9_GPP.html#problem-1-greeting-program-10-minutes">Problem 1: Greeting Program</a>.</p>
 </section>
 </section>
 <hr class="docutils" />
@@ -669,6 +716,8 @@ I am running Python on my own computer!
 <p><strong>I can’t type input in the Run panel</strong>: Make sure you click inside the Run panel before typing. The cursor needs to be in the console area, not in the editor.</p>
 <p><strong>My code runs but I don’t see any output</strong>: Make sure you are using <code class="docutils literal notranslate"><span class="pre">print()</span></code>. Unlike Colab, simply writing an expression on a line (like <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">5</span></code>) will not display anything.</p>
 </section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -711,11 +760,11 @@ I am running Python on my own computer!
       </div>
     </a>
     <a class="right-next"
-       href="Class10.html"
+       href="../gpps/Class9_GPP.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Class 10 Pre-read: Mastering Slicing in Python</p>
+        <p class="prev-next-title">Class 9 GPP: Getting Comfortable with PyCharm</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -735,27 +784,27 @@ I am running Python on my own computer!
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-make-this-shift">Why Make This Shift?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-ide">What is an IDE?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-will-be-different">What Will Be Different?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-pycharm">Installing PyCharm</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-make-this-shift">1. Why Make This Shift?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-ide">2. What is an IDE?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-will-be-different">3. What Will Be Different?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-pycharm">4. Installing PyCharm</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#macos">macOS</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-launch-and-initial-configuration">First Launch and Initial Configuration</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disable-ai-assistance-features">Disable AI Assistance Features</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-launch-and-initial-configuration">5. First Launch and Initial Configuration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#disable-ai-assistance-features">6. Disable AI Assistance Features</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disable-the-ai-assistant-plugin">Disable the AI Assistant Plugin</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disable-inline-ai-completions-if-present">Disable Inline AI Completions (if present)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-should-still-work">What Should Still Work</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-sure-python-is-configured">Make Sure Python is Configured</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-sure-python-is-configured">7. Make Sure Python is Configured</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-you-already-have-python-installed">If You Already Have Python Installed</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-you-do-not-have-python-installed">If You Do Not Have Python Installed</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-your-first-project-and-run-a-program">Create Your First Project and Run a Program</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-your-first-project-and-run-a-program">8. Create Your First Project and Run a Program</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-project">Create a New Project</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-and-run-hello-py">Create and Run hello.py</a></li>
 </ul>
