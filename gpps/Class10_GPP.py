@@ -42,9 +42,6 @@ Write slices to extract:
   8.  [20, 40, 60, 80] from numbers      (every other, starting at index 1)
   9.  90 as a single value               (using a negative index)
   10. [70, 80, 90] as a list             (using a negative index)
-
-See the reading's "Simplest Slice Notation" section for a refresher:
-https://BU-EK125.github.io/EK125/class/Class10.html#simplest-slice-notation
 """
 
 word = "Python"
@@ -81,9 +78,6 @@ Write slices to extract:
   4. "Hello" from text         using negative indices
   5. [40] as a LIST            using negative indices
   6. 40 as a single VALUE      using a negative index
-
-See the reading's "Negative Indices in Slices" section for a refresher:
-https://BU-EK125.github.io/EK125/class/Class10.html#negative-indices-in-slices
 """
 
 data = [5, 10, 15, 20, 25, 30, 35, 40]
@@ -117,9 +111,6 @@ Example run:
   Last 3 characters: ing
   Characters 2 to 5: ogr
   Every other character: Pormig
-
-See the reading's "The Step Parameter" section for the "every other
-character" pattern: https://BU-EK125.github.io/EK125/class/Class10.html#the-step-parameter
 """
 
 print("\n" + "=" * 60)
@@ -154,9 +145,6 @@ Expected output:
   Last 4 elements: [50, 60, 70, 80]
   All but last 2: [10, 20, 30, 40, 50, 60]
   Second-to-last: 70
-
-See the reading's "Negative Indices in Slices" section for a refresher:
-https://BU-EK125.github.io/EK125/class/Class10.html#negative-indices-in-slices
 """
 
 numbers = [10, 20, 30, 40, 50, 60, 70, 80]
@@ -189,9 +177,6 @@ Expected output:
   Every 3rd character: adgjmp
   Every 2nd starting from 1: bdfhjlnp
   Every 4th starting from 2: cgko
-
-See the reading's "The Step Parameter" section for a refresher:
-https://BU-EK125.github.io/EK125/class/Class10.html#the-step-parameter
 """
 
 letters = "abcdefghijklmnop"
@@ -227,9 +212,6 @@ Example run:
   First half reversed: tyP
   Second half reversed: noh
   Every other character reversed: nhy
-
-See the reading's "Negative Steps (Reversing)" section for the [::-1]
-idiom: https://BU-EK125.github.io/EK125/class/Class10.html#negative-steps-reversing
 """
 
 print("\n" + "=" * 60)
@@ -293,10 +275,6 @@ Example run:
   First word: The
   Last word: fox
   Middle: quick brown
-
-See the reading's "Slicing with Variables" section (the "Finding and
-extracting" example) for this exact pattern:
-https://BU-EK125.github.io/EK125/class/Class10.html#slicing-with-variables
 """
 
 print("\n" + "=" * 60)
@@ -327,9 +305,6 @@ Use slicing and the + operator to combine the pieces.
 
 Expected output:
   Result: [1, 2, 3, 4, 6, 8, 9, 10]
-
-See the reading's "Building New Sequences from Slices" section for a
-refresher: https://BU-EK125.github.io/EK125/class/Class10.html#building-new-sequences-from-slices
 """
 
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -366,9 +341,6 @@ Hint for Task 2: slice assignment with a step requires the replacement list
 to be the SAME LENGTH as the slice.
 Hint for Task 3: assigning to an empty slice (list3[3:3]) inserts without
 removing anything.
-
-See the reading's "Slice Assignment (Lists Only)" section for a
-refresher: https://BU-EK125.github.io/EK125/class/Class10.html#slice-assignment-lists-only
 """
 
 print("\n" + "=" * 60)
