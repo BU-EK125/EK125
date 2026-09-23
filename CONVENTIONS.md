@@ -39,11 +39,28 @@ end-to-end workflow for bringing one over:
    entry (see the existing Class 5/6/7 entries for the pattern).
 7. **Update `README.md` and `intro.md`** -- both have a running list of which
    classes are notebooks (e.g. "Classes 1, 5, 6, and 7"); keep it current.
-8. **Add cross-reference links** between the reading and its GPP (see below).
-9. **Audit for "common mistake" callout opportunities** (see below).
+8. **Add cross-reference links** between the reading and its GPP, in **both**
+   directions (see below).
+9. **Audit for "common mistake" callout opportunities in both the reading
+   and its GPP** (see below).
 10. **Build and verify** (see "Verifying a build," below) before opening a PR.
 11. **Do not auto-merge.** Open the PR, report the preview link, and wait for
     an explicit go-ahead to merge.
+
+Steps 8 and 9 aren't one-time steps that only apply while porting a class for
+the first time -- **treat them as a standing checklist for any audit or
+maintenance pass on an already-published class too.** If you're touching a
+reading or GPP for any reason (fixing a bug, adding content, responding to a
+reported student mistake), check both of these before opening the PR, even
+if they weren't why you started the change:
+- Does the reading link to the GPP problem(s) that practice what it just
+  covered? Does the GPP link back to the reading section(s) it's drawing on?
+  A one-way link (only reading→GPP, or only GPP→reading) is an audit gap.
+- Does either the reading or the GPP now warrant a new 🚩 callout for a
+  mistake that just came up (e.g. a student-reported error), and if the
+  reading already flags something similar, does the GPP problem that
+  practices it cross-reference that callout specifically (not just the
+  section in general)?
 
 ## Cross-reference links
 
@@ -101,8 +118,8 @@ that exact string as the `#anchor` in your link.
 
 ## "Common mistake" callouts
 
-When auditing a reading for places to flag common student mistakes, use this
-exact format:
+When auditing a reading **or its GPP** for places to flag common student
+mistakes, use this exact format:
 
 ```
 🚩 **Common mistake:** <description of the mistake and why it happens, plus
@@ -117,12 +134,26 @@ how to recognize or avoid it>.
   that silently does the wrong thing instead of erroring (e.g. `range()`
   producing an empty sequence), a beginner conflating two similar-looking
   operations (e.g. `grid[2, 0]` vs `grid[2][0]`), or a subtle off-by-one /
-  exclusive-vs-inclusive boundary.
+  exclusive-vs-inclusive boundary. A real student-reported error is the
+  strongest possible source for one -- don't wait for an audit to add it.
 - Place it immediately after the explanation/example it relates to, in the
-  same cell if possible.
+  same cell if possible. In a GPP, that's usually right in the problem
+  statement it's relevant to (see Class 5's GPP, Problem 2.5, for an
+  example) -- GPPs don't have to confine callouts to one dedicated section,
+  though a short dedicated "Common Mistakes" section (e.g. at the end,
+  summarizing a few mistakes tied to specific problems above) is also fine
+  where a GPP's problems don't have a natural per-problem spot for one.
 - Aim for the density already set in Classes 5-7 (roughly five to eight
   well-justified callouts per class) -- more than that starts to feel like
-  noise rather than a flag.
+  noise rather than a flag. This density guideline is per reading; a GPP
+  usually warrants fewer, since not every problem has a genuine, common,
+  specific failure mode worth flagging.
+- **Cross-reference it from the other document.** A callout in the reading
+  about a mistake that a specific GPP problem is likely to trigger should be
+  linked from that problem (see "Cross-reference links" above) -- and vice
+  versa, a callout added to a GPP problem in response to something that came
+  up in class is worth a pointer from the reading section it relates to, if
+  one exists.
 
 ## Notebook cell tags
 
@@ -152,13 +183,16 @@ Before opening a PR:
 jb build .
 ```
 
-The baseline warning count for this book is **2** (pre-existing lexing
-warnings in `class/Class10.md` and `class/Class12.md`, unrelated to notebook
-content -- caused by literal code blocks containing characters like `` ` ``
-or `!` that trip up the Python lexer in strict mode; harmless, and not
-something to "fix" as part of an unrelated change). If your build shows more
-than 2 warnings, or fails outright, investigate before opening the PR --
-don't assume a new warning is pre-existing without checking.
+The baseline warning count for this book is **1** (a pre-existing lexing
+warning in `class/Class12.md`, unrelated to notebook content -- caused by a
+literal code block containing a `!` that trips up the Python lexer in strict
+mode; harmless, and not something to "fix" as part of an unrelated change).
+`class/Class10.md`'s matching warning was a real bug, not lexer noise -- a
+copy-pasted-twice section in the source content, fixed when that class was
+ported to `.ipynb` (see git history for `class/Class10.ipynb`). If your
+build shows more than 1 warning, or fails outright, investigate before
+opening the PR -- don't assume a new warning is pre-existing without
+checking.
 
 To spot-check that new cross-reference links actually resolve to the right
 anchor (not just that the build didn't warn), grep the built HTML directly:
