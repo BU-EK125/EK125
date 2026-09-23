@@ -1,12 +1,14 @@
 # Welcome to EK125
 
-This site collects EK125's in-class readings and Group Practice Problems (GPPs) -- the material your instructors wrote, organized by class and kept up to date as the course goes on.
+This site collects EK125's in-class readings, Group Practice Problems (GPPs), and homework problem statements -- the material your instructors wrote, organized by class and kept up to date as the course goes on.
 
 ## How this book is organized
 
 The sidebar is organized into parts matching the course's acts (see below): Python, then MATLAB. Each class gets its own page, numbered `Class 1` through `Class 22` (aside from a couple of numbers the course doesn't use).
 
 Most readings are plain pages. A few -- currently **Classes 1, 5, 6, 7, 9, and 10** -- are interactive Jupyter notebooks: every code example actually runs when the site is built, so if something's broken, we find out before you do. Look for the 🚀 rocket icon in the top-right corner of the page (next to the download button); click it, then **Colab**, and the page opens directly in [Google Colab](https://colab.research.google.com) so you can experiment with the code yourself: change a value, break something, see what happens. When a class has a Group Practice Problem, it's nested right underneath that class's reading in the sidebar.
+
+Homework is assigned weekly rather than per class, so each homework page sits on its own in the sidebar (e.g. "Homework 4," covering both Classes 5 and 6) rather than nesting under a single class. Homework pages show the problem statements only -- no solutions -- the same as GPPs. They're graded for submission, not for correctness, but the material on them shows up on quizzes and exams, so treat them as real practice.
 
 There's also an appendix with the course syllabus.
 

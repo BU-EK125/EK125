@@ -62,6 +62,51 @@ if they weren't why you started the change:
   practices it cross-reference that callout specifically (not just the
   section in general)?
 
+## Porting a homework assignment
+
+As of Fall 2026, homework problem statements (not solutions) are allowed on
+this site, for assignments graded for submission only, not correctness --
+see README.md for why. Source material lives in the instructor's own
+working folder (not `EK125-notebooks`), organized by week, e.g.
+`EK125WIP/<term>/Class Materials/Week N/Homework N`. Porting one:
+
+1. **Read the whole source file first.** A week's homework is usually one
+   notebook spanning two classes (e.g. "Homework 4" covers Classes 5 and
+   6), already split into named parts (e.g. "Part A: Class 5 Problems" /
+   "Part B: Class 6 Problems") -- confirm that split before assuming it.
+2. **Verify any embedded example code, not just the blank scaffold
+   cells.** Homework often includes short "here's some code, what happens"
+   snippets as part of the problem statement itself (a bug to find, a
+   security lesson, a puzzle to solve) -- actually run each one and confirm
+   it produces the claimed behavior before publishing it. Don't assume a
+   snippet is correct just because it's already written.
+3. **Port as a single `homework/HWN.ipynb`, not split per class.** Unlike
+   a GPP, homework doesn't belong to one class -- give it a single page
+   with the source's own Part A/Part B (or similar) structure preserved as
+   section headings, and register it in `_toc.yml` as its own top-level
+   chapter entry, positioned after the last class it covers (not nested
+   under either class's `sections:`).
+4. **Preserve "discovery" framing.** Some problems are deliberately
+   designed for the student to find an undiscussed function themselves
+   (e.g. "`os.chdir()` wasn't shown in lecture -- discover it using
+   `help()`!") -- keep that framing as-is rather than adding a hint that
+   defeats the exercise.
+5. **Only code cells that were already filled in the source stay filled**
+   (e.g. a single worked first sub-part shown as a model for the rest);
+   leave every other code cell as a blank `# Your code here` scaffold,
+   matching GPP convention. Never port the assignment's solutions file.
+6. **Cross-reference links and common-mistake callouts** follow the exact
+   same rules as GPPs (see above) -- tie them to a genuine, specific
+   correspondence with the reading, don't force one where none exists. Sweep
+   every sub-problem individually rather than stopping once a few obvious
+   ones are covered -- a first pass on Homework 4 caught the easy matches
+   (the module intro problems) but missed six more real ones buried in
+   later, less obviously-related sub-parts (nested while loops, exhaustive
+   search bounds, per-item validation) that only turned up on a second,
+   more careful pass.
+7. **Build and verify**, same as any other port (see "Verifying a build,"
+   below), then open a PR and wait for an explicit go-ahead to merge.
+
 ## Cross-reference links
 
 ### Why absolute URLs, not relative links
@@ -107,10 +152,18 @@ that exact string as the `#anchor` in your link.
   in today's GPP -- see [Problem N: Title](url#anchor)."*
 - From the GPP, pointing at the reading: *"See the reading's [Section
   Title](url#anchor) section for ..."*
-- Placement should be tied to a real, specific correspondence -- a GPP
-  problem that uses the exact concept/example from that reading section --
-  not generic "see the reading" boilerplate scattered everywhere. It's fine
-  to skip optional/challenge problems that don't have a clean 1:1 match.
+- A homework page follows the same rule as a GPP, pointing at whichever
+  reading section(s) each problem draws on -- the same "See the reading's
+  [Section Title](url#anchor) section for ..." phrasing, once per problem
+  where a real match exists. Unlike a GPP, homework isn't itself a common
+  target for reading→homework links (readings are ported once, well before
+  a given week's homework exists) -- the direction that matters is
+  homework→reading.
+- Placement should be tied to a real, specific correspondence -- a GPP or
+  homework problem that uses the exact concept/example from that reading
+  section -- not generic "see the reading" boilerplate scattered everywhere.
+  It's fine to skip optional/challenge problems that don't have a clean 1:1
+  match.
 - Cross-references aren't only reading↔GPP within a class -- link backward to
   a prerequisite class's reading when a later class's material directly
   builds on a specific earlier section (e.g. Class 6's reading links back to
@@ -118,8 +171,8 @@ that exact string as the `#anchor` in your link.
 
 ## "Common mistake" callouts
 
-When auditing a reading **or its GPP** for places to flag common student
-mistakes, use this exact format:
+When auditing a reading, its GPP, **or a homework page** for places to flag
+common student mistakes, use this exact format:
 
 ```
 🚩 **Common mistake:** <description of the mistake and why it happens, plus
