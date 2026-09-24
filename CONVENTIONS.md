@@ -107,6 +107,33 @@ working folder (not `EK125-notebooks`), organized by week, e.g.
 7. **Build and verify**, same as any other port (see "Verifying a build,"
    below), then open a PR and wait for an explicit go-ahead to merge.
 
+## Porting GPP solutions (Act 1 only)
+
+As of Fall 2026, GPP solutions are published for **Act 1 (Classes 1-7)
+only** -- a deliberate, scoped exception to the general rule that solutions
+stay private (which still applies everywhere else: Act 2, Act 3, and all
+homework). Don't extend this to another class or act without being asked.
+
+1. Source from EK125-notebooks' `gpp/Class_N_GPP_Solutions.ipynb` (or
+   `.py`/`.md` for classes past the notebook era, though that doesn't apply
+   within Act 1). Diff-audit it the same way as any other port -- and treat
+   it as a second, independent verification pass on the GPP problem
+   statement itself: actually run each solution and confirm its output
+   matches what the GPP's own "Expected Output" blocks promise. A
+   mismatch here means either the GPP or the solution has a bug -- figure
+   out which before publishing either.
+2. Port as `gpps/ClassN_GPP_Solutions.ipynb`, nested as a `sections:` entry
+   under that class's GPP in `_toc.yml` (a GPP with a published solutions
+   page has *two* sections: the GPP itself, then its solutions -- not one
+   replacing the other).
+3. Strip any instructor-only commentary that doesn't belong on a
+   student-facing page (e.g. "COMMON MISTAKES" comments meant for TAs) --
+   fold genuinely useful ones into a 🚩 callout on the GPP itself instead
+   of leaving them in the solutions file, following the usual
+   common-mistake convention.
+4. Build and verify like any other port, then open a PR and wait for an
+   explicit go-ahead to merge.
+
 ## Cross-reference links
 
 ### Why absolute URLs, not relative links

@@ -15,13 +15,16 @@ parts:
       - file: class/Class5
         sections:
           - file: gpps/Class5_GPP
+          - file: gpps/Class5_GPP_Solutions
       - file: class/Class6
         sections:
           - file: gpps/Class6_GPP
+          - file: gpps/Class6_GPP_Solutions
       - file: homework/HW4
       - file: class/Class7
         sections:
           - file: gpps/Class7_GPP
+          - file: gpps/Class7_GPP_Solutions
   - caption: "Python in an IDE"
     chapters:
       - file: class/Class9
