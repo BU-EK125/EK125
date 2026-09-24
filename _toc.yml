@@ -5,6 +5,8 @@ parts:
     chapters:
       - file: class/Class1
         sections:
+          - file: gpps/Class1_GPP
+          - file: gpps/Class1_GPP_Solutions
           - file: homework/HW1
       - file: class/Class2
         sections:
