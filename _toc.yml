@@ -5,8 +5,14 @@ parts:
     chapters:
       - file: class/Class1
       - file: class/Class2
+        sections:
+          - file: gpps/Class2_GPP
       - file: class/Class3
+        sections:
+          - file: gpps/Class3_GPP
       - file: class/Class4
+        sections:
+          - file: gpps/Class4_GPP
       - file: class/Class5
         sections:
           - file: gpps/Class5_GPP

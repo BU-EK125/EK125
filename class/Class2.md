@@ -144,6 +144,8 @@ colors.remove("blue")          # Remove first occurrence of "blue"
 removed = colors.pop()         # Remove and return last item
 ```
 
+You'll practice this exact set of list methods in today's GPP -- see [Task 2.2: List Modification Challenge](https://BU-EK125.github.io/EK125/gpps/Class2_GPP.html#task-2-2-list-modification-challenge).
+
 ## 5. Common Sequence Operations
 
 These operations work on all sequence types:
