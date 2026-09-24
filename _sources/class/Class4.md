@@ -187,6 +187,8 @@ print(s.lstrip())  \# 'Hello World   '
 
 print(s.rstrip())  \# '   Hello World'
 
+You'll use string methods like these in today's GPP -- see [Problem 3.1](https://BU-EK125.github.io/EK125/gpps/Class4_GPP.html#problem-3-1).
+
 ---
 
 ### Methods for Lists

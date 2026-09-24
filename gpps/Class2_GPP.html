@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Class 6 GPP: Nested for loops &#8212; EK125</title>
+    <title>Class 2 GPP: Working with Sequences &#8212; EK125</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'gpps/Class6_GPP';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gpps/Class2_GPP';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Class 6 GPP Solutions: Nested for loops" href="Class6_GPP_Solutions.html" />
-    <link rel="prev" title="Class 6: Nested Loops" href="../class/Class6.html" />
+    <link rel="next" title="Homework 2: Strings and Lists" href="../homework/HW2.html" />
+    <link rel="prev" title="Class 2: Sequences, Strings, and Lists in Python" href="../class/Class2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -179,8 +179,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW1.html">Homework 1: Variables, Types, and Assignments</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class2.html">Class 2: Sequences, Strings, and Lists in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="Class2_GPP.html">Class 2 GPP: Working with Sequences</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../class/Class2.html">Class 2: Sequences, Strings, and Lists in Python</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Class 2 GPP: Working with Sequences</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW2.html">Homework 2: Strings and Lists</a></li>
 </ul>
 </details></li>
@@ -197,8 +197,8 @@
 <li class="toctree-l2"><a class="reference internal" href="Class5_GPP_Solutions.html">Class 5 GPP Solutions: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../class/Class6.html">Class 6: Nested Loops</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Class 6 GPP: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class6.html">Class 6: Nested Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class6_GPP.html">Class 6 GPP: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Class6_GPP_Solutions.html">Class 6 GPP Solutions: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
 </ul>
 </details></li>
@@ -293,7 +293,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/BU-EK125/EK125/blob/main/gpps/Class6_GPP.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/BU-EK125/EK125/blob/main/gpps/Class2_GPP.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -324,7 +324,7 @@
       
       
       
-      <li><a href="../_sources/gpps/Class6_GPP.ipynb" target="_blank"
+      <li><a href="../_sources/gpps/Class2_GPP.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -408,7 +408,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Class 6 GPP: Nested for loops</h1>
+    <h1>Class 2 GPP: Working with Sequences</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -418,14 +418,22 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-worked-example-with-nested-for-loops">Problem 1: Worked example with nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-formatted-output-with-nested-loops">Problem 2: Formatted output with nested loops</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-looping-through-a-list-to-print-element-types">Problem 3: Looping Through a List to Print Element Types</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4-printing-exclamation-point-patterns">Problem 4: Printing Exclamation Point Patterns</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-printing-characters-from-strings-with-separators">Problem 5: Printing Characters from Strings with Separators</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-6-nested-while-and-for-loops">Problem 6: Nested <code class="docutils literal notranslate"><span class="pre">while</span></code> and <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-7-triangle-of-stars">Problem 7: Triangle of stars</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-8-simulating-multiple-trials-with-random-numbers">Problem 8: Simulating Multiple Trials with Random Numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-string-exploration">Part 1: String Exploration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-1-string-basics">Task 1.1: String Basics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-2-string-manipulation">Task 1.2: String Manipulation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-list-operations">Part 2: List Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-1-list-creation-and-access">Task 2.1: List Creation and Access</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-2-list-modification-challenge">Task 2.2: List Modification Challenge</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-mixed-practice">Part 3: Mixed Practice</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-1-data-processing">Task 3.1: Data Processing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-2-text-analysis">Task 3.2: Text Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-challenge-problem">Part 4: Challenge Problem</a></li>
 </ul>
             </nav>
         </div>
@@ -437,165 +445,153 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="class-6-gpp-nested-for-loops">
-<h1>Class 6 GPP: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops<a class="headerlink" href="#class-6-gpp-nested-for-loops" title="Link to this heading">#</a></h1>
-<p><strong>Group Exercise (Teams of 3)</strong>
-Work together to complete the following tasks!</p>
-<section id="problem-1-worked-example-with-nested-for-loops">
-<h2>Problem 1: Worked example with nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops<a class="headerlink" href="#problem-1-worked-example-with-nested-for-loops" title="Link to this heading">#</a></h2>
-<p>Let’s start with nested for loops using the range function. Execute the following code.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>This is the basic nested-loop pattern from the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class6.html#nested-loops">Nested loops</a> section – the outer loop runs once per full pass of the inner loop.</p>
-</section>
-<section id="problem-2-formatted-output-with-nested-loops">
-<h2>Problem 2: Formatted output with nested loops<a class="headerlink" href="#problem-2-formatted-output-with-nested-loops" title="Link to this heading">#</a></h2>
-<p>Your task is to practice nested loops by writing a Python program that generates a simple pattern.</p>
-<ul class="simple">
-<li><p>Loop over the numbers 0 through 4.</p></li>
-<li><p>On each line, first print the number, followed by a colon (:).</p></li>
-<li><p>After the colon, print as many asterisks (*) as the number itself.</p></li>
-<li><p>Each line should show the number and its matching stars.</p></li>
-</ul>
-<p>Example Output:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="p">:</span>
-<span class="mi">1</span><span class="p">:</span><span class="o">*</span>
-<span class="mi">2</span><span class="p">:</span><span class="o">**</span>
-<span class="mi">3</span><span class="p">:</span><span class="o">***</span>
-<span class="mi">4</span><span class="p">:</span><span class="o">****</span>
-</pre></div>
-</div>
-<p>Hint: You will need a loop inside a loop — the outer loop handles the numbers, and the inner loop handles printing the stars.</p>
-<p>This is the same shape as the number/star examples in the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class6.html#nested-loops">Nested loops</a> section.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="class-2-gpp-working-with-sequences">
+<h1>Class 2 GPP: Working with Sequences<a class="headerlink" href="#class-2-gpp-working-with-sequences" title="Link to this heading">#</a></h1>
+<p><strong>Group Exercise (Teams of 3)</strong></p>
+<section id="part-1-string-exploration">
+<h2>Part 1: String Exploration<a class="headerlink" href="#part-1-string-exploration" title="Link to this heading">#</a></h2>
+<p>Work together to complete the following tasks:</p>
+<section id="task-1-1-string-basics">
+<h3>Task 1.1: String Basics<a class="headerlink" href="#task-1-1-string-basics" title="Link to this heading">#</a></h3>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class2.html#string-indexing-and-length">String Indexing and Length</a> and <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class2.html#membership-testing">Membership Testing</a> sections for a refresher.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Given this string:</span>
+<span class="n">sentence</span> <span class="o">=</span> <span class="s2">"The quick brown fox jumps over the lazy dog"</span>
+
+<span class="c1"># Write code to:</span>
+<span class="c1"># 1. Print the first character</span>
+<span class="c1"># 2. Print the last character</span>
+<span class="c1"># 3. Print the length of the sentence</span>
+<span class="c1"># 4. Check if the word "fox" is in the sentence</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="problem-3-looping-through-a-list-to-print-element-types">
-<h2>Problem 3: Looping Through a List to Print Element Types<a class="headerlink" href="#problem-3-looping-through-a-list-to-print-element-types" title="Link to this heading">#</a></h2>
-<p>Write a Python program that prints the type of each element in a list.</p>
-<ul class="simple">
-<li><p>Use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop together with the <code class="docutils literal notranslate"><span class="pre">range()</span></code> function to go through the list.</p></li>
-<li><p>Do not assume you know how many items are in the list — your code should work for lists of any length.</p></li>
-<li><p>Inside the loop, use the loop variable as an index to access each element of the list, and print out its type.</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">43</span><span class="p">,</span> <span class="s1">'happy'</span><span class="p">,</span> <span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">11.11</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>Need a refresher? Class 5’s reading covers index-based iteration in <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#looping-with-indices">Looping with Indices</a>, and uses <code class="docutils literal notranslate"><span class="pre">type()</span></code> in the <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#looping-through-sequences">Looping through sequences</a> example.</p>
+<section id="task-1-2-string-manipulation">
+<h3>Task 1.2: String Manipulation<a class="headerlink" href="#task-1-2-string-manipulation" title="Link to this heading">#</a></h3>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class2.html#common-string-operations">Common String Operations</a> section for a refresher.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Given this string:</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s2">"john doe"</span>
+
+<span class="c1"># Write code to do each of the following (create a new variable for each, always starting from the original `name`):</span>
+<span class="c1"># 1. Convert it to title case (John Doe) and print the result</span>
+<span class="c1"># 2. Replace all spaces with underscores and print the result</span>
+<span class="c1"># 3. Convert to uppercase and print the result</span>
+<span class="c1"># 4. Count how many times the letter 'o' appears and print the count</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="problem-4-printing-exclamation-point-patterns">
-<h2>Problem 4: Printing Exclamation Point Patterns<a class="headerlink" href="#problem-4-printing-exclamation-point-patterns" title="Link to this heading">#</a></h2>
-<p>Write a Python program that uses <em>nested</em> <code class="docutils literal notranslate"><span class="pre">for</span></code> loops to print rows of exclamation points (<code class="docutils literal notranslate"><span class="pre">!</span></code>) based on a list of positive integers.</p>
-<p>Requirements:</p>
-<ul class="simple">
-<li><p>For each number in the list, print a row of exclamation points equal to that number.</p>
-<ul>
-<li><p>Example: if the number is <code class="docutils literal notranslate"><span class="pre">3</span></code>, print <code class="docutils literal notranslate"><span class="pre">!!!</span></code>.</p></li>
-</ul>
-</li>
-<li><p>Each row should have no spaces between the exclamation points.</p></li>
-<li><p>Write your solution in two ways:</p>
-<ul>
-<li><p>Approach 1: Use the outer loop to go through the elements of the list directly.</p></li>
-<li><p>Approach 2: Use the outer loop to go through the indices of the list, and access elements by indexing.</p></li>
-</ul>
-</li>
-</ul>
-<p>Example List:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">intlist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>Approach 2 needs the same index-based iteration as Class 5’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#looping-with-indices">Looping with Indices</a> section.</p>
+</section>
+<section id="part-2-list-operations">
+<h2>Part 2: List Operations<a class="headerlink" href="#part-2-list-operations" title="Link to this heading">#</a></h2>
+<section id="task-2-1-list-creation-and-access">
+<h3>Task 2.1: List Creation and Access<a class="headerlink" href="#task-2-1-list-creation-and-access" title="Link to this heading">#</a></h3>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class2.html#creating-lists">Creating Lists</a> and <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class2.html#accessing-list-elements">Accessing List Elements</a> sections for a refresher.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a list containing the names of your three team members</span>
+<span class="n">teamNames</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"bob"</span><span class="p">,</span> <span class="s2">"sally"</span><span class="p">,</span> <span class="s2">"george"</span><span class="p">]</span>  <span class="c1"># Fill this in</span>
+
+<span class="c1"># Write code to:</span>
+<span class="c1"># 1. Print the first team member's name</span>
+<span class="c1"># 2. Print the last team member's name</span>
+<span class="c1"># 3. Print how many people are on your team</span>
+<span class="c1"># 4. Add a fourth name "TA Helper" to the list</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="problem-5-printing-characters-from-strings-with-separators">
-<h2>Problem 5: Printing Characters from Strings with Separators<a class="headerlink" href="#problem-5-printing-characters-from-strings-with-separators" title="Link to this heading">#</a></h2>
-<p>Use the following list of strings. Write code to print all of the characters from all of the strings on one line, with a dash (<code class="docutils literal notranslate"><span class="pre">-</span></code>) after each.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">strlist</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'I'</span><span class="p">,</span> <span class="s1">'love'</span><span class="p">,</span> <span class="s1">'coding!'</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>The reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class6.html#nested-loops">Nested loops</a> section opens with a similar nested loop over a list of words, printing each word’s characters.</p>
+<section id="task-2-2-list-modification-challenge">
+<h3>Task 2.2: List Modification Challenge<a class="headerlink" href="#task-2-2-list-modification-challenge" title="Link to this heading">#</a></h3>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class2.html#modifying-lists">Modifying Lists</a> section for a refresher.</p>
+<p>🚩 <strong>Common mistake:</strong> using parentheses instead of square brackets to change an
+element by index – <code class="docutils literal notranslate"><span class="pre">numbers(3)</span> <span class="pre">=</span> <span class="pre">35</span></code> is a <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> (that’s function-call
+syntax, not indexing). Changing an existing element is <code class="docutils literal notranslate"><span class="pre">numbers[3]</span> <span class="pre">=</span> <span class="pre">35</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Start with this list:</span>
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+
+<span class="c1"># Without retyping the entire list, use list methods to:</span>
+<span class="c1"># 1. Change the third number from `30` to `35`</span>
+<span class="c1"># 2. Add the number 60 to the end</span>
+<span class="c1"># 3. Insert the number 5 at the beginning (Careful, this is a little harder!)</span>
+<span class="c1"># 4. Remove the number 40 from the list</span>
+<span class="c1"># 5. Remove the last number from the list</span>
+<span class="c1"># Print the final list - it should be [5, 10, 20, 35, 50]</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="problem-6-nested-while-and-for-loops">
-<h2>Problem 6: Nested <code class="docutils literal notranslate"><span class="pre">while</span></code> and <code class="docutils literal notranslate"><span class="pre">for</span></code> loops<a class="headerlink" href="#problem-6-nested-while-and-for-loops" title="Link to this heading">#</a></h2>
-<p>Write a script that will prompt the user for positive numbers. As long as the user is entering positive numbers, Print <code class="docutils literal notranslate"><span class="pre">Ni!</span></code> that many times on a single line for each. For example, if the user enters 3, <code class="docutils literal notranslate"><span class="pre">Ni!Ni!Ni!</span></code> would be printed.</p>
-<p>This combines two ideas from the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class6.html#nested-loops">Nested loops</a> section: an outer loop that keeps going as long as valid input keeps coming (see <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class6.html#nesting-a-while-loop-inside-another-while-loop">Nesting a <code class="docutils literal notranslate"><span class="pre">while</span></code> Loop Inside Another <code class="docutils literal notranslate"><span class="pre">while</span></code> Loop</a> for that idea, even though there the inner loop is also a <code class="docutils literal notranslate"><span class="pre">while</span></code>), and an inner loop that repeats a fixed number of times based on a value, like the number/star examples earlier in the same section.</p>
+</section>
+<section id="part-3-mixed-practice">
+<h2>Part 3: Mixed Practice<a class="headerlink" href="#part-3-mixed-practice" title="Link to this heading">#</a></h2>
+<section id="task-3-1-data-processing">
+<h3>Task 3.1: Data Processing<a class="headerlink" href="#task-3-1-data-processing" title="Link to this heading">#</a></h3>
+<p>Your team has collected some survey data. Help clean and process it:</p>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class2.html#working-with-tuples">Working with Tuples</a> section for a refresher – this task asks for both lists and tuples.</p>
+<p>🚩 <strong>Common mistake:</strong> trying to build a tuple the same way you’d build a list
+(starting empty and calling <code class="docutils literal notranslate"><span class="pre">.append()</span></code> as you go). Tuples are immutable and
+have no <code class="docutils literal notranslate"><span class="pre">.append()</span></code> method – build a list first, then convert it with
+<code class="docutils literal notranslate"><span class="pre">tuple(your_list)</span></code> once it’s complete.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here.  Ni!</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Raw survey responses (some have extra spaces, inconsistent capitalization)</span>
+<span class="n">responses</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"yes"</span><span class="p">,</span> <span class="s2">"NO"</span><span class="p">,</span> <span class="s2">"maybe"</span><span class="p">,</span> <span class="s2">"YES"</span><span class="p">,</span> <span class="s2">"no"</span><span class="p">,</span> <span class="s2">"Maybe"</span><span class="p">,</span> <span class="s2">"yes"</span><span class="p">]</span>
+
+<span class="c1"># Write code to:</span>
+<span class="c1"># 1. Clean each response (convert to lowercase)</span>
+<span class="c1"># 2. Count how many "yes", "no", and "maybe" responses there are</span>
+<span class="c1"># 3. Create separate lists for each type of response</span>
+<span class="c1"># 4. Create separate tuples for each type of response</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="problem-7-triangle-of-stars">
-<h2>Problem 7: Triangle of stars<a class="headerlink" href="#problem-7-triangle-of-stars" title="Link to this heading">#</a></h2>
-<p>Prompt the user for a positive integer <code class="docutils literal notranslate"><span class="pre">n</span></code>. Then print a triangle of stars, starting with 0 in the first row and incrementing to <code class="docutils literal notranslate"><span class="pre">n-1</span></code> stars in the <code class="docutils literal notranslate"><span class="pre">n-1st</span></code> row.</p>
-<p>Example output for <code class="docutils literal notranslate"><span class="pre">n=4</span></code></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span>
-<span class="o">**</span>
-<span class="o">***</span>
-</pre></div>
-</div>
-<p>Same loop shape as the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class6.html#nested-loops">Nested loops</a> section – just combined with <code class="docutils literal notranslate"><span class="pre">input()</span></code> to get <code class="docutils literal notranslate"><span class="pre">n</span></code> instead of a hardcoded range.</p>
+<section id="task-3-2-text-analysis">
+<h3>Task 3.2: Text Analysis<a class="headerlink" href="#task-3-2-text-analysis" title="Link to this heading">#</a></h3>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class2.html#common-string-operations">Common String Operations</a> section for a refresher.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Analyze this text:</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">"""Monty Python's sketch on spam https://en.wikipedia.org/wiki/Spam_(Monty_Python_sketch)</span>
+<span class="s2">directly led to the use of spam to describe unwanted email. As a joke, and in reference</span>
+<span class="s2">to the repetitive and unwanted presence of spam in the sketch, early internet users</span>
+<span class="s2">flooded forums with the word SPAM . This came to describe the equally unwanted marketing</span>
+<span class="s2">and repetetive emails which flood our inbox daily."""</span>
+
+<span class="c1"># Write code to:</span>
+<span class="c1"># 1. Split the text into individual words</span>
+<span class="c1"># 2. Count how many words there are total</span>
+<span class="c1"># 3. Count how many times "spam" appears, both upper and lowercase</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="problem-8-simulating-multiple-trials-with-random-numbers">
-<h2>Problem 8: Simulating Multiple Trials with Random Numbers<a class="headerlink" href="#problem-8-simulating-multiple-trials-with-random-numbers" title="Link to this heading">#</a></h2>
-<p>Engineers often need to test systems multiple times with random inputs to find bugs or verify performance.</p>
-<p>Write a program that:</p>
-<ul class="simple">
-<li><p>Uses <code class="docutils literal notranslate"><span class="pre">random.seed(42)</span></code> for reproducibility</p></li>
-<li><p>Simulates <strong>3 trials</strong></p></li>
-<li><p>In each trial, generate <strong>4 random integers</strong> between -5 and 5 (inclusive)</p></li>
-<li><p>Print all 4 numbers on one line for each trial</p></li>
-<li><p>Use nested loops (outer loop for trials, inner loop for random numbers)</p></li>
-</ul>
-<p><strong>Expected Output</strong> (with seed=42):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Trial</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">0</span> <span class="o">-</span><span class="mi">4</span> <span class="o">-</span><span class="mi">1</span> <span class="mi">3</span>
-<span class="n">Trial</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">3</span> <span class="o">-</span><span class="mi">5</span> <span class="mi">3</span> <span class="o">-</span><span class="mi">4</span>
-<span class="n">Trial</span> <span class="mi">3</span><span class="p">:</span> <span class="o">-</span><span class="mi">5</span> <span class="mi">4</span> <span class="mi">1</span> <span class="o">-</span><span class="mi">3</span>
-</pre></div>
-</div>
-<p><strong>Hint:</strong> Import the random module and use <code class="docutils literal notranslate"><span class="pre">random.randint(-5,</span> <span class="pre">5)</span></code> to generate each number.</p>
-<p>See Class 6’s own <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class6.html#combining-loops-with-random-numbers">Combining Loops with Random Numbers</a> section, and Class 5’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#tracking-multiple-trials-in-one-loop">Tracking Multiple Trials in One Loop</a> section for a related (though non-nested) version of this pattern.</p>
+</section>
+<section id="part-4-challenge-problem">
+<h2>Part 4: Challenge Problem<a class="headerlink" href="#part-4-challenge-problem" title="Link to this heading">#</a></h2>
+<p>This is a bit of a stretch. You will have to do some work on your own to find the additional command necessary to test if something is a string or a number.</p>
+<p>See Class 1’s reading on <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class1.html#type-checking-a-variables-data-type">type(): Checking a Variable’s Data Type</a> for a related idea – you’ll need something that checks type <em>without</em> printing it out, so you can use the result in a condition.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You have a list of mixed data types:</span>
+<span class="n">mixed_data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"hello"</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="s2">"world"</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="s2">"python"</span><span class="p">,</span> <span class="mf">3.14</span><span class="p">]</span>
+
+<span class="c1"># Write code to:</span>
+<span class="c1"># 1. Create two separate lists: one for numbers, one for strings</span>
+<span class="c1"># 2. Calculate the sum of all numbers</span>
+<span class="c1"># 3. Join all strings together with spaces between them</span>
 </pre></div>
 </div>
 </div>
@@ -634,20 +630,20 @@ Work together to complete the following tasks!</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../class/Class6.html"
+       href="../class/Class2.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Class 6: Nested Loops</p>
+        <p class="prev-next-title">Class 2: Sequences, Strings, and Lists in Python</p>
       </div>
     </a>
     <a class="right-next"
-       href="Class6_GPP_Solutions.html"
+       href="../homework/HW2.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Class 6 GPP Solutions: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</p>
+        <p class="prev-next-title">Homework 2: Strings and Lists</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -667,14 +663,22 @@ Work together to complete the following tasks!</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-worked-example-with-nested-for-loops">Problem 1: Worked example with nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-formatted-output-with-nested-loops">Problem 2: Formatted output with nested loops</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-looping-through-a-list-to-print-element-types">Problem 3: Looping Through a List to Print Element Types</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4-printing-exclamation-point-patterns">Problem 4: Printing Exclamation Point Patterns</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-printing-characters-from-strings-with-separators">Problem 5: Printing Characters from Strings with Separators</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-6-nested-while-and-for-loops">Problem 6: Nested <code class="docutils literal notranslate"><span class="pre">while</span></code> and <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-7-triangle-of-stars">Problem 7: Triangle of stars</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-8-simulating-multiple-trials-with-random-numbers">Problem 8: Simulating Multiple Trials with Random Numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-string-exploration">Part 1: String Exploration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-1-string-basics">Task 1.1: String Basics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-2-string-manipulation">Task 1.2: String Manipulation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-list-operations">Part 2: List Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-1-list-creation-and-access">Task 2.1: List Creation and Access</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-2-list-modification-challenge">Task 2.2: List Modification Challenge</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-mixed-practice">Part 3: Mixed Practice</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-1-data-processing">Task 3.1: Data Processing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-2-text-analysis">Task 3.2: Text Analysis</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-challenge-problem">Part 4: Challenge Problem</a></li>
 </ul>
   </nav></div>
 

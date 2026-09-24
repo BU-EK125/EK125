@@ -1,0 +1,1080 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Class 4 GPP: Coding Basics Wrap-up and Selection Statements &#8212; EK125</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gpps/Class4_GPP';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Homework 3: Boolean Logic, Sequences, and Selection Statements" href="../homework/HW3.html" />
+    <link rel="prev" title="Class 4: Coding Basics Wrap-up and Selection Statements" href="../class/Class4.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">EK125</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to EK125
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python in Colab</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class1.html">Class 1: Introduction to Interactive Programming Using Google Colab</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW1.html">Homework 1: Variables, Types, and Assignments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class2.html">Class 2: Sequences, Strings, and Lists in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class2_GPP.html">Class 2 GPP: Working with Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW2.html">Homework 2: Strings and Lists</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class3.html">Class 3: Booleans and Basic Logic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class3_GPP.html">Class 3 GPP: Boolean Logic Practice</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class4.html">Class 4: Coding Basics Wrap-up and Selection Statements</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW3.html">Homework 3: Boolean Logic, Sequences, and Selection Statements</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class5.html">Class 5: Importing Modules and Basic Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class5_GPP.html">Class 5 GPP: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class5_GPP_Solutions.html">Class 5 GPP Solutions: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class6.html">Class 6: Nested Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class6_GPP.html">Class 6 GPP: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class6_GPP_Solutions.html">Class 6 GPP Solutions: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW4.html">Homework 4: Loops and Randomness</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class7.html">Class 7: Advanced Iteration and Nested Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class7_GPP.html">Class 7 GPP: Advanced Iteration and Nested Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class7_GPP_Solutions.html">Class 7 GPP Solutions: Advanced Iteration and Nested Structures</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python in an IDE</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class9.html">Class 9: From Colab Notebooks to Running Python Locally</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class9_GPP.html">Class 9 GPP: Getting Comfortable with PyCharm</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class10.html">Class 10: Mastering Slicing in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class10_GPP.html">Class 10 GPP: Mastering Slicing in Python</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class11.html">Class 11: Digging into arrays with NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class12.html">Class 12 Preread: Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class13.html">Class 13: User-Defined Functions, Arguments, and Scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class14.html">Class 14: Scripts, File I/O, and the Local File Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class15.html">Class 15: Visualizing Data and Plotting in Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MATLAB</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../class/Class16.html">Class 16: From Python to MATLAB: Syntax and Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class18.html">Class 18: Creating Vectors and Matrices in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class19.html">Class 19: Vector and Matrix Operations in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class20.html">Class 20: MATLAB Scripts, Documentation, and File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class21.html">Class 21: User Functions and Modular Programming in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class22.html">Class 22: Useful MATLAB Toolboxes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendix/Syllabus.html">Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/WeeklyRhythm.html">Weekly Rhythm of EK125</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/SubmittingAssignments.html">Instructions to receive and submit assignments</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/BU-EK125/EK125/blob/main/gpps/Class4_GPP.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/gpps/Class4_GPP.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Class 4 GPP: Coding Basics Wrap-up and Selection Statements</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-f-strings-escape-characters-the-input-function-and-type-casting">Part 1: f-strings, escape characters, the <code class="docutils literal notranslate"><span class="pre">input()</span></code> function and type casting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-1-table-of-average-of-material-length">Problem 1.1: Table of average of material length</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-2-series-resistor-voltage-report">Problem 1.2: Series Resistor Voltage Report</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-basic-selection-statements">Part 2: Basic selection statements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-1-code-fix">Problem 2.1: Code fix!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-2-prize-number-generator">Problem 2.2: Prize Number Generator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-3-number-sign-checker">Problem 2.3: Number Sign Checker</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-nested-selection-statements">Part 3: Nested selection statements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-1">Problem 3.1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-nested-selection-statements">More on nested selection statements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-2-classify-ages">Problem 3.2: Classify ages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-3-selections-and-booleans">Problem 3.3: Selections AND booleans</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-4-combining-selection-f-strings-and-everything-else">Problem 3.4: Combining selection, f-strings and everything else!</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="class-4-gpp-coding-basics-wrap-up-and-selection-statements">
+<h1>Class 4 GPP: Coding Basics Wrap-up and Selection Statements<a class="headerlink" href="#class-4-gpp-coding-basics-wrap-up-and-selection-statements" title="Link to this heading">#</a></h1>
+<p><strong>Group Exercise (Teams of 3)</strong>
+Work together to complete the following tasks!</p>
+<section id="part-1-f-strings-escape-characters-the-input-function-and-type-casting">
+<h2>Part 1: f-strings, escape characters, the <code class="docutils literal notranslate"><span class="pre">input()</span></code> function and type casting<a class="headerlink" href="#part-1-f-strings-escape-characters-the-input-function-and-type-casting" title="Link to this heading">#</a></h2>
+<p>We’ll do a few exercises to make sure that this critical coding principles, that we <em>have</em> seen over the last two weeks, are fresh in your mind!</p>
+<section id="problem-1-1-table-of-average-of-material-length">
+<h3>Problem 1.1: Table of average of material length<a class="headerlink" href="#problem-1-1-table-of-average-of-material-length" title="Link to this heading">#</a></h3>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class4.html#f-strings">f-Strings</a> and <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class4.html#type-casting-converting-between-types">Type Casting</a> sections for a refresher.</p>
+<p>🚩 <strong>Common mistake:</strong> forgetting the <code class="docutils literal notranslate"><span class="pre">:</span></code> before the format spec inside an
+f-string’s <code class="docutils literal notranslate"><span class="pre">{}</span></code>. It’s <code class="docutils literal notranslate"><span class="pre">f&quot;{value:10.3f}&quot;</span></code>, not <code class="docutils literal notranslate"><span class="pre">f&quot;{value</span> <span class="pre">10.3f}&quot;</span></code> – without
+the colon, Python tries to parse <code class="docutils literal notranslate"><span class="pre">value</span> <span class="pre">10.3f</span></code> as an expression and raises a
+<code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>.</p>
+<p>Write a program that:</p>
+<ul class="simple">
+<li><p>Uses <code class="docutils literal notranslate"><span class="pre">input()</span></code> to ask for a material name (string).</p></li>
+<li><p>Uses <code class="docutils literal notranslate"><span class="pre">input()</span></code> to ask for three beam lengths in meters (floats).</p></li>
+<li><p>Formats the material name in uppercase.</p></li>
+<li><p>Prints a table of beam lengths, each:</p>
+<ul>
+<li><p>Width of 10 characters (using a <code class="docutils literal notranslate"><span class="pre">f-string</span></code>)</p></li>
+<li><p>3 decimal places (using a <code class="docutils literal notranslate"><span class="pre">f-string</span></code>)</p></li>
+<li><p>Right-aligned with units m (using a <code class="docutils literal notranslate"><span class="pre">f-string</span></code>)</p></li>
+</ul>
+</li>
+<li><p>Also prints the average length, formatted to 2 decimal places. (using a <code class="docutils literal notranslate"><span class="pre">f-string</span></code>)</p></li>
+</ul>
+<p>An example run looks like this</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Enter</span> <span class="n">material</span><span class="p">:</span> <span class="n">steel</span>
+<span class="n">Enter</span> <span class="n">beam</span> <span class="n">length</span> <span class="mi">1</span> <span class="p">(</span><span class="n">m</span><span class="p">):</span> <span class="mf">3.2</span>
+<span class="n">Enter</span> <span class="n">beam</span> <span class="n">length</span> <span class="mi">2</span> <span class="p">(</span><span class="n">m</span><span class="p">):</span> <span class="mf">3.1</span>
+<span class="n">Enter</span> <span class="n">beam</span> <span class="n">length</span> <span class="mi">3</span> <span class="p">(</span><span class="n">m</span><span class="p">):</span> <span class="mf">4.5</span>
+
+<span class="n">Beam</span> <span class="n">Fabrication</span> <span class="n">Report</span>
+<span class="o">-----------------------</span>
+<span class="n">Material</span><span class="p">:</span> <span class="n">STEEL</span>
+
+<span class="n">Beam</span> <span class="n">Lengths</span><span class="p">:</span>
+<span class="n">Beam</span> <span class="mi">1</span><span class="p">:</span>     <span class="mf">3.200</span> <span class="n">m</span>
+<span class="n">Beam</span> <span class="mi">2</span><span class="p">:</span>     <span class="mf">3.100</span> <span class="n">m</span>
+<span class="n">Beam</span> <span class="mi">3</span><span class="p">:</span>     <span class="mf">4.500</span> <span class="n">m</span>
+<span class="o">-----------------------</span>
+<span class="n">Average</span><span class="p">:</span>      <span class="mf">3.60</span> <span class="n">m</span>
+</pre></div>
+</div>
+<p>Note that you might need to type cast your inputs to make sure everything computes!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="problem-1-2-series-resistor-voltage-report">
+<h3>Problem 1.2: Series Resistor Voltage Report<a class="headerlink" href="#problem-1-2-series-resistor-voltage-report" title="Link to this heading">#</a></h3>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class4.html#escape-characters-in-output">Escape Characters in Output</a> section for a refresher on <code class="docutils literal notranslate"><span class="pre">\t</span></code> and <code class="docutils literal notranslate"><span class="pre">\n</span></code>.</p>
+<p>Write a Python program that:</p>
+<ol class="arabic">
+<li><p>Prompts the user to enter <strong>two resistors</strong>, including:</p>
+<ul class="simple">
+<li><p>The <strong>name</strong> of each resistor (string)</p></li>
+<li><p>The <strong>resistance in ohms</strong> (integer)</p></li>
+</ul>
+</li>
+<li><p>Prompts the user to enter the <strong>current in amps</strong> (float), which is the same through both resistors in series.</p></li>
+<li><p>Calculates:</p>
+<ul>
+<li><p>The <strong>voltage across each resistor</strong> using Ohm’s Law:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">V</span> <span class="o">=</span> <span class="n">I</span> <span class="o">*</span> <span class="n">R</span>
+</pre></div>
+</div>
+</li>
+<li><p>The <strong>total voltage</strong> across both resistors:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">V_total</span> <span class="o">=</span> <span class="n">V1</span> <span class="o">+</span> <span class="n">V2</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>Prints a <strong>formatted report</strong> including:</p>
+<ul class="simple">
+<li><p>Each resistor’s name in <strong>uppercase</strong></p></li>
+<li><p>Resistance using the word <code class="docutils literal notranslate"><span class="pre">&quot;ohms&quot;</span></code></p></li>
+<li><p>Current with <strong>3 decimal places</strong></p></li>
+<li><p>Voltage with <strong>2 decimal places</strong></p></li>
+<li><p>Columns aligned using <strong><code class="docutils literal notranslate"><span class="pre">\t</span></code></strong></p></li>
+<li><p>A title and separator lines using <strong><code class="docutils literal notranslate"><span class="pre">\n</span></code></strong></p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Example run:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Enter</span> <span class="n">name</span> <span class="n">of</span> <span class="n">resistor</span> <span class="mi">1</span><span class="p">:</span> <span class="n">R1</span>
+<span class="n">Enter</span> <span class="n">resistance</span> <span class="n">of</span> <span class="n">R1</span> <span class="p">(</span><span class="n">ohms</span><span class="p">):</span> <span class="mi">220</span>
+<span class="n">Enter</span> <span class="n">name</span> <span class="n">of</span> <span class="n">resistor</span> <span class="mi">2</span><span class="p">:</span> <span class="n">R2</span>
+<span class="n">Enter</span> <span class="n">resistance</span> <span class="n">of</span> <span class="n">R2</span> <span class="p">(</span><span class="n">ohms</span><span class="p">):</span> <span class="mi">330</span>
+<span class="n">Enter</span> <span class="n">current</span> <span class="p">(</span><span class="n">amps</span><span class="p">):</span> <span class="mf">0.125</span>
+
+<span class="n">SERIES</span> <span class="n">RESISTOR</span> <span class="n">REPORT</span>
+<span class="o">-----------------------------</span>
+<span class="n">Name</span>        <span class="n">Resistance</span>    <span class="n">Current</span>    <span class="n">Voltage</span>
+<span class="n">R1</span>          <span class="mi">220</span> <span class="n">ohms</span>      <span class="mf">0.125</span> <span class="n">A</span>   <span class="mf">27.50</span> <span class="n">V</span>
+<span class="n">R2</span>          <span class="mi">330</span> <span class="n">ohms</span>      <span class="mf">0.125</span> <span class="n">A</span>   <span class="mf">41.25</span> <span class="n">V</span>
+<span class="o">-----------------------------</span>
+<span class="n">Total</span> <span class="n">Resistance</span><span class="p">:</span> <span class="mi">550</span> <span class="n">ohms</span>
+<span class="n">Total</span> <span class="n">Voltage</span><span class="p">:</span>    <span class="mf">68.75</span> <span class="n">V</span>
+</pre></div>
+</div>
+<p><strong>Notes:</strong></p>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">int()</span></code> to convert resistances to integers.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">float()</span></code> to convert current to a floating-point number.</p></li>
+<li><p>Use f-strings for all formatted output.</p></li>
+<li><p>Use escape characters <code class="docutils literal notranslate"><span class="pre">\n</span></code> for new lines and <code class="docutils literal notranslate"><span class="pre">\t</span></code> for column alignment.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="part-2-basic-selection-statements">
+<h2>Part 2: Basic selection statements<a class="headerlink" href="#part-2-basic-selection-statements" title="Link to this heading">#</a></h2>
+<p>Sometimes, we want to be able to decide whether or not to run a line or a block of code. Statements that accomplish this are called <strong>selection</strong> statements. We are going to focus on <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statements here, but python includes additional selection statements, too.</p>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class4.html#if-statements">If Statements</a> section for a refresher.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">if</span></code> statement chooses whether statement(s) are executed or not. The syntax of an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="n">action</span>
+<span class="n">rest</span> <span class="n">of</span> <span class="n">code</span>
+</pre></div>
+</div>
+<p>“condition” is an expression that must evaluate to <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. “action” must be intented. It is only executed if the condition is true. Otherwise, it is skipped.</p>
+<p>Here’s an example. Try it with several different ages.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age_s</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">'What is your age? </span><span class="se">\t</span><span class="s1">'</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">age_s</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">age_s</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Never trust anyone over 30'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'And the code moves on'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Indentation is very important in Python. If you want more than one line of code included as part of your action in an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement, those lines must all be indented to the same level. Try running these two short programs.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">'Please enter an integer: '</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Thanks!'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Done!'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">'Please enter an integer: '</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+ <span class="nb">print</span><span class="p">(</span><span class="s1">'Thanks!'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Done!'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also choose between conditions using <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statements. The general form is</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="n">ifaction</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">elseaction</span>
+<span class="c1"># rest of code</span>
+</pre></div>
+</div>
+<p>This code will choose between two actions, “ifaction” and “elseaction” depending on whether or not the condition is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class4.html#if-else-statements">If-else Statements</a> section for a refresher.</p>
+<p>Here’s an example. Try it out.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'Please enter your name: '</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'arthur'</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'You are the king of the Britons!'</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'You are a brave knight on a quest for the Holy Grail!'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So far, we’ve been comparing the values of numbers to one another for our condition, but the condition can be any statement that would evaluate to <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class4.html#methods-for-strings">Methods for Strings</a> section for a refresher on <code class="docutils literal notranslate"><span class="pre">.isalpha()</span></code>.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">string</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">'Please enter a single character: '</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">string</span><span class="o">.</span><span class="n">isalpha</span><span class="p">():</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">'This character is a letter.'</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">'This character is not a letter.'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Done.'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="problem-2-1-code-fix">
+<h3>Problem 2.1: Code fix!<a class="headerlink" href="#problem-2-1-code-fix" title="Link to this heading">#</a></h3>
+<p>Fix the code above (starting with <code class="docutils literal notranslate"><span class="pre">num=int(input('Please</span> <span class="pre">enter</span> <span class="pre">an</span> <span class="pre">integer:</span> <span class="pre">'))</span></code>) so that it will run. The line that prints “Thanks!” should not be part of the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement this time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your fixed code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="problem-2-2-prize-number-generator">
+<h3>Problem 2.2: Prize Number Generator<a class="headerlink" href="#problem-2-2-prize-number-generator" title="Link to this heading">#</a></h3>
+<p>Instead of soliciting user input, we could also use a random number as an input to test. Very soon we will talk about better ways to generate <em>real</em> random numbers, but for now, we’ll stick with a more brute force approach.</p>
+<p>Write a Python program that generates a “random-ish” number between 1 and 100 <strong>without using any imports</strong>. (We will cover imports in Class 5).</p>
+<p>Your program should:</p>
+<ol class="arabic simple">
+<li><p>Ask the user to type something unpredictable (letters, numbers, or a mix).</p></li>
+<li><p>Convert the user input into a number between 1 and 100 using a simple calculation (for example, using the length of the input).</p></li>
+<li><p>Print the generated number.</p></li>
+<li><p>Check if the number is smaller than 5.</p>
+<ul class="simple">
+<li><p>If it is, print a message telling the user they have won a prize.</p></li>
+<li><p>Otherwise, print a message saying there is no prize.</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Example run:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Type</span> <span class="n">something</span> <span class="n">random</span><span class="p">:</span> <span class="n">hello</span>
+<span class="n">The</span> <span class="n">generated</span> <span class="n">number</span> <span class="ow">is</span><span class="p">:</span> <span class="mi">5</span>
+<span class="n">Sorry</span><span class="p">,</span> <span class="n">no</span> <span class="n">prize</span> <span class="n">this</span> <span class="n">time</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Type something random: a
+The generated number is: 1
+Congratulations! You won a prize!
+</pre></div>
+</div>
+<p><strong>Hints:</strong></p>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">len()</span></code> to get the length of the input.</p></li>
+<li><p>Use arithmetic (<code class="docutils literal notranslate"><span class="pre">%</span></code>, <code class="docutils literal notranslate"><span class="pre">+</span></code>) to keep the number in the 1-100 range.</p></li>
+<li><p>Use an <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statement to check if the number is smaller than 5.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">print()</span></code> to display messages.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="problem-2-3-number-sign-checker">
+<h3>Problem 2.3: Number Sign Checker<a class="headerlink" href="#problem-2-3-number-sign-checker" title="Link to this heading">#</a></h3>
+<p>Write a Python program that asks the user to enter a number.</p>
+<p>The program should then determine whether the number is <strong>positive</strong>, <strong>negative</strong>, or <strong>zero</strong>, and print an appropriate message.</p>
+<p><strong>Example run:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Enter</span> <span class="n">a</span> <span class="n">number</span><span class="p">:</span> <span class="mi">7</span>
+<span class="n">The</span> <span class="n">number</span> <span class="ow">is</span> <span class="n">positive</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Enter</span> <span class="n">a</span> <span class="n">number</span><span class="p">:</span> <span class="o">-</span><span class="mi">3</span>
+<span class="n">The</span> <span class="n">number</span> <span class="ow">is</span> <span class="n">negative</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Enter</span> <span class="n">a</span> <span class="n">number</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">The</span> <span class="n">number</span> <span class="ow">is</span> <span class="n">zero</span><span class="o">.</span>
+</pre></div>
+</div>
+<p><strong>Hints:</strong></p>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">int()</span></code> to convert the user input to an integer.</p></li>
+<li><p>Use an <code class="docutils literal notranslate"><span class="pre">if/elif/else</span></code> statement to check the conditions.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">print()</span></code> to display the result.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="part-3-nested-selection-statements">
+<h2>Part 3: Nested selection statements<a class="headerlink" href="#part-3-nested-selection-statements" title="Link to this heading">#</a></h2>
+<p>Note that we can also nest selection statements. If you want to check a second condition after a first condition is met, you can do that. Just add another <code class="docutils literal notranslate"><span class="pre">if</span></code> statement as part of the action of the first <code class="docutils literal notranslate"><span class="pre">if</span></code>.</p>
+<section id="problem-3-1">
+<h3>Problem 3.1<a class="headerlink" href="#problem-3-1" title="Link to this heading">#</a></h3>
+<p>Try modifying the above code (<code class="docutils literal notranslate"><span class="pre">string=input('Please</span> <span class="pre">enter</span> <span class="pre">a</span> <span class="pre">single</span> <span class="pre">character:</span> <span class="pre">')</span></code>) to check if the letter entered is uppercase. If it is, change it to lowercase and print it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="more-on-nested-selection-statements">
+<h3>More on nested selection statements<a class="headerlink" href="#more-on-nested-selection-statements" title="Link to this heading">#</a></h3>
+<p>It is also possible to nest <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statements so you can check multiple conditions.</p>
+<p>For example, let’s say we wanted to check to see if a given year was a leap year. Leap years must be divisible by 4, unless they are century years, then they must also be divisible by 400. The code to check a user input year would look like this. Try it out.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">year</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Enter a year: "</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+  <span class="k">if</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">400</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">'Leap year!'</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s1">'Not a leap year.'</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Leap year!'</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">'Not a leap year.'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This type of statement can be simplified using the <code class="docutils literal notranslate"><span class="pre">elif</span></code> keyword.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Prompt the user for the number of limbs lost</span>
+<span class="n">limbs_lost</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Enter the number of limbs the Black Knight has lost: "</span><span class="p">))</span>
+
+<span class="c1"># Determine the message to print</span>
+<span class="k">if</span> <span class="n">limbs_lost</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">"The Black Knight says: 'None shall pass!'"</span>
+<span class="k">elif</span> <span class="n">limbs_lost</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">"The Black Knight says: 'It's just a flesh wound!'"</span>
+<span class="k">elif</span> <span class="n">limbs_lost</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">"The Black Knight says: 'I've had worse!'"</span>
+<span class="k">elif</span> <span class="n">limbs_lost</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">"The Black Knight says: 'Come on, you pansy!'"</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">"The Black Knight says: 'Alright, we'll call it a draw.'"</span>
+
+<span class="c1"># Print the message</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="problem-3-2-classify-ages">
+<h3>Problem 3.2: Classify ages<a class="headerlink" href="#problem-3-2-classify-ages" title="Link to this heading">#</a></h3>
+<p>Write an age group classifier using the <code class="docutils literal notranslate"><span class="pre">elif</span></code> keyword.</p>
+<ul class="simple">
+<li><p>Prompt the user for an age</p></li>
+<li><p>Classify the person based on age ranges:</p>
+<ul>
+<li><p>0-12 = child</p></li>
+<li><p>13-19 = teen</p></li>
+<li><p>20-64 = adult</p></li>
+<li><p>65 and over = senior.</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="problem-3-3-selections-and-booleans">
+<h3>Problem 3.3: Selections AND booleans<a class="headerlink" href="#problem-3-3-selections-and-booleans" title="Link to this heading">#</a></h3>
+<p>In <strong>Class 3</strong>, we learned about <em>booleans</em> and the boolean relational operators: <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span></code>, <code class="docutils literal notranslate"><span class="pre">and</span></code>, and <code class="docutils literal notranslate"><span class="pre">or</span></code>.</p>
+<p>See Class 3’s reading on <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class3.html#boolean-operators">Boolean Operators</a> for a refresher.</p>
+<p>Write a Python program that asks the user to enter:</p>
+<ul class="simple">
+<li><p>The number of cats</p></li>
+<li><p>The number of dogs</p></li>
+</ul>
+<p>Then use <strong>booleans</strong> and the boolean relational operators (<code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span></code>, <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>) to compare the two values.</p>
+<p>Your program should print messages according to the following rules:</p>
+<ol class="arabic simple">
+<li><p>If there is at least one cat, print <code class="docutils literal notranslate"><span class="pre">Squeee!</span></code></p></li>
+<li><p>If there are 5 cats or more, print <code class="docutils literal notranslate"><span class="pre">Purr...</span></code></p></li>
+<li><p>If there are 5 dogs or more, print <code class="docutils literal notranslate"><span class="pre">Arf!</span></code></p></li>
+<li><p>If there are either more than 10 cats <strong>or</strong> more than 10 dogs, print <code class="docutils literal notranslate"><span class="pre">Where</span> <span class="pre">frends?</span></code></p></li>
+<li><p>If there are more than 10 cats <strong>and</strong> more than 10 dogs, print <code class="docutils literal notranslate"><span class="pre">Frends!</span></code></p></li>
+<li><p>If there are exactly as many cats as dogs, print <code class="docutils literal notranslate"><span class="pre">Perfection.</span></code></p></li>
+</ol>
+<p>To get practice with more boolean logic, also add these extra checks:
+7. If the number of cats and dogs is <strong>not equal</strong>, print <code class="docutils literal notranslate"><span class="pre">Not</span> <span class="pre">balanced.</span></code>
+8. If there are fewer cats than dogs, print <code class="docutils literal notranslate"><span class="pre">More</span> <span class="pre">dogs</span> <span class="pre">than</span> <span class="pre">cats.</span></code>
+9. If there are at least twice as many cats as dogs, print <code class="docutils literal notranslate"><span class="pre">Cats</span> <span class="pre">rule!</span></code>
+10. If there are at least twice as many dogs as cats, print <code class="docutils literal notranslate"><span class="pre">Dogs</span> <span class="pre">rule!</span></code>
+11. If there are <strong>no cats and no dogs</strong> (zero of both), print <code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">pets</span> <span class="pre">at</span> <span class="pre">all!</span></code></p>
+<p><strong>Example run:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Enter the number of cats: 12
+Enter the number of dogs: 12
+Squeee!
+Purr...
+Arf!
+Where frends?
+Frends!
+Perfection.
+</pre></div>
+</div>
+<p><strong>Requirements:</strong></p>
+<ul class="simple">
+<li><p>Use at least <strong>6 different boolean operators</strong> (<code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span></code>, <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>) in your solution.</p></li>
+<li><p>Each rule should be checked with an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement (not <code class="docutils literal notranslate"><span class="pre">elif</span></code>), because more than one condition may be true.</p></li>
+</ul>
+<p>🚩 <strong>Common mistake:</strong> chaining these 11 rules with <code class="docutils literal notranslate"><span class="pre">elif</span></code> out of habit, since
+Problem 3.2 just practiced <code class="docutils literal notranslate"><span class="pre">elif</span></code> chains. Here, multiple rules can be true
+<em>at once</em> for the same input (e.g. 12 cats and 12 dogs triggers rules 1, 2,
+4, 5, and 6 all together) – <code class="docutils literal notranslate"><span class="pre">elif</span></code> would stop checking after the first
+match and silently skip the rest. Each rule needs its own independent <code class="docutils literal notranslate"><span class="pre">if</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="problem-3-4-combining-selection-f-strings-and-everything-else">
+<h3>Problem 3.4: Combining selection, f-strings and everything else!<a class="headerlink" href="#problem-3-4-combining-selection-f-strings-and-everything-else" title="Link to this heading">#</a></h3>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class4.html#field-width-and-alignment">Field Width and Alignment</a> section for formatting the results.</p>
+<p>Write a Python program that solves a quadratic equation of the form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">bx</span> <span class="o">+</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<p>Your program should:</p>
+<ol class="arabic">
+<li><p>Prompt the user to enter the coefficients <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, and <code class="docutils literal notranslate"><span class="pre">c</span></code>.</p></li>
+<li><p>Compute the <strong>discriminant</strong> using the formula:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">discriminant</span> <span class="o">=</span> <span class="n">b</span><span class="o">^</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="n">ac</span>
+</pre></div>
+</div>
+</li>
+<li><p>Handle the three possible cases for the discriminant:</p>
+<ul class="simple">
+<li><p>If the discriminant is <strong>positive</strong>, print two different real roots.</p></li>
+<li><p>If the discriminant is <strong>zero</strong>, print one real root (both roots are the same).</p></li>
+<li><p>If the discriminant is <strong>negative</strong>, print two complex roots (with a real and an imaginary part).</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Important Note:</strong></p>
+<ul>
+<li><p>Calculate square roots using exponentiation with <code class="docutils literal notranslate"><span class="pre">**0.5</span></code>.
+For example, the square root of <code class="docutils literal notranslate"><span class="pre">x</span></code> can be computed as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">**</span><span class="mf">0.5</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p><strong>Example run (discriminant &gt; 0):</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Enter</span> <span class="n">coefficient</span> <span class="n">a</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">Enter</span> <span class="n">coefficient</span> <span class="n">b</span><span class="p">:</span> <span class="o">-</span><span class="mi">3</span>
+<span class="n">Enter</span> <span class="n">coefficient</span> <span class="n">c</span><span class="p">:</span> <span class="mi">2</span>
+<span class="n">The</span> <span class="n">roots</span> <span class="n">are</span> <span class="n">real</span> <span class="ow">and</span> <span class="n">different</span><span class="p">:</span> <span class="mf">2.00</span> <span class="ow">and</span> <span class="mf">1.00</span>
+</pre></div>
+</div>
+<p><strong>Example run (discriminant == 0):</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Enter</span> <span class="n">coefficient</span> <span class="n">a</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">Enter</span> <span class="n">coefficient</span> <span class="n">b</span><span class="p">:</span> <span class="mi">2</span>
+<span class="n">Enter</span> <span class="n">coefficient</span> <span class="n">c</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">The</span> <span class="n">root</span> <span class="ow">is</span> <span class="n">real</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">same</span><span class="p">:</span> <span class="o">-</span><span class="mf">1.00</span>
+</pre></div>
+</div>
+<p><strong>Example run (discriminant &lt; 0):</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Enter coefficient a: 1
+Enter coefficient b: 2
+Enter coefficient c: 5
+The roots are complex: -1.00 ± 2.00i
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./gpps"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../class/Class4.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Class 4: Coding Basics Wrap-up and Selection Statements</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../homework/HW3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Homework 3: Boolean Logic, Sequences, and Selection Statements</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-f-strings-escape-characters-the-input-function-and-type-casting">Part 1: f-strings, escape characters, the <code class="docutils literal notranslate"><span class="pre">input()</span></code> function and type casting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-1-table-of-average-of-material-length">Problem 1.1: Table of average of material length</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-2-series-resistor-voltage-report">Problem 1.2: Series Resistor Voltage Report</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-basic-selection-statements">Part 2: Basic selection statements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-1-code-fix">Problem 2.1: Code fix!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-2-prize-number-generator">Problem 2.2: Prize Number Generator</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-3-number-sign-checker">Problem 2.3: Number Sign Checker</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-nested-selection-statements">Part 3: Nested selection statements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-1">Problem 3.1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-nested-selection-statements">More on nested selection statements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-2-classify-ages">Problem 3.2: Classify ages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-3-selections-and-booleans">Problem 3.3: Selections AND booleans</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-4-combining-selection-f-strings-and-everything-else">Problem 3.4: Combining selection, f-strings and everything else!</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Stormy Attaway, Brian DePasquale, Christine Mulvey, Kenn Sebesta
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
