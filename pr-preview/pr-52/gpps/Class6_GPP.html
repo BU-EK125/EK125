@@ -1,0 +1,734 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Class 6 GPP: Nested for loops &#8212; EK125</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gpps/Class6_GPP';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class 6 GPP Solutions: Nested for loops" href="Class6_GPP_Solutions.html" />
+    <link rel="prev" title="Class 6: Nested Loops" href="../class/Class6.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">EK125</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to EK125
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python in Colab</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class1.html">Class 1: Introduction to Interactive Programming Using Google Colab</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW1.html">Homework 1: Variables, Types, and Assignments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class2.html">Class 2: Sequences, Strings, and Lists in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class2_GPP.html">Class 2 GPP: Working with Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class2_GPP_Solutions.html">Class 2 GPP Solutions: Working with Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW2.html">Homework 2: Strings and Lists</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class3.html">Class 3: Booleans and Basic Logic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class3_GPP.html">Class 3 GPP: Boolean Logic Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class3_GPP_Solutions.html">Class 3 GPP Solutions: Boolean Logic Practice</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class4.html">Class 4: Coding Basics Wrap-up and Selection Statements</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW3.html">Homework 3: Boolean Logic, Sequences, and Selection Statements</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class5.html">Class 5: Importing Modules and Basic Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class5_GPP.html">Class 5 GPP: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class5_GPP_Solutions.html">Class 5 GPP Solutions: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../class/Class6.html">Class 6: Nested Loops</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Class 6 GPP: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class6_GPP_Solutions.html">Class 6 GPP Solutions: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW4.html">Homework 4: Loops and Randomness</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class7.html">Class 7: Advanced Iteration and Nested Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class7_GPP.html">Class 7 GPP: Advanced Iteration and Nested Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class7_GPP_Solutions.html">Class 7 GPP Solutions: Advanced Iteration and Nested Structures</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python in an IDE</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class9.html">Class 9: From Colab Notebooks to Running Python Locally</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class9_GPP.html">Class 9 GPP: Getting Comfortable with PyCharm</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class10.html">Class 10: Mastering Slicing in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class10_GPP.html">Class 10 GPP: Mastering Slicing in Python</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class11.html">Class 11: Digging into arrays with NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class12.html">Class 12 Preread: Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class13.html">Class 13: User-Defined Functions, Arguments, and Scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class14.html">Class 14: Scripts, File I/O, and the Local File Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class15.html">Class 15: Visualizing Data and Plotting in Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MATLAB</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../class/Class16.html">Class 16: From Python to MATLAB: Syntax and Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class18.html">Class 18: Creating Vectors and Matrices in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class19.html">Class 19: Vector and Matrix Operations in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class20.html">Class 20: MATLAB Scripts, Documentation, and File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class21.html">Class 21: User Functions and Modular Programming in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class22.html">Class 22: Useful MATLAB Toolboxes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendix/Syllabus.html">Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/WeeklyRhythm.html">Weekly Rhythm of EK125</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/SubmittingAssignments.html">Instructions to receive and submit assignments</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/BU-EK125/EK125/blob/main/gpps/Class6_GPP.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/gpps/Class6_GPP.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Class 6 GPP: Nested for loops</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-worked-example-with-nested-for-loops">Problem 1: Worked example with nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-formatted-output-with-nested-loops">Problem 2: Formatted output with nested loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-looping-through-a-list-to-print-element-types">Problem 3: Looping Through a List to Print Element Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4-printing-exclamation-point-patterns">Problem 4: Printing Exclamation Point Patterns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-printing-characters-from-strings-with-separators">Problem 5: Printing Characters from Strings with Separators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-6-nested-while-and-for-loops">Problem 6: Nested <code class="docutils literal notranslate"><span class="pre">while</span></code> and <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-7-triangle-of-stars">Problem 7: Triangle of stars</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-8-simulating-multiple-trials-with-random-numbers">Problem 8: Simulating Multiple Trials with Random Numbers</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="class-6-gpp-nested-for-loops">
+<h1>Class 6 GPP: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops<a class="headerlink" href="#class-6-gpp-nested-for-loops" title="Link to this heading">#</a></h1>
+<p><strong>Group Exercise (Teams of 3)</strong>
+Work together to complete the following tasks!</p>
+<section id="problem-1-worked-example-with-nested-for-loops">
+<h2>Problem 1: Worked example with nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops<a class="headerlink" href="#problem-1-worked-example-with-nested-for-loops" title="Link to this heading">#</a></h2>
+<p>Let’s start with nested for loops using the range function. Execute the following code.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This is the basic nested-loop pattern from the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class6.html#nested-loops">Nested loops</a> section – the outer loop runs once per full pass of the inner loop.</p>
+</section>
+<section id="problem-2-formatted-output-with-nested-loops">
+<h2>Problem 2: Formatted output with nested loops<a class="headerlink" href="#problem-2-formatted-output-with-nested-loops" title="Link to this heading">#</a></h2>
+<p>Your task is to practice nested loops by writing a Python program that generates a simple pattern.</p>
+<ul class="simple">
+<li><p>Loop over the numbers 0 through 4.</p></li>
+<li><p>On each line, first print the number, followed by a colon (:).</p></li>
+<li><p>After the colon, print as many asterisks (*) as the number itself.</p></li>
+<li><p>Each line should show the number and its matching stars.</p></li>
+</ul>
+<p>Example Output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="p">:</span>
+<span class="mi">1</span><span class="p">:</span><span class="o">*</span>
+<span class="mi">2</span><span class="p">:</span><span class="o">**</span>
+<span class="mi">3</span><span class="p">:</span><span class="o">***</span>
+<span class="mi">4</span><span class="p">:</span><span class="o">****</span>
+</pre></div>
+</div>
+<p>Hint: You will need a loop inside a loop — the outer loop handles the numbers, and the inner loop handles printing the stars.</p>
+<p>This is the same shape as the number/star examples in the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class6.html#nested-loops">Nested loops</a> section.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="problem-3-looping-through-a-list-to-print-element-types">
+<h2>Problem 3: Looping Through a List to Print Element Types<a class="headerlink" href="#problem-3-looping-through-a-list-to-print-element-types" title="Link to this heading">#</a></h2>
+<p>Write a Python program that prints the type of each element in a list.</p>
+<ul class="simple">
+<li><p>Use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop together with the <code class="docutils literal notranslate"><span class="pre">range()</span></code> function to go through the list.</p></li>
+<li><p>Do not assume you know how many items are in the list — your code should work for lists of any length.</p></li>
+<li><p>Inside the loop, use the loop variable as an index to access each element of the list, and print out its type.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">43</span><span class="p">,</span> <span class="s1">'happy'</span><span class="p">,</span> <span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">11.11</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Need a refresher? Class 5’s reading covers index-based iteration in <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#looping-with-indices">Looping with Indices</a>, and uses <code class="docutils literal notranslate"><span class="pre">type()</span></code> in the <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#looping-through-sequences">Looping through sequences</a> example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="problem-4-printing-exclamation-point-patterns">
+<h2>Problem 4: Printing Exclamation Point Patterns<a class="headerlink" href="#problem-4-printing-exclamation-point-patterns" title="Link to this heading">#</a></h2>
+<p>Write a Python program that uses <em>nested</em> <code class="docutils literal notranslate"><span class="pre">for</span></code> loops to print rows of exclamation points (<code class="docutils literal notranslate"><span class="pre">!</span></code>) based on a list of positive integers.</p>
+<p>Requirements:</p>
+<ul class="simple">
+<li><p>For each number in the list, print a row of exclamation points equal to that number.</p>
+<ul>
+<li><p>Example: if the number is <code class="docutils literal notranslate"><span class="pre">3</span></code>, print <code class="docutils literal notranslate"><span class="pre">!!!</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Each row should have no spaces between the exclamation points.</p></li>
+<li><p>Write your solution in two ways:</p>
+<ul>
+<li><p>Approach 1: Use the outer loop to go through the elements of the list directly.</p></li>
+<li><p>Approach 2: Use the outer loop to go through the indices of the list, and access elements by indexing.</p></li>
+</ul>
+</li>
+</ul>
+<p>Example List:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">intlist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Approach 2 needs the same index-based iteration as Class 5’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#looping-with-indices">Looping with Indices</a> section.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="problem-5-printing-characters-from-strings-with-separators">
+<h2>Problem 5: Printing Characters from Strings with Separators<a class="headerlink" href="#problem-5-printing-characters-from-strings-with-separators" title="Link to this heading">#</a></h2>
+<p>Use the following list of strings. Write code to print all of the characters from all of the strings on one line, with a dash (<code class="docutils literal notranslate"><span class="pre">-</span></code>) after each.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">strlist</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'I'</span><span class="p">,</span> <span class="s1">'love'</span><span class="p">,</span> <span class="s1">'coding!'</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class6.html#nested-loops">Nested loops</a> section opens with a similar nested loop over a list of words, printing each word’s characters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="problem-6-nested-while-and-for-loops">
+<h2>Problem 6: Nested <code class="docutils literal notranslate"><span class="pre">while</span></code> and <code class="docutils literal notranslate"><span class="pre">for</span></code> loops<a class="headerlink" href="#problem-6-nested-while-and-for-loops" title="Link to this heading">#</a></h2>
+<p>Write a script that will prompt the user for positive numbers. As long as the user is entering positive numbers, Print <code class="docutils literal notranslate"><span class="pre">Ni!</span></code> that many times on a single line for each. For example, if the user enters 3, <code class="docutils literal notranslate"><span class="pre">Ni!Ni!Ni!</span></code> would be printed.</p>
+<p>This combines two ideas from the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class6.html#nested-loops">Nested loops</a> section: an outer loop that keeps going as long as valid input keeps coming (see <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class6.html#nesting-a-while-loop-inside-another-while-loop">Nesting a <code class="docutils literal notranslate"><span class="pre">while</span></code> Loop Inside Another <code class="docutils literal notranslate"><span class="pre">while</span></code> Loop</a> for that idea, even though there the inner loop is also a <code class="docutils literal notranslate"><span class="pre">while</span></code>), and an inner loop that repeats a fixed number of times based on a value, like the number/star examples earlier in the same section.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here.  Ni!</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="problem-7-triangle-of-stars">
+<h2>Problem 7: Triangle of stars<a class="headerlink" href="#problem-7-triangle-of-stars" title="Link to this heading">#</a></h2>
+<p>Prompt the user for a positive integer <code class="docutils literal notranslate"><span class="pre">n</span></code>. Then print a triangle of stars, starting with 0 in the first row and incrementing to <code class="docutils literal notranslate"><span class="pre">n-1</span></code> stars in the <code class="docutils literal notranslate"><span class="pre">n-1st</span></code> row.</p>
+<p>Example output for <code class="docutils literal notranslate"><span class="pre">n=4</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span>
+<span class="o">**</span>
+<span class="o">***</span>
+</pre></div>
+</div>
+<p>Same loop shape as the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class6.html#nested-loops">Nested loops</a> section – just combined with <code class="docutils literal notranslate"><span class="pre">input()</span></code> to get <code class="docutils literal notranslate"><span class="pre">n</span></code> instead of a hardcoded range.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="problem-8-simulating-multiple-trials-with-random-numbers">
+<h2>Problem 8: Simulating Multiple Trials with Random Numbers<a class="headerlink" href="#problem-8-simulating-multiple-trials-with-random-numbers" title="Link to this heading">#</a></h2>
+<p>Engineers often need to test systems multiple times with random inputs to find bugs or verify performance.</p>
+<p>Write a program that:</p>
+<ul class="simple">
+<li><p>Uses <code class="docutils literal notranslate"><span class="pre">random.seed(42)</span></code> for reproducibility</p></li>
+<li><p>Simulates <strong>3 trials</strong></p></li>
+<li><p>In each trial, generate <strong>4 random integers</strong> between -5 and 5 (inclusive)</p></li>
+<li><p>Print all 4 numbers on one line for each trial</p></li>
+<li><p>Use nested loops (outer loop for trials, inner loop for random numbers)</p></li>
+</ul>
+<p><strong>Expected Output</strong> (with seed=42):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Trial</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">0</span> <span class="o">-</span><span class="mi">4</span> <span class="o">-</span><span class="mi">1</span> <span class="mi">3</span>
+<span class="n">Trial</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">3</span> <span class="o">-</span><span class="mi">5</span> <span class="mi">3</span> <span class="o">-</span><span class="mi">4</span>
+<span class="n">Trial</span> <span class="mi">3</span><span class="p">:</span> <span class="o">-</span><span class="mi">5</span> <span class="mi">4</span> <span class="mi">1</span> <span class="o">-</span><span class="mi">3</span>
+</pre></div>
+</div>
+<p><strong>Hint:</strong> Import the random module and use <code class="docutils literal notranslate"><span class="pre">random.randint(-5,</span> <span class="pre">5)</span></code> to generate each number.</p>
+<p>See Class 6’s own <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class6.html#combining-loops-with-random-numbers">Combining Loops with Random Numbers</a> section, and Class 5’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#tracking-multiple-trials-in-one-loop">Tracking Multiple Trials in One Loop</a> section for a related (though non-nested) version of this pattern.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./gpps"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../class/Class6.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Class 6: Nested Loops</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Class6_GPP_Solutions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Class 6 GPP Solutions: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-worked-example-with-nested-for-loops">Problem 1: Worked example with nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-formatted-output-with-nested-loops">Problem 2: Formatted output with nested loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-looping-through-a-list-to-print-element-types">Problem 3: Looping Through a List to Print Element Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4-printing-exclamation-point-patterns">Problem 4: Printing Exclamation Point Patterns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-printing-characters-from-strings-with-separators">Problem 5: Printing Characters from Strings with Separators</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-6-nested-while-and-for-loops">Problem 6: Nested <code class="docutils literal notranslate"><span class="pre">while</span></code> and <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-7-triangle-of-stars">Problem 7: Triangle of stars</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-8-simulating-multiple-trials-with-random-numbers">Problem 8: Simulating Multiple Trials with Random Numbers</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Stormy Attaway, Brian DePasquale, Christine Mulvey, Kenn Sebesta
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
