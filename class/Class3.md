@@ -63,6 +63,8 @@ user = True            # Is this a user? Does a user exist? Is user active?
 status = False         # What status? What does False mean for status?
 ```
 
+You'll practice renaming variables just like these in today's GPP -- see the [Boolean Naming Exercise](https://BU-EK125.github.io/EK125/gpps/Class3_GPP.html#boolean-naming-exercise-5-minutes).
+
 ### Common Boolean Naming Patterns
 
 **1. `has` prefix - indicates possession or presence:**
