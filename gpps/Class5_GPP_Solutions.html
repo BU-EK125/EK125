@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Class 5 GPP: for and while loops &#8212; EK125</title>
+    <title>Class 5 GPP Solutions: for and while loops &#8212; EK125</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'gpps/Class5_GPP';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gpps/Class5_GPP_Solutions';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Class 5 GPP Solutions: for and while loops" href="Class5_GPP_Solutions.html" />
-    <link rel="prev" title="Class 5: Importing Modules and Basic Loops" href="../class/Class5.html" />
+    <link rel="next" title="Class 6: Nested Loops" href="../class/Class6.html" />
+    <link rel="prev" title="Class 5 GPP: for and while loops" href="Class5_GPP.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -189,8 +189,8 @@
 
 <li class="toctree-l1"><a class="reference internal" href="../homework/HW3.html">Homework 3: Boolean Logic, Sequences, and Selection Statements</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../class/Class5.html">Class 5: Importing Modules and Basic Loops</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Class 5 GPP: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Class5_GPP_Solutions.html">Class 5 GPP Solutions: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class5_GPP.html">Class 5 GPP: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Class 5 GPP Solutions: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class6.html">Class 6: Nested Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -289,7 +289,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/BU-EK125/EK125/blob/main/gpps/Class5_GPP.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/BU-EK125/EK125/blob/main/gpps/Class5_GPP_Solutions.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -320,7 +320,7 @@
       
       
       
-      <li><a href="../_sources/gpps/Class5_GPP.ipynb" target="_blank"
+      <li><a href="../_sources/gpps/Class5_GPP_Solutions.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -404,7 +404,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Class 5 GPP: for and while loops</h1>
+    <h1>Class 5 GPP Solutions: for and while loops</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -447,8 +447,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="class-5-gpp-for-and-while-loops">
-<h1>Class 5 GPP: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops<a class="headerlink" href="#class-5-gpp-for-and-while-loops" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="class-5-gpp-solutions-for-and-while-loops">
+<h1>Class 5 GPP Solutions: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops<a class="headerlink" href="#class-5-gpp-solutions-for-and-while-loops" title="Link to this heading">#</a></h1>
 <p><strong>Group Exercise (Teams of 3)</strong>
 Work together to complete the following tasks!</p>
 <section id="part-1-for-loops">
@@ -464,25 +464,114 @@ Work together to complete the following tasks!</p>
 <p><strong>Hints</strong></p>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">range(n)</span></code> function generates numbers starting at 0 and ending just <em>before</em> <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">range</span></code> by itself doesn’t immediately display as a list of numbers - think about how you can convert it into a list.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">range</span></code> by itself doesn’t immediately display as a list of numbers — think about how you can convert it into a list.</p></li>
 <li><p>To find out how many numbers were generated, recall the function that gives the size of a sequence, like how you’d check the length of a string or list.</p></li>
 </ul>
-<p>🚩 <strong>Common mistake:</strong> <code class="docutils literal notranslate"><span class="pre">range()</span></code> isn’t a list. Printing <code class="docutils literal notranslate"><span class="pre">myr</span></code> directly
-(before converting it) shows <code class="docutils literal notranslate"><span class="pre">range(0,</span> <span class="pre">6)</span></code>, not <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4,</span> <span class="pre">5]</span></code> –
-<code class="docutils literal notranslate"><span class="pre">range()</span></code> produces a lazy sequence, and you need <code class="docutils literal notranslate"><span class="pre">list(myr)</span></code> to see the
-actual values. See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#loops-using-range">Loops using range</a> section for a refresher.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a range object</span>
+<span class="n">myr</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="c1"># convert it to a list and print</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">myr</span><span class="p">))</span>
+
+<span class="c1"># print the length of the sequence</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">myr</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5]
+6
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="problem-1-2-for-loops-with-input">
 <h3>Problem 1.2: <code class="docutils literal notranslate"><span class="pre">for</span></code> loops with <code class="docutils literal notranslate"><span class="pre">input()</span></code><a class="headerlink" href="#problem-1-2-for-loops-with-input" title="Link to this heading">#</a></h3>
 <p>Write a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop that will prompt the user for a string 5 times and print that new string on each iteration of the loop. Use the <code class="docutils literal notranslate"><span class="pre">range()</span></code> method.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">urstr</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'Enter a string: '</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Your string was:'</span><span class="p">,</span> <span class="n">urstr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter a string: hello
+Your string was: hello
+Enter a string: world
+Your string was: world
+Enter a string: foo
+Your string was: foo
+Enter a string: bar
+Your string was: bar
+Enter a string: baz
+Your string was: baz
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="problem-1-3-using-an-iterator-value">
 <h3>Problem 1.3: Using an iterator value<a class="headerlink" href="#problem-1-3-using-an-iterator-value" title="Link to this heading">#</a></h3>
 <p>Write your own code to show the difference between using the iterator variable in the action of the loop and not using the iterator variable in the action of the loop.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Not using</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'!!'</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="c1"># Using</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'4 * '</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="s1">'is:'</span><span class="p">,</span><span class="mi">4</span><span class="o">*</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>!!
+!!
+!!
+!!
+!!
+
+4 *  0 is: 0
+4 *  1 is: 4
+4 *  2 is: 8
+4 *  3 is: 12
+4 *  4 is: 16
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="problem-1-4-for-with-a-sequence">
 <h3>Problem 1.4: <code class="docutils literal notranslate"><span class="pre">for</span></code> with a sequence<a class="headerlink" href="#problem-1-4-for-with-a-sequence" title="Link to this heading">#</a></h3>
 <p>A great use of for loops is to loop through a sequence, performing the same action on each element in the sequence. Create a list of floats. Write a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop that will loop through the list and print the rounded value of each number.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myflist</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.3</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="mf">11.11</span><span class="p">,</span> <span class="mf">2.9</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.2</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">myflist</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'The rounded value of'</span><span class="p">,</span> <span class="n">i</span> <span class="p">,</span> <span class="s1">'is'</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The rounded value of 3.3 is 3
+The rounded value of 4.5 is 4
+The rounded value of 11.11 is 11
+The rounded value of 2.9 is 3
+The rounded value of -5.2 is -5
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="problem-1-5-strings-in-loops">
 <h3>Problem 1.5: Strings in loops<a class="headerlink" href="#problem-1-5-strings-in-loops" title="Link to this heading">#</a></h3>
@@ -492,6 +581,34 @@ actual values. See the reading’s <a class="reference external" href="https://B
 <li><p>Write a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop that directly iterates through the list and prints each greeting.</p></li>
 <li><p>Then, write another <code class="docutils literal notranslate"><span class="pre">for</span></code> loop that uses the indices of the list to print the greetings again in the same format.</p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">strlist</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'hello'</span><span class="p">,</span> <span class="s1">'ciao'</span><span class="p">,</span> <span class="s1">'howdy'</span><span class="p">,</span> <span class="s1">'hi'</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">onestr</span> <span class="ow">in</span> <span class="n">strlist</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'The string is: '</span><span class="p">,</span><span class="n">onestr</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">strlist</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'The string is: '</span><span class="p">,</span> <span class="n">strlist</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The string is:  hello
+The string is:  ciao
+The string is:  howdy
+The string is:  hi
+
+The string is:  hello
+The string is:  ciao
+The string is:  howdy
+The string is:  hi
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="problem-1-6-using-for-to-compute-a-running-sum">
 <h3>Problem 1.6: using <code class="docutils literal notranslate"><span class="pre">for</span></code> to compute a running sum.<a class="headerlink" href="#problem-1-6-using-for-to-compute-a-running-sum" title="Link to this heading">#</a></h3>
@@ -507,8 +624,30 @@ actual values. See the reading’s <a class="reference external" href="https://B
 </pre></div>
 </div>
 <p>You can also learn more about <code class="docutils literal notranslate"><span class="pre">randint</span></code> by using <code class="docutils literal notranslate"><span class="pre">help()</span></code> (after you run the <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">random...</span></code> code from above).</p>
-<p>Problem: Write a program that will generate a random integer <code class="docutils literal notranslate"><span class="pre">n</span></code> in the inclusive range from 2 to 5. Then, loop n times to prompt the user for a float number, and print the sum of the numbers entered so far with one decimal place. Use a f-string. to do the printing.</p>
-<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#calculating-running-sums">Calculating Running Sums</a> section for the pattern this builds on.</p>
+<p>Problem: Write a program that will generate a random integer <code class="docutils literal notranslate"><span class="pre">n</span></code> in the inclusive range from 2 to 5. Then, loop n times to prompt the user for a float number, and print the sum of the numbers entered so far with one decimal place. Usen a f-string. to do the printing.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">randint</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">mysum</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">numb</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">'Enter a float: '</span><span class="p">))</span>
+    <span class="n">mysum</span> <span class="o">=</span> <span class="n">mysum</span> <span class="o">+</span> <span class="n">numb</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'The sum so far is </span><span class="si">{</span><span class="n">mysum</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">.'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter a float: 1.5
+The sum so far is 1.5.
+Enter a float: 2.5
+The sum so far is 4.0.
+Enter a float: 3.0
+The sum so far is 7.0.
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="problem-1-7-running-products">
 <h3>Problem 1.7: Running products<a class="headerlink" href="#problem-1-7-running-products" title="Link to this heading">#</a></h3>
@@ -520,10 +659,25 @@ actual values. See the reading’s <a class="reference external" href="https://B
    <span class="nb">print</span><span class="p">(</span><span class="s1">'The product so far is'</span><span class="p">,</span> <span class="n">runprod</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>🚩 <strong>Common mistake:</strong> running sums start at <code class="docutils literal notranslate"><span class="pre">0</span></code>; running products
-start at <code class="docutils literal notranslate"><span class="pre">1</span></code>. It’s easy to carry over the <code class="docutils literal notranslate"><span class="pre">0</span></code> habit from Problem 1.6 –
-initializing a running product to <code class="docutils literal notranslate"><span class="pre">0</span></code> makes every result <code class="docutils literal notranslate"><span class="pre">0</span></code> no matter
-what you multiply by. See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#calculating-running-sums">Calculating Running Sums</a> section.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">runprod</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">runprod</span> <span class="o">=</span> <span class="n">runprod</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'The product so far is'</span><span class="p">,</span> <span class="n">runprod</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The product so far is 1
+The product so far is 2
+The product so far is 6
+The product so far is 24
+The product so far is 120
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="problem-1-8-loops-and-selection">
 <h3>Problem 1.8: Loops and selection<a class="headerlink" href="#problem-1-8-loops-and-selection" title="Link to this heading">#</a></h3>
@@ -533,6 +687,29 @@ what you multiply by. See the reading’s <a class="reference external" href="ht
 </pre></div>
 </div>
 <p>like you did in question 1.6 to solve this problem.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">randint</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">ranin</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ranin</span> <span class="o">&lt;</span> <span class="mi">15</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">ranin</span><span class="p">,</span><span class="s1">'is less than 15.'</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">ranin</span><span class="p">,</span><span class="s1">' is &gt;= 15.'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20  is &gt;= 15.
+10 is less than 15.
+27  is &gt;= 15.
+30  is &gt;= 15.
+7 is less than 15.
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="problem-1-9-for-and-random-char-from-a-string">
 <h3>Problem 1.9: <code class="docutils literal notranslate"><span class="pre">for</span></code> and random <code class="docutils literal notranslate"><span class="pre">char</span></code> from a string<a class="headerlink" href="#problem-1-9-for-and-random-char-from-a-string" title="Link to this heading">#</a></h3>
@@ -550,7 +727,46 @@ what you multiply by. See the reading’s <a class="reference external" href="ht
     <span class="n">Choose</span> <span class="n">a</span> <span class="n">random</span> <span class="n">element</span> <span class="kn">from</span><span class="w"> </span><span class="nn">a</span> <span class="n">non</span><span class="o">-</span><span class="n">empty</span> <span class="n">sequence</span><span class="o">.</span>
 </pre></div>
 </div>
-<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#the-random-module-you-ll-use-this-today"><code class="docutils literal notranslate"><span class="pre">random</span></code> module</a> section for more on these functions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">choice</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">choice</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method choice in module random:
+
+choice(seq) method of random.Random instance
+    Choose a random element from a non-empty sequence.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">choice</span>
+<span class="n">onech</span> <span class="o">=</span> <span class="n">choice</span><span class="p">(</span><span class="s1">'xyz'</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">onech</span> <span class="o">==</span> <span class="s1">'x'</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'!'</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Sad'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sad
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="problem-1-10-using-the-math-module-for-calculations">
 <h3>Problem 1.10: Using the <code class="docutils literal notranslate"><span class="pre">math</span></code> module for calculations<a class="headerlink" href="#problem-1-10-using-the-math-module-for-calculations" title="Link to this heading">#</a></h3>
@@ -578,7 +794,28 @@ what you multiply by. See the reading’s <a class="reference external" href="ht
 <span class="n">Circumference</span><span class="p">:</span> <span class="mf">31.42</span>
 </pre></div>
 </div>
-<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#the-math-module-mathematical-functions"><code class="docutils literal notranslate"><span class="pre">math</span></code> module</a> section for more on this module.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">pi</span>
+
+<span class="n">radius</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">'Enter a radius: '</span><span class="p">))</span>
+
+<span class="n">area</span> <span class="o">=</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">circumference</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Area: </span><span class="si">{</span><span class="n">area</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Circumference: </span><span class="si">{</span><span class="n">circumference</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter a radius: 5
+Area: 78.54
+Circumference: 31.42
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="problem-1-11-square-roots-with-for-loops">
 <h3>Problem 1.11: Square roots with <code class="docutils literal notranslate"><span class="pre">for</span></code> loops<a class="headerlink" href="#problem-1-11-square-roots-with-for-loops" title="Link to this heading">#</a></h3>
@@ -624,6 +861,49 @@ what you multiply by. See the reading’s <a class="reference external" href="ht
 <li><p>Use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop with <code class="docutils literal notranslate"><span class="pre">range(5)</span></code> to generate 5 numbers</p></li>
 <li><p>Use an <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statement to check if the square root is greater than 5</p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">sqrt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">randint</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Number: </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Square root: </span><span class="si">{</span><span class="n">root</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">root</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'Square root is greater than 5'</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'Square root is not greater than 5'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>  <span class="c1"># blank line for readability</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Number: 41
+Square root: 6.40
+Square root is greater than 5
+
+Number: 78
+Square root: 8.83
+Square root is greater than 5
+
+Number: 23
+Square root: 4.80
+Square root is not greater than 5
+
+Number: 46
+Square root: 6.78
+Square root is greater than 5
+
+Number: 79
+Square root: 8.89
+Square root is greater than 5
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="part-2-while-loops">
@@ -653,17 +933,65 @@ Done!
 <li><p>Write code with an initial value for <code class="docutils literal notranslate"><span class="pre">count</span></code> that makes the loop body run <strong>exactly once</strong>?</p></li>
 <li><p>Write code with an initial value for <code class="docutils literal notranslate"><span class="pre">count</span></code> that makes the loop body <strong>never run at all</strong>?</p></li>
 </ul>
-<p>🚩 <strong>Common mistake:</strong> forgetting to update the loop-control variable
-inside a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop’s body. Every <code class="docutils literal notranslate"><span class="pre">while</span></code> loop you write from here on
-depends on something changing inside the loop so the condition
-eventually becomes false – skip that update and the loop never ends.
-See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#while-and-while-else">While and while-else</a> section.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Case 1: Loop body runs exactly once</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">while</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Counting down:"</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Done!"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Counting down: 1
+Done!
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Case 2: Loop body never runs</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Counting down:"</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Done!"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done!
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="problem-2-2-while-and-random-numbers">
 <h3>Problem 2.2 <code class="docutils literal notranslate"><span class="pre">while()</span></code> and random numbers<a class="headerlink" href="#problem-2-2-while-and-random-numbers" title="Link to this heading">#</a></h3>
 <p>Write a loop that will generate and print random integers, each in the range from 1 to 20, until one of the random integers is greater than 15. Then, after the loop, print the random integer that ended the loop.</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">randint</span></code> from <code class="docutils literal notranslate"><span class="pre">random</span></code> like you did above!</p>
-<p>The reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#tracking-multiple-trials-in-one-loop">Tracking Multiple Trials in One Loop</a> section covers a related pattern.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">randint</span>
+
+<span class="n">myran</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="k">while</span> <span class="n">myran</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">myran</span><span class="p">)</span>
+    <span class="n">myran</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'The random number that ended this was'</span><span class="p">,</span><span class="n">myran</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+The random number that ended this was 20
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="problem-2-3-while-loops-counting-and-averages">
 <h3>Problem 2.3: While Loops — Counting and Averages<a class="headerlink" href="#problem-2-3-while-loops-counting-and-averages" title="Link to this heading">#</a></h3>
@@ -695,18 +1023,67 @@ See the reading’s <a class="reference external" href="https://BU-EK125.github.
 </ul>
 </li>
 </ul>
-<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#counting-in-a-while-loop">Counting in a while loop</a> section for the counter pattern this needs.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize variables</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Prompt for the first number</span>
+<span class="n">num</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Enter a positive number (or a negative number to stop): "</span><span class="p">))</span>
+
+<span class="c1"># Loop while the number is positive</span>
+<span class="k">while</span> <span class="n">num</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">total</span> <span class="o">+=</span> <span class="n">num</span>
+    <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Enter a positive number (or a negative number to stop): "</span><span class="p">))</span>
+
+<span class="c1"># After the loop</span>
+<span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Error: no positive numbers were entered."</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">average</span> <span class="o">=</span> <span class="n">total</span> <span class="o">/</span> <span class="n">count</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"The average of the </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2"> numbers is </span><span class="si">{</span><span class="n">average</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"It took 1 try."</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"It took </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2"> tries."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter a positive number (or a negative number to stop): 4
+Enter a positive number (or a negative number to stop): 8
+Enter a positive number (or a negative number to stop): 15
+Enter a positive number (or a negative number to stop): -1
+The average of the 3 numbers is 9.00
+It took 3 tries.
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="problem-2-4-error-checking">
 <h3>Problem 2.4 Error checking<a class="headerlink" href="#problem-2-4-error-checking" title="Link to this heading">#</a></h3>
 <p>Error-checking is an important application of <code class="docutils literal notranslate"><span class="pre">while</span></code> loops. Whenever the user is asked for input, there is almost always a valid range of values. When prompted, the code should loop until the user enters a valid value.</p>
 <p>Write code that will prompt the user for a number in the range from 1 to 10. Tthe code will keep prompting as long as the user is not entering a number in the valid range, meaning that as long as the user is entering a number that is either less than 1 or greater than 10. So, there will be two parts to the condition (so remember your logicals!)</p>
-<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#error-checking">Error Checking</a> section for the pattern this builds on.</p>
-<p>🚩 <strong>Common mistake:</strong> validating input once instead of on every
-attempt. It’s easy to check whether the <em>first</em> input is valid but
-forget that each <em>re-prompted</em> value needs the same check – the
-loop’s condition has to re-test the variable that gets reassigned
-inside the loop, not the original value from before the loop started.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mynum</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">'Enter a number between 1 and 10: '</span><span class="p">))</span>
+<span class="k">while</span> <span class="n">mynum</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">mynum</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="n">mynum</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">'Seriously, enter a number between 1 and 10: '</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Thanks! You entered </span><span class="si">{</span><span class="n">mynum</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">.'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter a number between 1 and 10: 15
+Seriously, enter a number between 1 and 10: 7
+Thanks! You entered 7.0.
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="problem-2-5-error-checking-modules-and-more">
 <h3>Problem 2.5 Error checking, modules and more!<a class="headerlink" href="#problem-2-5-error-checking-modules-and-more" title="Link to this heading">#</a></h3>
@@ -717,8 +1094,7 @@ inside the loop, not the original value from before the loop started.</p>
 <li><p><strong>3 for inverting the number (1/x)</strong></p></li>
 </ul>
 <p>Error-check by looping to display the choices until the user enters 1, 2, or 3. Then, generate a <strong>random real number</strong> between 0 and 1, and print the result of the user’s chosen function on that number.</p>
-<p><strong>Hint</strong>: To generate random <em>real numbers</em> between 0 and 1, you will need a special function from the <code class="docutils literal notranslate"><span class="pre">random</span></code> library, which is confusingly <em>also called</em> <code class="docutils literal notranslate"><span class="pre">random()</span></code>. Be sure to import <code class="docutils literal notranslate"><span class="pre">random()</span></code> from the <code class="docutils literal notranslate"><span class="pre">random</span></code> library using the same syntax as above. Use <code class="docutils literal notranslate"><span class="pre">help()</span></code> to get some information about how <code class="docutils literal notranslate"><span class="pre">random()</span></code> works!</p>
-<p>🚩 <strong>Common mistake:</strong> if you’re combining this with <code class="docutils literal notranslate"><span class="pre">randint</span></code> from earlier problems (e.g. <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">random</span> <span class="pre">import</span> <span class="pre">randint,</span> <span class="pre">random</span></code>), calling <code class="docutils literal notranslate"><span class="pre">random.randint(...)</span></code> raises an <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code> – see the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#random-random-float">common mistake about mixing import styles</a>.</p>
+<p><strong>Hint</strong>: To generate random <em>real numbers</em> between 0 and 1, you will need a special function from the <code class="docutils literal notranslate"><span class="pre">random</span></code> library, which is confusingly <em>also called</em> <code class="docutils literal notranslate"><span class="pre">random()</span></code>. Be sure to import the <code class="docutils literal notranslate"><span class="pre">random()</span></code> from from the <code class="docutils literal notranslate"><span class="pre">random</span></code> library using the same synatx as abvoe. Use <code class="docutils literal notranslate"><span class="pre">help()</span></code> to get some information about how <code class="docutils literal notranslate"><span class="pre">random()</span></code> works!</p>
 <p>You will see something like this</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">random</span>
 <span class="n">help</span><span class="p">(</span><span class="n">random</span><span class="p">)</span>
@@ -729,6 +1105,50 @@ inside the loop, not the original value from before the loop started.</p>
 <span class="n">random</span><span class="p">()</span> <span class="n">method</span> <span class="n">of</span> <span class="n">random</span><span class="o">.</span><span class="n">Random</span> <span class="n">instance</span>
     <span class="n">random</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">interval</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span>
 </pre></div>
+</div>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">random</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Please choose a function:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"1 for double it"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"2 for square it"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"3 for invert it (1/x)"</span><span class="p">)</span>
+
+<span class="n">mychoice</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">'Enter your choice: '</span><span class="p">))</span>
+<span class="k">while</span> <span class="n">mychoice</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">mychoice</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'The choice must be 1, 2, or 3.'</span><span class="p">)</span>
+    <span class="n">mychoice</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">'Enter your choice: '</span><span class="p">))</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">random</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="n">mychoice</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Doubling </span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1"> gives </span><span class="si">{</span><span class="n">result</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+
+<span class="k">elif</span> <span class="n">mychoice</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Squaring </span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1"> gives </span><span class="si">{</span><span class="n">result</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Oops, can't invert zero!"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">x</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Inverting </span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1"> gives </span><span class="si">{</span><span class="n">result</span><span class="si">:</span><span class="s1">.4f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please choose a function:
+1 for double it
+2 for square it
+3 for invert it (1/x)
+Enter your choice: 2
+Squaring 0.4200 gives 0.1764
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
@@ -765,20 +1185,20 @@ inside the loop, not the original value from before the loop started.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../class/Class5.html"
+       href="Class5_GPP.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Class 5: Importing Modules and Basic Loops</p>
+        <p class="prev-next-title">Class 5 GPP: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</p>
       </div>
     </a>
     <a class="right-next"
-       href="Class5_GPP_Solutions.html"
+       href="../class/Class6.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Class 5 GPP Solutions: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</p>
+        <p class="prev-next-title">Class 6: Nested Loops</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
