@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Class 4 GPP: Coding Basics Wrap-up and Selection Statements &#8212; EK125</title>
+    <title>Class 4 GPP Solutions: Coding Basics Wrap-up and Selection Statements &#8212; EK125</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'gpps/Class4_GPP';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gpps/Class4_GPP_Solutions';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Class 4 GPP Solutions: Coding Basics Wrap-up and Selection Statements" href="Class4_GPP_Solutions.html" />
-    <link rel="prev" title="Class 4: Coding Basics Wrap-up and Selection Statements" href="../class/Class4.html" />
+    <link rel="next" title="Homework 3: Boolean Logic, Sequences, and Selection Statements" href="../homework/HW3.html" />
+    <link rel="prev" title="Class 4 GPP: Coding Basics Wrap-up and Selection Statements" href="Class4_GPP.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -295,7 +295,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/BU-EK125/EK125/blob/main/gpps/Class4_GPP.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/BU-EK125/EK125/blob/main/gpps/Class4_GPP_Solutions.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -326,7 +326,7 @@
       
       
       
-      <li><a href="../_sources/gpps/Class4_GPP.ipynb" target="_blank"
+      <li><a href="../_sources/gpps/Class4_GPP_Solutions.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -410,7 +410,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Class 4 GPP: Coding Basics Wrap-up and Selection Statements</h1>
+    <h1>Class 4 GPP Solutions: Coding Basics Wrap-up and Selection Statements</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -433,7 +433,6 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-nested-selection-statements">Part 3: Nested selection statements</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-1">Problem 3.1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-nested-selection-statements">More on nested selection statements</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-2-classify-ages">Problem 3.2: Classify ages</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-3-selections-and-booleans">Problem 3.3: Selections AND booleans</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-4-combining-selection-f-strings-and-everything-else">Problem 3.4: Combining selection, f-strings and everything else!</a></li>
@@ -450,20 +449,31 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="class-4-gpp-coding-basics-wrap-up-and-selection-statements">
-<h1>Class 4 GPP: Coding Basics Wrap-up and Selection Statements<a class="headerlink" href="#class-4-gpp-coding-basics-wrap-up-and-selection-statements" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="class-4-gpp-solutions-coding-basics-wrap-up-and-selection-statements">
+<h1>Class 4 GPP Solutions: Coding Basics Wrap-up and Selection Statements<a class="headerlink" href="#class-4-gpp-solutions-coding-basics-wrap-up-and-selection-statements" title="Link to this heading">#</a></h1>
 <p><strong>Group Exercise (Teams of 3)</strong>
 Work together to complete the following tasks!</p>
 <section id="part-1-f-strings-escape-characters-the-input-function-and-type-casting">
 <h2>Part 1: f-strings, escape characters, the <code class="docutils literal notranslate"><span class="pre">input()</span></code> function and type casting<a class="headerlink" href="#part-1-f-strings-escape-characters-the-input-function-and-type-casting" title="Link to this heading">#</a></h2>
 <p>We’ll do a few exercises to make sure that this critical coding principles, that we <em>have</em> seen over the last two weeks, are fresh in your mind!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span><span class="o">=</span><span class="p">[</span><span class="mi">31</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">num</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">i</span><span class="si">:</span><span class="s1">^4</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 31 
+ 4  
+ 5  
+</pre></div>
+</div>
+</div>
+</div>
 <section id="problem-1-1-table-of-average-of-material-length">
 <h3>Problem 1.1: Table of average of material length<a class="headerlink" href="#problem-1-1-table-of-average-of-material-length" title="Link to this heading">#</a></h3>
-<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class4.html#f-strings">f-Strings</a> and <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class4.html#type-casting-converting-between-types">Type Casting</a> sections for a refresher.</p>
-<p>🚩 <strong>Common mistake:</strong> forgetting the <code class="docutils literal notranslate"><span class="pre">:</span></code> before the format spec inside an
-f-string’s <code class="docutils literal notranslate"><span class="pre">{}</span></code>. It’s <code class="docutils literal notranslate"><span class="pre">f&quot;{value:10.3f}&quot;</span></code>, not <code class="docutils literal notranslate"><span class="pre">f&quot;{value</span> <span class="pre">10.3f}&quot;</span></code> – without
-the colon, Python tries to parse <code class="docutils literal notranslate"><span class="pre">value</span> <span class="pre">10.3f</span></code> as an expression and raises a
-<code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code>.</p>
 <p>Write a program that:</p>
 <ul class="simple">
 <li><p>Uses <code class="docutils literal notranslate"><span class="pre">input()</span></code> to ask for a material name (string).</p></li>
@@ -496,10 +506,44 @@ the colon, Python tries to parse <code class="docutils literal notranslate"><spa
 <span class="n">Average</span><span class="p">:</span>      <span class="mf">3.60</span> <span class="n">m</span>
 </pre></div>
 </div>
-<p>Note that you might need to type cast your inputs to make sure everything computes!</p>
-<div class="cell docutils container">
+<p>Note that you might need to type cast your inputs to make sure everything comptues!</p>
+<div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">material</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter material: "</span><span class="p">)</span>
+<span class="n">b1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Enter beam length 1 (m): "</span><span class="p">))</span>
+<span class="n">b2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Enter beam length 2 (m): "</span><span class="p">))</span>
+<span class="n">b3</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Enter beam length 3 (m): "</span><span class="p">))</span>
+
+<span class="n">average</span> <span class="o">=</span> <span class="p">(</span><span class="n">b1</span> <span class="o">+</span> <span class="n">b2</span> <span class="o">+</span> <span class="n">b3</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Beam Fabrication Report"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"-----------------------"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Material: </span><span class="si">{</span><span class="n">material</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Beam Lengths:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Beam 1:</span><span class="si">{</span><span class="n">b1</span><span class="si">:</span><span class="s2">10.3f</span><span class="si">}</span><span class="s2"> m"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Beam 2:</span><span class="si">{</span><span class="n">b2</span><span class="si">:</span><span class="s2">10.3f</span><span class="si">}</span><span class="s2"> m"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Beam 3:</span><span class="si">{</span><span class="n">b3</span><span class="si">:</span><span class="s2">10.3f</span><span class="si">}</span><span class="s2"> m"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"-----------------------"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Average:</span><span class="si">{</span><span class="n">average</span><span class="si">:</span><span class="s2">10.2f</span><span class="si">}</span><span class="s2"> m"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter material: steel
+Enter beam length 1 (m): 3.2
+Enter beam length 2 (m): 3.1
+Enter beam length 3 (m): 4.5
+
+Beam Fabrication Report
+-----------------------
+Material: STEEL
+
+Beam Lengths:
+Beam 1:     3.200 m
+Beam 2:     3.100 m
+Beam 3:     4.500 m
+-----------------------
+Average:      3.60 m
 </pre></div>
 </div>
 </div>
@@ -507,7 +551,6 @@ the colon, Python tries to parse <code class="docutils literal notranslate"><spa
 </section>
 <section id="problem-1-2-series-resistor-voltage-report">
 <h3>Problem 1.2: Series Resistor Voltage Report<a class="headerlink" href="#problem-1-2-series-resistor-voltage-report" title="Link to this heading">#</a></h3>
-<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class4.html#escape-characters-in-output">Escape Characters in Output</a> section for a refresher on <code class="docutils literal notranslate"><span class="pre">\t</span></code> and <code class="docutils literal notranslate"><span class="pre">\n</span></code>.</p>
 <p>Write a Python program that:</p>
 <ol class="arabic">
 <li><p>Prompts the user to enter <strong>two resistors</strong>, including:</p>
@@ -566,9 +609,37 @@ the colon, Python tries to parse <code class="docutils literal notranslate"><spa
 <li><p>Use f-strings for all formatted output.</p></li>
 <li><p>Use escape characters <code class="docutils literal notranslate"><span class="pre">\n</span></code> for new lines and <code class="docutils literal notranslate"><span class="pre">\t</span></code> for column alignment.</p></li>
 </ul>
-<div class="cell docutils container">
+<div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input</span>
+<span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter resistor name: "</span><span class="p">)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Enter resistance (ohms): "</span><span class="p">))</span>
+<span class="n">I</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Enter current (amps): "</span><span class="p">))</span>
+
+<span class="c1"># Calculation</span>
+<span class="n">V</span> <span class="o">=</span> <span class="n">I</span> <span class="o">*</span> <span class="n">R</span>
+
+<span class="c1"># Output</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">RESISTOR REPORT"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"----------------------"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Name:</span><span class="se">\t</span><span class="si">{</span><span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Resistance:</span><span class="se">\t</span><span class="si">{</span><span class="n">R</span><span class="si">}</span><span class="s2"> Ω"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Current:</span><span class="se">\t</span><span class="si">{</span><span class="n">I</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> A"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Voltage:</span><span class="se">\t</span><span class="si">{</span><span class="n">V</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> V"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter resistor name: R1
+Enter resistance (ohms): 220
+Enter current (amps): 0.125
+
+RESISTOR REPORT
+----------------------
+Name:	R1
+Resistance:	220 Ω
+Current:	0.125 A
+Voltage:	27.50 V
 </pre></div>
 </div>
 </div>
@@ -577,16 +648,15 @@ the colon, Python tries to parse <code class="docutils literal notranslate"><spa
 </section>
 <section id="part-2-basic-selection-statements">
 <h2>Part 2: Basic selection statements<a class="headerlink" href="#part-2-basic-selection-statements" title="Link to this heading">#</a></h2>
-<p>Sometimes, we want to be able to decide whether or not to run a line or a block of code. Statements that accomplish this are called <strong>selection</strong> statements. We are going to focus on <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statements here, but python includes additional selection statements, too.</p>
-<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class4.html#if-statements">If Statements</a> section for a refresher.</p>
+<p>Sometimes, we want to be able to decide whether or not to run a line or a block of code. Statements that accomplish this are called <strong>selection</strong> statements.  We are going to focus on <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statements here, but python includes additional selection statements, too.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">if</span></code> statement chooses whether statement(s) are executed or not. The syntax of an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement is as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>  <span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
     <span class="n">action</span>
-<span class="n">rest</span> <span class="n">of</span> <span class="n">code</span>
+  <span class="n">rest</span> <span class="n">of</span> <span class="n">code</span>
 </pre></div>
 </div>
 <p>“condition” is an expression that must evaluate to <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. “action” must be intented. It is only executed if the condition is true. Otherwise, it is skipped.</p>
-<p>Here’s an example. Try it with several different ages.</p>
+<p>Here’s an example.  Try it with several different ages.</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age_s</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">'What is your age? </span><span class="se">\t</span><span class="s1">'</span><span class="p">))</span>
@@ -597,8 +667,16 @@ the colon, Python tries to parse <code class="docutils literal notranslate"><spa
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>What is your age? 	25
+25
+Never trust anyone over 30
+And the code moves on
+</pre></div>
 </div>
-<p>Indentation is very important in Python. If you want more than one line of code included as part of your action in an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement, those lines must all be indented to the same level. Try running these two short programs.</p>
+</div>
+</div>
+<p>Indentation is very important in Python. If you want more than one line of code included as part of your action in an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement, those lines must all be indented to the same level.  Try running these two short programs.</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">'Please enter an integer: '</span><span class="p">))</span>
@@ -606,6 +684,14 @@ the colon, Python tries to parse <code class="docutils literal notranslate"><spa
     <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">'Thanks!'</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">'Done!'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please enter an integer: 15
+15
+Thanks!
+Done!
 </pre></div>
 </div>
 </div>
@@ -621,48 +707,24 @@ the colon, Python tries to parse <code class="docutils literal notranslate"><spa
 </div>
 </div>
 </div>
-<p>We can also choose between conditions using <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statements. The general form is</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
-    <span class="n">ifaction</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">elseaction</span>
-<span class="c1"># rest of code</span>
-</pre></div>
-</div>
-<p>This code will choose between two actions, “ifaction” and “elseaction” depending on whether or not the condition is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
-<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class4.html#if-else-statements">If-else Statements</a> section for a refresher.</p>
-<p>Here’s an example. Try it out.</p>
-<div class="cell tag_skip-execution docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'Please enter your name: '</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'arthur'</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'You are the king of the Britons!'</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">'You are a brave knight on a quest for the Holy Grail!'</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>So far, we’ve been comparing the values of numbers to one another for our condition, but the condition can be any statement that would evaluate to <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
-<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class4.html#methods-for-strings">Methods for Strings</a> section for a refresher on <code class="docutils literal notranslate"><span class="pre">.isalpha()</span></code>.</p>
-<div class="cell tag_skip-execution docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">string</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">'Please enter a single character: '</span><span class="p">)</span>
-<span class="k">if</span> <span class="n">string</span><span class="o">.</span><span class="n">isalpha</span><span class="p">():</span>
-  <span class="nb">print</span><span class="p">(</span><span class="s1">'This character is a letter.'</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-  <span class="nb">print</span><span class="p">(</span><span class="s1">'This character is not a letter.'</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'Done.'</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 <section id="problem-2-1-code-fix">
 <h3>Problem 2.1: Code fix!<a class="headerlink" href="#problem-2-1-code-fix" title="Link to this heading">#</a></h3>
-<p>Fix the code above (starting with <code class="docutils literal notranslate"><span class="pre">num=int(input('Please</span> <span class="pre">enter</span> <span class="pre">an</span> <span class="pre">integer:</span> <span class="pre">'))</span></code>) so that it will run. The line that prints “Thanks!” should not be part of the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement this time.</p>
-<div class="cell docutils container">
+<p>Fix the code above so that it will run.  The line that prints “Thanks!” should not be part of the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement this time.</p>
+<div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your fixed code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">'Please enter an integer: '</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Thanks!'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Done!'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please enter an integer: 15
+15
+Thanks!
+Done!
 </pre></div>
 </div>
 </div>
@@ -671,7 +733,7 @@ the colon, Python tries to parse <code class="docutils literal notranslate"><spa
 <section id="problem-2-2-prize-number-generator">
 <h3>Problem 2.2: Prize Number Generator<a class="headerlink" href="#problem-2-2-prize-number-generator" title="Link to this heading">#</a></h3>
 <p>Instead of soliciting user input, we could also use a random number as an input to test. Very soon we will talk about better ways to generate <em>real</em> random numbers, but for now, we’ll stick with a more brute force approach.</p>
-<p>Write a Python program that generates a “random-ish” number between 1 and 100 <strong>without using any imports</strong>. (We will cover imports in Class 5).</p>
+<p>Write a Python program that generates a “random-ish” number between 1 and 100 <strong>without using any imports</strong>. (We will cover imports in Week3B).</p>
 <p>Your program should:</p>
 <ol class="arabic simple">
 <li><p>Ask the user to type something unpredictable (letters, numbers, or a mix).</p></li>
@@ -698,13 +760,74 @@ Congratulations! You won a prize!
 <p><strong>Hints:</strong></p>
 <ul class="simple">
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">len()</span></code> to get the length of the input.</p></li>
-<li><p>Use arithmetic (<code class="docutils literal notranslate"><span class="pre">%</span></code>, <code class="docutils literal notranslate"><span class="pre">+</span></code>) to keep the number in the 1-100 range.</p></li>
+<li><p>Use arithmetic (<code class="docutils literal notranslate"><span class="pre">%</span></code>, <code class="docutils literal notranslate"><span class="pre">+</span></code>) to keep the number in the 1–100 range.</p></li>
 <li><p>Use an <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statement to check if the number is smaller than 5.</p></li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">print()</span></code> to display messages.</p></li>
 </ul>
-<div class="cell docutils container">
+<div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ask the user to type something random</span>
+<span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Type something random: "</span><span class="p">)</span>
+
+<span class="c1"># Generate a "random-ish" number between 1 and 100</span>
+<span class="c1"># Use the length of the input as a source of variation</span>
+<span class="n">number</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">user_input</span><span class="p">)</span> <span class="o">%</span> <span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="c1"># Display the generated number</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"The generated number is: </span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># Check if the number is smaller than 5</span>
+<span class="k">if</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Congratulations! You won a prize!"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Sorry, no prize this time."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Type something random: hello
+The generated number is: 6
+Sorry, no prize this time.
+</pre></div>
+</div>
+</div>
+</div>
+<p>So far, we’ve been comparing the values of numbers to one another for our condition, but the condition can be any statement that would evaluate to <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">string</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">'Please enter a single character: '</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">string</span><span class="o">.</span><span class="n">isalpha</span><span class="p">():</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">'This character is a letter.'</span><span class="p">)</span>
+<span class="k">else</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">'This character is not a letter.'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Done.'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also choose between conditions using <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statements. The general form is</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>  <span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="n">ifaction</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="n">elseaction</span>
+<span class="c1"># rest of code</span>
+</pre></div>
+</div>
+<p>This code will choose between two actions, “ifaction” and “elseaction” depending on whether or not the condition is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p>Here’s an example. Try it out.</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'Please enter your name: '</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">'arthur'</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'You are the king of the Britons!'</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'You are a brave knight on a quest for the Holy Grail!'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please enter your name: Lancelot
+You are a brave knight on a quest for the Holy Grail!
 </pre></div>
 </div>
 </div>
@@ -733,9 +856,24 @@ Congratulations! You won a prize!
 <li><p>Use an <code class="docutils literal notranslate"><span class="pre">if/elif/else</span></code> statement to check the conditions.</p></li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">print()</span></code> to display the result.</p></li>
 </ul>
-<div class="cell docutils container">
+<div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ask the user to enter a number</span>
+<span class="n">num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Enter a number: "</span><span class="p">))</span>
+
+<span class="c1"># Check whether the number is positive, negative, or zero</span>
+<span class="k">if</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"The number is positive."</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"The number is negative."</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"The number is zero."</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter a number: 7
+The number is positive.
 </pre></div>
 </div>
 </div>
@@ -747,19 +885,29 @@ Congratulations! You won a prize!
 <p>Note that we can also nest selection statements. If you want to check a second condition after a first condition is met, you can do that. Just add another <code class="docutils literal notranslate"><span class="pre">if</span></code> statement as part of the action of the first <code class="docutils literal notranslate"><span class="pre">if</span></code>.</p>
 <section id="problem-3-1">
 <h3>Problem 3.1<a class="headerlink" href="#problem-3-1" title="Link to this heading">#</a></h3>
-<p>Try modifying the above code (<code class="docutils literal notranslate"><span class="pre">string=input('Please</span> <span class="pre">enter</span> <span class="pre">a</span> <span class="pre">single</span> <span class="pre">character:</span> <span class="pre">')</span></code>) to check if the letter entered is uppercase. If it is, change it to lowercase and print it.</p>
-<div class="cell docutils container">
+<p>Try modifying the above code (<code class="docutils literal notranslate"><span class="pre">string=input('Please</span> <span class="pre">enter</span> <span class="pre">a</span> <span class="pre">single</span> <span class="pre">character:</span> <span class="pre">')</span> </code> to check if the letter entered is uppercase. If it is, change it to lowercase and print it.</p>
+<div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">string</span><span class="o">=</span><span class="nb">input</span><span class="p">(</span><span class="s1">'Please enter a single character: '</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">string</span><span class="o">.</span><span class="n">isalpha</span><span class="p">():</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">'This character is a letter.'</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">string</span><span class="o">.</span><span class="n">isupper</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Done.'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please enter a single character: A
+This character is a letter.
+a
+Done.
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="more-on-nested-selection-statements">
-<h3>More on nested selection statements<a class="headerlink" href="#more-on-nested-selection-statements" title="Link to this heading">#</a></h3>
 <p>It is also possible to nest <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statements so you can check multiple conditions.</p>
-<p>For example, let’s say we wanted to check to see if a given year was a leap year. Leap years must be divisible by 4, unless they are century years, then they must also be divisible by 400. The code to check a user input year would look like this. Try it out.</p>
+<p>For example, let’s say we wanted to check to see if a given year was a leap year. Leap years must be divisible by 4, unless they are century years, then they must also be divisible by 400.  The code to check a user input year would look like this. Try it out.</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">year</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Enter a year: "</span><span class="p">))</span>
@@ -773,6 +921,12 @@ Congratulations! You won a prize!
     <span class="nb">print</span><span class="p">(</span><span class="s1">'Leap year!'</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
   <span class="nb">print</span><span class="p">(</span><span class="s1">'Not a leap year.'</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter a year: 2024
+Leap year!
 </pre></div>
 </div>
 </div>
@@ -800,6 +954,12 @@ Congratulations! You won a prize!
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter the number of limbs the Black Knight has lost: 2
+The Black Knight says: 'I've had worse!'
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="problem-3-2-classify-ages">
@@ -816,9 +976,29 @@ Congratulations! You won a prize!
 </ul>
 </li>
 </ul>
-<div class="cell docutils container">
+<div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Prompt the user for the age</span>
+<span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Enter the person's age: "</span><span class="p">))</span>
+
+<span class="c1"># Determine the message to print</span>
+<span class="k">if</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">13</span><span class="p">:</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">"The person is a child"</span>
+<span class="k">elif</span> <span class="mi">13</span> <span class="o">&lt;=</span> <span class="n">age</span> <span class="o">&lt;=</span> <span class="mi">19</span><span class="p">:</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">"The person is a teenager"</span>
+<span class="k">elif</span> <span class="mi">19</span> <span class="o">&lt;</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">65</span><span class="p">:</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">"The person is an adult"</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">"The person is a senior"</span>
+
+<span class="c1"># Print the message</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter the person's age: 30
+The person is an adult
 </pre></div>
 </div>
 </div>
@@ -826,8 +1006,7 @@ Congratulations! You won a prize!
 </section>
 <section id="problem-3-3-selections-and-booleans">
 <h3>Problem 3.3: Selections AND booleans<a class="headerlink" href="#problem-3-3-selections-and-booleans" title="Link to this heading">#</a></h3>
-<p>In <strong>Class 3</strong>, we learned about <em>booleans</em> and the boolean relational operators: <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span></code>, <code class="docutils literal notranslate"><span class="pre">and</span></code>, and <code class="docutils literal notranslate"><span class="pre">or</span></code>.</p>
-<p>See Class 3’s reading on <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class3.html#boolean-operators">Boolean Operators</a> for a refresher.</p>
+<p>In <strong>Class 3</strong>, we learned about <em>booleans</em> and the boolean relational operators: <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span></code>, <code class="docutils literal notranslate"><span class="pre">and</span></code>, and <code class="docutils literal notranslate"><span class="pre">or</span></code>. Using those operators.</p>
 <p>Write a Python program that asks the user to enter:</p>
 <ul class="simple">
 <li><p>The number of cats</p></li>
@@ -843,11 +1022,11 @@ Congratulations! You won a prize!
 <li><p>If there are more than 10 cats <strong>and</strong> more than 10 dogs, print <code class="docutils literal notranslate"><span class="pre">Frends!</span></code></p></li>
 <li><p>If there are exactly as many cats as dogs, print <code class="docutils literal notranslate"><span class="pre">Perfection.</span></code></p></li>
 </ol>
-<p>To get practice with more boolean logic, also add these extra checks:
-7. If the number of cats and dogs is <strong>not equal</strong>, print <code class="docutils literal notranslate"><span class="pre">Not</span> <span class="pre">balanced.</span></code>
-8. If there are fewer cats than dogs, print <code class="docutils literal notranslate"><span class="pre">More</span> <span class="pre">dogs</span> <span class="pre">than</span> <span class="pre">cats.</span></code>
-9. If there are at least twice as many cats as dogs, print <code class="docutils literal notranslate"><span class="pre">Cats</span> <span class="pre">rule!</span></code>
-10. If there are at least twice as many dogs as cats, print <code class="docutils literal notranslate"><span class="pre">Dogs</span> <span class="pre">rule!</span></code>
+<p>To get practice with more boolean logic, also add these extra checks:<br />
+7. If the number of cats and dogs is <strong>not equal</strong>, print <code class="docutils literal notranslate"><span class="pre">Not</span> <span class="pre">balanced.</span></code><br />
+8. If there are fewer cats than dogs, print <code class="docutils literal notranslate"><span class="pre">More</span> <span class="pre">dogs</span> <span class="pre">than</span> <span class="pre">cats.</span></code><br />
+9. If there are at least twice as many cats as dogs, print <code class="docutils literal notranslate"><span class="pre">Cats</span> <span class="pre">rule!</span></code><br />
+10. If there are at least twice as many dogs as cats, print <code class="docutils literal notranslate"><span class="pre">Dogs</span> <span class="pre">rule!</span></code><br />
 11. If there are <strong>no cats and no dogs</strong> (zero of both), print <code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">pets</span> <span class="pre">at</span> <span class="pre">all!</span></code></p>
 <p><strong>Example run:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Enter the number of cats: 12
@@ -865,14 +1044,67 @@ Perfection.
 <li><p>Use at least <strong>6 different boolean operators</strong> (<code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span></code>, <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>) in your solution.</p></li>
 <li><p>Each rule should be checked with an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement (not <code class="docutils literal notranslate"><span class="pre">elif</span></code>), because more than one condition may be true.</p></li>
 </ul>
-<p>🚩 <strong>Common mistake:</strong> chaining these 11 rules with <code class="docutils literal notranslate"><span class="pre">elif</span></code> out of habit, since
-Problem 3.2 just practiced <code class="docutils literal notranslate"><span class="pre">elif</span></code> chains. Here, multiple rules can be true
-<em>at once</em> for the same input (e.g. 12 cats and 12 dogs triggers rules 1, 2,
-4, 5, and 6 all together) – <code class="docutils literal notranslate"><span class="pre">elif</span></code> would stop checking after the first
-match and silently skip the rest. Each rule needs its own independent <code class="docutils literal notranslate"><span class="pre">if</span></code>.</p>
-<div class="cell docutils container">
+<div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ask the user for the number of cats and dogs</span>
+<span class="n">cats</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Enter the number of cats: "</span><span class="p">))</span>
+<span class="n">dogs</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Enter the number of dogs: "</span><span class="p">))</span>
+
+<span class="c1"># 1. At least one cat (&gt;=)</span>
+<span class="k">if</span> <span class="n">cats</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Squeee!"</span><span class="p">)</span>
+
+<span class="c1"># 2. Five or more cats (&gt;=)</span>
+<span class="k">if</span> <span class="n">cats</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Purr..."</span><span class="p">)</span>
+
+<span class="c1"># 3. Five or more dogs (&gt;=)</span>
+<span class="k">if</span> <span class="n">dogs</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Arf!"</span><span class="p">)</span>
+
+<span class="c1"># 4. More than 10 cats OR more than 10 dogs (or, &gt;)</span>
+<span class="k">if</span> <span class="n">cats</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="ow">or</span> <span class="n">dogs</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Where frends?"</span><span class="p">)</span>
+
+<span class="c1"># 5. More than 10 cats AND more than 10 dogs (and, &gt;)</span>
+<span class="k">if</span> <span class="n">cats</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">dogs</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Frends!"</span><span class="p">)</span>
+
+<span class="c1"># 6. Exactly equal number of cats and dogs (==)</span>
+<span class="k">if</span> <span class="n">cats</span> <span class="o">==</span> <span class="n">dogs</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Perfection."</span><span class="p">)</span>
+
+<span class="c1"># 7. Cats and dogs are NOT equal (!=)</span>
+<span class="k">if</span> <span class="n">cats</span> <span class="o">!=</span> <span class="n">dogs</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Not balanced."</span><span class="p">)</span>
+
+<span class="c1"># 8. Fewer cats than dogs (&lt;)</span>
+<span class="k">if</span> <span class="n">cats</span> <span class="o">&lt;</span> <span class="n">dogs</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"More dogs than cats."</span><span class="p">)</span>
+
+<span class="c1"># 9. At least twice as many cats as dogs (&gt;=, and to avoid division by zero)</span>
+<span class="k">if</span> <span class="n">dogs</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">cats</span> <span class="o">&gt;=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">dogs</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Cats rule!"</span><span class="p">)</span>
+
+<span class="c1"># 10. At least twice as many dogs as cats (&gt;=, and)</span>
+<span class="k">if</span> <span class="n">cats</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">dogs</span> <span class="o">&gt;=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">cats</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Dogs rule!"</span><span class="p">)</span>
+
+<span class="c1"># 11. No cats AND no dogs (not, and, ==)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">cats</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">dogs</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"No pets at all!"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter the number of cats: 12
+Enter the number of dogs: 12
+Squeee!
+Purr...
+Arf!
+Where frends?
+Frends!
+Perfection.
 </pre></div>
 </div>
 </div>
@@ -880,7 +1112,6 @@ match and silently skip the rest. Each rule needs its own independent <code clas
 </section>
 <section id="problem-3-4-combining-selection-f-strings-and-everything-else">
 <h3>Problem 3.4: Combining selection, f-strings and everything else!<a class="headerlink" href="#problem-3-4-combining-selection-f-strings-and-everything-else" title="Link to this heading">#</a></h3>
-<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class4.html#field-width-and-alignment">Field Width and Alignment</a> section for formatting the results.</p>
 <p>Write a Python program that solves a quadratic equation of the form:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">bx</span> <span class="o">+</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
@@ -903,7 +1134,7 @@ match and silently skip the rest. Each rule needs its own independent <code clas
 </ol>
 <p><strong>Important Note:</strong></p>
 <ul>
-<li><p>Calculate square roots using exponentiation with <code class="docutils literal notranslate"><span class="pre">**0.5</span></code>.
+<li><p>Calculate square roots using exponentiation with <code class="docutils literal notranslate"><span class="pre">**0.5</span></code>.<br />
 For example, the square root of <code class="docutils literal notranslate"><span class="pre">x</span></code> can be computed as:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">**</span><span class="mf">0.5</span>
 </pre></div>
@@ -931,9 +1162,36 @@ Enter coefficient c: 5
 The roots are complex: -1.00 ± 2.00i
 </pre></div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Prompt the user for coefficients a, b, and c</span>
+<span class="n">a</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Enter coefficient a: "</span><span class="p">))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Enter coefficient b: "</span><span class="p">))</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Enter coefficient c: "</span><span class="p">))</span>
+
+<span class="c1"># Calculate the discriminant</span>
+<span class="n">discriminant</span> <span class="o">=</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span>
+
+<span class="c1"># Check if the discriminant is positive, zero, or negative</span>
+<span class="k">if</span> <span class="n">discriminant</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">root1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">discriminant</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">root2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">discriminant</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"The roots are real and different: </span><span class="si">{</span><span class="n">root1</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">root2</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">discriminant</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="o">-</span><span class="n">b</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"The root is real and the same: </span><span class="si">{</span><span class="n">root</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">real_part</span> <span class="o">=</span> <span class="o">-</span><span class="n">b</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+    <span class="n">imaginary_part</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">discriminant</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"The roots are complex: </span><span class="si">{</span><span class="n">real_part</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> ± </span><span class="si">{</span><span class="n">imaginary_part</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">i"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter coefficient a: 1
+Enter coefficient b: -3
+Enter coefficient c: 2
+The roots are real and different: 2.00 and 1.00
 </pre></div>
 </div>
 </div>
@@ -973,20 +1231,20 @@ The roots are complex: -1.00 ± 2.00i
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../class/Class4.html"
+       href="Class4_GPP.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Class 4: Coding Basics Wrap-up and Selection Statements</p>
+        <p class="prev-next-title">Class 4 GPP: Coding Basics Wrap-up and Selection Statements</p>
       </div>
     </a>
     <a class="right-next"
-       href="Class4_GPP_Solutions.html"
+       href="../homework/HW3.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Class 4 GPP Solutions: Coding Basics Wrap-up and Selection Statements</p>
+        <p class="prev-next-title">Homework 3: Boolean Logic, Sequences, and Selection Statements</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1019,7 +1277,6 @@ The roots are complex: -1.00 ± 2.00i
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-nested-selection-statements">Part 3: Nested selection statements</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-1">Problem 3.1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-nested-selection-statements">More on nested selection statements</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-2-classify-ages">Problem 3.2: Classify ages</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-3-selections-and-booleans">Problem 3.3: Selections AND booleans</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-4-combining-selection-f-strings-and-everything-else">Problem 3.4: Combining selection, f-strings and everything else!</a></li>

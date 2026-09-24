@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Class 3 GPP: Boolean Logic Practice &#8212; EK125</title>
+    <title>Class 3 GPP Solutions: Boolean Logic Practice &#8212; EK125</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'gpps/Class3_GPP';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gpps/Class3_GPP_Solutions';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Class 3 GPP Solutions: Boolean Logic Practice" href="Class3_GPP_Solutions.html" />
-    <link rel="prev" title="Class 3: Booleans and Basic Logic" href="../class/Class3.html" />
+    <link rel="next" title="Class 4: Coding Basics Wrap-up and Selection Statements" href="../class/Class4.html" />
+    <link rel="prev" title="Class 3 GPP: Boolean Logic Practice" href="Class3_GPP.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -186,8 +186,8 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../class/Class3.html">Class 3: Booleans and Basic Logic</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Class 3 GPP: Boolean Logic Practice</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Class3_GPP_Solutions.html">Class 3 GPP Solutions: Boolean Logic Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class3_GPP.html">Class 3 GPP: Boolean Logic Practice</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Class 3 GPP Solutions: Boolean Logic Practice</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../class/Class4.html">Class 4: Coding Basics Wrap-up and Selection Statements</a></li>
@@ -295,7 +295,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/BU-EK125/EK125/blob/main/gpps/Class3_GPP.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/BU-EK125/EK125/blob/main/gpps/Class3_GPP_Solutions.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -326,7 +326,7 @@
       
       
       
-      <li><a href="../_sources/gpps/Class3_GPP.ipynb" target="_blank"
+      <li><a href="../_sources/gpps/Class3_GPP_Solutions.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -410,7 +410,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Class 3 GPP: Boolean Logic Practice</h1>
+    <h1>Class 3 GPP Solutions: Boolean Logic Practice</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -427,7 +427,8 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-weather-decision-system">Part 2: Weather Decision System</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-grade-calculator-with-conditions">Part 3: Grade Calculator with Conditions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-login-validator-with-truth-tables">Part 4: Login Validator with Truth Tables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-login-validator-revised-no-loops">Part 4: Login Validator (REVISED - No Loops!)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-review">Key Concepts Review</a></li>
 </ul>
             </nav>
         </div>
@@ -439,51 +440,50 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="class-3-gpp-boolean-logic-practice">
-<h1>Class 3 GPP: Boolean Logic Practice<a class="headerlink" href="#class-3-gpp-boolean-logic-practice" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="class-3-gpp-solutions-boolean-logic-practice">
+<h1>Class 3 GPP Solutions: Boolean Logic Practice<a class="headerlink" href="#class-3-gpp-solutions-boolean-logic-practice" title="Link to this heading">#</a></h1>
 <p><strong>Group Work (Teams of 3)</strong></p>
 <section id="part-1-boolean-naming-practice-and-expression-evaluation">
 <h2>Part 1: Boolean Naming Practice and Expression Evaluation<a class="headerlink" href="#part-1-boolean-naming-practice-and-expression-evaluation" title="Link to this heading">#</a></h2>
 <section id="boolean-naming-exercise-5-minutes">
 <h3>Boolean Naming Exercise (5 minutes)<a class="headerlink" href="#boolean-naming-exercise-5-minutes" title="Link to this heading">#</a></h3>
 <p>Work together to improve these poorly named Boolean variables. Remember: Boolean names should ask questions!</p>
-<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class3.html#the-golden-rule-boolean-names-should-ask-questions">The Golden Rule: Boolean Names Should Ask Questions</a> section for a refresher.</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Poor names - discuss and rename them as a group</span>
-<span class="n">weather</span> <span class="o">=</span> <span class="n">isRaining</span>              <span class="c1"># Better: ?</span>
-<span class="n">user</span> <span class="o">=</span> <span class="n">currentUser</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>   <span class="c1"># Better: ?</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>        <span class="c1"># Better: ?</span>
-<span class="n">time</span> <span class="o">=</span> <span class="p">(</span><span class="n">hour</span> <span class="o">&gt;=</span> <span class="mi">9</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">hour</span> <span class="o">&lt;=</span> <span class="mi">17</span><span class="p">)</span>  <span class="c1"># Better: ?</span>
-<span class="n">access</span> <span class="o">=</span> <span class="p">(</span><span class="n">userRole</span> <span class="o">==</span> <span class="s2">"admin"</span><span class="p">)</span>   <span class="c1"># Better: ?</span>
-<span class="n">validation</span> <span class="o">=</span> <span class="p">(</span><span class="n">email</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"@"</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Better: ?</span>
+<span class="n">weather</span> <span class="o">=</span> <span class="n">isRaining</span>              <span class="c1"># Better: isRaining</span>
+<span class="n">user</span> <span class="o">=</span> <span class="n">currentUser</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>   <span class="c1"># Better: hasUser or isUserLoggedIn</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>        <span class="c1"># Better: hasData or hasResults</span>
+<span class="n">time</span> <span class="o">=</span> <span class="p">(</span><span class="n">hour</span> <span class="o">&gt;=</span> <span class="mi">9</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">hour</span> <span class="o">&lt;=</span> <span class="mi">17</span><span class="p">)</span>  <span class="c1"># Better: isBusinessHours</span>
+<span class="n">access</span> <span class="o">=</span> <span class="p">(</span><span class="n">userRole</span> <span class="o">==</span> <span class="s2">"admin"</span><span class="p">)</span>   <span class="c1"># Better: hasAdminAccess or isAdmin</span>
+<span class="n">validation</span> <span class="o">=</span> <span class="p">(</span><span class="n">email</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"@"</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Better: isValidEmail</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p><strong>Group Discussion:</strong> What makes a good Boolean variable name?</p>
+<p>Answer: It should ask a question that the Boolean value answers!</p>
 </section>
 <section id="boolean-expression-evaluation">
 <h3>Boolean Expression Evaluation<a class="headerlink" href="#boolean-expression-evaluation" title="Link to this heading">#</a></h3>
 <p>Work together to evaluate these expressions <strong>by hand first</strong>, then verify with Python:</p>
-<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class3.html#boolean-operators">Boolean Operators</a> and <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class3.html#operator-precedence-and-parentheses">Operator Precedence and Parentheses</a> sections for a refresher.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Expression 1</span>
 <span class="n">result1</span> <span class="o">=</span> <span class="p">(</span><span class="kc">True</span> <span class="ow">and</span> <span class="kc">False</span><span class="p">)</span> <span class="ow">or</span> <span class="kc">True</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Expression 1: </span><span class="si">{</span><span class="n">result1</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Expression 1: </span><span class="si">{</span><span class="n">result1</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>  <span class="c1"># True</span>
 
 <span class="c1"># Expression 2</span>
 <span class="n">result2</span> <span class="o">=</span> <span class="ow">not</span> <span class="p">((</span><span class="kc">False</span> <span class="ow">or</span> <span class="kc">True</span><span class="p">)</span> <span class="ow">and</span> <span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Expression 2: </span><span class="si">{</span><span class="n">result2</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Expression 2: </span><span class="si">{</span><span class="n">result2</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>  <span class="c1"># False</span>
 
 <span class="c1"># Expression 3</span>
 <span class="n">result3</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="mi">2</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="mi">10</span> <span class="o">==</span> <span class="mi">10</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Expression 3: </span><span class="si">{</span><span class="n">result3</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Expression 3: </span><span class="si">{</span><span class="n">result3</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>  <span class="c1"># True</span>
 
 <span class="c1"># Expression 4</span>
 <span class="n">result4</span> <span class="o">=</span> <span class="ow">not</span> <span class="p">(</span><span class="mi">7</span> <span class="o">&gt;=</span> <span class="mi">7</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="mi">3</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Expression 4: </span><span class="si">{</span><span class="n">result4</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Expression 4: </span><span class="si">{</span><span class="n">result4</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>  <span class="c1"># True</span>
 </pre></div>
 </div>
 </div>
@@ -504,7 +504,6 @@ Expression 4: True
 <p>Create a program that helps decide what to wear based on weather conditions.</p>
 <p><strong>Your Task:</strong> Complete the TODO sections with appropriate Boolean expressions using parentheses.</p>
 <p><strong>Important:</strong> Use explicit Boolean comparisons throughout!</p>
-<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class3.html#comparing-to-boolean-values">Comparing to Boolean Values</a> section for the <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">x</span> <span class="pre">==</span> <span class="pre">True:</span></code> style this problem asks you to practice.</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get weather conditions</span>
@@ -514,10 +513,10 @@ Expression 4: True
 <span class="n">humidity</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Enter humidity percentage: "</span><span class="p">))</span>
 
 <span class="c1"># Decision logic - complete these conditions using explicit comparisons</span>
-<span class="n">needsJacket</span> <span class="o">=</span> <span class="p">(</span><span class="n">temperature</span> <span class="o">&lt;</span> <span class="mi">60</span><span class="p">)</span> <span class="ow">or</span> <span class="n">isWindy</span>
-<span class="n">needsUmbrella</span> <span class="o">=</span> <span class="c1"># TODO: Complete this condition</span>
-<span class="n">isComfortable</span> <span class="o">=</span> <span class="c1"># TODO: Complete this condition (temp between 65-80, not raining, humidity &lt; 70)</span>
-<span class="n">stayInside</span> <span class="o">=</span> <span class="c1"># TODO: Complete this condition (very cold OR very hot OR raining AND windy)</span>
+<span class="n">needsJacket</span> <span class="o">=</span> <span class="p">(</span><span class="n">temperature</span> <span class="o">&lt;</span> <span class="mi">60</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">isWindy</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">needsUmbrella</span> <span class="o">=</span> <span class="n">isRaining</span> <span class="o">==</span> <span class="kc">True</span>
+<span class="n">isComfortable</span> <span class="o">=</span> <span class="p">(</span><span class="n">isRaining</span> <span class="o">==</span> <span class="kc">False</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">temperature</span> <span class="o">&gt;=</span> <span class="mi">65</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">temperature</span> <span class="o">&lt;=</span> <span class="mi">80</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">humidity</span> <span class="o">&lt;</span> <span class="mi">70</span><span class="p">)</span>
+<span class="n">stayInside</span> <span class="o">=</span> <span class="p">(</span><span class="n">temperature</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">90</span><span class="p">)</span> <span class="ow">or</span> <span class="p">((</span><span class="n">isRaining</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">isWindy</span> <span class="o">==</span> <span class="kc">True</span><span class="p">))</span>
 
 <span class="c1"># Output recommendations using explicit Boolean checks</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">--- Weather Recommendations ---"</span><span class="p">)</span>
@@ -532,6 +531,18 @@ Expression 4: True
 
 <span class="k">if</span> <span class="n">stayInside</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Maybe consider staying indoors today"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter temperature (°F): 55
+Is it raining? (yes/no): yes
+Is it windy? (yes/no): no
+Enter humidity percentage: 80
+
+--- Weather Recommendations ---
+Bring a jacket!
+Take an umbrella!
 </pre></div>
 </div>
 </div>
@@ -555,10 +566,10 @@ Expression 4: True
     <span class="n">finalScore</span> <span class="o">=</span> <span class="n">finalScore</span> <span class="o">+</span> <span class="mi">5</span>  <span class="c1"># 5 point bonus</span>
 
 <span class="c1"># Conditions to determine - work together on these using good Boolean naming</span>
-<span class="n">isPassing</span> <span class="o">=</span> <span class="c1"># TODO: final score &gt;= 60 AND attendance &gt;= 75%</span>
-<span class="n">hasHonors</span> <span class="o">=</span> <span class="c1"># TODO: final score &gt;= 90 AND attendance &gt;= 95%</span>
-<span class="n">needsImprovement</span> <span class="o">=</span> <span class="c1"># TODO: homework &lt; 70 OR exam &lt; 65 OR attendance &lt; 80%</span>
-<span class="n">isExcellent</span> <span class="o">=</span> <span class="c1"># TODO: final score &gt;= 95 AND attendance == 100 AND hasExtraCredit</span>
+<span class="n">isPassing</span> <span class="o">=</span> <span class="p">(</span><span class="n">finalScore</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">attendanceRate</span> <span class="o">&gt;=</span> <span class="mi">75</span><span class="p">)</span>
+<span class="n">hasHonors</span> <span class="o">=</span> <span class="p">(</span><span class="n">finalScore</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">attendanceRate</span> <span class="o">&gt;=</span> <span class="mi">95</span><span class="p">)</span>
+<span class="n">needsImprovement</span> <span class="o">=</span> <span class="p">((</span><span class="n">homeworkScore</span> <span class="o">&lt;</span> <span class="mi">70</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">examScore</span> <span class="o">&lt;</span> <span class="mi">65</span><span class="p">))</span> <span class="ow">and</span> <span class="p">(</span><span class="n">attendanceRate</span> <span class="o">&lt;</span> <span class="mi">80</span><span class="p">)</span>
+<span class="n">isExcellent</span> <span class="o">=</span> <span class="p">(</span><span class="n">finalScore</span> <span class="o">&gt;=</span> <span class="mi">95</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">attendanceRate</span> <span class="o">==</span> <span class="mi">100</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">hasExtraCredit</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Output results using explicit Boolean comparisons</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Final Score: </span><span class="si">{</span><span class="n">finalScore</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -578,17 +589,24 @@ Expression 4: True
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter homework average (0-100): 85
+Enter exam score (0-100): 90
+Enter attendance rate (0-100%): 95
+Extra credit completed? (yes/no): no
+
+Final Score: 88.0
+Attendance: 95.0%
+Passing grade - well done!
+</pre></div>
+</div>
+</div>
 </div>
 </section>
-<section id="part-4-login-validator-with-truth-tables">
-<h2>Part 4: Login Validator with Truth Tables<a class="headerlink" href="#part-4-login-validator-with-truth-tables" title="Link to this heading">#</a></h2>
+<section id="part-4-login-validator-revised-no-loops">
+<h2>Part 4: Login Validator (REVISED - No Loops!)<a class="headerlink" href="#part-4-login-validator-revised-no-loops" title="Link to this heading">#</a></h2>
 <p><strong>Challenge:</strong> Create a truth table on paper for the <code class="docutils literal notranslate"><span class="pre">canLogin</span></code> logic before testing your code!</p>
-<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class3.html#truth-tables">Truth Tables</a> section for a refresher.</p>
-<p>🚩 <strong>Common mistake:</strong> when you fill in <code class="docutils literal notranslate"><span class="pre">isValidPassword</span></code> and <code class="docutils literal notranslate"><span class="pre">isBusinessHours</span></code>
-below, remember <code class="docutils literal notranslate"><span class="pre">and</span></code> binds tighter than <code class="docutils literal notranslate"><span class="pre">or</span></code> in Python – <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">or</span> <span class="pre">b</span> <span class="pre">and</span> <span class="pre">c</span></code> is
-evaluated as <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">or</span> <span class="pre">(b</span> <span class="pre">and</span> <span class="pre">c)</span></code>, not <code class="docutils literal notranslate"><span class="pre">(a</span> <span class="pre">or</span> <span class="pre">b)</span> <span class="pre">and</span> <span class="pre">c</span></code>. If your combined
-condition needs a specific grouping, use explicit parentheses rather than
-relying on precedence rules you’d have to look up every time.</p>
+<p><strong>Note:</strong> This problem uses string comparison tricks instead of loops. We’ll learn loops in Class 5!</p>
 <div class="cell tag_skip-execution docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># User credentials</span>
@@ -597,34 +615,24 @@ relying on precedence rules you’d have to look up every time.</p>
 <span class="n">isWeekend</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Is it weekend? (yes/no): "</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"yes"</span>
 <span class="n">hourOfDay</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Enter hour (0-23): "</span><span class="p">))</span>
 
+<span class="c1"># Password validation using string methods (no loops needed!)</span>
+<span class="c1"># These methods check the ENTIRE string at once</span>
+<span class="n">hasMinLength</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">password</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">hasUpperCase</span> <span class="o">=</span> <span class="p">(</span><span class="n">password</span> <span class="o">!=</span> <span class="n">password</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>  <span class="c1"># If string changes when lowercased, it has uppercase!</span>
 
-<span class="c1"># TODO: Check if password contains at least one uppercase letter</span>
-<span class="c1"># Hint: Use a for loop to check each character with char.isupper()</span>
-<span class="n">hasUpperCase</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># HINT: Start as false, then look for conditions where it will be true</span>
-
-<span class="c1"># Write your code here</span>
-<span class="c1"># .</span>
-<span class="c1"># .</span>
-<span class="c1"># .</span>
-
-<span class="c1"># TODO: Check if password contains at least one digit</span>
-<span class="c1"># Hint: Use a for loop and char.isdigit()</span>
-
-<span class="n">hasDigit</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># HINT: Start as false, then look for conditions where it will be true</span>
-<span class="c1"># Write your code here</span>
-<span class="c1"># .</span>
-<span class="c1"># .</span>
-<span class="c1"># .</span>
+<span class="c1"># Check for digits by seeing if string contains any number</span>
+<span class="c1"># This uses the 'in' operator multiple times combined with 'or'</span>
+<span class="n">hasDigit</span> <span class="o">=</span> <span class="p">(</span><span class="s2">"0"</span> <span class="ow">in</span> <span class="n">password</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">"1"</span> <span class="ow">in</span> <span class="n">password</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">"2"</span> <span class="ow">in</span> <span class="n">password</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">"3"</span> <span class="ow">in</span> <span class="n">password</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">"4"</span> <span class="ow">in</span> <span class="n">password</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">"5"</span> <span class="ow">in</span> <span class="n">password</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">"6"</span> <span class="ow">in</span> <span class="n">password</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">"7"</span> <span class="ow">in</span> <span class="n">password</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">"8"</span> <span class="ow">in</span> <span class="n">password</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="s2">"9"</span> <span class="ow">in</span> <span class="n">password</span><span class="p">)</span>
 
 <span class="c1"># Validation rules - figure these out together using explicit Boolean logic</span>
-<span class="n">isValidUsername</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">username</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">)</span> <span class="ow">and</span> <span class="n">username</span><span class="o">.</span><span class="n">isalnum</span><span class="p">()</span>
-<span class="n">isValidPassword</span> <span class="o">=</span> <span class="c1"># TODO: length &gt;= 8 AND contains both uppercase letters and numbers</span>
-<span class="n">isBusinessHours</span> <span class="o">=</span> <span class="c1"># TODO: hour between 9 and 17 (inclusive) AND not weekend</span>
-<span class="n">hasAdminAccess</span> <span class="o">=</span> <span class="p">(</span><span class="n">username</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"admin"</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">password</span> <span class="o">==</span> <span class="s2">"admin123"</span><span class="p">)</span>
+<span class="n">isValidUsername</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">username</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">username</span><span class="o">.</span><span class="n">isalnum</span><span class="p">()</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">isValidPassword</span> <span class="o">=</span> <span class="p">(</span><span class="n">hasMinLength</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">hasDigit</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">hasUpperCase</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">isBusinessHours</span> <span class="o">=</span> <span class="p">(</span><span class="n">hourOfDay</span> <span class="o">&gt;=</span> <span class="mi">9</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">hourOfDay</span> <span class="o">&lt;=</span> <span class="mi">17</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">isWeekend</span> <span class="o">==</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">hasAdminAccess</span> <span class="o">=</span> <span class="p">(</span><span class="n">username</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"admin"</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">password</span> <span class="o">==</span> <span class="s2">"Admin123"</span><span class="p">)</span>
 
 <span class="c1"># Access decision using explicit Boolean checks</span>
-<span class="n">canLogin</span> <span class="o">=</span> <span class="p">(</span><span class="n">isValidUsername</span> <span class="ow">and</span> <span class="n">isValidPassword</span><span class="p">)</span> <span class="ow">or</span> <span class="n">hasAdminAccess</span>
-<span class="n">fullAccess</span> <span class="o">=</span> <span class="n">canLogin</span> <span class="ow">and</span> <span class="n">isBusinessHours</span>
+<span class="n">canLogin</span> <span class="o">=</span> <span class="p">((</span><span class="n">isValidUsername</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">isValidPassword</span> <span class="o">==</span> <span class="kc">True</span><span class="p">))</span> <span class="ow">or</span> <span class="p">(</span><span class="n">hasAdminAccess</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">fullAccess</span> <span class="o">=</span> <span class="p">(</span><span class="n">canLogin</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">isBusinessHours</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Username valid: </span><span class="si">{</span><span class="n">isValidUsername</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Password valid: </span><span class="si">{</span><span class="n">isValidPassword</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -639,7 +647,32 @@ relying on precedence rules you’d have to look up every time.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Enter username: alice01
+Enter password: Secure123
+Is it weekend? (yes/no): no
+Enter hour (0-23): 14
+
+Username valid: True
+Password valid: True
+Business hours: True
+Full access granted!
+</pre></div>
 </div>
+</div>
+</div>
+</section>
+<section id="key-concepts-review">
+<h2>Key Concepts Review<a class="headerlink" href="#key-concepts-review" title="Link to this heading">#</a></h2>
+<p><strong>What We Practiced Today:</strong></p>
+<ol class="arabic simple">
+<li><p>Boolean naming conventions (is, has, can, should)</p></li>
+<li><p>Boolean expression evaluation</p></li>
+<li><p>Explicit Boolean comparisons (<code class="docutils literal notranslate"><span class="pre">==</span> <span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">==</span> <span class="pre">False</span></code>)</p></li>
+<li><p>Complex Boolean logic with <code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span></code></p></li>
+<li><p>String comparison tricks without loops</p></li>
+</ol>
+<p><strong>Coming Next:</strong> Class 4 will introduce selection statements (if-elif-else) more formally, and Class 5 will teach loops!</p>
 </section>
 </section>
 
@@ -674,20 +707,20 @@ relying on precedence rules you’d have to look up every time.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../class/Class3.html"
+       href="Class3_GPP.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Class 3: Booleans and Basic Logic</p>
+        <p class="prev-next-title">Class 3 GPP: Boolean Logic Practice</p>
       </div>
     </a>
     <a class="right-next"
-       href="Class3_GPP_Solutions.html"
+       href="../class/Class4.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Class 3 GPP Solutions: Boolean Logic Practice</p>
+        <p class="prev-next-title">Class 4: Coding Basics Wrap-up and Selection Statements</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -714,7 +747,8 @@ relying on precedence rules you’d have to look up every time.</p>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-weather-decision-system">Part 2: Weather Decision System</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-grade-calculator-with-conditions">Part 3: Grade Calculator with Conditions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-login-validator-with-truth-tables">Part 4: Login Validator with Truth Tables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-login-validator-revised-no-loops">Part 4: Login Validator (REVISED - No Loops!)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-concepts-review">Key Concepts Review</a></li>
 </ul>
   </nav></div>
 

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Class 2 GPP: Working with Sequences &#8212; EK125</title>
+    <title>Class 2 GPP Solutions: Working with Sequences &#8212; EK125</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'gpps/Class2_GPP';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gpps/Class2_GPP_Solutions';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Class 2 GPP Solutions: Working with Sequences" href="Class2_GPP_Solutions.html" />
-    <link rel="prev" title="Class 2: Sequences, Strings, and Lists in Python" href="../class/Class2.html" />
+    <link rel="next" title="Homework 2: Strings and Lists" href="../homework/HW2.html" />
+    <link rel="prev" title="Class 2 GPP: Working with Sequences" href="Class2_GPP.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -180,8 +180,8 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../class/Class2.html">Class 2: Sequences, Strings, and Lists in Python</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Class 2 GPP: Working with Sequences</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Class2_GPP_Solutions.html">Class 2 GPP Solutions: Working with Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class2_GPP.html">Class 2 GPP: Working with Sequences</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Class 2 GPP Solutions: Working with Sequences</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW2.html">Homework 2: Strings and Lists</a></li>
 </ul>
 </details></li>
@@ -295,7 +295,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/BU-EK125/EK125/blob/main/gpps/Class2_GPP.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/BU-EK125/EK125/blob/main/gpps/Class2_GPP_Solutions.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -326,7 +326,7 @@
       
       
       
-      <li><a href="../_sources/gpps/Class2_GPP.ipynb" target="_blank"
+      <li><a href="../_sources/gpps/Class2_GPP_Solutions.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -410,7 +410,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Class 2 GPP: Working with Sequences</h1>
+    <h1>Class 2 GPP Solutions: Working with Sequences</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -421,18 +421,18 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-string-exploration">Part 1: String Exploration</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-1-string-basics">Task 1.1: String Basics</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-2-string-manipulation">Task 1.2: String Manipulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-1-string-basics">Problem 1.1: String Basics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-2-string-manipulation">Problem 1.2: String Manipulation</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-list-operations">Part 2: List Operations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-1-list-creation-and-access">Task 2.1: List Creation and Access</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-2-list-modification-challenge">Task 2.2: List Modification Challenge</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-1-list-creation-and-access">Problem 2.1: List Creation and Access</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-2-list-modification-challenge">Problem 2.2: List Modification Challenge</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-mixed-practice">Part 3: Mixed Practice</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-1-data-processing">Task 3.1: Data Processing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-2-text-analysis">Task 3.2: Text Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-1-data-processing">Problem 3.1: Data Processing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-2-text-analysis">Problem 3.2: Text Analysis</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-challenge-problem">Part 4: Challenge Problem</a></li>
@@ -447,15 +447,26 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="class-2-gpp-working-with-sequences">
-<h1>Class 2 GPP: Working with Sequences<a class="headerlink" href="#class-2-gpp-working-with-sequences" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="class-2-gpp-solutions-working-with-sequences">
+<h1>Class 2 GPP Solutions: Working with Sequences<a class="headerlink" href="#class-2-gpp-solutions-working-with-sequences" title="Link to this heading">#</a></h1>
 <p><strong>Group Exercise (Teams of 3)</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">"cat"</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>'CAT'
+</pre></div>
+</div>
+</div>
+</div>
 <section id="part-1-string-exploration">
 <h2>Part 1: String Exploration<a class="headerlink" href="#part-1-string-exploration" title="Link to this heading">#</a></h2>
 <p>Work together to complete the following tasks:</p>
-<section id="task-1-1-string-basics">
-<h3>Task 1.1: String Basics<a class="headerlink" href="#task-1-1-string-basics" title="Link to this heading">#</a></h3>
-<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class2.html#string-indexing-and-length">String Indexing and Length</a> and <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class2.html#membership-testing">Membership Testing</a> sections for a refresher.</p>
+<section id="problem-1-1-string-basics">
+<h3>Problem 1.1: String Basics<a class="headerlink" href="#problem-1-1-string-basics" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Given this string:</span>
@@ -466,14 +477,26 @@ document.write(`
 <span class="c1"># 2. Print the last character</span>
 <span class="c1"># 3. Print the length of the sentence</span>
 <span class="c1"># 4. Check if the word "fox" is in the sentence</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sentence</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"fox"</span> <span class="ow">in</span> <span class="n">sentence</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T
+g
+43
+True
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="task-1-2-string-manipulation">
-<h3>Task 1.2: String Manipulation<a class="headerlink" href="#task-1-2-string-manipulation" title="Link to this heading">#</a></h3>
-<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class2.html#common-string-operations">Common String Operations</a> section for a refresher.</p>
+<section id="problem-1-2-string-manipulation">
+<h3>Problem 1.2: String Manipulation<a class="headerlink" href="#problem-1-2-string-manipulation" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Given this string:</span>
@@ -484,6 +507,19 @@ document.write(`
 <span class="c1"># 2. Replace all spaces with underscores and print the result</span>
 <span class="c1"># 3. Convert to uppercase and print the result</span>
 <span class="c1"># 4. Count how many times the letter 'o' appears and print the count</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">" "</span><span class="p">,</span> <span class="s2">"_"</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"o"</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>John Doe
+john_doe
+JOHN DOE
+2
 </pre></div>
 </div>
 </div>
@@ -492,9 +528,8 @@ document.write(`
 </section>
 <section id="part-2-list-operations">
 <h2>Part 2: List Operations<a class="headerlink" href="#part-2-list-operations" title="Link to this heading">#</a></h2>
-<section id="task-2-1-list-creation-and-access">
-<h3>Task 2.1: List Creation and Access<a class="headerlink" href="#task-2-1-list-creation-and-access" title="Link to this heading">#</a></h3>
-<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class2.html#creating-lists">Creating Lists</a> and <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class2.html#accessing-list-elements">Accessing List Elements</a> sections for a refresher.</p>
+<section id="problem-2-1-list-creation-and-access">
+<h3>Problem 2.1: List Creation and Access<a class="headerlink" href="#problem-2-1-list-creation-and-access" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a list containing the names of your three team members</span>
@@ -505,17 +540,27 @@ document.write(`
 <span class="c1"># 2. Print the last team member's name</span>
 <span class="c1"># 3. Print how many people are on your team</span>
 <span class="c1"># 4. Add a fourth name "TA Helper" to the list</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">teamNames</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">teamNames</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">teamNames</span><span class="p">))</span>
+<span class="n">teamNames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"TA Helper"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">teamNames</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bob
+george
+3
+['bob', 'sally', 'george', 'TA Helper']
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="task-2-2-list-modification-challenge">
-<h3>Task 2.2: List Modification Challenge<a class="headerlink" href="#task-2-2-list-modification-challenge" title="Link to this heading">#</a></h3>
-<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class2.html#modifying-lists">Modifying Lists</a> section for a refresher.</p>
-<p>🚩 <strong>Common mistake:</strong> using parentheses instead of square brackets to change an
-element by index – <code class="docutils literal notranslate"><span class="pre">numbers(3)</span> <span class="pre">=</span> <span class="pre">35</span></code> is a <code class="docutils literal notranslate"><span class="pre">SyntaxError</span></code> (that’s function-call
-syntax, not indexing). Changing an existing element is <code class="docutils literal notranslate"><span class="pre">numbers[3]</span> <span class="pre">=</span> <span class="pre">35</span></code>.</p>
+<section id="problem-2-2-list-modification-challenge">
+<h3>Problem 2.2: List Modification Challenge<a class="headerlink" href="#problem-2-2-list-modification-challenge" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Start with this list:</span>
@@ -528,6 +573,18 @@ syntax, not indexing). Changing an existing element is <code class="docutils lit
 <span class="c1"># 4. Remove the number 40 from the list</span>
 <span class="c1"># 5. Remove the last number from the list</span>
 <span class="c1"># Print the final list - it should be [5, 10, 20, 35, 50]</span>
+
+<span class="n">numbers</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">35</span>
+<span class="n">numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+<span class="n">numbers</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">numbers</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+<span class="n">numbers</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[5, 10, 20, 35, 50]
 </pre></div>
 </div>
 </div>
@@ -536,14 +593,9 @@ syntax, not indexing). Changing an existing element is <code class="docutils lit
 </section>
 <section id="part-3-mixed-practice">
 <h2>Part 3: Mixed Practice<a class="headerlink" href="#part-3-mixed-practice" title="Link to this heading">#</a></h2>
-<section id="task-3-1-data-processing">
-<h3>Task 3.1: Data Processing<a class="headerlink" href="#task-3-1-data-processing" title="Link to this heading">#</a></h3>
+<section id="problem-3-1-data-processing">
+<h3>Problem 3.1: Data Processing<a class="headerlink" href="#problem-3-1-data-processing" title="Link to this heading">#</a></h3>
 <p>Your team has collected some survey data. Help clean and process it:</p>
-<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class2.html#working-with-tuples">Working with Tuples</a> section for a refresher – this task asks for both lists and tuples.</p>
-<p>🚩 <strong>Common mistake:</strong> trying to build a tuple the same way you’d build a list
-(starting empty and calling <code class="docutils literal notranslate"><span class="pre">.append()</span></code> as you go). Tuples are immutable and
-have no <code class="docutils literal notranslate"><span class="pre">.append()</span></code> method – build a list first, then convert it with
-<code class="docutils literal notranslate"><span class="pre">tuple(your_list)</span></code> once it’s complete.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Raw survey responses (some have extra spaces, inconsistent capitalization)</span>
@@ -554,27 +606,92 @@ have no <code class="docutils literal notranslate"><span class="pre">.append()</
 <span class="c1"># 2. Count how many "yes", "no", and "maybe" responses there are</span>
 <span class="c1"># 3. Create separate lists for each type of response</span>
 <span class="c1"># 4. Create separate tuples for each type of response</span>
+
+<span class="n">lowerNames</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">response</span> <span class="ow">in</span> <span class="n">responses</span><span class="p">:</span>
+    <span class="n">lowerNames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+
+<span class="n">yesCount</span> <span class="o">=</span> <span class="n">responses</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"yes"</span><span class="p">)</span>
+<span class="n">noCount</span> <span class="o">=</span> <span class="n">responses</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"no"</span><span class="p">)</span>
+<span class="n">maybeCount</span> <span class="o">=</span> <span class="n">responses</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"maybe"</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">responses</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">yesCount</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">noCount</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">maybeCount</span><span class="p">)</span>
+
+<span class="n">yesList</span> <span class="o">=</span> <span class="p">[</span><span class="n">lowerNames</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lowerNames</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="n">lowerNames</span><span class="p">[</span><span class="mi">6</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">yesList</span><span class="p">)</span>
+
+<span class="n">noList</span> <span class="o">=</span> <span class="p">[</span><span class="n">lowerNames</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">lowerNames</span><span class="p">[</span><span class="mi">4</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">noList</span><span class="p">)</span>
+
+<span class="n">maybeList</span> <span class="o">=</span> <span class="p">[</span><span class="n">lowerNames</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">lowerNames</span><span class="p">[</span><span class="mi">5</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">maybeList</span><span class="p">)</span>
+
+<span class="n">yesTuple</span> <span class="o">=</span> <span class="p">(</span><span class="n">lowerNames</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lowerNames</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="n">lowerNames</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">yesTuple</span><span class="p">)</span>
+
+<span class="n">noTuple</span> <span class="o">=</span> <span class="p">(</span><span class="n">lowerNames</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">lowerNames</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">noTuple</span><span class="p">)</span>
+
+<span class="n">maybeTuple</span> <span class="o">=</span> <span class="p">(</span><span class="n">lowerNames</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">lowerNames</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">maybeTuple</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>['yes', 'NO', 'maybe', 'YES', 'no', 'Maybe', 'yes']
+2
+1
+1
+['yes', 'yes', 'yes']
+['no', 'no']
+['maybe', 'maybe']
+('yes', 'yes', 'yes')
+('no', 'no')
+('maybe', 'maybe')
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="task-3-2-text-analysis">
-<h3>Task 3.2: Text Analysis<a class="headerlink" href="#task-3-2-text-analysis" title="Link to this heading">#</a></h3>
-<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class2.html#common-string-operations">Common String Operations</a> section for a refresher.</p>
+<section id="problem-3-2-text-analysis">
+<h3>Problem 3.2: Text Analysis<a class="headerlink" href="#problem-3-2-text-analysis" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Analyze this text:</span>
 <span class="n">text</span> <span class="o">=</span> <span class="s2">"""Monty Python's sketch on spam https://en.wikipedia.org/wiki/Spam_(Monty_Python_sketch)</span>
 <span class="s2">directly led to the use of spam to describe unwanted email. As a joke, and in reference</span>
-<span class="s2">to the repetitive and unwanted presence of spam in the sketch, early internet users</span>
+<span class="s2">to therepetitive and unwanted presence of spam in the sketch, early internet users</span>
 <span class="s2">flooded forums with the word SPAM . This came to describe the equally unwanted marketing</span>
 <span class="s2">and repetetive emails which flood our inbox daily."""</span>
+
+
 
 <span class="c1"># Write code to:</span>
 <span class="c1"># 1. Split the text into individual words</span>
 <span class="c1"># 2. Count how many words there are total</span>
 <span class="c1"># 3. Count how many times "spam" appears, both upper and lowercase</span>
+
+<span class="n">textSplit</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">textSplit</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">textSplit</span><span class="p">))</span>
+
+<span class="n">lowerSpams</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">response</span> <span class="ow">in</span> <span class="n">textSplit</span><span class="p">:</span>
+    <span class="n">lowerSpams</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">lowerSpams</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"spam"</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lowerSpams</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>['Monty', "Python's", 'sketch', 'on', 'spam', 'https://en.wikipedia.org/wiki/Spam_(Monty_Python_sketch)', 'directly', 'led', 'to', 'the', 'use', 'of', 'spam', 'to', 'describe', 'unwanted', 'email.', 'As', 'a', 'joke,', 'and', 'in', 'reference', 'to', 'therepetitive', 'and', 'unwanted', 'presence', 'of', 'spam', 'in', 'the', 'sketch,', 'early', 'internet', 'users', 'flooded', 'forums', 'with', 'the', 'word', 'SPAM', '.', 'This', 'came', 'to', 'describe', 'the', 'equally', 'unwanted', 'marketing', 'and', 'repetetive', 'emails', 'which', 'flood', 'our', 'inbox', 'daily.']
+59
+4
+['monty', "python's", 'sketch', 'on', 'spam', 'https://en.wikipedia.org/wiki/spam_(monty_python_sketch)', 'directly', 'led', 'to', 'the', 'use', 'of', 'spam', 'to', 'describe', 'unwanted', 'email.', 'as', 'a', 'joke,', 'and', 'in', 'reference', 'to', 'therepetitive', 'and', 'unwanted', 'presence', 'of', 'spam', 'in', 'the', 'sketch,', 'early', 'internet', 'users', 'flooded', 'forums', 'with', 'the', 'word', 'spam', '.', 'this', 'came', 'to', 'describe', 'the', 'equally', 'unwanted', 'marketing', 'and', 'repetetive', 'emails', 'which', 'flood', 'our', 'inbox', 'daily.']
 </pre></div>
 </div>
 </div>
@@ -584,7 +701,6 @@ have no <code class="docutils literal notranslate"><span class="pre">.append()</
 <section id="part-4-challenge-problem">
 <h2>Part 4: Challenge Problem<a class="headerlink" href="#part-4-challenge-problem" title="Link to this heading">#</a></h2>
 <p>This is a bit of a stretch. You will have to do some work on your own to find the additional command necessary to test if something is a string or a number.</p>
-<p>See Class 1’s reading on <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class1.html#type-checking-a-variables-data-type">type(): Checking a Variable’s Data Type</a> for a related idea – you’ll need something that checks type <em>without</em> printing it out, so you can use the result in a condition.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You have a list of mixed data types:</span>
@@ -594,6 +710,24 @@ have no <code class="docutils literal notranslate"><span class="pre">.append()</
 <span class="c1"># 1. Create two separate lists: one for numbers, one for strings</span>
 <span class="c1"># 2. Calculate the sum of all numbers</span>
 <span class="c1"># 3. Join all strings together with spaces between them</span>
+
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">strings</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">mixed_data</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
+        <span class="n">numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">strings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">strings</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2.5, 42, 3.14]
+['hello', 'world', 'python']
 </pre></div>
 </div>
 </div>
@@ -632,20 +766,20 @@ have no <code class="docutils literal notranslate"><span class="pre">.append()</
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../class/Class2.html"
+       href="Class2_GPP.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Class 2: Sequences, Strings, and Lists in Python</p>
+        <p class="prev-next-title">Class 2 GPP: Working with Sequences</p>
       </div>
     </a>
     <a class="right-next"
-       href="Class2_GPP_Solutions.html"
+       href="../homework/HW2.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Class 2 GPP Solutions: Working with Sequences</p>
+        <p class="prev-next-title">Homework 2: Strings and Lists</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -666,18 +800,18 @@ have no <code class="docutils literal notranslate"><span class="pre">.append()</
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-string-exploration">Part 1: String Exploration</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-1-string-basics">Task 1.1: String Basics</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-1-2-string-manipulation">Task 1.2: String Manipulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-1-string-basics">Problem 1.1: String Basics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-2-string-manipulation">Problem 1.2: String Manipulation</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-list-operations">Part 2: List Operations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-1-list-creation-and-access">Task 2.1: List Creation and Access</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-2-2-list-modification-challenge">Task 2.2: List Modification Challenge</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-1-list-creation-and-access">Problem 2.1: List Creation and Access</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-2-list-modification-challenge">Problem 2.2: List Modification Challenge</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-mixed-practice">Part 3: Mixed Practice</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-1-data-processing">Task 3.1: Data Processing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#task-3-2-text-analysis">Task 3.2: Text Analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-1-data-processing">Problem 3.1: Data Processing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-2-text-analysis">Problem 3.2: Text Analysis</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-challenge-problem">Part 4: Challenge Problem</a></li>
