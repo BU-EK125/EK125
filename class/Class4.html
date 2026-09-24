@@ -192,9 +192,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../gpps/Class3_GPP_Solutions.html">Class 3 GPP Solutions: Boolean Logic Practice</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Class 4: Coding Basics Wrap-up and Selection Statements</a></li>
-
-
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Class 4: Coding Basics Wrap-up and Selection Statements</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class4_GPP.html">Class 4 GPP: Coding Basics Wrap-up and Selection Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class4_GPP_Solutions.html">Class 4 GPP Solutions: Coding Basics Wrap-up and Selection Statements</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../homework/HW3.html">Homework 3: Boolean Logic, Sequences, and Selection Statements</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="Class5.html">Class 5: Importing Modules and Basic Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../gpps/Class5_GPP.html">Class 5 GPP: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
@@ -391,8 +393,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Class 4: Coding Basics Wrap-up and Selection Statements</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-basics-wrap-up-strings-objects-methods-input-casting-and-output-formatting">Coding Basics Wrap-up: Strings, Objects &amp; Methods, Input, Casting, and Output Formatting</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-basics-wrap-up-strings-objects-methods-input-casting-and-output-formatting">Coding Basics Wrap-up: Strings, Objects &amp; Methods, Input, Casting, and Output Formatting</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-escape-characters-indexing-and-slicing">1. Strings: Escape Characters, Indexing, and Slicing</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-strings">Creating Strings</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#escape-characters">Escape Characters</a></li>
@@ -426,15 +427,10 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">Key Takeaways</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#selection-statements">Selection Statements</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selection-statements">Selection Statements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-statements">If Statements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else-statements">If-else Statements</a></li>
 </ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -447,9 +443,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="class-4-coding-basics-wrap-up-and-selection-statements">
 <h1>Class 4: Coding Basics Wrap-up and Selection Statements<a class="headerlink" href="#class-4-coding-basics-wrap-up-and-selection-statements" title="Link to this heading">#</a></h1>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="coding-basics-wrap-up-strings-objects-methods-input-casting-and-output-formatting">
-<h1>Coding Basics Wrap-up: Strings, Objects &amp; Methods, Input, Casting, and Output Formatting<a class="headerlink" href="#coding-basics-wrap-up-strings-objects-methods-input-casting-and-output-formatting" title="Link to this heading">#</a></h1>
+<section id="coding-basics-wrap-up-strings-objects-methods-input-casting-and-output-formatting">
+<h2>Coding Basics Wrap-up: Strings, Objects &amp; Methods, Input, Casting, and Output Formatting<a class="headerlink" href="#coding-basics-wrap-up-strings-objects-methods-input-casting-and-output-formatting" title="Link to this heading">#</a></h2>
 <p>Before we start working with <strong>selection statements</strong>, we need to wrap up a few loose ends on our basic foundational skills. We might retread some ground we’ve already covered, but we want to make sure we didn’t miss anything critical! These include:</p>
 <ul class="simple">
 <li><p>‘escape characters’ when working with <strong>strings</strong>,</p></li>
@@ -458,6 +453,7 @@ document.write(`
 <li><p>performing <strong>type casting</strong> to safely convert between types, and</p></li>
 <li><p>controlling <strong>output formatting</strong> for readable results.</p></li>
 </ul>
+</section>
 <hr class="docutils" />
 <section id="strings-escape-characters-indexing-and-slicing">
 <h2>1. Strings: Escape Characters, Indexing, and Slicing<a class="headerlink" href="#strings-escape-characters-indexing-and-slicing" title="Link to this heading">#</a></h2>
@@ -782,11 +778,11 @@ document.write(`
 <li><p>Most errors come from forgetting types: strings vs. ints, method parentheses, format specifiers.</p></li>
 </ul>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="selection-statements">
-<h1>Selection Statements<a class="headerlink" href="#selection-statements" title="Link to this heading">#</a></h1>
+<section id="selection-statements">
+<h2>Selection Statements<a class="headerlink" href="#selection-statements" title="Link to this heading">#</a></h2>
 <p><strong>AT LAST! WE ARE MOVING ON TO SELECCTION STATEMENTS!</strong></p>
 <p>It is possible in a program to choose <strong>whether statements are executed or not</strong>, or to <strong>choose between statements or sets of statements</strong>. Statements that accomplish this are called <strong>selection statements</strong> and include the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement and the <code class="docutils literal notranslate"><span class="pre">if-else</span></code> statement. Python has additional selection statements including the <code class="docutils literal notranslate"><span class="pre">match</span></code> statement and <code class="docutils literal notranslate"><span class="pre">try-except</span></code>.</p>
+</section>
 <section id="if-statements">
 <h2>If Statements<a class="headerlink" href="#if-statements" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">if</span></code> statement chooses whether statement(s) are executed or not. The general form is</p>
@@ -1035,8 +1031,7 @@ else:
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Class 4: Coding Basics Wrap-up and Selection Statements</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-basics-wrap-up-strings-objects-methods-input-casting-and-output-formatting">Coding Basics Wrap-up: Strings, Objects &amp; Methods, Input, Casting, and Output Formatting</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-basics-wrap-up-strings-objects-methods-input-casting-and-output-formatting">Coding Basics Wrap-up: Strings, Objects &amp; Methods, Input, Casting, and Output Formatting</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-escape-characters-indexing-and-slicing">1. Strings: Escape Characters, Indexing, and Slicing</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-strings">Creating Strings</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#escape-characters">Escape Characters</a></li>
@@ -1070,15 +1065,10 @@ else:
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-takeaways">Key Takeaways</a></li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#selection-statements">Selection Statements</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selection-statements">Selection Statements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-statements">If Statements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else-statements">If-else Statements</a></li>
 </ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>

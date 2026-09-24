@@ -1,6 +1,6 @@
 # Class 4: Coding Basics Wrap-up and Selection Statements
 
-# Coding Basics Wrap-up: Strings, Objects & Methods, Input, Casting, and Output Formatting
+## Coding Basics Wrap-up: Strings, Objects & Methods, Input, Casting, and Output Formatting
 
 Before we start working with **selection statements**, we need to wrap up a few loose ends on our basic foundational skills. We might retread some ground we've already covered, but we want to make sure we didn't miss anything critical\! These include:
 
@@ -477,7 +477,7 @@ Formatted pi: '   3.142'
 - f-strings allow rich formatting for readable and precise output.  
 - Most errors come from forgetting types: strings vs. ints, method parentheses, format specifiers.
 
-# Selection Statements
+## Selection Statements
 
 **AT LAST\! WE ARE MOVING ON TO SELECCTION STATEMENTS\!**
 
