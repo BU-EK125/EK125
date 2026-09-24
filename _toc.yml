@@ -9,13 +9,16 @@ parts:
       - file: class/Class2
         sections:
           - file: gpps/Class2_GPP
+          - file: gpps/Class2_GPP_Solutions
           - file: homework/HW2
       - file: class/Class3
         sections:
           - file: gpps/Class3_GPP
+          - file: gpps/Class3_GPP_Solutions
       - file: class/Class4
         sections:
           - file: gpps/Class4_GPP
+          - file: gpps/Class4_GPP_Solutions
       - file: homework/HW3
       - file: class/Class5
         sections:
