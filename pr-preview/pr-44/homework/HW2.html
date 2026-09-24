@@ -434,6 +434,14 @@ match the output format exactly as shown in the examples for each problem.</p>
 consistency makes it much easier for a human to move around a code base
 fluidly and effectively, without having to adjust to different formatting
 patterns as they go.</p>
+<p>To that end, these are the patterns we’d like you to use:</p>
+<ul class="simple">
+<li><p><strong>No global variables</strong> – these are too broad in scope and make bugs
+due to unintended state mutation much more likely.</p></li>
+<li><p>Use <strong>snake_case</strong> for variable names, not camelCase – the widely
+adopted Python standard.</p></li>
+</ul>
+<p><strong>Estimated time:</strong> 1.5-2 hours total. Start early and take breaks!</p>
 <section id="problem-1-personal-information-processor">
 <h2>Problem 1: Personal Information Processor<a class="headerlink" href="#problem-1-personal-information-processor" title="Link to this heading">#</a></h2>
 <p>Write a program that processes personal information stored as strings and
