@@ -483,6 +483,8 @@ concentration and volume of each of the two solutions and calculates the
 concentration of the final solution. Use good programming practice.
 (NOTE: We could do this using functions, but we haven’t learned those
 yet – just write it as a straight-line script for now.)</p>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class1.html#break-down-complex-problems">Break Down Complex Problems</a> section for a refresher.</p>
+<p>🚩 <strong>Common mistake:</strong> writing the final-concentration formula without parentheses around each numerator/denominator group. <code class="docutils literal notranslate"><span class="pre">(c1*v1</span> <span class="pre">+</span> <span class="pre">c2*v2)</span> <span class="pre">/</span> <span class="pre">(v1</span> <span class="pre">+</span> <span class="pre">v2)</span></code> and <code class="docutils literal notranslate"><span class="pre">c1*v1</span> <span class="pre">+</span> <span class="pre">c2*v2</span> <span class="pre">/</span> <span class="pre">v1</span> <span class="pre">+</span> <span class="pre">v2</span></code> are very different calculations – Python’s operator precedence does <code class="docutils literal notranslate"><span class="pre">/</span></code> before <code class="docutils literal notranslate"><span class="pre">+</span></code>, so the second version divides only <code class="docutils literal notranslate"><span class="pre">c2*v2</span></code> by <code class="docutils literal notranslate"><span class="pre">v1</span></code>, then adds the rest.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
@@ -507,6 +509,8 @@ good coding practices we talked about in class.</p>
 (0.5 V for the TMP36) but its scaling is given in <strong>millivolts per degree</strong>
 (10 mV/°C) – mixing the two units without converting one to match the
 other throws the whole calculation off by a factor of 1000.</p>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class1.html#use-constants-for-magic-numbers">Use Constants for “Magic Numbers”</a> section for a refresher – this problem has several (the 0.5V offset, the 10mV/°C scaling, and the 9/5 and 32 in the C-to-F formula).</p>
+<p>🚩 <strong>Common mistake:</strong> getting the Celsius-to-Fahrenheit formula backwards. It’s <code class="docutils literal notranslate"><span class="pre">F</span> <span class="pre">=</span> <span class="pre">C</span> <span class="pre">*</span> <span class="pre">9/5</span> <span class="pre">+</span> <span class="pre">32</span></code>, not <code class="docutils literal notranslate"><span class="pre">C</span> <span class="pre">*</span> <span class="pre">5/9</span> <span class="pre">+</span> <span class="pre">32</span></code> – and forgetting the <code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">32</span></code> entirely is just as easy to miss.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
