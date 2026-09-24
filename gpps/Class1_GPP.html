@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Class 6 GPP: Nested for loops &#8212; EK125</title>
+    <title>Class 1 GPP: Constants, Variables, Types, and Assignments &#8212; EK125</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'gpps/Class6_GPP';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gpps/Class1_GPP';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Class 6 GPP Solutions: Nested for loops" href="Class6_GPP_Solutions.html" />
-    <link rel="prev" title="Class 6: Nested Loops" href="../class/Class6.html" />
+    <link rel="next" title="Class 1 GPP Solutions: Constants, Variables, Types, and Assignments" href="Class1_GPP_Solutions.html" />
+    <link rel="prev" title="Class 1: Introduction to Interactive Programming Using Google Colab" href="../class/Class1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -175,8 +175,8 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python in Colab</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class1.html">Class 1: Introduction to Interactive Programming Using Google Colab</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="Class1_GPP.html">Class 1 GPP: Constants, Variables, Types, and Assignments</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../class/Class1.html">Class 1: Introduction to Interactive Programming Using Google Colab</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Class 1 GPP: Constants, Variables, Types, and Assignments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Class1_GPP_Solutions.html">Class 1 GPP Solutions: Constants, Variables, Types, and Assignments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../homework/HW1.html">Homework 1: Variables, Types, and Assignments</a></li>
 </ul>
@@ -201,8 +201,8 @@
 <li class="toctree-l2"><a class="reference internal" href="Class5_GPP_Solutions.html">Class 5 GPP Solutions: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../class/Class6.html">Class 6: Nested Loops</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Class 6 GPP: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class6.html">Class 6: Nested Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class6_GPP.html">Class 6 GPP: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Class6_GPP_Solutions.html">Class 6 GPP Solutions: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
 </ul>
 </details></li>
@@ -297,7 +297,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/BU-EK125/EK125/blob/main/gpps/Class6_GPP.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/BU-EK125/EK125/blob/main/gpps/Class1_GPP.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -328,7 +328,7 @@
       
       
       
-      <li><a href="../_sources/gpps/Class6_GPP.ipynb" target="_blank"
+      <li><a href="../_sources/gpps/Class1_GPP.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -412,7 +412,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Class 6 GPP: Nested for loops</h1>
+    <h1>Class 1 GPP: Constants, Variables, Types, and Assignments</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -422,14 +422,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-worked-example-with-nested-for-loops">Problem 1: Worked example with nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-formatted-output-with-nested-loops">Problem 2: Formatted output with nested loops</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-looping-through-a-list-to-print-element-types">Problem 3: Looping Through a List to Print Element Types</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4-printing-exclamation-point-patterns">Problem 4: Printing Exclamation Point Patterns</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-printing-characters-from-strings-with-separators">Problem 5: Printing Characters from Strings with Separators</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-6-nested-while-and-for-loops">Problem 6: Nested <code class="docutils literal notranslate"><span class="pre">while</span></code> and <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-7-triangle-of-stars">Problem 7: Triangle of stars</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-8-simulating-multiple-trials-with-random-numbers">Problem 8: Simulating Multiple Trials with Random Numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started-with-notebooks">Getting Started with Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indentation-and-multi-line-expressions">Indentation and Multi-line Expressions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-and-assignment">Variables and Assignment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-round-function">The <code class="docutils literal notranslate"><span class="pre">round()</span></code> Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#print-and-data-types"><code class="docutils literal notranslate"><span class="pre">print()</span></code> and Data Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#division-operators-and-scientific-notation">Division Operators and Scientific Notation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-all-together">Putting It All Together</a></li>
 </ul>
             </nav>
         </div>
@@ -441,39 +440,285 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="class-6-gpp-nested-for-loops">
-<h1>Class 6 GPP: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops<a class="headerlink" href="#class-6-gpp-nested-for-loops" title="Link to this heading">#</a></h1>
-<p><strong>Group Exercise (Teams of 3)</strong>
-Work together to complete the following tasks!</p>
-<section id="problem-1-worked-example-with-nested-for-loops">
-<h2>Problem 1: Worked example with nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops<a class="headerlink" href="#problem-1-worked-example-with-nested-for-loops" title="Link to this heading">#</a></h2>
-<p>Let’s start with nested for loops using the range function. Execute the following code.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+  <section class="tex2jax_ignore mathjax_ignore" id="class-1-gpp-constants-variables-types-and-assignments">
+<h1>Class 1 GPP: Constants, Variables, Types, and Assignments<a class="headerlink" href="#class-1-gpp-constants-variables-types-and-assignments" title="Link to this heading">#</a></h1>
+<p><strong>Group Exercise (Teams of 3)</strong></p>
+<p>Please complete these exercises in groups of three. Whenever you’re asked
+to explain something, insert a new markdown cell with your explanation.</p>
+<section id="getting-started-with-notebooks">
+<h2>Getting Started with Notebooks<a class="headerlink" href="#getting-started-with-notebooks" title="Link to this heading">#</a></h2>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class1.html#understanding-notebook-structure">Understanding Notebook Structure</a> and <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class1.html#markdown-cells-vs-code-cells">Markdown Cells vs. Code Cells</a> sections for a refresher.</p>
+<p>Click in the code cell below, and then click the Run button above to execute the code. Notice that there is now a number in the square brackets after <code class="docutils literal notranslate"><span class="pre">In</span></code>, and the output has been shown.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span> <span class="o">+</span> <span class="mi">9</span>
 </pre></div>
 </div>
-<p>This is the basic nested-loop pattern from the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class6.html#nested-loops">Nested loops</a> section – the outer loop runs once per full pass of the inner loop.</p>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13
+</pre></div>
+</div>
+</div>
+</div>
+<p>Enter and execute your own numerical expression here:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="problem-2-formatted-output-with-nested-loops">
-<h2>Problem 2: Formatted output with nested loops<a class="headerlink" href="#problem-2-formatted-output-with-nested-loops" title="Link to this heading">#</a></h2>
-<p>Your task is to practice nested loops by writing a Python program that generates a simple pattern.</p>
+<section id="indentation-and-multi-line-expressions">
+<h2>Indentation and Multi-line Expressions<a class="headerlink" href="#indentation-and-multi-line-expressions" title="Link to this heading">#</a></h2>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class1.html#example-multiline-expressions">Example: Multiline Expressions</a> section for a refresher.</p>
+<p>Indentation and spacing is very important in Python. Try executing the code below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>   <span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<p>Even though the code was indented, that was OK. Now try executing the code in the next cell. Notice that there are two expressions; the first is not indented but the second one is.</p>
+<div class="cell tag_raises-exception docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span>
+  <span class="mi">4</span> <span class="o">-</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">    </span><span class="mi">4</span> <span class="o">-</span> <span class="mi">2</span>
+    <span class="o">^</span>
+<span class="ne">IndentationError</span>: unexpected indent
+</pre></div>
+</div>
+</div>
+</div>
+<p>When there is more than one line of code in a cell, they both must be indented to the same level (or not). Go back to the previous code cell and experiment with this. Fix the cell so that it can be executed. Notice also that you only see the result from the second expression.</p>
+<p>Enter an expression over at least two lines, using either parentheses or the backslash. Execute it and make sure it works.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enter an expression over two lines using the \</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enter an expression over two lines using ()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="variables-and-assignment">
+<h2>Variables and Assignment<a class="headerlink" href="#variables-and-assignment" title="Link to this heading">#</a></h2>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class1.html#declaring-variables-in-python">Declaring Variables in Python</a> section for a refresher.</p>
+<p>Create a variable named <code class="docutils literal notranslate"><span class="pre">favnum</span></code> and assign your favorite number to it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Did your assignment statement work? If you did not already, go back to the code cell and after the assignment statement, just type the name of the variable so that when you execute the cell, the value of the variable will be shown.</p>
+<p>Create an integer variable by assigning a number to it, and then in a second assignment statement increment the variable by 1. Display the result.</p>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class1.html#modifying-variables-dynamically">Modifying Variables Dynamically</a> section for a refresher.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Write a simultaneous assignment statement that will simultaneously assign 0 to a variable named <code class="docutils literal notranslate"><span class="pre">mysum</span></code> and 1 to a variable named <code class="docutils literal notranslate"><span class="pre">myproduct</span></code>. Display the results to make sure it worked.</p>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class1.html#simultaneous-assignment">Simultaneous Assignment</a> section for a refresher.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>OK, we’re going to stop telling you to display the results to make sure they worked. Just always do that! Create a “constant” named <code class="docutils literal notranslate"><span class="pre">DAYS_IN_WEEK</span></code> that stores the number of days in a week.</p>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class1.html#constants-and-immutability">Constants and Immutability</a> section for a refresher.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Delete your <code class="docutils literal notranslate"><span class="pre">favnum</span></code> variable. Then, type the name <code class="docutils literal notranslate"><span class="pre">favnum</span></code> and examine the error message that you (should) get.</p>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class1.html#del-deleting-variables">del: Deleting Variables</a> section for a refresher.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-round-function">
+<h2>The <code class="docutils literal notranslate"><span class="pre">round()</span></code> Function<a class="headerlink" href="#the-round-function" title="Link to this heading">#</a></h2>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class1.html#round-rounding-numbers">round(): Rounding Numbers</a> section for a refresher.</p>
+<p>Play around with the round function and make sure that you understand how it works. Testing code is very important. Try real numbers such as 4.2, 4.5, and 4.8. Do they round up? down? Try integers. Try negative and positive numbers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>So, without entering this code, what would <code class="docutils literal notranslate"><span class="pre">round(-5.7)</span></code> return? Did you test thoroughly enough to be confident of your answer?</p>
+<p>Enter your prediction here:</p>
+</section>
+<section id="print-and-data-types">
+<h2><code class="docutils literal notranslate"><span class="pre">print()</span></code> and Data Types<a class="headerlink" href="#print-and-data-types" title="Link to this heading">#</a></h2>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class1.html#print-displaying-output">print(): Displaying Output</a> and <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class1.html#type-checking-a-variables-data-type">type(): Checking a Variable’s Data Type</a> sections for a refresher.</p>
+<p>Create two number variables and print their values using one print statement.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Create an integer variable and a float variable and print their types.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Create an integer variable <code class="docutils literal notranslate"><span class="pre">num</span></code>, and print the values of <code class="docutils literal notranslate"><span class="pre">num</span></code> raised to the third power, and <code class="docutils literal notranslate"><span class="pre">num</span></code> raised to the fifth power.</p>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class1.html#arithmetic-operators">Arithmetic Operators</a> section for a refresher.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>What would be the type of the expression <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">-</span> <span class="pre">4.0</span></code>? Check your prediction.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="division-operators-and-scientific-notation">
+<h2>Division Operators and Scientific Notation<a class="headerlink" href="#division-operators-and-scientific-notation" title="Link to this heading">#</a></h2>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class1.html#arithmetic-operators">Arithmetic Operators</a> and <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class1.html#numeric-types">Numeric Types</a> sections for a refresher.</p>
+<p>🚩 <strong>Common mistake:</strong> confusing <code class="docutils literal notranslate"><span class="pre">/</span></code> (float division, always returns a
+<code class="docutils literal notranslate"><span class="pre">float</span></code>) with <code class="docutils literal notranslate"><span class="pre">//</span></code> (integer/floor division). Test both thoroughly with a
+mix of operand types (<code class="docutils literal notranslate"><span class="pre">int</span></code>/<code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>/<code class="docutils literal notranslate"><span class="pre">float</span></code>, mixed) and a mix of
+evenly- and unevenly-divisible numbers – the type and value of the result
+depends on both.</p>
+<p>Let’s examine the division operators. First, test the float division operator <code class="docutils literal notranslate"><span class="pre">/</span></code>. Try it using float operands, int operands, and one float and one int operand. Try it with numbers that divide evenly and numbers that do not divide evenly. Again, testing thoroughly is very important!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now thoroughly test the integer division operator <code class="docutils literal notranslate"><span class="pre">//</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, thoroughly test the modulus or remainder division operator <code class="docutils literal notranslate"><span class="pre">%</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Write an expression using scientific notation that would result in the number 30000.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="putting-it-all-together">
+<h2>Putting It All Together<a class="headerlink" href="#putting-it-all-together" title="Link to this heading">#</a></h2>
+<p>Create a variable to store the cost of a bagel (let’s say $2.25). Create a constant to store the tax rate (let’s say 3 percent). What would the total cost of the bagel be? Round this to two decimal places since it’s money.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using only the integers 2 and 3, try to come up with as many expressions as you can that will result in the integer 9. Be creative!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Create variables <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">10</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">3</span></code>, and:</p>
 <ul class="simple">
-<li><p>Loop over the numbers 0 through 4.</p></li>
-<li><p>On each line, first print the number, followed by a colon (:).</p></li>
-<li><p>After the colon, print as many asterisks (*) as the number itself.</p></li>
-<li><p>Each line should show the number and its matching stars.</p></li>
+<li><p>Calculate their sum and difference.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">//</span></code> and <code class="docutils literal notranslate"><span class="pre">%</span></code> to divide them.</p></li>
 </ul>
-<p>Example Output:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="p">:</span>
-<span class="mi">1</span><span class="p">:</span><span class="o">*</span>
-<span class="mi">2</span><span class="p">:</span><span class="o">**</span>
-<span class="mi">3</span><span class="p">:</span><span class="o">***</span>
-<span class="mi">4</span><span class="p">:</span><span class="o">****</span>
-</pre></div>
-</div>
-<p>Hint: You will need a loop inside a loop — the outer loop handles the numbers, and the inner loop handles printing the stars.</p>
-<p>This is the same shape as the number/star examples in the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class6.html#nested-loops">Nested loops</a> section.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
@@ -481,19 +726,7 @@ Work together to complete the following tasks!</p>
 </div>
 </div>
 </div>
-</section>
-<section id="problem-3-looping-through-a-list-to-print-element-types">
-<h2>Problem 3: Looping Through a List to Print Element Types<a class="headerlink" href="#problem-3-looping-through-a-list-to-print-element-types" title="Link to this heading">#</a></h2>
-<p>Write a Python program that prints the type of each element in a list.</p>
-<ul class="simple">
-<li><p>Use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop together with the <code class="docutils literal notranslate"><span class="pre">range()</span></code> function to go through the list.</p></li>
-<li><p>Do not assume you know how many items are in the list — your code should work for lists of any length.</p></li>
-<li><p>Inside the loop, use the loop variable as an index to access each element of the list, and print out its type.</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">43</span><span class="p">,</span> <span class="s1">'happy'</span><span class="p">,</span> <span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">11.11</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>Need a refresher? Class 5’s reading covers index-based iteration in <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#looping-with-indices">Looping with Indices</a>, and uses <code class="docutils literal notranslate"><span class="pre">type()</span></code> in the <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#looping-through-sequences">Looping through sequences</a> example.</p>
+<p>Assign your name to a variable called <code class="docutils literal notranslate"><span class="pre">student_name</span></code> and print a greeting.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
@@ -501,109 +734,7 @@ Work together to complete the following tasks!</p>
 </div>
 </div>
 </div>
-</section>
-<section id="problem-4-printing-exclamation-point-patterns">
-<h2>Problem 4: Printing Exclamation Point Patterns<a class="headerlink" href="#problem-4-printing-exclamation-point-patterns" title="Link to this heading">#</a></h2>
-<p>Write a Python program that uses <em>nested</em> <code class="docutils literal notranslate"><span class="pre">for</span></code> loops to print rows of exclamation points (<code class="docutils literal notranslate"><span class="pre">!</span></code>) based on a list of positive integers.</p>
-<p>Requirements:</p>
-<ul class="simple">
-<li><p>For each number in the list, print a row of exclamation points equal to that number.</p>
-<ul>
-<li><p>Example: if the number is <code class="docutils literal notranslate"><span class="pre">3</span></code>, print <code class="docutils literal notranslate"><span class="pre">!!!</span></code>.</p></li>
-</ul>
-</li>
-<li><p>Each row should have no spaces between the exclamation points.</p></li>
-<li><p>Write your solution in two ways:</p>
-<ul>
-<li><p>Approach 1: Use the outer loop to go through the elements of the list directly.</p></li>
-<li><p>Approach 2: Use the outer loop to go through the indices of the list, and access elements by indexing.</p></li>
-</ul>
-</li>
-</ul>
-<p>Example List:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">intlist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>Approach 2 needs the same index-based iteration as Class 5’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#looping-with-indices">Looping with Indices</a> section.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="problem-5-printing-characters-from-strings-with-separators">
-<h2>Problem 5: Printing Characters from Strings with Separators<a class="headerlink" href="#problem-5-printing-characters-from-strings-with-separators" title="Link to this heading">#</a></h2>
-<p>Use the following list of strings. Write code to print all of the characters from all of the strings on one line, with a dash (<code class="docutils literal notranslate"><span class="pre">-</span></code>) after each.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">strlist</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'I'</span><span class="p">,</span> <span class="s1">'love'</span><span class="p">,</span> <span class="s1">'coding!'</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>The reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class6.html#nested-loops">Nested loops</a> section opens with a similar nested loop over a list of words, printing each word’s characters.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="problem-6-nested-while-and-for-loops">
-<h2>Problem 6: Nested <code class="docutils literal notranslate"><span class="pre">while</span></code> and <code class="docutils literal notranslate"><span class="pre">for</span></code> loops<a class="headerlink" href="#problem-6-nested-while-and-for-loops" title="Link to this heading">#</a></h2>
-<p>Write a script that will prompt the user for positive numbers. As long as the user is entering positive numbers, Print <code class="docutils literal notranslate"><span class="pre">Ni!</span></code> that many times on a single line for each. For example, if the user enters 3, <code class="docutils literal notranslate"><span class="pre">Ni!Ni!Ni!</span></code> would be printed.</p>
-<p>This combines two ideas from the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class6.html#nested-loops">Nested loops</a> section: an outer loop that keeps going as long as valid input keeps coming (see <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class6.html#nesting-a-while-loop-inside-another-while-loop">Nesting a <code class="docutils literal notranslate"><span class="pre">while</span></code> Loop Inside Another <code class="docutils literal notranslate"><span class="pre">while</span></code> Loop</a> for that idea, even though there the inner loop is also a <code class="docutils literal notranslate"><span class="pre">while</span></code>), and an inner loop that repeats a fixed number of times based on a value, like the number/star examples earlier in the same section.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here.  Ni!</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="problem-7-triangle-of-stars">
-<h2>Problem 7: Triangle of stars<a class="headerlink" href="#problem-7-triangle-of-stars" title="Link to this heading">#</a></h2>
-<p>Prompt the user for a positive integer <code class="docutils literal notranslate"><span class="pre">n</span></code>. Then print a triangle of stars, starting with 0 in the first row and incrementing to <code class="docutils literal notranslate"><span class="pre">n-1</span></code> stars in the <code class="docutils literal notranslate"><span class="pre">n-1st</span></code> row.</p>
-<p>Example output for <code class="docutils literal notranslate"><span class="pre">n=4</span></code></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span>
-<span class="o">**</span>
-<span class="o">***</span>
-</pre></div>
-</div>
-<p>Same loop shape as the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class6.html#nested-loops">Nested loops</a> section – just combined with <code class="docutils literal notranslate"><span class="pre">input()</span></code> to get <code class="docutils literal notranslate"><span class="pre">n</span></code> instead of a hardcoded range.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="problem-8-simulating-multiple-trials-with-random-numbers">
-<h2>Problem 8: Simulating Multiple Trials with Random Numbers<a class="headerlink" href="#problem-8-simulating-multiple-trials-with-random-numbers" title="Link to this heading">#</a></h2>
-<p>Engineers often need to test systems multiple times with random inputs to find bugs or verify performance.</p>
-<p>Write a program that:</p>
-<ul class="simple">
-<li><p>Uses <code class="docutils literal notranslate"><span class="pre">random.seed(42)</span></code> for reproducibility</p></li>
-<li><p>Simulates <strong>3 trials</strong></p></li>
-<li><p>In each trial, generate <strong>4 random integers</strong> between -5 and 5 (inclusive)</p></li>
-<li><p>Print all 4 numbers on one line for each trial</p></li>
-<li><p>Use nested loops (outer loop for trials, inner loop for random numbers)</p></li>
-</ul>
-<p><strong>Expected Output</strong> (with seed=42):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Trial</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">0</span> <span class="o">-</span><span class="mi">4</span> <span class="o">-</span><span class="mi">1</span> <span class="mi">3</span>
-<span class="n">Trial</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">3</span> <span class="o">-</span><span class="mi">5</span> <span class="mi">3</span> <span class="o">-</span><span class="mi">4</span>
-<span class="n">Trial</span> <span class="mi">3</span><span class="p">:</span> <span class="o">-</span><span class="mi">5</span> <span class="mi">4</span> <span class="mi">1</span> <span class="o">-</span><span class="mi">3</span>
-</pre></div>
-</div>
-<p><strong>Hint:</strong> Import the random module and use <code class="docutils literal notranslate"><span class="pre">random.randint(-5,</span> <span class="pre">5)</span></code> to generate each number.</p>
-<p>See Class 6’s own <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class6.html#combining-loops-with-random-numbers">Combining Loops with Random Numbers</a> section, and Class 5’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class5.html#tracking-multiple-trials-in-one-loop">Tracking Multiple Trials in One Loop</a> section for a related (though non-nested) version of this pattern.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>If you’ve gotten this far, great job! Your next task is to write a quiz on today’s material. Come up with the questions, and test the results. Once you and your partners have written your quizzes, quiz each other with them. You will always spend the full time in class. If you finish the problems before the class period is over, your next task will always be to try to come up with quiz or exam problems. You could also spend your time helping others at your table.</p>
 </section>
 </section>
 
@@ -638,20 +769,20 @@ Work together to complete the following tasks!</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../class/Class6.html"
+       href="../class/Class1.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Class 6: Nested Loops</p>
+        <p class="prev-next-title">Class 1: Introduction to Interactive Programming Using Google Colab</p>
       </div>
     </a>
     <a class="right-next"
-       href="Class6_GPP_Solutions.html"
+       href="Class1_GPP_Solutions.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Class 6 GPP Solutions: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</p>
+        <p class="prev-next-title">Class 1 GPP Solutions: Constants, Variables, Types, and Assignments</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -671,14 +802,13 @@ Work together to complete the following tasks!</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-worked-example-with-nested-for-loops">Problem 1: Worked example with nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-formatted-output-with-nested-loops">Problem 2: Formatted output with nested loops</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-looping-through-a-list-to-print-element-types">Problem 3: Looping Through a List to Print Element Types</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4-printing-exclamation-point-patterns">Problem 4: Printing Exclamation Point Patterns</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-printing-characters-from-strings-with-separators">Problem 5: Printing Characters from Strings with Separators</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-6-nested-while-and-for-loops">Problem 6: Nested <code class="docutils literal notranslate"><span class="pre">while</span></code> and <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-7-triangle-of-stars">Problem 7: Triangle of stars</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-8-simulating-multiple-trials-with-random-numbers">Problem 8: Simulating Multiple Trials with Random Numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started-with-notebooks">Getting Started with Notebooks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indentation-and-multi-line-expressions">Indentation and Multi-line Expressions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-and-assignment">Variables and Assignment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-round-function">The <code class="docutils literal notranslate"><span class="pre">round()</span></code> Function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#print-and-data-types"><code class="docutils literal notranslate"><span class="pre">print()</span></code> and Data Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#division-operators-and-scientific-notation">Division Operators and Scientific Notation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-all-together">Putting It All Together</a></li>
 </ul>
   </nav></div>
 
