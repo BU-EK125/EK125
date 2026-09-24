@@ -1,10 +1,14 @@
 format: jb-book
 root: intro
 parts:
-  - caption: Python
+  - caption: "Python in Colab"
     chapters:
       - file: class/Class1
+        sections:
+          - file: homework/HW1
       - file: class/Class2
+        sections:
+          - file: homework/HW2
       - file: class/Class3
       - file: class/Class4
       - file: class/Class5
@@ -17,6 +21,8 @@ parts:
       - file: class/Class7
         sections:
           - file: gpps/Class7_GPP
+  - caption: "Python in an IDE"
+    chapters:
       - file: class/Class9
         sections:
           - file: gpps/Class9_GPP
