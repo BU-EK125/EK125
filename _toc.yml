@@ -11,6 +11,7 @@ parts:
           - file: homework/HW2
       - file: class/Class3
       - file: class/Class4
+      - file: homework/HW3
       - file: class/Class5
         sections:
           - file: gpps/Class5_GPP
