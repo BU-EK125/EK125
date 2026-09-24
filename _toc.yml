@@ -8,9 +8,14 @@ parts:
           - file: homework/HW1
       - file: class/Class2
         sections:
+          - file: gpps/Class2_GPP
           - file: homework/HW2
       - file: class/Class3
+        sections:
+          - file: gpps/Class3_GPP
       - file: class/Class4
+        sections:
+          - file: gpps/Class4_GPP
       - file: homework/HW3
       - file: class/Class5
         sections:
