@@ -453,16 +453,19 @@ choice.</p></li>
 homework-help-session and discussion-section notebooks. Not yet audited
 by any Claude session as of this writing; check their own README/
 CONVENTIONS (if any) before assuming this file’s conventions apply.</p></li>
-<li><p><strong>EK125-Instructors</strong> (private) – exists, purpose not yet documented by
-any Claude session.</p></li>
-<li><p><strong>EK125WIP</strong> (<code class="docutils literal notranslate"><span class="pre">briandepasquale/EK125WIP</span></code>, personal, NOT under the BU-EK125
-org) – the actual raw-material working folder, organized by semester
-(<code class="docutils literal notranslate"><span class="pre">S26</span></code>, <code class="docutils literal notranslate"><span class="pre">F25</span></code>, <code class="docutils literal notranslate"><span class="pre">F26</span></code>, <code class="docutils literal notranslate"><span class="pre">copyOfShared</span></code>). This is upstream of
-EK125-notebooks – GPP solutions in EK125-notebooks were minted from
-files here. Also where next-semester (F26) marimo lecture-deck drafts
-for Classes 2-4 already exist (<code class="docutils literal notranslate"><span class="pre">F26/Class</span> <span class="pre">N/Slides/</span></code>), not yet pushed to
-EK125-C1-DePasquale-Slides – check there before redrafting a deck for
-one of those classes.</p></li>
+<li><p><strong>EK125-Instructors</strong> (private) – the raw-material working repo, organized
+by semester (<code class="docutils literal notranslate"><span class="pre">S26</span></code>, <code class="docutils literal notranslate"><span class="pre">F25</span></code>, <code class="docutils literal notranslate"><span class="pre">F26</span></code>, <code class="docutils literal notranslate"><span class="pre">copyOfShared</span></code>). <strong>This was transferred
+from a personal repo (<code class="docutils literal notranslate"><span class="pre">briandepasquale/EK125WIP</span></code>) into the org and
+renamed</strong> – same repo, same git history, formerly known as “EK125WIP” in
+older notes/transcripts. A local checkout’s remote may still point at the
+old <code class="docutils literal notranslate"><span class="pre">briandepasquale/EK125WIP.git</span></code> URL (pushes still work via GitHub’s
+redirect, but should be repointed to
+<code class="docutils literal notranslate"><span class="pre">https://github.com/BU-EK125/EK125-Instructors.git</span></code> when convenient). This
+is upstream of EK125-notebooks – GPP solutions in EK125-notebooks were
+minted from files here. Also where next-semester (F26) marimo lecture-deck
+drafts for Classes 2-4 already exist (<code class="docutils literal notranslate"><span class="pre">F26/Class</span> <span class="pre">N/Slides/</span></code>), not yet
+pushed to EK125-C1-DePasquale-Slides – check there before redrafting a
+deck for one of those classes.</p></li>
 </ul>
 </section>
 <section id="course-structure-acts">
@@ -487,7 +490,7 @@ pin <code class="docutils literal notranslate"><span class="pre">jupyter-book&lt
 <section id="pii-lesson-critical">
 <h2>PII lesson (critical)<a class="headerlink" href="#pii-lesson-critical" title="Link to this heading">#</a></h2>
 <p>Raw notebook files sourced from EK125-notebooks (or further upstream,
-EK125WIP) can carry real personal information in Colab execution metadata
+EK125-Instructors) can carry real personal information in Colab execution metadata
 – <code class="docutils literal notranslate"><span class="pre">executionInfo.user.displayName</span></code>/<code class="docutils literal notranslate"><span class="pre">userId</span></code> per cell, <code class="docutils literal notranslate"><span class="pre">colab.provenance</span></code>
 at the notebook level. <strong>Never copy a cell directly from an upstream
 source into this repo.</strong> Always rebuild each cell from scratch, keeping
@@ -512,7 +515,7 @@ personal fork can silently diverge (missing recent renames/restructures,
 or carrying unpushed local-only edits) from the canonical <code class="docutils literal notranslate"><span class="pre">BU-EK125/EK125</span></code>
 origin.</p></li>
 <li><p><strong>Before bulk-copying content into a sibling repo</strong> (e.g. EK125-notebooks
-or EK125WIP), check the destination’s own <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code>/<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> first –
+or EK125-Instructors/EK125WIP), check the destination’s own <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code>/<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> first –
 a blind copy can clobber already-completed, already-pushed work that a
 different session did in the meantime.</p></li>
 <li><p>When converting a static reading into an executed notebook, watch for

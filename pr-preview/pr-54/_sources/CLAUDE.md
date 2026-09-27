@@ -39,16 +39,19 @@ here).
   homework-help-session and discussion-section notebooks. Not yet audited
   by any Claude session as of this writing; check their own README/
   CONVENTIONS (if any) before assuming this file's conventions apply.
-- **EK125-Instructors** (private) -- exists, purpose not yet documented by
-  any Claude session.
-- **EK125WIP** (`briandepasquale/EK125WIP`, personal, NOT under the BU-EK125
-  org) -- the actual raw-material working folder, organized by semester
-  (`S26`, `F25`, `F26`, `copyOfShared`). This is upstream of
-  EK125-notebooks -- GPP solutions in EK125-notebooks were minted from
-  files here. Also where next-semester (F26) marimo lecture-deck drafts
-  for Classes 2-4 already exist (`F26/Class N/Slides/`), not yet pushed to
-  EK125-C1-DePasquale-Slides -- check there before redrafting a deck for
-  one of those classes.
+- **EK125-Instructors** (private) -- the raw-material working repo, organized
+  by semester (`S26`, `F25`, `F26`, `copyOfShared`). **This was transferred
+  from a personal repo (`briandepasquale/EK125WIP`) into the org and
+  renamed** -- same repo, same git history, formerly known as "EK125WIP" in
+  older notes/transcripts. A local checkout's remote may still point at the
+  old `briandepasquale/EK125WIP.git` URL (pushes still work via GitHub's
+  redirect, but should be repointed to
+  `https://github.com/BU-EK125/EK125-Instructors.git` when convenient). This
+  is upstream of EK125-notebooks -- GPP solutions in EK125-notebooks were
+  minted from files here. Also where next-semester (F26) marimo lecture-deck
+  drafts for Classes 2-4 already exist (`F26/Class N/Slides/`), not yet
+  pushed to EK125-C1-DePasquale-Slides -- check there before redrafting a
+  deck for one of those classes.
 
 ## Course structure (Acts)
 
@@ -70,7 +73,7 @@ pin `jupyter-book<2` (currently built against 1.0.4).
 ## PII lesson (critical)
 
 Raw notebook files sourced from EK125-notebooks (or further upstream,
-EK125WIP) can carry real personal information in Colab execution metadata
+EK125-Instructors) can carry real personal information in Colab execution metadata
 -- `executionInfo.user.displayName`/`userId` per cell, `colab.provenance`
 at the notebook level. **Never copy a cell directly from an upstream
 source into this repo.** Always rebuild each cell from scratch, keeping
@@ -94,7 +97,7 @@ it; check `_toc.yml` to see what's actually published.
   or carrying unpushed local-only edits) from the canonical `BU-EK125/EK125`
   origin.
 - **Before bulk-copying content into a sibling repo** (e.g. EK125-notebooks
-  or EK125WIP), check the destination's own `git log`/`git status` first --
+  or EK125-Instructors/EK125WIP), check the destination's own `git log`/`git status` first --
   a blind copy can clobber already-completed, already-pushed work that a
   different session did in the meantime.
 - When converting a static reading into an executed notebook, watch for
