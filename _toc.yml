@@ -35,6 +35,7 @@ parts:
         sections:
           - file: gpps/Class7_GPP
           - file: gpps/Class7_GPP_Solutions
+      - file: gpps/Exam1_Review
   - caption: "Python in an IDE"
     chapters:
       - file: class/Class9
