@@ -1,0 +1,1154 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>EK125 Exam 1 - Top 30 GPP Problems for Paper Practice &#8212; EK125</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gpps/Exam1_Review';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class 9: From Colab Notebooks to Running Python Locally" href="../class/Class9.html" />
+    <link rel="prev" title="Class 7 GPP Solutions: Advanced Iteration and Nested Structures" href="Class7_GPP_Solutions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">EK125</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to EK125
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python in Colab</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class1.html">Class 1: Introduction to Interactive Programming Using Google Colab</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class1_GPP.html">Class 1 GPP: Constants, Variables, Types, and Assignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class1_GPP_Solutions.html">Class 1 GPP Solutions: Constants, Variables, Types, and Assignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW1.html">Homework 1: Variables, Types, and Assignments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class2.html">Class 2: Sequences, Strings, and Lists in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class2_GPP.html">Class 2 GPP: Working with Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class2_GPP_Solutions.html">Class 2 GPP Solutions: Working with Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW2.html">Homework 2: Strings and Lists</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class3.html">Class 3: Booleans and Basic Logic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class3_GPP.html">Class 3 GPP: Boolean Logic Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class3_GPP_Solutions.html">Class 3 GPP Solutions: Boolean Logic Practice</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class4.html">Class 4: Coding Basics Wrap-up and Selection Statements</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class4_GPP.html">Class 4 GPP: Coding Basics Wrap-up and Selection Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class4_GPP_Solutions.html">Class 4 GPP Solutions: Coding Basics Wrap-up and Selection Statements</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW3.html">Homework 3: Boolean Logic, Sequences, and Selection Statements</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class5.html">Class 5: Importing Modules and Basic Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class5_GPP.html">Class 5 GPP: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class5_GPP_Solutions.html">Class 5 GPP Solutions: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class6.html">Class 6: Nested Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class6_GPP.html">Class 6 GPP: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class6_GPP_Solutions.html">Class 6 GPP Solutions: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW4.html">Homework 4: Loops and Randomness</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class7.html">Class 7: Advanced Iteration and Nested Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class7_GPP.html">Class 7 GPP: Advanced Iteration and Nested Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class7_GPP_Solutions.html">Class 7 GPP Solutions: Advanced Iteration and Nested Structures</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">EK125 Exam 1 - Top 30 GPP Problems for Paper Practice</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python in an IDE</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class9.html">Class 9: From Colab Notebooks to Running Python Locally</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class9_GPP.html">Class 9 GPP: Getting Comfortable with PyCharm</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class10.html">Class 10: Mastering Slicing in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class10_GPP.html">Class 10 GPP: Mastering Slicing in Python</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class11.html">Class 11: Digging into arrays with NumPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class12.html">Class 12 Preread: Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class13.html">Class 13: User-Defined Functions, Arguments, and Scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class14.html">Class 14: Scripts, File I/O, and the Local File Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class15.html">Class 15: Visualizing Data and Plotting in Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MATLAB</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../class/Class16.html">Class 16: From Python to MATLAB: Syntax and Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class18.html">Class 18: Creating Vectors and Matrices in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class19.html">Class 19: Vector and Matrix Operations in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class20.html">Class 20: MATLAB Scripts, Documentation, and File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class21.html">Class 21: User Functions and Modular Programming in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class22.html">Class 22: Useful MATLAB Toolboxes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendix/Syllabus.html">Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/WeeklyRhythm.html">Weekly Rhythm of EK125</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/SubmittingAssignments.html">Instructions to receive and submit assignments</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/gpps/Exam1_Review.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>EK125 Exam 1 - Top 30 GPP Problems for Paper Practice</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#day-practice-plan">5-Day Practice Plan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#day-1-basics-fundamentals">Day 1: Basics &amp; Fundamentals</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-simultaneous-assignment">Problem 1: Simultaneous Assignment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-division-operators">Problem 2: Division Operators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-bagel-cost-calculation">Problem 3: Bagel Cost Calculation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4-type-prediction">Problem 4: Type Prediction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-testing-round">Problem 5: Testing <code class="docutils literal notranslate"><span class="pre">round()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-6-creative-math">Problem 6: Creative Math</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#day-2-sequences-logic">Day 2: Sequences &amp; Logic</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-7-string-basics">Problem 7: String Basics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-8-string-transformation">Problem 8: String Transformation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-9-list-modification-challenge">Problem 9: List Modification Challenge</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-10-boolean-expression-evaluation">Problem 10: Boolean Expression Evaluation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-11-weather-decision-system">Problem 11: Weather Decision System</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-12-data-cleaning">Problem 12: Data Cleaning</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#day-3-conditionals">Day 3: Conditionals</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-13-grade-classifier">Problem 13: Grade Classifier</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-14-number-sign-checker">Problem 14: Number Sign Checker</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-15-age-classification">Problem 15: Age Classification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-16-pet-comparison">Problem 16: Pet Comparison</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-17-quadratic-discriminant">Problem 17: Quadratic Discriminant</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-18-material-length-table">Problem 18: Material Length Table</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#day-4-loops">Day 4: Loops</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-19-exploring-range">Problem 19: Exploring <code class="docutils literal notranslate"><span class="pre">range()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-20-rounded-values">Problem 20: Rounded Values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-21-two-loop-styles">Problem 21: Two Loop Styles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-22-running-sum-with-random">Problem 22: Running Sum with Random</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-23-debug-the-running-product">Problem 23: Debug the Running Product</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-24-loops-selection">Problem 24: Loops + Selection</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#day-5-advanced-review">Day 5: Advanced &amp; Review</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-25-circle-calculations">Problem 25: Circle Calculations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-26-square-roots-loop">Problem 26: Square Roots Loop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-27-while-loop-basics">Problem 27: While Loop Basics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-28-while-with-random">Problem 28: While with Random</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-29-error-checking-loop">Problem 29: Error Checking Loop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-30-pattern-printing">Problem 30: Pattern Printing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exam-strategy-guide">Exam Strategy Guide</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-management">Time Management</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-writing-tips">Paper Writing Tips</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-paper-exam-mistakes">Common Paper Exam Mistakes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-checklist">Final Checklist</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="ek125-exam-1-top-30-gpp-problems-for-paper-practice">
+<h1>EK125 Exam 1 - Top 30 GPP Problems for Paper Practice<a class="headerlink" href="#ek125-exam-1-top-30-gpp-problems-for-paper-practice" title="Link to this heading">#</a></h1>
+<p><strong>How to use this document:</strong></p>
+<ol class="arabic simple">
+<li><p>Work through problems in order (they’re organized by difficulty per topic)</p></li>
+<li><p>Try each problem ON PAPER first</p></li>
+<li><p>Check your solution by typing it into Python</p></li>
+<li><p>Mark problems you struggled with → those concepts go on your note sheet!</p></li>
+</ol>
+<hr class="docutils" />
+<section id="day-practice-plan">
+<h2>5-Day Practice Plan<a class="headerlink" href="#day-practice-plan" title="Link to this heading">#</a></h2>
+<p><strong>Day 1: Basics &amp; Fundamentals</strong> (Problems 1-6)
+Focus on variables, operators, and basic syntax</p>
+<p><strong>Day 2: Sequences &amp; Logic</strong> (Problems 7-12)
+Work with strings, lists, and Boolean expressions</p>
+<p><strong>Day 3: Conditionals</strong> (Problems 13-18)
+Master if/elif/else and nested conditionals</p>
+<p><strong>Day 4: Loops</strong> (Problems 19-24)
+Practice for loops, while loops, and patterns</p>
+<p><strong>Day 5: Advanced &amp; Review</strong> (Problems 25-30)
+Nested loops and combining concepts</p>
+</section>
+<hr class="docutils" />
+<section id="day-1-basics-fundamentals">
+<h2>Day 1: Basics &amp; Fundamentals<a class="headerlink" href="#day-1-basics-fundamentals" title="Link to this heading">#</a></h2>
+<section id="problem-1-simultaneous-assignment">
+<h3>Problem 1: Simultaneous Assignment<a class="headerlink" href="#problem-1-simultaneous-assignment" title="Link to this heading">#</a></h3>
+<p><strong>Class 1, Problem 1.4</strong></p>
+<p>Write a simultaneous assignment statement that assigns:</p>
+<ul class="simple">
+<li><p>0 to a variable named <code class="docutils literal notranslate"><span class="pre">mysum</span></code></p></li>
+<li><p>1 to a variable named <code class="docutils literal notranslate"><span class="pre">myproduct</span></code></p></li>
+</ul>
+<p>Display both results.</p>
+<p><strong>Why this problem?</strong> Tests basic variable assignment syntax that appears on every exam.</p>
+</section>
+<hr class="docutils" />
+<section id="problem-2-division-operators">
+<h3>Problem 2: Division Operators<a class="headerlink" href="#problem-2-division-operators" title="Link to this heading">#</a></h3>
+<p><strong>Class 1, Problem 1.12</strong></p>
+<p>Given <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">17</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">5</span></code>, predict the output of each BEFORE running:</p>
+<p>a) <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">/</span> <span class="pre">y</span></code></p>
+<p>b) <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">//</span> <span class="pre">y</span></code></p>
+<p>c) <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%</span> <span class="pre">y</span></code></p>
+<p>Then write code to verify your predictions.</p>
+<p><strong>Why this problem?</strong> Division operators trip up many students on exams. Know the difference!</p>
+</section>
+<hr class="docutils" />
+<section id="problem-3-bagel-cost-calculation">
+<h3>Problem 3: Bagel Cost Calculation<a class="headerlink" href="#problem-3-bagel-cost-calculation" title="Link to this heading">#</a></h3>
+<p><strong>Class 1, Problem 1.14</strong></p>
+<p>Create a variable for the cost of a bagel ($2.25) and a constant for the tax rate (3%). Calculate the total cost and round to 2 decimal places.</p>
+<p><strong>Why this problem?</strong> Combines variables, constants, arithmetic, and rounding - all common exam requirements.</p>
+</section>
+<hr class="docutils" />
+<section id="problem-4-type-prediction">
+<h3>Problem 4: Type Prediction<a class="headerlink" href="#problem-4-type-prediction" title="Link to this heading">#</a></h3>
+<p><strong>Class 1, Problem 1.11</strong></p>
+<p>WITHOUT running code, what type would the expression <code class="docutils literal notranslate"><span class="pre">5</span> <span class="pre">-</span> <span class="pre">4.0</span></code> return?</p>
+<p>Write your prediction: ___________</p>
+<p>Then verify with code using <code class="docutils literal notranslate"><span class="pre">type()</span></code>.</p>
+<p><strong>Why this problem?</strong> Type conversions are tested on every exam.</p>
+</section>
+<hr class="docutils" />
+<section id="problem-5-testing-round">
+<h3>Problem 5: Testing <code class="docutils literal notranslate"><span class="pre">round()</span></code><a class="headerlink" href="#problem-5-testing-round" title="Link to this heading">#</a></h3>
+<p><strong>Class 1, Problem 1.7</strong></p>
+<p>Test the <code class="docutils literal notranslate"><span class="pre">round()</span></code> function with:</p>
+<ul class="simple">
+<li><p>4.2, 4.5, 4.8</p></li>
+<li><p>Negative numbers</p></li>
+<li><p>Integers</p></li>
+</ul>
+<p>Then predict: What does <code class="docutils literal notranslate"><span class="pre">round(-5.7)</span></code> return?</p>
+<p><strong>Why this problem?</strong> Understanding built-in functions is critical for exams.</p>
+</section>
+<hr class="docutils" />
+<section id="problem-6-creative-math">
+<h3>Problem 6: Creative Math<a class="headerlink" href="#problem-6-creative-math" title="Link to this heading">#</a></h3>
+<p><strong>Class 1, Problem 1.15</strong></p>
+<p>Using ONLY the integers 2 and 3, come up with at least 4 different expressions that equal 9.</p>
+<p><strong>Why this problem?</strong> Tests operator precedence and creativity with operations.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="day-2-sequences-logic">
+<h2>Day 2: Sequences &amp; Logic<a class="headerlink" href="#day-2-sequences-logic" title="Link to this heading">#</a></h2>
+<section id="problem-7-string-basics">
+<h3>Problem 7: String Basics<a class="headerlink" href="#problem-7-string-basics" title="Link to this heading">#</a></h3>
+<p><strong>Class 2, Task 1.1</strong></p>
+<p>Given:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">"The quick brown fox jumps over the lazy dog"</span>
+</pre></div>
+</div>
+<p>Write code to:</p>
+<ol class="arabic simple">
+<li><p>Print the first character</p></li>
+<li><p>Print the last character</p></li>
+<li><p>Print the length</p></li>
+<li><p>Check if <code class="docutils literal notranslate"><span class="pre">&quot;fox&quot;</span></code> is in the sentence</p></li>
+</ol>
+<p><strong>Why this problem?</strong> String indexing and operators are exam staples.</p>
+</section>
+<hr class="docutils" />
+<section id="problem-8-string-transformation">
+<h3>Problem 8: String Transformation<a class="headerlink" href="#problem-8-string-transformation" title="Link to this heading">#</a></h3>
+<p><strong>Class 2, Task 1.2</strong></p>
+<p>Given <code class="docutils literal notranslate"><span class="pre">name</span> <span class="pre">=</span> <span class="pre">&quot;john</span> <span class="pre">doe&quot;</span></code>, write separate statements to:</p>
+<ol class="arabic simple">
+<li><p>Convert to title case (“John Doe”)</p></li>
+<li><p>Replace spaces with underscores</p></li>
+<li><p>Convert to uppercase</p></li>
+<li><p>Count how many ‘o’ letters appear</p></li>
+</ol>
+<p><strong>Why this problem?</strong> String methods are heavily tested. Know them cold!</p>
+</section>
+<hr class="docutils" />
+<section id="problem-9-list-modification-challenge">
+<h3>Problem 9: List Modification Challenge<a class="headerlink" href="#problem-9-list-modification-challenge" title="Link to this heading">#</a></h3>
+<p><strong>Class 2, Task 2.2</strong></p>
+<p>Start with:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Use list methods to transform it to: <code class="docutils literal notranslate"><span class="pre">[5,</span> <span class="pre">10,</span> <span class="pre">20,</span> <span class="pre">35,</span> <span class="pre">50]</span></code></p>
+<p>You need to:</p>
+<ol class="arabic simple">
+<li><p>Change 30 to 35</p></li>
+<li><p>Add 60 to end</p></li>
+<li><p>Insert 5 at beginning</p></li>
+<li><p>Remove 40</p></li>
+<li><p>Remove last element</p></li>
+</ol>
+<p><strong>Why this problem?</strong> Comprehensive test of list methods - frequently appears on exams.</p>
+</section>
+<hr class="docutils" />
+<section id="problem-10-boolean-expression-evaluation">
+<h3>Problem 10: Boolean Expression Evaluation<a class="headerlink" href="#problem-10-boolean-expression-evaluation" title="Link to this heading">#</a></h3>
+<p><strong>Class 3, Part 1</strong></p>
+<p>Given <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">10</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">5</span></code>, <code class="docutils literal notranslate"><span class="pre">z</span> <span class="pre">=</span> <span class="pre">8</span></code>, evaluate on paper:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">(x</span> <span class="pre">&gt;</span> <span class="pre">y)</span> <span class="pre">and</span> <span class="pre">(y</span> <span class="pre">&lt;</span> <span class="pre">z)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(x</span> <span class="pre">&lt;</span> <span class="pre">y)</span> <span class="pre">or</span> <span class="pre">(z</span> <span class="pre">&gt;</span> <span class="pre">y)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">(x</span> <span class="pre">==</span> <span class="pre">10)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(x</span> <span class="pre">&gt;</span> <span class="pre">5)</span> <span class="pre">and</span> <span class="pre">(y</span> <span class="pre">&lt;=</span> <span class="pre">5)</span> <span class="pre">and</span> <span class="pre">(z</span> <span class="pre">&lt;</span> <span class="pre">10)</span></code></p></li>
+</ol>
+<p><strong>Why this problem?</strong> Boolean logic is tested on EVERY exam. Master this!</p>
+</section>
+<hr class="docutils" />
+<section id="problem-11-weather-decision-system">
+<h3>Problem 11: Weather Decision System<a class="headerlink" href="#problem-11-weather-decision-system" title="Link to this heading">#</a></h3>
+<p><strong>Class 3, Part 2</strong></p>
+<p>Given:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">temperature</span> <span class="o">=</span> <span class="mi">68</span>
+<span class="n">is_raining</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<p>Write code to print ONE message based on these rules:</p>
+<ul class="simple">
+<li><p>temp &lt; 50: “Wear a heavy jacket”</p></li>
+<li><p>50 ≤ temp ≤ 70 AND raining: “Wear a light jacket”</p></li>
+<li><p>50 ≤ temp ≤ 70 AND not raining: “Wear a sweater”</p></li>
+<li><p>temp &gt; 70 AND raining: “Bring an umbrella!”</p></li>
+<li><p>temp &gt; 70 AND not raining: “T-shirt weather!”</p></li>
+</ul>
+<p><strong>Why this problem?</strong> Complex Boolean logic with nested conditions - this is exam gold!</p>
+</section>
+<hr class="docutils" />
+<section id="problem-12-data-cleaning">
+<h3>Problem 12: Data Cleaning<a class="headerlink" href="#problem-12-data-cleaning" title="Link to this heading">#</a></h3>
+<p><strong>Class 2, Task 3.1</strong></p>
+<p>Given:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">responses</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"yes"</span><span class="p">,</span> <span class="s2">"NO"</span><span class="p">,</span> <span class="s2">"maybe"</span><span class="p">,</span> <span class="s2">"YES"</span><span class="p">,</span> <span class="s2">"no"</span><span class="p">,</span> <span class="s2">"Maybe"</span><span class="p">,</span> <span class="s2">"yes"</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Write code to:</p>
+<ol class="arabic simple">
+<li><p>Convert all to lowercase</p></li>
+<li><p>Count how many “yes”, “no”, and “maybe” responses</p></li>
+<li><p>Create separate lists for each type</p></li>
+</ol>
+<p><strong>Why this problem?</strong> Combines string methods, loops, and counting - common exam pattern.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="day-3-conditionals">
+<h2>Day 3: Conditionals<a class="headerlink" href="#day-3-conditionals" title="Link to this heading">#</a></h2>
+<section id="problem-13-grade-classifier">
+<h3>Problem 13: Grade Classifier<a class="headerlink" href="#problem-13-grade-classifier" title="Link to this heading">#</a></h3>
+<p><strong>Class 4, Problem 2.3 Extended</strong></p>
+<p>Given <code class="docutils literal notranslate"><span class="pre">score</span> <span class="pre">=</span> <span class="pre">87</span></code>, write an <code class="docutils literal notranslate"><span class="pre">if/elif/else</span></code> chain that prints:</p>
+<ul class="simple">
+<li><p>“A” for 90-100</p></li>
+<li><p>“B” for 80-89</p></li>
+<li><p>“C” for 70-79</p></li>
+<li><p>“D” for 60-69</p></li>
+<li><p>“F” for below 60</p></li>
+</ul>
+<p><strong>Why this problem?</strong> Classic if/elif/else - appears on nearly every programming exam.</p>
+</section>
+<hr class="docutils" />
+<section id="problem-14-number-sign-checker">
+<h3>Problem 14: Number Sign Checker<a class="headerlink" href="#problem-14-number-sign-checker" title="Link to this heading">#</a></h3>
+<p><strong>Class 4, Problem 2.3</strong></p>
+<p>Write code that takes a number from the user and prints:</p>
+<ul class="simple">
+<li><p>“Positive” if &gt; 0</p></li>
+<li><p>“Negative” if &lt; 0</p></li>
+<li><p>“Zero” if == 0</p></li>
+</ul>
+<p><strong>Why this problem?</strong> Simple but tests fundamental if/elif/else structure.</p>
+</section>
+<hr class="docutils" />
+<section id="problem-15-age-classification">
+<h3>Problem 15: Age Classification<a class="headerlink" href="#problem-15-age-classification" title="Link to this heading">#</a></h3>
+<p><strong>Class 4, Problem 3.2</strong></p>
+<p>Given:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">has_drivers_license</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+<p>Write nested conditionals:</p>
+<ul class="simple">
+<li><p>If age &lt; 13: Print “Child”</p></li>
+<li><p>If 13 ≤ age &lt; 18:</p>
+<ul>
+<li><p>If has_license: Print “Teen driver”</p></li>
+<li><p>If not: Print “Teen”</p></li>
+</ul>
+</li>
+<li><p>If age ≥ 18: Print “Adult”</p></li>
+</ul>
+<p><strong>Why this problem?</strong> Nested conditionals are a key exam skill.</p>
+</section>
+<hr class="docutils" />
+<section id="problem-16-pet-comparison">
+<h3>Problem 16: Pet Comparison<a class="headerlink" href="#problem-16-pet-comparison" title="Link to this heading">#</a></h3>
+<p><strong>Class 4, Problem 3.3</strong></p>
+<p>Ask user for number of cats and dogs, then print:</p>
+<ol class="arabic simple">
+<li><p>“You have both cats and dogs!” if at least 1 of each</p></li>
+<li><p>“You’re more of a cat person” if more cats than dogs</p></li>
+<li><p>“You’re more of a dog person” if more dogs than cats</p></li>
+<li><p>“Perfect balance!” if equal (and &gt; 0)</p></li>
+<li><p>“No pets yet!” if both are 0</p></li>
+</ol>
+<p><strong>Why this problem?</strong> Tests complex conditional logic and proper ordering.</p>
+</section>
+<hr class="docutils" />
+<section id="problem-17-quadratic-discriminant">
+<h3>Problem 17: Quadratic Discriminant<a class="headerlink" href="#problem-17-quadratic-discriminant" title="Link to this heading">#</a></h3>
+<p><strong>Class 4, Problem 3.4 Simplified</strong></p>
+<p>Given coefficients <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">-5</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">=</span> <span class="pre">6</span></code>:</p>
+<p>Calculate discriminant: <code class="docutils literal notranslate"><span class="pre">b²</span> <span class="pre">-</span> <span class="pre">4ac</span></code></p>
+<p>Then print:</p>
+<ul class="simple">
+<li><p>“Two real roots” if discriminant &gt; 0</p></li>
+<li><p>“One real root” if discriminant == 0</p></li>
+<li><p>“No real roots” if discriminant &lt; 0</p></li>
+</ul>
+<p><strong>Why this problem?</strong> Combines math with conditionals - common exam pattern.</p>
+</section>
+<hr class="docutils" />
+<section id="problem-18-material-length-table">
+<h3>Problem 18: Material Length Table<a class="headerlink" href="#problem-18-material-length-table" title="Link to this heading">#</a></h3>
+<p><strong>Class 4, Problem 1.1</strong></p>
+<p>Given <code class="docutils literal notranslate"><span class="pre">length_feet</span> <span class="pre">=</span> <span class="pre">12.5</span></code>, create formatted output showing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Material Length Report
+=====================
+Feet:   12.5
+Inches: [feet × 12]
+Yards:  [feet ÷ 3]
+</pre></div>
+</div>
+<p>Use f-strings with 2 decimal places.</p>
+<p><strong>Why this problem?</strong> Tests f-string formatting - frequently tested!</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="day-4-loops">
+<h2>Day 4: Loops<a class="headerlink" href="#day-4-loops" title="Link to this heading">#</a></h2>
+<section id="problem-19-exploring-range">
+<h3>Problem 19: Exploring <code class="docutils literal notranslate"><span class="pre">range()</span></code><a class="headerlink" href="#problem-19-exploring-range" title="Link to this heading">#</a></h3>
+<p><strong>Class 5, Problem 1.1</strong></p>
+<ol class="arabic simple">
+<li><p>Create <code class="docutils literal notranslate"><span class="pre">myr</span> <span class="pre">=</span> <span class="pre">range(6)</span></code></p></li>
+<li><p>Convert to list and print</p></li>
+<li><p>Print the length</p></li>
+</ol>
+<p><strong>Why this problem?</strong> Understanding <code class="docutils literal notranslate"><span class="pre">range()</span></code> is essential for loop mastery.</p>
+</section>
+<hr class="docutils" />
+<section id="problem-20-rounded-values">
+<h3>Problem 20: Rounded Values<a class="headerlink" href="#problem-20-rounded-values" title="Link to this heading">#</a></h3>
+<p><strong>Class 5, Problem 1.4</strong></p>
+<p>Create a list of floats:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">prices</span> <span class="o">=</span> <span class="p">[</span><span class="mf">19.99</span><span class="p">,</span> <span class="mf">24.50</span><span class="p">,</span> <span class="mf">15.75</span><span class="p">,</span> <span class="mf">32.00</span><span class="p">,</span> <span class="mf">8.99</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Write a for loop that prints the rounded value of each number.</p>
+<p><strong>Why this problem?</strong> Basic for loop pattern - must know this!</p>
+</section>
+<hr class="docutils" />
+<section id="problem-21-two-loop-styles">
+<h3>Problem 21: Two Loop Styles<a class="headerlink" href="#problem-21-two-loop-styles" title="Link to this heading">#</a></h3>
+<p><strong>Class 5, Problem 1.5</strong></p>
+<p>Given:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">strlist</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'hello'</span><span class="p">,</span> <span class="s1">'ciao'</span><span class="p">,</span> <span class="s1">'howdy'</span><span class="p">,</span> <span class="s1">'hi'</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Write TWO for loops that print each greeting:</p>
+<ol class="arabic simple">
+<li><p>One that iterates directly over the list</p></li>
+<li><p>One that uses indices with <code class="docutils literal notranslate"><span class="pre">range(len(strlist))</span></code></p></li>
+</ol>
+<p><strong>Why this problem?</strong> Shows you understand both loop patterns - exam favorite!</p>
+</section>
+<hr class="docutils" />
+<section id="problem-22-running-sum-with-random">
+<h3>Problem 22: Running Sum with Random<a class="headerlink" href="#problem-22-running-sum-with-random" title="Link to this heading">#</a></h3>
+<p><strong>Class 5, Problem 1.6</strong></p>
+<ol class="arabic simple">
+<li><p>Generate random integer n from 2 to 5</p></li>
+<li><p>Loop n times, asking user for a float</p></li>
+<li><p>Print running sum after each input (1 decimal place)</p></li>
+</ol>
+<p>Use <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">random</span> <span class="pre">import</span> <span class="pre">randint</span></code></p>
+<p><strong>Why this problem?</strong> Combines multiple concepts: random, loops, accumulator pattern.</p>
+</section>
+<hr class="docutils" />
+<section id="problem-23-debug-the-running-product">
+<h3>Problem 23: Debug the Running Product<a class="headerlink" href="#problem-23-debug-the-running-product" title="Link to this heading">#</a></h3>
+<p><strong>Class 5, Problem 1.7</strong></p>
+<p>The following should calculate a running product of the integers from 1 to 5.
+This code has a bug:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">runprod</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+    <span class="n">runprod</span> <span class="o">=</span> <span class="n">runprod</span> <span class="o">*</span> <span class="n">i</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'The product so far is'</span><span class="p">,</span> <span class="n">runprod</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Find and fix the bug!</p>
+<p><strong>Why this problem?</strong> Debugging is a KEY exam skill. Also tests <code class="docutils literal notranslate"><span class="pre">range()</span></code> understanding.</p>
+</section>
+<hr class="docutils" />
+<section id="problem-24-loops-selection">
+<h3>Problem 24: Loops + Selection<a class="headerlink" href="#problem-24-loops-selection" title="Link to this heading">#</a></h3>
+<p><strong>Class 5, Problem 1.8</strong></p>
+<p>Generate 5 random integers (1 to 30). For each, print:</p>
+<ul class="simple">
+<li><p>The number</p></li>
+<li><p>Whether it’s less than 15</p></li>
+</ul>
+<p><strong>Why this problem?</strong> Combining loops with conditionals - very common on exams!</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="day-5-advanced-review">
+<h2>Day 5: Advanced &amp; Review<a class="headerlink" href="#day-5-advanced-review" title="Link to this heading">#</a></h2>
+<section id="problem-25-circle-calculations">
+<h3>Problem 25: Circle Calculations<a class="headerlink" href="#problem-25-circle-calculations" title="Link to this heading">#</a></h3>
+<p><strong>Class 5, Problem 1.10</strong></p>
+<p>Ask user for radius, then calculate and print (2 decimal places):</p>
+<ul class="simple">
+<li><p>Area: π × r²</p></li>
+<li><p>Circumference: 2 × π × r</p></li>
+</ul>
+<p>Use <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">math</span> <span class="pre">import</span> <span class="pre">pi</span></code></p>
+<p><strong>Why this problem?</strong> Tests modules, math, formatting - comprehensive!</p>
+</section>
+<hr class="docutils" />
+<section id="problem-26-square-roots-loop">
+<h3>Problem 26: Square Roots Loop<a class="headerlink" href="#problem-26-square-roots-loop" title="Link to this heading">#</a></h3>
+<p><strong>Class 5, Problem 1.11</strong></p>
+<p>Generate 5 random integers (1-100). For each:</p>
+<ul class="simple">
+<li><p>Print the number</p></li>
+<li><p>Print square root (2 decimals)</p></li>
+<li><p>Print if square root &gt; 5</p></li>
+</ul>
+<p>Use <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">math</span> <span class="pre">import</span> <span class="pre">sqrt</span></code> and <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">random</span> <span class="pre">import</span> <span class="pre">randint</span></code></p>
+<p><strong>Why this problem?</strong> Combines loops, random, math, conditionals, formatting!</p>
+</section>
+<hr class="docutils" />
+<section id="problem-27-while-loop-basics">
+<h3>Problem 27: While Loop Basics<a class="headerlink" href="#problem-27-while-loop-basics" title="Link to this heading">#</a></h3>
+<p><strong>Class 5, Problem 2.1</strong></p>
+<p>Given this while loop:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">count</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">while</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Counting down:"</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Done!"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Questions:</p>
+<ol class="arabic simple">
+<li><p>What value for <code class="docutils literal notranslate"><span class="pre">count</span></code> makes loop run exactly once?</p></li>
+<li><p>What value makes loop never run?</p></li>
+</ol>
+<p><strong>Why this problem?</strong> Understanding while loop conditions is crucial!</p>
+</section>
+<hr class="docutils" />
+<section id="problem-28-while-with-random">
+<h3>Problem 28: While with Random<a class="headerlink" href="#problem-28-while-with-random" title="Link to this heading">#</a></h3>
+<p><strong>Class 5, Problem 2.2</strong></p>
+<p>Generate random integers (1-20) until you get one &gt; 15. Print each number as you go, then print the final number that ended the loop.</p>
+<p><strong>Why this problem?</strong> Sentinel-controlled loops are exam favorites!</p>
+</section>
+<hr class="docutils" />
+<section id="problem-29-error-checking-loop">
+<h3>Problem 29: Error Checking Loop<a class="headerlink" href="#problem-29-error-checking-loop" title="Link to this heading">#</a></h3>
+<p><strong>Class 5, Problem 2.4</strong></p>
+<p>Prompt user for a number between 1 and 10. Keep prompting until they enter a valid number. Use a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop with compound Boolean condition.</p>
+<p><strong>Why this problem?</strong> Input validation with while loops - very common exam question!</p>
+</section>
+<hr class="docutils" />
+<section id="problem-30-pattern-printing">
+<h3>Problem 30: Pattern Printing<a class="headerlink" href="#problem-30-pattern-printing" title="Link to this heading">#</a></h3>
+<p><strong>Class 6, Problem 2</strong></p>
+<ul class="simple">
+<li><p>Loop over the numbers 0 through 4.</p></li>
+<li><p>On each line, first print the number, followed by a colon (<code class="docutils literal notranslate"><span class="pre">:</span></code>).</p></li>
+<li><p>After the colon, print as many asterisks (<code class="docutils literal notranslate"><span class="pre">*</span></code>) as the number itself.</p></li>
+<li><p>Each line should show the number and its matching stars.</p></li>
+</ul>
+<p>The output should look like the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="p">:</span>
+<span class="mi">1</span><span class="p">:</span><span class="o">*</span>
+<span class="mi">2</span><span class="p">:</span><span class="o">**</span>
+<span class="mi">3</span><span class="p">:</span><span class="o">***</span>
+<span class="mi">4</span><span class="p">:</span><span class="o">****</span>
+</pre></div>
+</div>
+<p><strong>Why this problem?</strong> Nested loops with pattern printing - classic exam problem!</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="exam-strategy-guide">
+<h2>Exam Strategy Guide<a class="headerlink" href="#exam-strategy-guide" title="Link to this heading">#</a></h2>
+<section id="time-management">
+<h3>Time Management<a class="headerlink" href="#time-management" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Basics (Problems 1-6)</strong>: 2-3 min each → 12-18 min total</p></li>
+<li><p><strong>Sequences &amp; Logic (Problems 7-12)</strong>: 3-4 min each → 18-24 min total</p></li>
+<li><p><strong>Conditionals (Problems 13-18)</strong>: 4-5 min each → 24-30 min total</p></li>
+<li><p><strong>Loops (Problems 19-24)</strong>: 5-6 min each → 30-36 min total</p></li>
+<li><p><strong>Advanced (Problems 25-30)</strong>: 6-8 min each → 36-48 min total</p></li>
+</ul>
+<p><strong>Total: ~2-2.5 hours if you do all 30</strong></p>
+</section>
+<section id="paper-writing-tips">
+<h3>Paper Writing Tips<a class="headerlink" href="#paper-writing-tips" title="Link to this heading">#</a></h3>
+<p><strong>Show Indentation Clearly</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<span class="o">....</span><span class="n">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="o">....</span><span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="o">........</span><span class="n">print</span><span class="p">(</span><span class="s2">"Big"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Write Comments for Complex Logic</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check if temperature is in valid range AND it's raining</span>
+<span class="k">if</span> <span class="n">temp</span> <span class="o">&gt;=</span> <span class="mi">50</span> <span class="ow">and</span> <span class="n">temp</span> <span class="o">&lt;=</span> <span class="mi">70</span> <span class="ow">and</span> <span class="n">is_raining</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Wear light jacket"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Check Your Syntax</strong></p>
+<p>Before moving to next problem, verify:</p>
+<ul class="simple">
+<li><p>✓ Colons after <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code></p></li>
+<li><p>✓ Matching parentheses</p></li>
+<li><p>✓ Matching quotes</p></li>
+<li><p>✓ <code class="docutils literal notranslate"><span class="pre">==</span></code> not <code class="docutils literal notranslate"><span class="pre">=</span></code> in conditions</p></li>
+<li><p>✓ Consistent indentation</p></li>
+</ul>
+</section>
+<section id="common-paper-exam-mistakes">
+<h3>Common Paper Exam Mistakes<a class="headerlink" href="#common-paper-exam-mistakes" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Forgetting colons</strong> → <code class="docutils literal notranslate"><span class="pre">:</span></code> after <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">for</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code></p></li>
+<li><p><strong>Wrong comparison</strong> → <code class="docutils literal notranslate"><span class="pre">==</span></code> not <code class="docutils literal notranslate"><span class="pre">=</span></code></p></li>
+<li><p><strong>Off-by-one</strong> → <code class="docutils literal notranslate"><span class="pre">range(5)</span></code> gives 0-4, not 1-5</p></li>
+<li><p><strong>Uninitialized accumulator</strong> → Must set to 0 before loop</p></li>
+<li><p><strong>Infinite loops</strong> → Forgetting to update condition variable</p></li>
+<li><p><strong>Wrong operator</strong> → <code class="docutils literal notranslate"><span class="pre">/</span></code> vs <code class="docutils literal notranslate"><span class="pre">//</span></code> vs <code class="docutils literal notranslate"><span class="pre">%</span></code></p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section id="final-checklist">
+<h2>Final Checklist<a class="headerlink" href="#final-checklist" title="Link to this heading">#</a></h2>
+<p>Before the exam:</p>
+<p><strong>Knowledge:</strong></p>
+<ul class="simple">
+<li><p>Can write all operators from memory</p></li>
+<li><p>Know all string methods</p></li>
+<li><p>Know all list methods</p></li>
+<li><p>Can write for loops in both styles</p></li>
+<li><p>Understand while loop conditions</p></li>
+<li><p>Can nest conditionals correctly</p></li>
+<li><p>Can nest loops correctly</p></li>
+</ul>
+<p><strong>Skills:</strong></p>
+<ul class="simple">
+<li><p>Practiced writing code on paper 5+ times</p></li>
+<li><p>Can show indentation clearly</p></li>
+<li><p>Check syntax automatically</p></li>
+<li><p>Trace through code mentally</p></li>
+<li><p>Debug common errors quickly</p></li>
+</ul>
+<p><strong>Preparation:</strong></p>
+<ul class="simple">
+<li><p>Created comprehensive note sheet</p></li>
+<li><p>Tested self on these 30 problems</p></li>
+<li><p>Identified weak areas</p></li>
+<li><p>Practiced weak areas extra</p></li>
+<li><p>Got good sleep before exam</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./gpps"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Class7_GPP_Solutions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Class 7 GPP Solutions: Advanced Iteration and Nested Structures</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../class/Class9.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Class 9: From Colab Notebooks to Running Python Locally</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#day-practice-plan">5-Day Practice Plan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#day-1-basics-fundamentals">Day 1: Basics &amp; Fundamentals</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-simultaneous-assignment">Problem 1: Simultaneous Assignment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-division-operators">Problem 2: Division Operators</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-bagel-cost-calculation">Problem 3: Bagel Cost Calculation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4-type-prediction">Problem 4: Type Prediction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-testing-round">Problem 5: Testing <code class="docutils literal notranslate"><span class="pre">round()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-6-creative-math">Problem 6: Creative Math</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#day-2-sequences-logic">Day 2: Sequences &amp; Logic</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-7-string-basics">Problem 7: String Basics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-8-string-transformation">Problem 8: String Transformation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-9-list-modification-challenge">Problem 9: List Modification Challenge</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-10-boolean-expression-evaluation">Problem 10: Boolean Expression Evaluation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-11-weather-decision-system">Problem 11: Weather Decision System</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-12-data-cleaning">Problem 12: Data Cleaning</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#day-3-conditionals">Day 3: Conditionals</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-13-grade-classifier">Problem 13: Grade Classifier</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-14-number-sign-checker">Problem 14: Number Sign Checker</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-15-age-classification">Problem 15: Age Classification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-16-pet-comparison">Problem 16: Pet Comparison</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-17-quadratic-discriminant">Problem 17: Quadratic Discriminant</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-18-material-length-table">Problem 18: Material Length Table</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#day-4-loops">Day 4: Loops</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-19-exploring-range">Problem 19: Exploring <code class="docutils literal notranslate"><span class="pre">range()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-20-rounded-values">Problem 20: Rounded Values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-21-two-loop-styles">Problem 21: Two Loop Styles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-22-running-sum-with-random">Problem 22: Running Sum with Random</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-23-debug-the-running-product">Problem 23: Debug the Running Product</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-24-loops-selection">Problem 24: Loops + Selection</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#day-5-advanced-review">Day 5: Advanced &amp; Review</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-25-circle-calculations">Problem 25: Circle Calculations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-26-square-roots-loop">Problem 26: Square Roots Loop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-27-while-loop-basics">Problem 27: While Loop Basics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-28-while-with-random">Problem 28: While with Random</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-29-error-checking-loop">Problem 29: Error Checking Loop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-30-pattern-printing">Problem 30: Pattern Printing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exam-strategy-guide">Exam Strategy Guide</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-management">Time Management</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#paper-writing-tips">Paper Writing Tips</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-paper-exam-mistakes">Common Paper Exam Mistakes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-checklist">Final Checklist</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Stormy Attaway, Brian DePasquale, Christine Mulvey, Kenn Sebesta
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
