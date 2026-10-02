@@ -11,8 +11,10 @@ here).
 
 - **EK125** (this repo) -- the main, public, permanent jupyter-book site.
   Student-facing. Canonical source for reading content, GPP problem
-  statements, and (Fall 2026 on) homework problem statements and Act 1
-  (Classes 1-7) GPP solutions.
+  statements, and (Fall 2026 on) homework problem statements and GPP
+  solutions for Act 1 (Classes 1-7), plus Classes 9 and 10 (added
+  2026-10-02 by explicit instructor request -- see README.md for the
+  authoritative scope statement; this is not a general Act 2 reopening).
 - **EK125-notebooks** (private) -- the instructor-side staging/source repo
   most content here gets ported *from*. Itself built as a second,
   internal-only jupyter-book site (has its own `_config.yml`/`_toc.yml`).
@@ -105,6 +107,14 @@ it; check `_toc.yml` to see what's actually published.
   hidden setup cell inserted first for correct sequential execution), and
   never try to execute pure pseudocode blocks (undefined placeholder
   functions) -- those need `skip-execution`, not a real run.
+- **GPP-solutions scope was extended to Classes 9-10 on 2026-10-02**, by
+  explicit instructor request in a Claude Code session -- previously Act 1
+  (Classes 1-7) only. `Class9_GPP_Solutions.ipynb` and
+  `Class10_GPP_Solutions.md`/`.py` were ported from EK125-notebooks'
+  `gpp/Class_9_GPP_Solutions.*`/`gpp/Class_10_GPP_Solutions.*` after
+  cross-checking them line-for-line against the current public GPPs. Do
+  not extend further into Act 2 (Classes 11-15) or Act 3 without being
+  asked again.
 
 ## Known open items worth checking before assuming fixed
 
