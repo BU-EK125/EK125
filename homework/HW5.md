@@ -28,6 +28,14 @@ This homework has two sections:
 - Output appears in the terminal at the bottom
 - Save frequently with `Ctrl+S` / `Cmd+S`
 
+This is your first graded assignment in PyCharm -- if you need a refresher on
+the PyCharm workflow itself (not the Python concepts below), see the Class 9
+reading's [Key Things to Remember](https://BU-EK125.github.io/EK125/class/Class9.html#key-things-to-remember)
+table. In particular, watch out for the reading's
+[What Will Be Different](https://BU-EK125.github.io/EK125/class/Class9.html#what-will-be-different)
+🚩 common mistake: a bare expression on its own line (like Colab) displays
+nothing in a `.py` file -- you must `print()` everything you want to see.
+
 ## Section 1: Class 7 Material
 
 ### Problem 1: Water Quality Lab
@@ -189,7 +197,7 @@ Expected output:
 (f) Every other: [12.4, 18.7, 22.6, 16.2, 13.5]
 ```
 
-See the reading's [Getting first/last n elements](https://BU-EK125.github.io/EK125/class/Class10.html#getting-first-last-n-elements) and [Negative Steps (Reversing)](https://BU-EK125.github.io/EK125/class/Class10.html#negative-steps-reversing) sections for a refresher.
+See the reading's [Simplest Slice Notation](https://BU-EK125.github.io/EK125/class/Class10.html#simplest-slice-notation) section for part (c), [Common Slicing Patterns](https://BU-EK125.github.io/EK125/class/Class10.html#common-slicing-patterns) for parts (a), (b), (d), and (f), and [Negative Steps (Reversing)](https://BU-EK125.github.io/EK125/class/Class10.html#negative-steps-reversing) for part (e).
 
 ```{literalinclude} HW5.py
 :language: python
@@ -308,7 +316,7 @@ Do this in two steps:
 
 Print `combined` to verify.
 
-See the reading's [Slice Assignment (Lists Only)](https://BU-EK125.github.io/EK125/class/Class10.html#slice-assignment-lists-only) section for a refresher.
+See the reading's [Slice Assignment (Lists Only)](https://BU-EK125.github.io/EK125/class/Class10.html#slice-assignment-lists-only) section for the step-assignment length rule, and [Building New Sequences from Slices](https://BU-EK125.github.io/EK125/class/Class10.html#building-new-sequences-from-slices) for this exact interleaving pattern.
 
 **Part C: Using `.index()` with Slicing**
 Part ID 203 has been flagged as defective. Extract all part IDs that come
