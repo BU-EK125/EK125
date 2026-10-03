@@ -46,6 +46,7 @@ parts:
         sections:
           - file: gpps/Class10_GPP
           - file: gpps/Class10_GPP_Solutions
+      - file: homework/HW5
       - file: class/Class11
       - file: class/Class12
       - file: class/Class13
