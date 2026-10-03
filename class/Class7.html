@@ -450,6 +450,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Pause and Think</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sum-function">The <code class="docutils literal notranslate"><span class="pre">sum()</span></code> Function</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-structures">3. Nested Structures</a><ul class="nav section-nav flex-column">
@@ -969,6 +970,49 @@ x: 20, y: 25
 <li><p>What’s shorter: a loop with append, or a list comprehension?</p></li>
 </ul>
 </section>
+</section>
+<hr class="docutils" />
+<section id="the-sum-function">
+<h3>The <code class="docutils literal notranslate"><span class="pre">sum()</span></code> Function<a class="headerlink" href="#the-sum-function" title="Link to this heading">#</a></h3>
+<p>Python has a built-in <code class="docutils literal notranslate"><span class="pre">sum()</span></code> function that adds up all the values in a list (or any other iterable) in one step, without writing a loop yourself:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">92</span><span class="p">]</span>
+<span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>345
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">345</span>
+</pre></div>
+</div>
+<p>Combined with <code class="docutils literal notranslate"><span class="pre">len()</span></code>, this is the standard way to compute an <strong>average</strong>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">average</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">average</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>86.25
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">86.25</span>
+</pre></div>
+</div>
+<p>This also works inside a list comprehension, e.g. to average each row of a nested list: <code class="docutils literal notranslate"><span class="pre">[sum(row)</span> <span class="pre">/</span> <span class="pre">len(row)</span> <span class="pre">for</span> <span class="pre">row</span> <span class="pre">in</span> <span class="pre">grid]</span></code>.</p>
+<p>You’ll use this exact pattern in today’s GPP – see <a class="reference external" href="https://BU-EK125.github.io/EK125/gpps/Class7_GPP.html#problem-5-1-stress-testing-data-analysis">Problem 5.1: Stress Testing Data Analysis</a> and <a class="reference external" href="https://BU-EK125.github.io/EK125/gpps/Class7_GPP.html#problem-5-2-signal-processing">Problem 5.2: Signal Processing</a>.</p>
 </section>
 </section>
 <hr class="docutils" />
@@ -1702,6 +1746,7 @@ grid[2][0]  → one number: 50
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Pause and Think</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-sum-function">The <code class="docutils literal notranslate"><span class="pre">sum()</span></code> Function</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-structures">3. Nested Structures</a><ul class="nav section-nav flex-column">
