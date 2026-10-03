@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Homework 1: Variables, Types, and Assignments &#8212; EK125</title>
+    <title>Homework 5: Advanced Iteration and Nested Structures &#8212; EK125</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'homework/HW1';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'homework/HW5';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Class 2: Sequences, Strings, and Lists in Python" href="../class/Class2.html" />
-    <link rel="prev" title="Class 1 GPP Solutions: Constants, Variables, Types, and Assignments" href="../gpps/Class1_GPP_Solutions.html" />
+    <link rel="next" title="Class 11: Digging into arrays with NumPy" href="../class/Class11.html" />
+    <link rel="prev" title="Class 10 GPP Solutions: Mastering Slicing in Python" href="../gpps/Class10_GPP_Solutions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -174,11 +174,11 @@
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python in Colab</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../class/Class1.html">Class 1: Introduction to Interactive Programming Using Google Colab</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class1.html">Class 1: Introduction to Interactive Programming Using Google Colab</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../gpps/Class1_GPP.html">Class 1 GPP: Constants, Variables, Types, and Assignments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../gpps/Class1_GPP_Solutions.html">Class 1 GPP Solutions: Constants, Variables, Types, and Assignments</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Homework 1: Variables, Types, and Assignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW1.html">Homework 1: Variables, Types, and Assignments</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class2.html">Class 2: Sequences, Strings, and Lists in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -217,7 +217,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../gpps/Exam1_Review.html">EK125 Exam 1 - Top 30 GPP Problems for Paper Practice</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python in an IDE</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class9.html">Class 9: From Colab Notebooks to Running Python Locally</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../gpps/Class9_GPP.html">Class 9 GPP: Getting Comfortable with PyCharm</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../gpps/Class9_GPP_Solutions.html">Class 9 GPP Solutions: Getting Comfortable with PyCharm</a></li>
@@ -228,7 +228,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../gpps/Class10_GPP_Solutions.html">Class 10 GPP Solutions: Mastering Slicing in Python</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="HW5.html">Homework 5: Advanced Iteration and Nested Structures</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Homework 5: Advanced Iteration and Nested Structures</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../class/Class11.html">Class 11: Digging into arrays with NumPy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../class/Class12.html">Class 12 Preread: Dictionaries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../class/Class13.html">Class 13: User-Defined Functions, Arguments, and Scope</a></li>
@@ -295,37 +295,6 @@
 
 
 
-<div class="dropdown dropdown-launch-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
-    <i class="fas fa-rocket"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://colab.research.google.com/github/BU-EK125/EK125/blob/main/homework/HW1.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch on Colab"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img alt="Colab logo" src="../_static/images/logo_colab.png">
-  </span>
-<span class="btn__text-container">Colab</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -334,7 +303,7 @@
       
       
       
-      <li><a href="../_sources/homework/HW1.ipynb" target="_blank"
+      <li><a href="../_sources/homework/HW5.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -344,7 +313,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.ipynb</span>
+<span class="btn__text-container">.md</span>
 </a>
 </li>
       
@@ -418,7 +387,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Homework 1: Variables, Types, and Assignments</h1>
+    <h1>Homework 5: Advanced Iteration and Nested Structures</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -428,11 +397,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5">Problem 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">Instructions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-water-quality-lab">Problem 1: Water Quality Lab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-stress-grid-analysis">Problem 2: Stress Grid Analysis</a></li>
 </ul>
             </nav>
         </div>
@@ -444,112 +411,247 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="homework-1-variables-types-and-assignments">
-<h1>Homework 1: Variables, Types, and Assignments<a class="headerlink" href="#homework-1-variables-types-and-assignments" title="Link to this heading">#</a></h1>
-<p>This assignment covers material from Class 1: creating
-variables, arithmetic operators, type checking, and good programming
-practice.</p>
-<p>Run your code before you turn it in to make sure it works – turn in the
-version with all cells run so any output from your code is visible.</p>
-<section id="problem-1">
-<h2>Problem 1<a class="headerlink" href="#problem-1" title="Link to this heading">#</a></h2>
-<p>Create two variables: <code class="docutils literal notranslate"><span class="pre">your_name</span></code> and <code class="docutils literal notranslate"><span class="pre">your_age</span></code>. Use <code class="docutils literal notranslate"><span class="pre">print()</span></code> to display
-a sentence introducing yourself. Use good coding practices.</p>
-<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class1.html#declaring-variables-in-python">Declaring Variables in Python</a> and <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class1.html#print-displaying-output">print(): Displaying Output</a> sections for a refresher.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="problem-2">
-<h2>Problem 2<a class="headerlink" href="#problem-2" title="Link to this heading">#</a></h2>
-<p>Given <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">9</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">4</span></code>, calculate and print:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="homework-5-advanced-iteration-and-nested-structures">
+<h1>Homework 5: Advanced Iteration and Nested Structures<a class="headerlink" href="#homework-5-advanced-iteration-and-nested-structures" title="Link to this heading">#</a></h1>
+<p>This is a script-based assignment: unlike earlier homeworks, you’ll write and
+run this entirely in PyCharm as a single <code class="docutils literal notranslate"><span class="pre">.py</span></code> file, not in Colab notebook
+cells. Download the file below, open it locally, and run it as you go – the
+instructions are also on this page so you can read them without switching
+windows.</p>
+<p>Download: <a class="reference download internal" download="" href="../_downloads/f39449607bbee2084b3f0c5d04e811d6/HW5.py"><span class="xref download myst">HW5.py</span></a></p>
+<section id="instructions">
+<h2>Instructions<a class="headerlink" href="#instructions" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>their sum</p></li>
-<li><p>product</p></li>
-<li><p>result of float division</p></li>
-<li><p>result of integer division (<code class="docutils literal notranslate"><span class="pre">//</span></code>)</p></li>
-<li><p>remainder (<code class="docutils literal notranslate"><span class="pre">%</span></code>)</p></li>
+<li><p>Complete ALL problems</p></li>
+<li><p>Run your file often and verify your output before finishing</p></li>
+<li><p>Use meaningful variable names and add comments to explain your logic</p></li>
+<li><p>Graded for submission, not for correctness – but this material will
+appear on quizzes and exams, so treat it as real practice, not a box to
+check</p></li>
 </ul>
-<p>What should the resulting values and variable types be? Predict these
-before running your code. Use your code to check the types too.</p>
-<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class1.html#arithmetic-operators">Arithmetic Operators</a> and <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class1.html#type-checking-a-variables-data-type">type(): Checking a Variable’s Data Type</a> sections for a refresher.</p>
-<p>🚩 <strong>Common mistake:</strong> confusing <code class="docutils literal notranslate"><span class="pre">/</span></code> (float division, always returns a
-<code class="docutils literal notranslate"><span class="pre">float</span></code>) with <code class="docutils literal notranslate"><span class="pre">//</span></code> (integer/floor division, returns an <code class="docutils literal notranslate"><span class="pre">int</span></code> when both
-operands are <code class="docutils literal notranslate"><span class="pre">int</span></code>). <code class="docutils literal notranslate"><span class="pre">9</span> <span class="pre">/</span> <span class="pre">4</span></code> is <code class="docutils literal notranslate"><span class="pre">2.25</span></code>; <code class="docutils literal notranslate"><span class="pre">9</span> <span class="pre">//</span> <span class="pre">4</span></code> is <code class="docutils literal notranslate"><span class="pre">2</span></code> – these are not
-interchangeable, and using the wrong one silently gives a plausible-looking
-but wrong answer rather than an error.</p>
-<p>Double-click this box to enter your predicted values/types here:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+<p>This assignment covers material from Class 7: <code class="docutils literal notranslate"><span class="pre">range()</span></code>, <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code>,
+list comprehensions, and nested lists.</p>
+<p><strong>PyCharm reminders:</strong></p>
+<ul class="simple">
+<li><p>Run your file with <code class="docutils literal notranslate"><span class="pre">Shift+F10</span></code> (or the green play button)</p></li>
+<li><p>Output appears in the terminal at the bottom</p></li>
+<li><p>Save frequently with <code class="docutils literal notranslate"><span class="pre">Ctrl+S</span></code> / <code class="docutils literal notranslate"><span class="pre">Cmd+S</span></code></p></li>
+</ul>
+</section>
+<section id="problem-1-water-quality-lab">
+<h2>Problem 1: Water Quality Lab<a class="headerlink" href="#problem-1-water-quality-lab" title="Link to this heading">#</a></h2>
+<p>A water quality lab records turbidity measurements (in NTU) from 5 different
+river monitoring stations. You’ll process this data using <code class="docutils literal notranslate"><span class="pre">range()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">enumerate()</span></code>, and list comprehensions.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">station_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Upstream"</span><span class="p">,</span> <span class="s2">"Bridge A"</span><span class="p">,</span> <span class="s2">"Mill Pond"</span><span class="p">,</span> <span class="s2">"Bridge B"</span><span class="p">,</span> <span class="s2">"Downstream"</span><span class="p">]</span>
+<span class="n">turbidity</span>     <span class="o">=</span> <span class="p">[</span><span class="mf">2.1</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">,</span> <span class="mf">12.4</span><span class="p">,</span> <span class="mf">8.7</span><span class="p">,</span> <span class="mf">5.2</span><span class="p">]</span>
 </pre></div>
 </div>
+<p><strong>Part A: Using <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code></strong>
+Print a numbered report of each station and its turbidity reading. Use
+<code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> – do NOT use <code class="docutils literal notranslate"><span class="pre">range(len(...))</span></code>.</p>
+<p>Expected output:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Station 1 - Upstream: 2.1 NTU
+Station 2 - Bridge A: 3.8 NTU
+Station 3 - Mill Pond: 12.4 NTU
+Station 4 - Bridge B: 8.7 NTU
+Station 5 - Downstream: 5.2 NTU
+</pre></div>
 </div>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class7.html#the-enumerate-function">The Enumerate Function</a> section for a refresher.</p>
+<p><strong>Part B: List Comprehension – Unit Conversion</strong>
+Turbidity is sometimes reported in FTU (Formazin Turbidity Units). For this
+sensor, 1 NTU = 1.05 FTU. Use a <strong>list comprehension</strong> to create a new list
+called <code class="docutils literal notranslate"><span class="pre">ftu_readings</span></code> with each value converted to FTU, rounded to 2 decimal
+places. Print the result.</p>
+<p>Expected output:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[2.21, 3.99, 13.02, 9.13, 5.46]
+</pre></div>
+</div>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class7.html#basic-list-comprehensions">Basic List Comprehensions</a> section for a refresher.</p>
+<p><strong>Part C: List Comprehension with Condition – Flagging High Readings</strong>
+The safe threshold is 5.0 NTU. Use a <strong>list comprehension</strong> to create a list
+called <code class="docutils literal notranslate"><span class="pre">high_stations</span></code> containing only the names of stations ABOVE the
+threshold. Print the result.</p>
+<p>Expected output:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>High turbidity stations: ['Mill Pond', 'Bridge B', 'Downstream']
+</pre></div>
+</div>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class7.html#adding-conditionals">Adding Conditionals</a> section for a refresher.</p>
+<p><strong>Part D: <code class="docutils literal notranslate"><span class="pre">range()</span></code> with Step – Scheduled Sampling</strong>
+Using <code class="docutils literal notranslate"><span class="pre">range()</span></code> with a step, print every other station name starting from
+index 0. Use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop with <code class="docutils literal notranslate"><span class="pre">range()</span></code> (NOT <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> or direct
+iteration).</p>
+<p>Expected output:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Scheduled sampling stations:
+Upstream
+Mill Pond
+Downstream
+</pre></div>
+</div>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class7.html#optional-arguments-to-range">Optional Arguments to Range</a> section for a refresher.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">A water quality lab records turbidity measurements (in NTU) from 5 different</span>
+<span class="sd">river monitoring stations. You'll process this data using range(), enumerate(),</span>
+<span class="sd">and list comprehensions.</span>
+
+<span class="sd">    station_names = ["Upstream", "Bridge A", "Mill Pond", "Bridge B", "Downstream"]</span>
+<span class="sd">    turbidity     = [2.1, 3.8, 12.4, 8.7, 5.2]</span>
+
+<span class="sd">Part A: Using enumerate()</span>
+<span class="sd">  Print a numbered report of each station and its turbidity reading.</span>
+<span class="sd">  Use enumerate() - do NOT use range(len(...)).</span>
+
+<span class="sd">  Expected output:</span>
+<span class="sd">    Station 1 - Upstream: 2.1 NTU</span>
+<span class="sd">    Station 2 - Bridge A: 3.8 NTU</span>
+<span class="sd">    Station 3 - Mill Pond: 12.4 NTU</span>
+<span class="sd">    Station 4 - Bridge B: 8.7 NTU</span>
+<span class="sd">    Station 5 - Downstream: 5.2 NTU</span>
+
+<span class="sd">Part B: List Comprehension - Unit Conversion</span>
+<span class="sd">  Turbidity is sometimes reported in FTU (Formazin Turbidity Units).</span>
+<span class="sd">  For this sensor, 1 NTU = 1.05 FTU.</span>
+<span class="sd">  Use a LIST COMPREHENSION to create a new list called ftu_readings with</span>
+<span class="sd">  each value converted to FTU, rounded to 2 decimal places.</span>
+<span class="sd">  Print the result.</span>
+
+<span class="sd">  Expected output:</span>
+<span class="sd">    [2.21, 3.99, 13.02, 9.13, 5.46]</span>
+
+<span class="sd">Part C: List Comprehension with Condition - Flagging High Readings</span>
+<span class="sd">  The safe threshold is 5.0 NTU. Use a LIST COMPREHENSION to create a list</span>
+<span class="sd">  called high_stations containing only the names of stations ABOVE the threshold.</span>
+<span class="sd">  Print the result.</span>
+
+<span class="sd">  Expected output:</span>
+<span class="sd">    High turbidity stations: ['Mill Pond', 'Bridge B', 'Downstream']</span>
+
+<span class="sd">Part D: range() with Step - Scheduled Sampling</span>
+<span class="sd">  Using range() with a step, print every other station name starting from</span>
+<span class="sd">  index 0. Use a for loop with range() (NOT enumerate or direct iteration).</span>
+
+<span class="sd">  Expected output:</span>
+<span class="sd">    Scheduled sampling stations:</span>
+<span class="sd">    Upstream</span>
+<span class="sd">    Mill Pond</span>
+<span class="sd">    Downstream</span>
+<span class="sd">"""</span>
+
+<span class="n">station_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Upstream"</span><span class="p">,</span> <span class="s2">"Bridge A"</span><span class="p">,</span> <span class="s2">"Mill Pond"</span><span class="p">,</span> <span class="s2">"Bridge B"</span><span class="p">,</span> <span class="s2">"Downstream"</span><span class="p">]</span>
+<span class="n">turbidity</span>     <span class="o">=</span> <span class="p">[</span><span class="mf">2.1</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">,</span> <span class="mf">12.4</span><span class="p">,</span> <span class="mf">8.7</span><span class="p">,</span> <span class="mf">5.2</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"PROBLEM 1: Water Quality Lab"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+
+<span class="c1"># Part A: Numbered report using enumerate()</span>
+
+<span class="c1"># Part B: List comprehension - NTU to FTU conversion</span>
+
+<span class="c1"># Part C: List comprehension with condition - high stations</span>
+
+<span class="c1"># Part D: range() with step - scheduled sampling</span>
+
+</pre></div>
 </div>
 </section>
-<section id="problem-3">
-<h2>Problem 3<a class="headerlink" href="#problem-3" title="Link to this heading">#</a></h2>
-<p>You’re working in the lab and you find that you need to mix solutions of
-differing concentrations together. You do this a lot, and it’s tedious to
-keep calculating the concentration of the final solution by hand, so you
-want to write code to do it for you. Write code that takes the
-concentration and volume of each of the two solutions and calculates the
-concentration of the final solution. Use good programming practice.
-(NOTE: We could do this using functions, but we haven’t learned those
-yet – just write it as a straight-line script for now.)</p>
-<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class1.html#break-down-complex-problems">Break Down Complex Problems</a> section for a refresher.</p>
-<p>🚩 <strong>Common mistake:</strong> writing the final-concentration formula without parentheses around each numerator/denominator group. <code class="docutils literal notranslate"><span class="pre">(c1*v1</span> <span class="pre">+</span> <span class="pre">c2*v2)</span> <span class="pre">/</span> <span class="pre">(v1</span> <span class="pre">+</span> <span class="pre">v2)</span></code> and <code class="docutils literal notranslate"><span class="pre">c1*v1</span> <span class="pre">+</span> <span class="pre">c2*v2</span> <span class="pre">/</span> <span class="pre">v1</span> <span class="pre">+</span> <span class="pre">v2</span></code> are very different calculations – Python’s operator precedence does <code class="docutils literal notranslate"><span class="pre">/</span></code> before <code class="docutils literal notranslate"><span class="pre">+</span></code>, so the second version divides only <code class="docutils literal notranslate"><span class="pre">c2*v2</span></code> by <code class="docutils literal notranslate"><span class="pre">v1</span></code>, then adds the rest.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+<section id="problem-2-stress-grid-analysis">
+<h2>Problem 2: Stress Grid Analysis<a class="headerlink" href="#problem-2-stress-grid-analysis" title="Link to this heading">#</a></h2>
+<p>A structural analysis produces a 4x5 grid of stress values (MPa) across a
+surface. Each inner list represents one row of measurements.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">stress_grid</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mf">1.1</span><span class="p">,</span>  <span class="mf">2.3</span><span class="p">,</span>  <span class="mf">3.5</span><span class="p">,</span>  <span class="mf">4.7</span><span class="p">,</span>  <span class="mf">5.9</span><span class="p">],</span>    <span class="c1"># Row 0</span>
+    <span class="p">[</span><span class="mf">6.2</span><span class="p">,</span>  <span class="mf">7.4</span><span class="p">,</span>  <span class="mf">8.6</span><span class="p">,</span>  <span class="mf">9.8</span><span class="p">,</span>  <span class="mf">10.0</span><span class="p">],</span>   <span class="c1"># Row 1</span>
+    <span class="p">[</span><span class="mf">11.1</span><span class="p">,</span> <span class="mf">12.3</span><span class="p">,</span> <span class="mf">13.5</span><span class="p">,</span> <span class="mf">14.7</span><span class="p">,</span> <span class="mf">15.9</span><span class="p">],</span>   <span class="c1"># Row 2</span>
+    <span class="p">[</span><span class="mf">16.2</span><span class="p">,</span> <span class="mf">17.4</span><span class="p">,</span> <span class="mf">18.6</span><span class="p">,</span> <span class="mf">19.8</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">],</span>   <span class="c1"># Row 3</span>
+<span class="p">]</span>
 </pre></div>
 </div>
-</div>
-</div>
-</section>
-<section id="problem-4">
-<h2>Problem 4<a class="headerlink" href="#problem-4" title="Link to this heading">#</a></h2>
-<p>In EK131, a main function of the required project is to read the ambient
-room temperature using a TMP36 temperature sensor and to print that
-temperature in degrees C and/or degrees F. Let’s write code to accomplish
-this task in python. Since the temperature from the TMP36 will be a
-voltage from 0 to 5V, use the <code class="docutils literal notranslate"><span class="pre">input()</span></code> function to ask the user for a
-voltage in that range, then convert it to temperature using the following
-data table.</p>
-<p><img alt="TMP35/TMP36/TMP37 Output Characteristics" src="../_images/HW1_tmp36_table.png" /></p>
-<p>Print the resulting temperature in both degrees C and degrees F. Use the
-good coding practices we talked about in class.</p>
-<p>🚩 <strong>Common mistake:</strong> the table’s offset voltage is given in <strong>volts</strong>
-(0.5 V for the TMP36) but its scaling is given in <strong>millivolts per degree</strong>
-(10 mV/°C) – mixing the two units without converting one to match the
-other throws the whole calculation off by a factor of 1000.</p>
-<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class1.html#use-constants-for-magic-numbers">Use Constants for “Magic Numbers”</a> section for a refresher – this problem has several (the 0.5V offset, the 10mV/°C scaling, and the 9/5 and 32 in the C-to-F formula).</p>
-<p>🚩 <strong>Common mistake:</strong> getting the Celsius-to-Fahrenheit formula backwards. It’s <code class="docutils literal notranslate"><span class="pre">F</span> <span class="pre">=</span> <span class="pre">C</span> <span class="pre">*</span> <span class="pre">9/5</span> <span class="pre">+</span> <span class="pre">32</span></code>, not <code class="docutils literal notranslate"><span class="pre">C</span> <span class="pre">*</span> <span class="pre">5/9</span> <span class="pre">+</span> <span class="pre">32</span></code> – and forgetting the <code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">32</span></code> entirely is just as easy to miss.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+<p><strong>Part A: Printing with <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code></strong>
+Use a nested loop with <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> to print every value alongside its row
+and column index. Format each line as shown.</p>
+<p>Expected output (first 3 lines shown):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[Row 0, Col 0]: 1.1
+[Row 0, Col 1]: 2.3
+[Row 0, Col 2]: 3.5
+... (continue for all rows and columns)
 </pre></div>
 </div>
-</div>
-</div>
-</section>
-<section id="problem-5">
-<h2>Problem 5<a class="headerlink" href="#problem-5" title="Link to this heading">#</a></h2>
-<p>Let’s say that you wanted to record the temperature of your room over the
-course of 24 hours. Your system senses the temperature every second and
-records the information as a float (8 bytes). How much storage would you
-require to do this? Write Python code to determine your answer in
-reasonable units. Use good programming practice.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Your code here</span>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class7.html#using-enumerate-with-nested-lists">Using <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> with Nested Lists</a> section for a refresher.</p>
+<p><strong>Part B: Row Averages with a List Comprehension</strong>
+Use a list comprehension to build a list called <code class="docutils literal notranslate"><span class="pre">row_averages</span></code>, where each
+entry is the average of one row. Round each average to 2 decimal places.
+Print the result.</p>
+<p>Expected output:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Row averages: [3.5, 8.4, 13.5, 18.4]
 </pre></div>
 </div>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class7.html#the-sum-function">The sum() Function</a> section for a refresher.</p>
+<p><strong>Part C: Flagging High-Stress Rows</strong>
+The safety threshold is 10.0 MPa (average). Use <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> and a <code class="docutils literal notranslate"><span class="pre">for</span></code>
+loop to print the index and average of any row whose average EXCEEDS the
+threshold.</p>
+<p>Expected output:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Row 2 average (13.5 MPa) exceeds threshold.
+Row 3 average (18.4 MPa) exceeds threshold.
+</pre></div>
 </div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">A structural analysis produces a 4x5 grid of stress values (MPa) across</span>
+<span class="sd">a surface. Each inner list represents one row of measurements.</span>
+
+<span class="sd">    stress_grid = [</span>
+<span class="sd">        [1.1,  2.3,  3.5,  4.7,  5.9],    # Row 0</span>
+<span class="sd">        [6.2,  7.4,  8.6,  9.8,  10.0],   # Row 1</span>
+<span class="sd">        [11.1, 12.3, 13.5, 14.7, 15.9],   # Row 2</span>
+<span class="sd">        [16.2, 17.4, 18.6, 19.8, 20.0],   # Row 3</span>
+<span class="sd">    ]</span>
+
+<span class="sd">Part A: Printing with enumerate()</span>
+<span class="sd">  Use a nested loop with enumerate() to print every value alongside its</span>
+<span class="sd">  row and column index. Format each line as shown.</span>
+
+<span class="sd">  Expected output:</span>
+<span class="sd">    [Row 0, Col 0]: 1.1</span>
+<span class="sd">    [Row 0, Col 1]: 2.3</span>
+<span class="sd">    [Row 0, Col 2]: 3.5</span>
+<span class="sd">    ... (continue for all rows and columns)</span>
+
+<span class="sd">Part B: Row Averages with a List Comprehension</span>
+<span class="sd">  Use a list comprehension to build a list called row_averages, where each</span>
+<span class="sd">  entry is the average of one row. Round each average to 2 decimal places.</span>
+<span class="sd">  Print the result.</span>
+
+<span class="sd">  Expected output:</span>
+<span class="sd">    Row averages: [3.5, 8.4, 13.5, 18.4]</span>
+
+<span class="sd">Part C: Flagging High-Stress Rows</span>
+<span class="sd">  The safety threshold is 10.0 MPa (average). Use enumerate() and a for loop</span>
+<span class="sd">  to print the index and average of any row whose average EXCEEDS the threshold.</span>
+
+<span class="sd">  Expected output:</span>
+<span class="sd">    Row 2 average (13.5 MPa) exceeds threshold.</span>
+<span class="sd">    Row 3 average (18.4 MPa) exceeds threshold.</span>
+<span class="sd">"""</span>
+
+<span class="n">stress_grid</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mf">1.1</span><span class="p">,</span>  <span class="mf">2.3</span><span class="p">,</span>  <span class="mf">3.5</span><span class="p">,</span>  <span class="mf">4.7</span><span class="p">,</span>  <span class="mf">5.9</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">6.2</span><span class="p">,</span>  <span class="mf">7.4</span><span class="p">,</span>  <span class="mf">8.6</span><span class="p">,</span>  <span class="mf">9.8</span><span class="p">,</span>  <span class="mf">10.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">11.1</span><span class="p">,</span> <span class="mf">12.3</span><span class="p">,</span> <span class="mf">13.5</span><span class="p">,</span> <span class="mf">14.7</span><span class="p">,</span> <span class="mf">15.9</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">16.2</span><span class="p">,</span> <span class="mf">17.4</span><span class="p">,</span> <span class="mf">18.6</span><span class="p">,</span> <span class="mf">19.8</span><span class="p">,</span> <span class="mf">20.0</span><span class="p">],</span>
+<span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"PROBLEM 2: Stress Grid Analysis"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+
+<span class="c1"># Part A: Print every value with its row and column index</span>
+
+<span class="c1"># Part B: List comprehension for row averages</span>
+
+<span class="c1"># Part C: Flag rows exceeding the threshold using enumerate()</span>
+</pre></div>
 </div>
 </section>
 </section>
@@ -585,20 +687,20 @@ reasonable units. Use good programming practice.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../gpps/Class1_GPP_Solutions.html"
+       href="../gpps/Class10_GPP_Solutions.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Class 1 GPP Solutions: Constants, Variables, Types, and Assignments</p>
+        <p class="prev-next-title">Class 10 GPP Solutions: Mastering Slicing in Python</p>
       </div>
     </a>
     <a class="right-next"
-       href="../class/Class2.html"
+       href="../class/Class11.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Class 2: Sequences, Strings, and Lists in Python</p>
+        <p class="prev-next-title">Class 11: Digging into arrays with NumPy</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -618,11 +720,9 @@ reasonable units. Use good programming practice.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5">Problem 5</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">Instructions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-water-quality-lab">Problem 1: Water Quality Lab</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-stress-grid-analysis">Problem 2: Stress Grid Analysis</a></li>
 </ul>
   </nav></div>
 
