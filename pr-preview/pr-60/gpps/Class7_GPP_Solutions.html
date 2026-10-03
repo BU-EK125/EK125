@@ -500,6 +500,13 @@ document.write(`
 </div>
 </div>
 </div>
+<p><strong>💡 Tips:</strong></p>
+<ul class="simple">
+<li><p>Start at 10</p></li>
+<li><p>Stop BEFORE 0 (so we include 1)</p></li>
+<li><p>Step by -1 to count down</p></li>
+<li><p>Common mistake: using range(10, 1, -1) which stops at 2</p></li>
+</ul>
 </section>
 <section id="problem-1-2-solution-sensor-readings">
 <h3>Problem 1.2 Solution: Sensor Readings<a class="headerlink" href="#problem-1-2-solution-sensor-readings" title="Link to this heading">#</a></h3>
@@ -523,6 +530,13 @@ Sensor 5: 23.9°C
 </div>
 </div>
 </div>
+<p><strong>💡 Tips:</strong></p>
+<ul class="simple">
+<li><p>enumerate() gives us (index, value) pairs</p></li>
+<li><p>We add 1 to index for human-readable numbering</p></li>
+<li><p>Alternative: use enumerate(temperatures, start=1) to start at 1</p></li>
+<li><p>Common mistake: forgetting to unpack the tuple</p></li>
+</ul>
 </section>
 </section>
 <section id="part-2-solutions-list-comprehensions">
@@ -544,6 +558,19 @@ Sensor 5: 23.9°C
 </div>
 </div>
 </div>
+<p><strong>💡 Tips:</strong></p>
+<ul>
+<li><p>range(1, 11) gives us 1 through 10</p></li>
+<li><p>x**2 squares each value</p></li>
+<li><p>Alternative loop version:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+    <span class="n">squares</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Notice how much more concise the comprehension is!</p></li>
+</ul>
 </section>
 <section id="problem-2-2-solution-temperature-conversion">
 <h3>Problem 2.2 Solution: Temperature Conversion<a class="headerlink" href="#problem-2-2-solution-temperature-conversion" title="Link to this heading">#</a></h3>
@@ -564,6 +591,12 @@ Sensor 5: 23.9°C
 </div>
 </div>
 </div>
+<p><strong>💡 Tips:</strong></p>
+<ul class="simple">
+<li><p>We iterate through the original list directly</p></li>
+<li><p>Apply the conversion formula to each value</p></li>
+<li><p>Real engineering application - temperature conversions are common</p></li>
+</ul>
 </section>
 <section id="problem-2-3-solution-filtering-even-numbers">
 <h3>Problem 2.3 Solution: Filtering Even Numbers<a class="headerlink" href="#problem-2-3-solution-filtering-even-numbers" title="Link to this heading">#</a></h3>
@@ -584,6 +617,13 @@ Sensor 5: 23.9°C
 </div>
 </div>
 </div>
+<p><strong>💡 Tips:</strong></p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">if</span></code> condition filters the list</p></li>
+<li><p>Only values where x % 2 == 0 are included</p></li>
+<li><p>This is a FILTER comprehension - it makes the list smaller</p></li>
+<li><p>Versus a TRANSFORM comprehension which keeps the same length</p></li>
+</ul>
 </section>
 </section>
 <section id="part-3-solutions-nested-structures">
@@ -623,6 +663,13 @@ Updated seating:
 </div>
 </div>
 </div>
+<p><strong>💡 Tips:</strong></p>
+<ul class="simple">
+<li><p>Row 3, Seat 2 means index [2][1] because of 0-indexing</p></li>
+<li><p>seating[1] gives us the entire second row as a list</p></li>
+<li><p>We can modify elements using multi-level indexing</p></li>
+<li><p>Common confusion: it’s easy to use [2][2] thinking row 3 = index 3</p></li>
+</ul>
 </section>
 <section id="problem-3-2-solution-multiplication-table">
 <h3>Problem 3.2 Solution: Multiplication Table<a class="headerlink" href="#problem-3-2-solution-multiplication-table" title="Link to this heading">#</a></h3>
@@ -647,6 +694,22 @@ Updated seating:
 </div>
 </div>
 </div>
+<p><strong>💡 Tips:</strong></p>
+<ul class="simple">
+<li><p>OUTER comprehension: <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">row</span> <span class="pre">in</span> <span class="pre">range(1,</span> <span class="pre">6)</span></code> creates 5 rows</p></li>
+<li><p>INNER comprehension: <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">col</span> <span class="pre">in</span> <span class="pre">range(1,</span> <span class="pre">6)</span></code> creates 5 columns per row</p></li>
+<li><p>Expression: <code class="docutils literal notranslate"><span class="pre">row</span> <span class="pre">*</span> <span class="pre">col</span></code> calculates the multiplication</p></li>
+<li><p>Read nested comprehensions from right to left!</p></li>
+</ul>
+<p>Alternative with explicit loops:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mult_table</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+    <span class="n">row_values</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+        <span class="n">row_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span> <span class="o">*</span> <span class="n">col</span><span class="p">)</span>
+    <span class="n">mult_table</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row_values</span><span class="p">)</span>
+</pre></div>
+</div>
 </section>
 <section id="problem-3-3-solution-grid-of-coordinates">
 <h3>Problem 3.3 Solution: Grid of Coordinates<a class="headerlink" href="#problem-3-3-solution-grid-of-coordinates" title="Link to this heading">#</a></h3>
@@ -669,6 +732,14 @@ Updated seating:
 </div>
 </div>
 </div>
+<p><strong>💡 Tips:</strong></p>
+<ul class="simple">
+<li><p>Similar structure to multiplication table</p></li>
+<li><p>But instead of row * col, we create a tuple (row, col)</p></li>
+<li><p>3 rows (range(3) gives 0, 1, 2)</p></li>
+<li><p>4 columns (range(4) gives 0, 1, 2, 3)</p></li>
+<li><p>Tuples are immutable - good for coordinates that shouldn’t change</p></li>
+</ul>
 </section>
 </section>
 <section id="part-4-solutions-slicing">
@@ -702,6 +773,19 @@ Every other hour: [15, 17, 22, 28, 29, 24, 19, 17, 15, 14, 13, 12]
 </div>
 </div>
 </div>
+<p><strong>💡 Tips:</strong></p>
+<ul class="simple">
+<li><p>[:6] means start at beginning, stop before index 6</p></li>
+<li><p>[12:19] includes indices 12-18 (7 values)</p></li>
+<li><p>[-3:] means last 3 elements (negative indexing from end)</p></li>
+<li><p>[::2] means all elements, step by 2</p></li>
+<li><p>Common mistakes:</p>
+<ul>
+<li><p>Using temps[12:18] and missing the last value</p></li>
+<li><p>Forgetting that negative indices count from the end</p></li>
+</ul>
+</li>
+</ul>
 </section>
 <section id="problem-4-2-solution-reverse-a-list">
 <h3>Problem 4.2 Solution: Reverse a List<a class="headerlink" href="#problem-4-2-solution-reverse-a-list" title="Link to this heading">#</a></h3>
@@ -722,6 +806,18 @@ Every other hour: [15, 17, 22, 28, 29, 24, 19, 17, 15, 14, 13, 12]
 </div>
 </div>
 </div>
+<p><strong>💡 Tips:</strong></p>
+<ul class="simple">
+<li><p>[::-1] means:</p>
+<ul>
+<li><p>Start: default (beginning)</p></li>
+<li><p>Stop: default (end)</p></li>
+<li><p>Step: -1 (backwards)</p></li>
+</ul>
+</li>
+<li><p>This is a very Pythonic way to reverse</p></li>
+<li><p>Also works for strings!</p></li>
+</ul>
 </section>
 </section>
 <section id="part-5-solutions-engineering-applications">
@@ -763,6 +859,14 @@ Steel average stress: 37.50 MPa
 </div>
 </div>
 </div>
+<p><strong>💡 Tips:</strong></p>
+<ul class="simple">
+<li><p>Real materials testing scenario</p></li>
+<li><p>Using [-1] to get last element (maximum load)</p></li>
+<li><p>List comprehension iterates through outer list</p></li>
+<li><p>sum() and len() for calculating average</p></li>
+<li><p>Good practice with multi-level indexing</p></li>
+</ul>
 </section>
 <section id="problem-5-2-solution-signal-processing">
 <h3>Problem 5.2 Solution: Signal Processing<a class="headerlink" href="#problem-5-2-solution-signal-processing" title="Link to this heading">#</a></h3>
@@ -798,6 +902,15 @@ Average of last 4: 2.05V
 </div>
 </div>
 </div>
+<p><strong>💡 Tips:</strong></p>
+<ul class="simple">
+<li><p>Combines multiple concepts: comprehensions, slicing, calculations</p></li>
+<li><p>Real signal processing application</p></li>
+<li><p>Part 1: Transform comprehension (same length)</p></li>
+<li><p>Part 2: Filter comprehension (shorter length)</p></li>
+<li><p>Part 3: Slicing to extract range</p></li>
+<li><p>Part 4: Negative slicing + calculation</p></li>
+</ul>
 </section>
 </section>
 <section id="challenge-solutions">
@@ -836,6 +949,15 @@ Average of last 4: 2.05V
 </div>
 </div>
 </div>
+<p><strong>💡 Tips:</strong></p>
+<ul class="simple">
+<li><p>This is quite challenging!</p></li>
+<li><p>Key insight: each row is built from the previous row</p></li>
+<li><p>Middle values: sum of two adjacent values from previous row</p></li>
+<li><p>Edges are always 1</p></li>
+<li><p>This demonstrates the power of building on previous results</p></li>
+<li><p>Alternative: could use list comprehension for middle values</p></li>
+</ul>
 </section>
 <section id="challenge-2-solution-matrix-transpose">
 <h3>Challenge 2 Solution: Matrix Transpose<a class="headerlink" href="#challenge-2-solution-matrix-transpose" title="Link to this heading">#</a></h3>
@@ -871,6 +993,26 @@ Transposed:
 </pre></div>
 </div>
 </div>
+</div>
+<p><strong>💡 Tips:</strong></p>
+<ul class="simple">
+<li><p>Outer loop: for each column index in original</p></li>
+<li><p>Inner loop: collect that column from all rows</p></li>
+<li><p>row[col] extracts the value at that column from each row</p></li>
+<li><p>Result: columns become rows</p></li>
+</ul>
+<p>Alternative with loops:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">transposed</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+    <span class="n">new_row</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">matrix</span><span class="p">:</span>
+        <span class="n">new_row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="n">col</span><span class="p">])</span>
+    <span class="n">transposed</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_row</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Fun fact: Python has a built-in way using zip:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">transposed</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">matrix</span><span class="p">))</span>
+</pre></div>
 </div>
 </section>
 </section>
