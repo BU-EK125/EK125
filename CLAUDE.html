@@ -403,6 +403,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-repo-map-bu-ek125-org-unless-noted">The repo map (BU-EK125 org, unless noted)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-structure-acts">Course structure (Acts)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#toolchain-trap">Toolchain trap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-breaking-trap-link-only-headings">Build-breaking trap: link-only headings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pii-lesson-critical">PII lesson (critical)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orphaned-legacy-files">Orphaned legacy files</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#process-lessons-from-repo-history">Process lessons from repo history</a></li>
@@ -495,6 +496,19 @@ they have no separate GPP-solutions file by design, not a gap to fill.</p></li>
 ground-up MyST rewrite (<code class="docutils literal notranslate"><span class="pre">myst.yml</span></code>, new CLI) that does NOT work with this
 repo’s classic <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code>/<code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code> Sphinx-book-theme format. Always
 pin <code class="docutils literal notranslate"><span class="pre">jupyter-book&lt;2</span></code> (currently built against 1.0.4).</p>
+</section>
+<section id="build-breaking-trap-link-only-headings">
+<h2>Build-breaking trap: link-only headings<a class="headerlink" href="#build-breaking-trap-link-only-headings" title="Link to this heading">#</a></h2>
+<p>A Markdown/MyST heading whose entire text is a link – e.g. <code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">[HW5.py</span> <span class="pre">](HW5.py)</span></code> – crashes the whole <code class="docutils literal notranslate"><span class="pre">jb</span> <span class="pre">build</span></code> with <code class="docutils literal notranslate"><span class="pre">KeyError:</span> <span class="pre">'anchorname'</span></code>
+deep in Sphinx’s <code class="docutils literal notranslate"><span class="pre">document_toc</span></code> (building that page’s own sidebar
+“Contents”). It’s not a warning, it’s a hard build failure, and the
+traceback’s “Last messages” can point at a totally unrelated page (the
+crash surfaces wherever Sphinx next touches the global toctree, not
+necessarily the page with the bad heading) – bisect by reverting changes
+one file at a time if you hit this blind. The fix: never make a heading’s
+full text a link. Put the link in the body text below the heading instead
+(e.g. <code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Download</span> <span class="pre">the</span> <span class="pre">Assignment</span> <span class="pre">File</span></code> followed by <code class="docutils literal notranslate"><span class="pre">Download:</span> <span class="pre">[HW5.py</span> <span class="pre">](HW5.py)</span></code> as a separate line). Found while adding download-file headings
+to <code class="docutils literal notranslate"><span class="pre">homework/HW5.md</span></code> and <code class="docutils literal notranslate"><span class="pre">gpps/Class9_GPP.ipynb</span></code>.</p>
 </section>
 <section id="pii-lesson-critical">
 <h2>PII lesson (critical)<a class="headerlink" href="#pii-lesson-critical" title="Link to this heading">#</a></h2>
@@ -621,6 +635,7 @@ fine but don’t show up in the sidebar, check this first.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-repo-map-bu-ek125-org-unless-noted">The repo map (BU-EK125 org, unless noted)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-structure-acts">Course structure (Acts)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#toolchain-trap">Toolchain trap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-breaking-trap-link-only-headings">Build-breaking trap: link-only headings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pii-lesson-critical">PII lesson (critical)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orphaned-legacy-files">Orphaned legacy files</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#process-lessons-from-repo-history">Process lessons from repo history</a></li>
