@@ -9,7 +9,7 @@ Team Members:
 
 Instructions:
 - Work in groups of THREE
-- You MAY use your preread notes and previous assignments
+- You MAY use your reading notes and previous assignments
 - Do NOT use AI tools (ChatGPT, Claude, Copilot, etc.)
 - Not submitted for grading - but this material WILL appear on quizzes and exams!
 

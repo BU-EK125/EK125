@@ -1,7 +1,7 @@
 # Class 20: MATLAB Scripts, Documentation, and File I/O 
 
 ## Learning Objectives
-By the end of this prereading, you should be able to:
+By the end of this reading, you should be able to:
 - Create and run MATLAB script files
 - Document your code with comments and function headers
 - Read data from and write data to text files
