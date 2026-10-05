@@ -232,8 +232,16 @@
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="homework/HW5.html">Homework 5: Advanced Iteration, Nested Structures, and Slicing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="class/Class11.html">Class 11: Digging into arrays with NumPy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="class/Class12.html">Class 12: Dictionaries</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="class/Class11.html">Class 11: Digging into arrays with NumPy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class11_GPP.html">Class 11 GPP: Working with Arrays in NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class11_GPP_Solutions.html">Class 11 GPP Solutions: Working with Arrays in NumPy</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="class/Class12.html">Class 12: Dictionaries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class12_GPP.html">Class 12 GPP: Python Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class12_GPP_Solutions.html">Class 12 GPP Solutions: Python Dictionaries</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="homework/HW6.html">Homework 6: NumPy and Dictionaries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="class/Class13.html">Class 13: User-Defined Functions, Arguments, and Scope</a></li>
 <li class="toctree-l1"><a class="reference internal" href="class/Class14.html">Class 14: Scripts, File I/O, and the Local File Environment</a></li>
@@ -435,9 +443,10 @@ here).</p>
 <li><p><strong>EK125</strong> (this repo) – the main, public, permanent jupyter-book site.
 Student-facing. Canonical source for reading content, GPP problem
 statements, and (Fall 2026 on) homework problem statements and GPP
-solutions for Act 1 (Classes 1-7), plus Classes 9 and 10 (added
-2026-10-02 by explicit instructor request – see <a class="reference external" href="http://README.md">README.md</a> for the
-authoritative scope statement; this is not a general Act 2 reopening).</p></li>
+solutions for Act 1 (Classes 1-7), plus Classes 9-12 (added
+2026-10-02 and 2026-10-05 by explicit instructor request – see <a class="reference external" href="http://README.md">README.md</a>
+for the authoritative scope statement; this is not a general Act 2
+reopening).</p></li>
 <li><p><strong>EK125-notebooks</strong> (private) – the instructor-side staging/source repo
 most content here gets ported <em>from</em>. Itself built as a second,
 internal-only jupyter-book site (has its own <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code>/<code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code>).
@@ -552,9 +561,19 @@ explicit instructor request in a Claude Code session – previously Act 1
 (Classes 1-7) only. <code class="docutils literal notranslate"><span class="pre">Class9_GPP_Solutions.ipynb</span></code> and
 <code class="docutils literal notranslate"><span class="pre">Class10_GPP_Solutions.md</span></code>/<code class="docutils literal notranslate"><span class="pre">.py</span></code> were ported from EK125-notebooks’
 <code class="docutils literal notranslate"><span class="pre">gpp/Class_9_GPP_Solutions.*</span></code>/<code class="docutils literal notranslate"><span class="pre">gpp/Class_10_GPP_Solutions.*</span></code> after
-cross-checking them line-for-line against the current public GPPs. Do
-not extend further into Act 2 (Classes 11-15) or Act 3 without being
-asked again.</p></li>
+cross-checking them line-for-line against the current public GPPs.</p></li>
+<li><p><strong>Scope extended again to Classes 11-12 on 2026-10-05</strong>, by explicit
+instructor request. Unlike Classes 9-10, Classes 11-12 didn’t have a
+public GPP at all yet – both the GPP and its solutions were ported
+together, as new <code class="docutils literal notranslate"><span class="pre">.py</span></code>/<code class="docutils literal notranslate"><span class="pre">.md</span></code> script-based pairs (per <a class="reference external" href="http://CONVENTIONS.md">CONVENTIONS.md</a>’s
+“Script-based pages” section), sourced from <code class="docutils literal notranslate"><span class="pre">EK125-Instructors/F26/</span></code>
+(the freshest copies, “just received from the instructor” per the
+request) and cross-checked against EK125-notebooks’ <code class="docutils literal notranslate"><span class="pre">gpp/</span> <span class="pre">Class_11_GPP*</span></code>/<code class="docutils literal notranslate"><span class="pre">gpp/Class_12_GPP*</span></code> (older, notebook-format versions with
+identical problem content). Found and fixed a real bug while verifying
+Class 11’s solutions: Challenge 1 asks to sum values “greater than or
+equal to 4” but both sources’ solution code used <code class="docutils literal notranslate"><span class="pre">v</span> <span class="pre">&gt;</span> <span class="pre">4</span></code> (strict),
+silently dropping the boundary value – fixed to <code class="docutils literal notranslate"><span class="pre">v</span> <span class="pre">&gt;=</span> <span class="pre">4</span></code>. Do not extend
+further into Act 2 (Classes 13-15) or Act 3 without being asked again.</p></li>
 </ul>
 </section>
 <section id="known-open-items-worth-checking-before-assuming-fixed">
