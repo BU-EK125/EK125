@@ -3,6 +3,7 @@ root: intro
 parts:
   - caption: "Python in Colab"
     chapters:
+      - file: appendix/Fall2026Schedule
       - file: class/Class1
         sections:
           - file: gpps/Class1_GPP
