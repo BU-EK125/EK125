@@ -134,6 +134,81 @@ homework). Don't extend this to another class or act without being asked.
 4. Build and verify like any other port, then open a PR and wait for an
    explicit go-ahead to merge.
 
+## Script-based pages (`.py` + `.md`, with a full download)
+
+Starting around Class 9/10 (Act 2, once students move from Colab to
+PyCharm), a GPP or homework page is no longer authored as a `.ipynb`
+notebook -- it's a **pair of files**: a single `.py` scaffold containing
+every problem, and a `.md` page that presents it nicely on the web and
+offers that `.py` file as a download. Established examples: `gpps/
+Class10_GPP.py`/`.md`, `gpps/Class9_GPP.py` (a download alongside the
+still-notebook `Class9_GPP.ipynb`), `homework/HW5.py`/`.md`, `homework/
+HW6.py`/`.md`.
+
+**Why two files instead of one notebook:** students write and run this
+assignment in PyCharm as a real `.py` file, not in notebook cells -- the
+`.md` page's job is to be readable on the web *and* hand over the exact
+file they'll actually work in, kept in sync by construction (the page
+`{literalinclude}`s straight from the `.py` file, so the two can't drift
+apart the way a hand-copied duplicate could).
+
+**The `.py` file's structure:**
+- One top-of-file docstring: title, semester, a one-line description of
+  the file format, a list of its sections/problems and which class(es)
+  each covers, grading note, `INSTRUCTIONS`, and `PYCHARM REMINDERS`
+  (`Shift+F10`, output in the terminal, save often) -- see any of the
+  established examples for the exact wording to reuse.
+- Each problem is a `# ====...` divider, a `# PROBLEM N: Title` comment,
+  another divider, then a plain docstring with that problem's full
+  instructions, then either a blank `# Your code here` scaffold or (for a
+  problem like a bug hunt that needs specific starting code) the real
+  starter code verbatim.
+- Blank lines between problems matter -- they're what you'll slice on
+  when computing `:lines:` ranges for the `.md` page, so don't collapse
+  them to save space.
+
+**The `.md` page's structure:**
+- `# Title`, then an opening paragraph -- for homework, a bolded directive
+  making it unmissable that this is a downloaded-`.py`-file assignment,
+  not a page to work on directly (see `homework/HW5.md`/`HW6.md` for the
+  wording).
+- A `## Download the Assignment File` heading, immediately followed by
+  `Download: [Name.py](Name.py)` as its own line. **Never make the
+  heading text itself the link** (e.g. `## [Name.py](Name.py)`) -- that
+  crashes the entire `jb build` outright; see CLAUDE.md's "Build-breaking
+  trap" entry for the full story. Always: heading text, blank line, then
+  a separate line with the link.
+- `## Instructions` (bullets mirroring the `.py` docstring), then a
+  `## Section N: Topic` heading per section if the assignment has more
+  than one, each followed by `### Problem N: Title` subsections.
+- Each problem subsection: prose instructions (can paraphrase the `.py`
+  docstring, doesn't need to be verbatim), any cross-reference links (see
+  "Cross-reference links" below -- same rules apply here), then a
+  `{literalinclude}` block pointing at that exact problem's line range:
+  ````
+  ```{literalinclude} Name.py
+  :language: python
+  :lines: START-END
+  ```
+  ````
+
+**Finding the line ranges:** build the book locally first (see
+"Verifying a build" below -- you'll need this working anyway to catch the
+link-only-heading trap), then `grep -n "^# ====\|^# PROBLEM"
+path/to/Name.py` to get each divider's line number, and read a few lines
+around each candidate boundary to confirm `START` lands on the problem's
+opening `"""` and `END` lands on the blank line (or EOF) right before the
+next divider -- off-by-one here either truncates the problem's last line
+or leaks the next problem's divider comment into the rendered block.
+Recompute every range from scratch after any edit to the `.py` file; a
+stale range silently renders the wrong content with no build warning.
+
+**Verify before publishing:** run every computed example yourself (same
+rule as any other port) -- this format has caught real bugs before (a
+wrong "expected output" value, a stale header that no longer matched the
+file's actual sections) that a build succeeding would never surface on
+its own.
+
 ## Cross-reference links
 
 ### Why absolute URLs, not relative links
