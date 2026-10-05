@@ -1,0 +1,906 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Class 11 GPP: Working with Arrays in NumPy &#8212; EK125</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gpps/Class11_GPP';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class 11 GPP Solutions: Working with Arrays in NumPy" href="Class11_GPP_Solutions.html" />
+    <link rel="prev" title="Class 11: Digging into arrays with NumPy" href="../class/Class11.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">EK125</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to EK125
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendix/Fall2026Schedule.html">Fall 2026 Class Schedule</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python in Colab</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class1.html">Class 1: Introduction to Interactive Programming Using Google Colab</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class1_GPP.html">Class 1 GPP: Constants, Variables, Types, and Assignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class1_GPP_Solutions.html">Class 1 GPP Solutions: Constants, Variables, Types, and Assignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW1.html">Homework 1: Variables, Types, and Assignments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class2.html">Class 2: Sequences, Strings, and Lists in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class2_GPP.html">Class 2 GPP: Working with Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class2_GPP_Solutions.html">Class 2 GPP Solutions: Working with Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW2.html">Homework 2: Strings and Lists</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class3.html">Class 3: Booleans and Basic Logic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class3_GPP.html">Class 3 GPP: Boolean Logic Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class3_GPP_Solutions.html">Class 3 GPP Solutions: Boolean Logic Practice</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class4.html">Class 4: Coding Basics Wrap-up and Selection Statements</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class4_GPP.html">Class 4 GPP: Coding Basics Wrap-up and Selection Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class4_GPP_Solutions.html">Class 4 GPP Solutions: Coding Basics Wrap-up and Selection Statements</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW3.html">Homework 3: Boolean Logic, Sequences, and Selection Statements</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class5.html">Class 5: Importing Modules and Basic Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class5_GPP.html">Class 5 GPP: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class5_GPP_Solutions.html">Class 5 GPP Solutions: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class6.html">Class 6: Nested Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class6_GPP.html">Class 6 GPP: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class6_GPP_Solutions.html">Class 6 GPP Solutions: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW4.html">Homework 4: Loops and Randomness</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class7.html">Class 7: Advanced Iteration and Nested Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class7_GPP.html">Class 7 GPP: Advanced Iteration and Nested Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class7_GPP_Solutions.html">Class 7 GPP Solutions: Advanced Iteration and Nested Structures</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="Exam1_Review.html">EK125 Exam 1 - Top 30 GPP Problems for Paper Practice</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python in an IDE</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class9.html">Class 9: From Colab Notebooks to Running Python Locally</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class9_GPP.html">Class 9 GPP: Getting Comfortable with PyCharm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class9_GPP_Solutions.html">Class 9 GPP Solutions: Getting Comfortable with PyCharm</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class10.html">Class 10: Mastering Slicing in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class10_GPP.html">Class 10 GPP: Mastering Slicing in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class10_GPP_Solutions.html">Class 10 GPP Solutions: Mastering Slicing in Python</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW5.html">Homework 5: Advanced Iteration, Nested Structures, and Slicing</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../class/Class11.html">Class 11: Digging into arrays with NumPy</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Class 11 GPP: Working with Arrays in NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class11_GPP_Solutions.html">Class 11 GPP Solutions: Working with Arrays in NumPy</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class12.html">Class 12: Dictionaries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class12_GPP.html">Class 12 GPP: Python Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class12_GPP_Solutions.html">Class 12 GPP Solutions: Python Dictionaries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW6.html">Homework 6: NumPy and Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class13.html">Class 13: User-Defined Functions, Arguments, and Scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class14.html">Class 14: Scripts, File I/O, and the Local File Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class15.html">Class 15: Visualizing Data and Plotting in Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MATLAB</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../class/Class16.html">Class 16: From Python to MATLAB: Syntax and Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class18.html">Class 18: Creating Vectors and Matrices in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class19.html">Class 19: Vector and Matrix Operations in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class20.html">Class 20: MATLAB Scripts, Documentation, and File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class21.html">Class 21: User Functions and Modular Programming in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class22.html">Class 22: Useful MATLAB Toolboxes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendix/Syllabus.html">Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/WeeklyRhythm.html">Weekly Rhythm of EK125</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/SubmittingAssignments.html">Instructions to receive and submit assignments</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/gpps/Class11_GPP.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Class 11 GPP: Working with Arrays in NumPy</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">Instructions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-importing-numpy">Problem 1: Importing NumPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-arrays-types-and-dtypes">Problem 2: Arrays, Types and dtypes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-ndim-size-and-shape">Problem 3: ndim, size, and shape</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4-2d-arrays">Problem 4: 2D Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-arange-and-linspace">Problem 5: arange and linspace</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-6-special-arrays">Problem 6: Special Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-7-random-arrays">Problem 7: Random Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-8-logicals-in-arrays">Problem 8: Logicals in Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-9-special-reshaping-with-vstack-and-ravel">Problem 9: Special Reshaping with vstack and ravel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-10-challenges">Problem 10: Challenges!</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="class-11-gpp-working-with-arrays-in-numpy">
+<h1>Class 11 GPP: Working with Arrays in NumPy<a class="headerlink" href="#class-11-gpp-working-with-arrays-in-numpy" title="Link to this heading">#</a></h1>
+<p>This is a script-based exercise: work through the problems directly in
+PyCharm/VS Code (not in a notebook). Download the file below, open it
+locally, and run it as you go – the instructions are also on this page so
+you can read them without switching windows.</p>
+<p>Download: <a class="reference download internal" download="" href="../_downloads/c9ea9dd7a343125e63ac5f778b0171eb/Class11_GPP.py"><span class="xref download myst">Class11_GPP.py</span></a></p>
+<section id="instructions">
+<h2>Instructions<a class="headerlink" href="#instructions" title="Link to this heading">#</a></h2>
+<p><strong>Team Members:</strong></p>
+<ul class="simple">
+<li><p>Your Name</p></li>
+<li><p>Partner 1 Name</p></li>
+<li><p>Partner 2 Name</p></li>
+</ul>
+<p><strong>Instructions:</strong></p>
+<ul class="simple">
+<li><p>Work in groups of <strong>THREE</strong></p></li>
+<li><p>You MAY use your reading notes and previous assignments</p></li>
+<li><p>Do <strong>NOT</strong> use AI tools (ChatGPT, Claude, Copilot, etc.)</p></li>
+<li><p>Not submitted for grading – but this material <strong>will</strong> appear on quizzes and exams!</p></li>
+</ul>
+<p><strong>PyCharm reminders:</strong></p>
+<ul class="simple">
+<li><p>Run your file with <code class="docutils literal notranslate"><span class="pre">Shift+F10</span></code> (or the green play button)</p></li>
+<li><p>Output appears in the terminal at the bottom</p></li>
+<li><p>Save frequently with <code class="docutils literal notranslate"><span class="pre">Ctrl+S</span></code> / <code class="docutils literal notranslate"><span class="pre">Cmd+S</span></code></p></li>
+<li><p>Nothing prints automatically – you must use <code class="docutils literal notranslate"><span class="pre">print()</span></code></p></li>
+</ul>
+</section>
+<section id="problem-1-importing-numpy">
+<h2>Problem 1: Importing NumPy<a class="headerlink" href="#problem-1-importing-numpy" title="Link to this heading">#</a></h2>
+<p>Today we will investigate the NumPy module. NumPy is short for Numerical
+Python, and it is based on arrays.</p>
+<p>Start by:</p>
+<ul class="simple">
+<li><p>importing <code class="docutils literal notranslate"><span class="pre">numpy</span></code> as <code class="docutils literal notranslate"><span class="pre">np</span></code></p></li>
+<li><p>importing the <code class="docutils literal notranslate"><span class="pre">array</span></code> function</p></li>
+</ul>
+<p>Recall how we did importing from Class 5.</p>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class11.html#the-array-function-and-attributes-of-arrays">The array function and attributes of arrays</a> section for a refresher.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">Today we will investigate the NumPy module. NumPy is short for Numerical</span>
+<span class="sd">Python, and it is based on arrays.</span>
+
+<span class="sd">Start by:</span>
+<span class="sd">  - importing numpy as np</span>
+<span class="sd">  - importing the array function</span>
+
+<span class="sd">Recall how we did importing from Class 5.</span>
+<span class="sd">"""</span>
+
+<span class="c1"># Your code here</span>
+
+</pre></div>
+</div>
+</section>
+<section id="problem-2-arrays-types-and-dtypes">
+<h2>Problem 2: Arrays, Types and dtypes<a class="headerlink" href="#problem-2-arrays-types-and-dtypes" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Create a one-dimensional array variable using the array function, in
+which 5 integers are stored.</p></li>
+<li><p>Also create a 1D array variable that stores 6 floats.</p></li>
+<li><p>Print both arrays and their types.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">dtype</span></code> method to determine the type of both array variables.
+Note that no arguments are passed to <code class="docutils literal notranslate"><span class="pre">dtype</span></code>, and the parentheses are
+not needed.</p></li>
+</ul>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class11.html#the-array-function-and-attributes-of-arrays">The array function and attributes of arrays</a> section for a refresher.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">  - Create a one-dimensional array variable using the array function, in</span>
+<span class="sd">    which 5 integers are stored.</span>
+<span class="sd">  - Also create a 1D array variable that stores 6 floats.</span>
+<span class="sd">  - Print both arrays and their types.</span>
+<span class="sd">  - Use the dtype method to determine the type of both array variables.</span>
+<span class="sd">    Note that no arguments are passed to dtype, and the parentheses are</span>
+<span class="sd">    not needed.</span>
+<span class="sd">"""</span>
+
+<span class="c1"># Your code here</span>
+
+</pre></div>
+</div>
+</section>
+<section id="problem-3-ndim-size-and-shape">
+<h2>Problem 3: ndim, size, and shape<a class="headerlink" href="#problem-3-ndim-size-and-shape" title="Link to this heading">#</a></h2>
+<p>For both variables from Problem 2:</p>
+<ul class="simple">
+<li><p>use the <code class="docutils literal notranslate"><span class="pre">ndim</span></code> method to determine the number of dimensions</p></li>
+<li><p>use the <code class="docutils literal notranslate"><span class="pre">shape</span></code> method to determine the length of the axes</p></li>
+<li><p>use the <code class="docutils literal notranslate"><span class="pre">size</span></code> method to determine the number of elements</p></li>
+</ul>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class11.html#the-array-function-and-attributes-of-arrays">The array function and attributes of arrays</a> section for a refresher.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">For both variables from Problem 2:</span>
+<span class="sd">  - use the ndim method to determine the number of dimensions</span>
+<span class="sd">  - use the shape method to determine the length of the axes</span>
+<span class="sd">  - use the size method to determine the number of elements</span>
+<span class="sd">"""</span>
+
+<span class="c1"># Your code here</span>
+
+</pre></div>
+</div>
+</section>
+<section id="problem-4-2d-arrays">
+<h2>Problem 4: 2D Arrays<a class="headerlink" href="#problem-4-2d-arrays" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Create a nested list variable that stores integers: two inner lists, each
+of which stores 4 integers.</p></li>
+<li><p>Then, create a 2 by 4 array variable by passing the list to <code class="docutils literal notranslate"><span class="pre">array()</span></code>.</p></li>
+<li><p>Print both variables so you can see the difference.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">ndim</span></code>, <code class="docutils literal notranslate"><span class="pre">shape</span></code>, and <code class="docutils literal notranslate"><span class="pre">size</span></code> methods on your 2D array variable.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">reshape</span></code> method to reshape it into as many other arrays as you
+can.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">transpose</span></code> method to transpose your array.</p></li>
+<li><p>Index and slice your 2D array:</p>
+<ul>
+<li><p>Index element at row 0, column 0</p></li>
+<li><p>Index element at row 0, column 1</p></li>
+<li><p>Slice row 0, last column</p></li>
+<li><p>Slice all columns from row 1</p></li>
+<li><p>Slice all rows, column 0</p></li>
+<li><p>Slice all rows, first two columns</p></li>
+</ul>
+</li>
+<li><p>Replace the first row of your 2D array with other numbers.</p></li>
+</ul>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class11.html#changing-dimensions">Changing Dimensions</a>, <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class11.html#indexing-and-slicing">Indexing and Slicing</a>, and <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class11.html#multidimensional-slicing">Multidimensional Slicing</a> sections for a refresher.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">  - Create a nested list variable that stores integers: two inner lists,</span>
+<span class="sd">    each of which stores 4 integers.</span>
+<span class="sd">  - Then, create a 2 by 4 array variable by passing the list to array().</span>
+<span class="sd">  - Print both variables so you can see the difference.</span>
+<span class="sd">  - Use the ndim, shape, and size methods on your 2D array variable.</span>
+<span class="sd">  - Use the reshape method to reshape it into as many other arrays as you can.</span>
+<span class="sd">  - Use the transpose method to transpose your array.</span>
+<span class="sd">  - Index and slice your 2D array:</span>
+<span class="sd">      - Index element at row 0, column 0</span>
+<span class="sd">      - Index element at row 0, column 1</span>
+<span class="sd">      - Slice row 0, last column</span>
+<span class="sd">      - Slice all columns from row 1</span>
+<span class="sd">      - Slice all rows, column 0</span>
+<span class="sd">      - Slice all rows, first two columns</span>
+<span class="sd">  - Replace the first row of your 2D array with other numbers.</span>
+<span class="sd">"""</span>
+
+<span class="c1"># Your code here</span>
+
+</pre></div>
+</div>
+</section>
+<section id="problem-5-arange-and-linspace">
+<h2>Problem 5: arange and linspace<a class="headerlink" href="#problem-5-arange-and-linspace" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Create a 1D array that stores <code class="docutils literal notranslate"><span class="pre">[2</span>&#160; <span class="pre">5</span>&#160; <span class="pre">8</span>&#160; <span class="pre">11]</span></code>. Do this two ways: using
+<code class="docutils literal notranslate"><span class="pre">arange</span></code> and <code class="docutils literal notranslate"><span class="pre">linspace</span></code>. Make sure that the elements are integers.</p></li>
+<li><p>Create a 2 by 4 array using <code class="docutils literal notranslate"><span class="pre">arange</span></code> for the first row and <code class="docutils literal notranslate"><span class="pre">linspace</span></code>
+for the second row. Print it.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">linspace</span></code> to create an array with 9 elements, from 1 to 5 in steps
+of 0.5.</p></li>
+<li><p>Create a 1D array (vector) with 10 linearly spaced points in the range
+from 1 to 19. Reshape this into a 2D array.</p></li>
+</ul>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class11.html#functions-and-methods-that-create-arrays">Functions and methods that create arrays</a> section for a refresher.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">  - Create a 1D array that stores [2  5  8  11]. Do this two ways: using</span>
+<span class="sd">    arange and linspace. Make sure that the elements are integers.</span>
+<span class="sd">  - Create a 2 by 4 array using arange for the first row and linspace for</span>
+<span class="sd">    the second row. Print it.</span>
+<span class="sd">  - Use linspace to create an array with 9 elements, from 1 to 5 in steps</span>
+<span class="sd">    of 0.5.</span>
+<span class="sd">  - Create a 1D array (vector) with 10 linearly spaced points in the range</span>
+<span class="sd">    from 1 to 19. Reshape this into a 2D array.</span>
+<span class="sd">"""</span>
+
+<span class="c1"># Your code here</span>
+
+</pre></div>
+</div>
+</section>
+<section id="problem-6-special-arrays">
+<h2>Problem 6: Special Arrays<a class="headerlink" href="#problem-6-special-arrays" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Create and print a 3 by 5 array of all zeros (integers).</p></li>
+<li><p>Create and print a 4 by 2 array of all ones (integers).</p></li>
+<li><p>Create and print a 3 by 5 array of all 33’s using <code class="docutils literal notranslate"><span class="pre">np.full</span></code>.</p></li>
+<li><p>Create a 3D array of all zeros. Print it.</p></li>
+</ul>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class11.html#functions-and-methods-that-create-arrays">Functions and methods that create arrays</a> section for a refresher.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">  - Create and print a 3 by 5 array of all zeros (integers).</span>
+<span class="sd">  - Create and print a 4 by 2 array of all ones (integers).</span>
+<span class="sd">  - Create and print a 3 by 5 array of all 33's using np.full.</span>
+<span class="sd">  - Create a 3D array of all zeros. Print it.</span>
+<span class="sd">"""</span>
+
+<span class="c1"># Your code here</span>
+
+</pre></div>
+</div>
+</section>
+<section id="problem-7-random-arrays">
+<h2>Problem 7: Random Arrays<a class="headerlink" href="#problem-7-random-arrays" title="Link to this heading">#</a></h2>
+<p>Execute the following to create a random number generator, and then use
+that to create arrays of random floats and integers:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span>
+<span class="n">randfl</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">randfl</span><span class="p">)</span>
+<span class="n">randint</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">randint</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Create a 6 by 1 array of random integers and transpose it. Print both.</p></li>
+<li><p>Create a 2 by 4 array of random integers, in the range from 0 to 50.
+Hint: instead of a length of 5 as above, the third argument will be a
+tuple containing the number of rows and columns.</p></li>
+</ul>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class11.html#functions-and-methods-that-create-arrays">Functions and methods that create arrays</a> section for a refresher.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">  - Execute the following to create a random number generator, and then use</span>
+<span class="sd">    that to create arrays of random floats and integers:</span>
+
+<span class="sd">      rng = np.random.default_rng()</span>
+<span class="sd">      randfl = rng.random(4)</span>
+<span class="sd">      print(randfl)</span>
+<span class="sd">      randint = rng.integers(0, 100, 5)</span>
+<span class="sd">      print(randint)</span>
+
+<span class="sd">  - Create a 6 by 1 array of random integers and transpose it. Print both.</span>
+<span class="sd">  - Create a 2 by 4 array of random integers, in the range from 0 to 50.</span>
+<span class="sd">    Hint: instead of a length of 5 as above, the third argument will be a</span>
+<span class="sd">    tuple containing the number of rows and columns.</span>
+<span class="sd">"""</span>
+
+<span class="c1"># Your code here</span>
+
+</pre></div>
+</div>
+</section>
+<section id="problem-8-logicals-in-arrays">
+<h2>Problem 8: Logicals in Arrays<a class="headerlink" href="#problem-8-logicals-in-arrays" title="Link to this heading">#</a></h2>
+<p>Using an array in a Boolean expression results in a logical array.</p>
+<ul>
+<li><p>Create a 1D array variable <code class="docutils literal notranslate"><span class="pre">my1d</span></code> and try the expression <code class="docutils literal notranslate"><span class="pre">my1d</span> <span class="pre">&lt;</span> <span class="pre">10</span></code>.
+Store it in a variable and print it, as shown below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my1d</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="mi">33</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">mylog</span> <span class="o">=</span> <span class="n">my1d</span> <span class="o">&lt;</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mylog</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Now, use your logical array to index into your original 1D array:
+<code class="docutils literal notranslate"><span class="pre">my1d[mylog]</span></code></p></li>
+</ul>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class11.html#indexing-and-slicing">Indexing and Slicing</a> section (logical indexing) for a refresher.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">Using an array in a Boolean expression results in a logical array.</span>
+
+<span class="sd">  - Create a 1D array variable my1d and try the expression my1d &lt; 10. Store</span>
+<span class="sd">    it in a variable and print it, as shown below:</span>
+
+<span class="sd">      my1d = array([33, 2, 11, 5, 8, 4])</span>
+<span class="sd">      mylog = my1d &lt; 10</span>
+<span class="sd">      print(mylog)</span>
+
+<span class="sd">  - Now, use your logical array to index into your original 1D array:</span>
+
+<span class="sd">      my1d[mylog]</span>
+<span class="sd">"""</span>
+
+<span class="c1"># Your code here</span>
+
+</pre></div>
+</div>
+</section>
+<section id="problem-9-special-reshaping-with-vstack-and-ravel">
+<h2>Problem 9: Special Reshaping with vstack and ravel<a class="headerlink" href="#problem-9-special-reshaping-with-vstack-and-ravel" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Create two 1 by 5 arrays using <code class="docutils literal notranslate"><span class="pre">arange</span></code>. Use <code class="docutils literal notranslate"><span class="pre">vstack</span></code> to concatenate them
+into a 2D array.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">ravel</span></code> method on your 2D array.</p></li>
+</ul>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class11.html#changing-dimensions">Changing Dimensions</a> (<code class="docutils literal notranslate"><span class="pre">ravel</span></code>) and <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class11.html#combining-arrays">Combining Arrays</a> (<code class="docutils literal notranslate"><span class="pre">vstack</span></code>) sections for a refresher.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">  - Create two 1 by 5 arrays using arange. Use vstack to concatenate them</span>
+<span class="sd">    into a 2D array.</span>
+<span class="sd">  - Use the ravel method on your 2D array.</span>
+<span class="sd">"""</span>
+
+<span class="c1"># Your code here</span>
+
+</pre></div>
+</div>
+</section>
+<section id="problem-10-challenges">
+<h2>Problem 10: Challenges!<a class="headerlink" href="#problem-10-challenges" title="Link to this heading">#</a></h2>
+<p><strong>Challenge 1:</strong> Write an expression that will sum only the values in a
+vector variable <code class="docutils literal notranslate"><span class="pre">v</span></code> (1D array) that are greater than or equal to 4. Use
+logical indexing.</p>
+<p><strong>Challenge 2:</strong> Create a 3 by 5 array (matrix) of all random integers in
+the range from 50 to 100. Write code that will count how many elements
+are greater than 80.</p>
+<p><strong>Challenge 3:</strong> Create a 2D array. Write nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops to print the
+array in a table format.</p>
+<p><strong>Challenge 4:</strong> Create the 3x3 matrix <code class="docutils literal notranslate"><span class="pre">[1</span> <span class="pre">2</span> <span class="pre">3;</span> <span class="pre">4</span> <span class="pre">5</span> <span class="pre">6;</span> <span class="pre">7</span> <span class="pre">8</span> <span class="pre">9]</span></code> and then:</p>
+<ul class="simple">
+<li><p>Transpose the matrix using a list comprehension</p></li>
+<li><p>Transpose the matrix using a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop</p></li>
+</ul>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class11.html#indexing-and-slicing">Indexing and Slicing</a> section (Challenge 1’s logical indexing) for a refresher.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Challenge 1:</span>
+<span class="c1"># Write an expression that will sum only the values in a vector variable v</span>
+<span class="c1"># (1D array) that are greater than or equal to 4. Use logical indexing.</span>
+
+<span class="c1"># Your code here</span>
+
+
+<span class="c1"># Challenge 2:</span>
+<span class="c1"># Create a 3 by 5 array (matrix) of all random integers in the range from</span>
+<span class="c1"># 50 to 100. Write code that will count how many elements are greater than 80.</span>
+
+<span class="c1"># Your code here</span>
+
+
+<span class="c1"># Challenge 3:</span>
+<span class="c1"># Create a 2D array. Write nested for loops to print the array in a table format.</span>
+
+<span class="c1"># Your code here</span>
+
+
+<span class="c1"># Challenge 4:</span>
+<span class="c1"># Create the 3x3 matrix [ 1 2 3 ; 4 5 6 ; 7 8 9 ] and then:</span>
+<span class="c1">#   - Transpose the matrix using a list comprehension</span>
+<span class="c1">#   - Transpose the matrix using a for loop</span>
+
+<span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./gpps"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../class/Class11.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Class 11: Digging into arrays with NumPy</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Class11_GPP_Solutions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Class 11 GPP Solutions: Working with Arrays in NumPy</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">Instructions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-importing-numpy">Problem 1: Importing NumPy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-arrays-types-and-dtypes">Problem 2: Arrays, Types and dtypes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-ndim-size-and-shape">Problem 3: ndim, size, and shape</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4-2d-arrays">Problem 4: 2D Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-arange-and-linspace">Problem 5: arange and linspace</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-6-special-arrays">Problem 6: Special Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-7-random-arrays">Problem 7: Random Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-8-logicals-in-arrays">Problem 8: Logicals in Arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-9-special-reshaping-with-vstack-and-ravel">Problem 9: Special Reshaping with vstack and ravel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-10-challenges">Problem 10: Challenges!</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Stormy Attaway, Brian DePasquale, Christine Mulvey, Kenn Sebesta
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
