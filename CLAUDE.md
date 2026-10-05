@@ -72,6 +72,21 @@ ground-up MyST rewrite (`myst.yml`, new CLI) that does NOT work with this
 repo's classic `_config.yml`/`_toc.yml` Sphinx-book-theme format. Always
 pin `jupyter-book<2` (currently built against 1.0.4).
 
+## Build-breaking trap: link-only headings
+
+A Markdown/MyST heading whose entire text is a link -- e.g. `## [HW5.py
+](HW5.py)` -- crashes the whole `jb build` with `KeyError: 'anchorname'`
+deep in Sphinx's `document_toc` (building that page's own sidebar
+"Contents"). It's not a warning, it's a hard build failure, and the
+traceback's "Last messages" can point at a totally unrelated page (the
+crash surfaces wherever Sphinx next touches the global toctree, not
+necessarily the page with the bad heading) -- bisect by reverting changes
+one file at a time if you hit this blind. The fix: never make a heading's
+full text a link. Put the link in the body text below the heading instead
+(e.g. `## Download the Assignment File` followed by `Download: [HW5.py
+](HW5.py)` as a separate line). Found while adding download-file headings
+to `homework/HW5.md` and `gpps/Class9_GPP.ipynb`.
+
 ## PII lesson (critical)
 
 Raw notebook files sourced from EK125-notebooks (or further upstream,
