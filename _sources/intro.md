@@ -10,7 +10,7 @@ Most readings are plain pages. A few -- currently **Classes 1, 5, 6, 7, 9, and 1
 
 Homework is assigned weekly rather than per class, so each homework page sits on its own in the sidebar (e.g. "Homework 4," covering both Classes 5 and 6) rather than nesting under a single class. Homework pages show the problem statements only -- no solutions -- the same as GPPs. They're graded for submission, not for correctness, but the material on them shows up on quizzes and exams, so treat them as real practice.
 
-There's also an appendix with the course syllabus and a [Fall 2026](appendix/Fall2026Schedule.md) week-by-week schedule linking each class's reading and homework.
+There's also an appendix with the course syllabus.
 
 ## What you'll actually learn
 
