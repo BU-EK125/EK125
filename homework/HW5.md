@@ -1,10 +1,14 @@
 # Homework 5: Advanced Iteration, Nested Structures, and Slicing
 
-This is a script-based assignment: unlike earlier homeworks, you'll write and
-run this entirely in PyCharm as a single `.py` file, not in Colab notebook
-cells. Download the file below, open it locally, and run it as you go -- the
-instructions are also on this page so you can read them without switching
-windows.
+**You must complete this assignment in PyCharm, working inside a single
+downloaded `.py` file -- not on this web page.** Unlike earlier homeworks,
+there's no notebook to fill in here: download `HW5.py` below, open it in
+PyCharm, and write and run all of your code directly in that file. This
+page's instructions mirror what's in the file so you can read them without
+switching windows, but the downloaded file is what you edit, run, and
+submit.
+
+## Download the Assignment File
 
 Download: [HW5.py](HW5.py)
 
