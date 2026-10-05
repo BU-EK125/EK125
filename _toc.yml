@@ -50,7 +50,13 @@ parts:
           - file: gpps/Class10_GPP_Solutions
       - file: homework/HW5
       - file: class/Class11
+        sections:
+          - file: gpps/Class11_GPP
+          - file: gpps/Class11_GPP_Solutions
       - file: class/Class12
+        sections:
+          - file: gpps/Class12_GPP
+          - file: gpps/Class12_GPP_Solutions
       - file: homework/HW6
       - file: class/Class13
       - file: class/Class14
