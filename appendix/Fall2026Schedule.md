@@ -3,7 +3,7 @@
 This is a week-by-week calendar for the Fall 2026 semester: which reading
 goes with which class day, when each homework is released and due, and
 where Exam 1 practice happens. Please note that this is subject to change --
-see the [Syllabus](Syllabus.md) for the authoritative dates. Homework 6
+see the [Syllabus](Syllabus.md) for the authoritative dates. Homework 7
 onward isn't published on this site yet, so those entries aren't linked.
 
 | Week | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday |
@@ -14,4 +14,4 @@ onward isn't published on this site yet, so those entries aren't linked.
 | **Week 4**<br>Sep 21 -- 27 | **Sep 21**<br>[Class 5: Importing Modules and Basic Loops](https://BU-EK125.github.io/EK125/class/Class5.html)<br>**Homework 4 released**: [Homework 4](https://BU-EK125.github.io/EK125/homework/HW4.html) | | **Sep 23**<br>[Class 6: Nested Loops](https://BU-EK125.github.io/EK125/class/Class6.html) | | **Sep 25**<br>Discussion 4 / Quiz 4 | | **Sep 27**<br>Homework 4 due tonight (11:59 PM) |
 | **Week 5**<br>Sep 28 -- Oct 4<br>*(Exam week)* | **Sep 28**<br>[Class 7: Advanced Iteration and Nested Structures](https://BU-EK125.github.io/EK125/class/Class7.html) | | **Sep 30**<br>Class 8: Exam 1 Practice<br>[Practice Exam 1 Walkthrough (slides)](https://bu-ek125.github.io/EK125-C1-DePasquale-Slides/PracticeExam1/index.html) | | **Oct 2**<br>Discussion 5: Exam 1 Review<br>**EXAM 1** -- Morse Auditorium, 4:30 PM | | Oct 4<br>*(no homework due this week)* |
 | **Week 6**<br>Oct 5 -- 11 | **Oct 5**<br>[Class 9: From Colab Notebooks to Running Python Locally](https://BU-EK125.github.io/EK125/class/Class9.html)<br>**Homework 5 released**: [Homework 5](https://BU-EK125.github.io/EK125/homework/HW5.html) | | **Oct 7**<br>[Class 10: Mastering Slicing in Python](https://BU-EK125.github.io/EK125/class/Class10.html) | | **Oct 9**<br>Discussion 6 / Quiz 5 | | **Oct 11**<br>Homework 5 due tonight (11:59 PM) |
-| **Week 7**<br>Oct 12 -- 18 | **Oct 12**<br>Holiday -- no class (Monday schedule shifts to Tuesday)<br>**Homework 6 released** | **Oct 13**<br>[Class 11: Digging into arrays with NumPy](https://BU-EK125.github.io/EK125/class/Class11.html) | **Oct 14**<br>[Class 12 Preread: Dictionaries](https://BU-EK125.github.io/EK125/class/Class12.html) | | **Oct 16**<br>Discussion 7 / Quiz 6 | | **Oct 18**<br>Homework 6 due tonight (11:59 PM) |
+| **Week 7**<br>Oct 12 -- 18 | **Oct 12**<br>Holiday -- no class (Monday schedule shifts to Tuesday)<br>**Homework 6 released**: [Homework 6](https://BU-EK125.github.io/EK125/homework/HW6.html) | **Oct 13**<br>[Class 11: Digging into arrays with NumPy](https://BU-EK125.github.io/EK125/class/Class11.html) | **Oct 14**<br>[Class 12 Preread: Dictionaries](https://BU-EK125.github.io/EK125/class/Class12.html) | | **Oct 16**<br>Discussion 7 / Quiz 6 | | **Oct 18**<br>Homework 6 due tonight (11:59 PM) |

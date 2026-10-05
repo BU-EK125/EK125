@@ -106,8 +106,37 @@ working folder (not `EK125-notebooks`), organized by week, e.g.
    more careful pass.
 7. **Build and verify**, same as any other port (see "Verifying a build,"
    below), then open a PR and wait for an explicit go-ahead to merge.
+8. **Sync `appendix/Fall2026Schedule.md`.** That calendar pre-populates
+   each week's "Homework N released"/"Homework N due" cells as plain text
+   before the homework exists, with a note saying "Homework N onward isn't
+   published on this site yet." Once you publish `homework/HWN.md`: turn
+   that week's plain-text "released" mention into a link (`[Homework N]
+   (https://BU-EK125.github.io/EK125/homework/HWN.html)`, same pattern as
+   the existing linked weeks), and bump the "not published yet" note to
+   `N+1`. See "Keeping the Fall 2026 Schedule honest" below for what to do
+   if the calendar itself looks wrong or out of date.
 
-## Porting GPP solutions (Act 1 only)
+## Keeping the Fall 2026 Schedule honest
+
+`appendix/Fall2026Schedule.md` and `intro.md`'s sidebar entry for it are
+tied to one specific semester (real calendar dates, real holidays, a real
+exam room/time) on a site whose whole premise is being permanent and
+not semester-specific otherwise. That's a built-in staleness risk -- the
+calendar will eventually describe a semester that's already over, or stop
+matching whatever semester is actually being worked on.
+
+**If you're ever working in this repo and the semester implied by the
+conversation or the source material doesn't match "Fall 2026"** (e.g.
+it's visibly a later semester by the time you're reading this, or you're
+porting content explicitly labeled for a different term, like an S26 or
+F27 source file), **say so to the user rather than silently updating or
+ignoring the calendar.** Flag that `Fall2026Schedule.md` may now be out of
+date and ask whether they want it updated to the current semester,
+replaced, or left alone (e.g. archived once that semester is over, per
+"Archiving, never deleting" below). Don't unilaterally rewrite its dates
+to a new semester, and don't keep treating it as current without
+checking -- a stale schedule actively misleads students about real due
+dates and exam logistics, which is worse than having no calendar at all.## Porting GPP solutions (Act 1 only)
 
 As of Fall 2026, GPP solutions are published for **Act 1 (Classes 1-7)
 only** -- a deliberate, scoped exception to the general rule that solutions
