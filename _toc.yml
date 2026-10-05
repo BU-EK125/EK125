@@ -1,6 +1,8 @@
 format: jb-book
 root: intro
 parts:
+  - chapters:
+      - file: appendix/Fall2026Schedule
   - caption: "Python in Colab"
     chapters:
       - file: class/Class1
@@ -65,4 +67,3 @@ parts:
       - file: appendix/Syllabus
       - file: appendix/WeeklyRhythm
       - file: appendix/SubmittingAssignments
-      - file: appendix/Fall2026Schedule
