@@ -12,9 +12,10 @@ here).
 - **EK125** (this repo) -- the main, public, permanent jupyter-book site.
   Student-facing. Canonical source for reading content, GPP problem
   statements, and (Fall 2026 on) homework problem statements and GPP
-  solutions for Act 1 (Classes 1-7), plus Classes 9 and 10 (added
-  2026-10-02 by explicit instructor request -- see README.md for the
-  authoritative scope statement; this is not a general Act 2 reopening).
+  solutions for Act 1 (Classes 1-7), plus Classes 9-12 (added
+  2026-10-02 and 2026-10-05 by explicit instructor request -- see README.md
+  for the authoritative scope statement; this is not a general Act 2
+  reopening).
 - **EK125-notebooks** (private) -- the instructor-side staging/source repo
   most content here gets ported *from*. Itself built as a second,
   internal-only jupyter-book site (has its own `_config.yml`/`_toc.yml`).
@@ -127,9 +128,20 @@ it; check `_toc.yml` to see what's actually published.
   (Classes 1-7) only. `Class9_GPP_Solutions.ipynb` and
   `Class10_GPP_Solutions.md`/`.py` were ported from EK125-notebooks'
   `gpp/Class_9_GPP_Solutions.*`/`gpp/Class_10_GPP_Solutions.*` after
-  cross-checking them line-for-line against the current public GPPs. Do
-  not extend further into Act 2 (Classes 11-15) or Act 3 without being
-  asked again.
+  cross-checking them line-for-line against the current public GPPs.
+- **Scope extended again to Classes 11-12 on 2026-10-05**, by explicit
+  instructor request. Unlike Classes 9-10, Classes 11-12 didn't have a
+  public GPP at all yet -- both the GPP and its solutions were ported
+  together, as new `.py`/`.md` script-based pairs (per CONVENTIONS.md's
+  "Script-based pages" section), sourced from `EK125-Instructors/F26/`
+  (the freshest copies, "just received from the instructor" per the
+  request) and cross-checked against EK125-notebooks' `gpp/
+  Class_11_GPP*`/`gpp/Class_12_GPP*` (older, notebook-format versions with
+  identical problem content). Found and fixed a real bug while verifying
+  Class 11's solutions: Challenge 1 asks to sum values "greater than or
+  equal to 4" but both sources' solution code used `v > 4` (strict),
+  silently dropping the boundary value -- fixed to `v >= 4`. Do not extend
+  further into Act 2 (Classes 13-15) or Act 3 without being asked again.
 
 ## Known open items worth checking before assuming fixed
 
