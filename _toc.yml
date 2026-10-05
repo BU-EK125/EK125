@@ -65,3 +65,4 @@ parts:
       - file: appendix/Syllabus
       - file: appendix/WeeklyRhythm
       - file: appendix/SubmittingAssignments
+      - file: appendix/Fall2026Schedule
