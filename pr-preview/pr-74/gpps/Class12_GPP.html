@@ -1,0 +1,888 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Class 12 GPP: Python Dictionaries &#8212; EK125</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gpps/Class12_GPP';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class 12 GPP Solutions: Python Dictionaries" href="Class12_GPP_Solutions.html" />
+    <link rel="prev" title="Class 12: Dictionaries" href="../class/Class12.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">EK125</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to EK125
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendix/Fall2026Schedule.html">Fall 2026 Class Schedule</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python in Colab</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class1.html">Class 1: Introduction to Interactive Programming Using Google Colab</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class1_GPP.html">Class 1 GPP: Constants, Variables, Types, and Assignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class1_GPP_Solutions.html">Class 1 GPP Solutions: Constants, Variables, Types, and Assignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW1.html">Homework 1: Variables, Types, and Assignments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class2.html">Class 2: Sequences, Strings, and Lists in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class2_GPP.html">Class 2 GPP: Working with Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class2_GPP_Solutions.html">Class 2 GPP Solutions: Working with Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW2.html">Homework 2: Strings and Lists</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class3.html">Class 3: Booleans and Basic Logic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class3_GPP.html">Class 3 GPP: Boolean Logic Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class3_GPP_Solutions.html">Class 3 GPP Solutions: Boolean Logic Practice</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class4.html">Class 4: Coding Basics Wrap-up and Selection Statements</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class4_GPP.html">Class 4 GPP: Coding Basics Wrap-up and Selection Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class4_GPP_Solutions.html">Class 4 GPP Solutions: Coding Basics Wrap-up and Selection Statements</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW3.html">Homework 3: Boolean Logic, Sequences, and Selection Statements</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class5.html">Class 5: Importing Modules and Basic Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class5_GPP.html">Class 5 GPP: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class5_GPP_Solutions.html">Class 5 GPP Solutions: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class6.html">Class 6: Nested Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class6_GPP.html">Class 6 GPP: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class6_GPP_Solutions.html">Class 6 GPP Solutions: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW4.html">Homework 4: Loops and Randomness</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class7.html">Class 7: Advanced Iteration and Nested Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class7_GPP.html">Class 7 GPP: Advanced Iteration and Nested Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class7_GPP_Solutions.html">Class 7 GPP Solutions: Advanced Iteration and Nested Structures</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="Exam1_Review.html">EK125 Exam 1 - Top 30 GPP Problems for Paper Practice</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python in an IDE</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class9.html">Class 9: From Colab Notebooks to Running Python Locally</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class9_GPP.html">Class 9 GPP: Getting Comfortable with PyCharm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class9_GPP_Solutions.html">Class 9 GPP Solutions: Getting Comfortable with PyCharm</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class10.html">Class 10: Mastering Slicing in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class10_GPP.html">Class 10 GPP: Mastering Slicing in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class10_GPP_Solutions.html">Class 10 GPP Solutions: Mastering Slicing in Python</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW5.html">Homework 5: Advanced Iteration, Nested Structures, and Slicing</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class11.html">Class 11: Digging into arrays with NumPy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class11_GPP.html">Class 11 GPP: Working with Arrays in NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class11_GPP_Solutions.html">Class 11 GPP Solutions: Working with Arrays in NumPy</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../class/Class12.html">Class 12: Dictionaries</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Class 12 GPP: Python Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class12_GPP_Solutions.html">Class 12 GPP Solutions: Python Dictionaries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW6.html">Homework 6: NumPy and Dictionaries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class13.html">Class 13: User-Defined Functions, Arguments, and Scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class14.html">Class 14: Scripts, File I/O, and the Local File Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class15.html">Class 15: Visualizing Data and Plotting in Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MATLAB</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../class/Class16.html">Class 16: From Python to MATLAB: Syntax and Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class18.html">Class 18: Creating Vectors and Matrices in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class19.html">Class 19: Vector and Matrix Operations in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class20.html">Class 20: MATLAB Scripts, Documentation, and File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class21.html">Class 21: User Functions and Modular Programming in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class22.html">Class 22: Useful MATLAB Toolboxes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendix/Syllabus.html">Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/WeeklyRhythm.html">Weekly Rhythm of EK125</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/SubmittingAssignments.html">Instructions to receive and submit assignments</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/gpps/Class12_GPP.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Class 12 GPP: Python Dictionaries</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">Instructions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-dictionary-basics">Problem 1: Dictionary Basics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-2-add-new-key-value-pairs">Problem 1.2: Add New Key-Value Pairs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-3-loop-over-key-value-pairs">Problem 1.3: Loop Over Key-Value Pairs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-book-information">Problem 2: Book Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-get-and-pop-on-a-smartphone-dictionary">Problem 3: get() and pop() on a Smartphone Dictionary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4-clear-on-a-shopping-cart-dictionary">Problem 4: clear() on a Shopping Cart Dictionary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-keys-values-and-items">Problem 5: .keys(), .values() and .items()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-6-challenge-nested-dictionaries">Problem 6: Challenge – Nested Dictionaries</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="class-12-gpp-python-dictionaries">
+<h1>Class 12 GPP: Python Dictionaries<a class="headerlink" href="#class-12-gpp-python-dictionaries" title="Link to this heading">#</a></h1>
+<p>This is a script-based exercise: work through the problems directly in
+PyCharm/VS Code (not in a notebook). Download the file below, open it
+locally, and run it as you go – the instructions are also on this page so
+you can read them without switching windows.</p>
+<p>Download: <a class="reference download internal" download="" href="../_downloads/a850778d3c33cebc571902bd227b0a43/Class12_GPP.py"><span class="xref download myst">Class12_GPP.py</span></a></p>
+<section id="instructions">
+<h2>Instructions<a class="headerlink" href="#instructions" title="Link to this heading">#</a></h2>
+<p><strong>Team Members:</strong></p>
+<ul class="simple">
+<li><p>Your Name</p></li>
+<li><p>Partner 1 Name</p></li>
+<li><p>Partner 2 Name</p></li>
+</ul>
+<p><strong>Instructions:</strong></p>
+<ul class="simple">
+<li><p>Work in groups of <strong>THREE</strong></p></li>
+<li><p>You MAY use your reading notes and previous assignments</p></li>
+<li><p>Do <strong>NOT</strong> use AI tools (ChatGPT, Claude, Copilot, etc.)</p></li>
+<li><p>Not submitted for grading – but this material <strong>will</strong> appear on quizzes and exams!</p></li>
+</ul>
+<p><strong>PyCharm reminders:</strong></p>
+<ul class="simple">
+<li><p>Run your file with <code class="docutils literal notranslate"><span class="pre">Shift+F10</span></code> (or the green play button)</p></li>
+<li><p>Output appears in the terminal at the bottom</p></li>
+<li><p>Save frequently with <code class="docutils literal notranslate"><span class="pre">Ctrl+S</span></code> / <code class="docutils literal notranslate"><span class="pre">Cmd+S</span></code></p></li>
+<li><p>Nothing prints automatically – you must use <code class="docutils literal notranslate"><span class="pre">print()</span></code></p></li>
+</ul>
+</section>
+<section id="problem-1-dictionary-basics">
+<h2>Problem 1: Dictionary Basics<a class="headerlink" href="#problem-1-dictionary-basics" title="Link to this heading">#</a></h2>
+<p>Today we will investigate Python dictionaries. Dictionaries are key-value
+stores where each key is unique. You will explore various operations on
+dictionaries, including creation, modification, and iteration.</p>
+<p><strong>1.1: Make a dictionary</strong></p>
+<ul class="simple">
+<li><p>Create a dictionary named <code class="docutils literal notranslate"><span class="pre">hurricane</span></code> with the following key-value pairs:
+<code class="docutils literal notranslate"><span class="pre">'name':</span> <span class="pre">'Sandy'</span></code>, <code class="docutils literal notranslate"><span class="pre">'year':</span> <span class="pre">2012</span></code>, <code class="docutils literal notranslate"><span class="pre">'category':</span> <span class="pre">3</span></code></p></li>
+<li><p>Print the value associated with the key <code class="docutils literal notranslate"><span class="pre">'year'</span></code>.</p></li>
+</ul>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class12.html#dictionaries">Dictionaries</a> section for a refresher.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">Today we will investigate Python dictionaries. Dictionaries are key-value</span>
+<span class="sd">stores where each key is unique. You will explore various operations on</span>
+<span class="sd">dictionaries, including creation, modification, and iteration.</span>
+
+<span class="sd">1.1: Make a dictionary</span>
+<span class="sd">  - Create a dictionary named `hurricane` with the following key-value pairs:</span>
+<span class="sd">      'name': 'Sandy'</span>
+<span class="sd">      'year': 2012</span>
+<span class="sd">      'category': 3</span>
+<span class="sd">  - Print the value associated with the key 'year'.</span>
+<span class="sd">"""</span>
+
+<span class="c1"># Your code here</span>
+
+</pre></div>
+</div>
+</section>
+<section id="problem-1-2-add-new-key-value-pairs">
+<h2>Problem 1.2: Add New Key-Value Pairs<a class="headerlink" href="#problem-1-2-add-new-key-value-pairs" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Add a new key-value pair to the <code class="docutils literal notranslate"><span class="pre">hurricane</span></code> dictionary: <code class="docutils literal notranslate"><span class="pre">'pressure':</span> <span class="pre">940</span></code></p></li>
+<li><p>Change the <code class="docutils literal notranslate"><span class="pre">'category'</span></code> value to <code class="docutils literal notranslate"><span class="pre">4</span></code>.</p></li>
+<li><p>Print the updated dictionary.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">  - Add a new key-value pair to the hurricane dictionary: 'pressure': 940</span>
+<span class="sd">  - Change the 'category' value to 4.</span>
+<span class="sd">  - Print the updated dictionary.</span>
+<span class="sd">"""</span>
+
+<span class="c1"># Your code here</span>
+
+</pre></div>
+</div>
+</section>
+<section id="problem-1-3-loop-over-key-value-pairs">
+<h2>Problem 1.3: Loop Over Key-Value Pairs<a class="headerlink" href="#problem-1-3-loop-over-key-value-pairs" title="Link to this heading">#</a></h2>
+<p>Use a loop to print all keys and values from the <code class="docutils literal notranslate"><span class="pre">hurricane</span></code> dictionary in
+the format <code class="docutils literal notranslate"><span class="pre">Key:</span> <span class="pre">Value</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">Use a loop to print all keys and values from the hurricane dictionary</span>
+<span class="sd">in the format:  Key: Value</span>
+<span class="sd">"""</span>
+
+<span class="c1"># Your code here</span>
+
+</pre></div>
+</div>
+</section>
+<section id="problem-2-book-information">
+<h2>Problem 2: Book Information<a class="headerlink" href="#problem-2-book-information" title="Link to this heading">#</a></h2>
+<p>You are tasked with storing information about a book in a dictionary.
+Perform the following steps:</p>
+<ol class="arabic simple">
+<li><p>Create a dictionary named <code class="docutils literal notranslate"><span class="pre">book</span></code> with the keys <code class="docutils literal notranslate"><span class="pre">'title'</span></code>, <code class="docutils literal notranslate"><span class="pre">'author'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'year_published'</span></code>, and <code class="docutils literal notranslate"><span class="pre">'genre'</span></code>.</p></li>
+<li><p>Print the value associated with the key <code class="docutils literal notranslate"><span class="pre">'author'</span></code>.</p></li>
+<li><p>Check if the key <code class="docutils literal notranslate"><span class="pre">'pages'</span></code> exists in the dictionary and print the
+result. (Hint: use <code class="docutils literal notranslate"><span class="pre">in</span></code>!)</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function to determine the number of key-value pairs in
+the dictionary and print it.</p></li>
+</ol>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class12.html#dictionaries">Dictionaries</a> section for a refresher.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">You are tasked with storing information about a book in a dictionary.</span>
+<span class="sd">Perform the following steps:</span>
+
+<span class="sd">1. Create a dictionary named `book` with the following key-value pairs:</span>
+<span class="sd">     'title': 'To Kill a Mockingbird'</span>
+<span class="sd">     'author': 'Harper Lee'</span>
+<span class="sd">     'year_published': 1960</span>
+<span class="sd">     'genre': 'Fiction'</span>
+<span class="sd">2. Print the value associated with the key 'author'.</span>
+<span class="sd">3. Check if the key 'pages' exists in the dictionary and print the result.</span>
+<span class="sd">   (Hint: use `in`!)</span>
+<span class="sd">4. Use the len() function to determine the number of key-value pairs in</span>
+<span class="sd">   the dictionary and print it.</span>
+<span class="sd">"""</span>
+
+<span class="c1"># Your code here</span>
+
+</pre></div>
+</div>
+</section>
+<section id="problem-3-get-and-pop-on-a-smartphone-dictionary">
+<h2>Problem 3: get() and pop() on a Smartphone Dictionary<a class="headerlink" href="#problem-3-get-and-pop-on-a-smartphone-dictionary" title="Link to this heading">#</a></h2>
+<p>You are given a dictionary representing a smartphone:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">smartphone</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'brand'</span><span class="p">:</span> <span class="s1">'Apple'</span><span class="p">,</span>
+    <span class="s1">'model'</span><span class="p">:</span> <span class="s1">'iPhone 13'</span><span class="p">,</span>
+    <span class="s1">'year_released'</span><span class="p">:</span> <span class="mi">2021</span><span class="p">,</span>
+    <span class="s1">'price'</span><span class="p">:</span> <span class="mi">799</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">get()</span></code> method to retrieve the value for the key <code class="docutils literal notranslate"><span class="pre">'price'</span></code>.</p></li>
+<li><p>Add a new key-value pair: <code class="docutils literal notranslate"><span class="pre">'storage':</span> <span class="pre">'128GB'</span></code>.</p></li>
+<li><p>Update the <code class="docutils literal notranslate"><span class="pre">'price'</span></code> to <code class="docutils literal notranslate"><span class="pre">749</span></code>.</p></li>
+<li><p>Remove the <code class="docutils literal notranslate"><span class="pre">'year_released'</span></code> key using the <code class="docutils literal notranslate"><span class="pre">pop()</span></code> method.</p></li>
+<li><p>Print the updated dictionary.</p></li>
+</ol>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class12.html#dictionaries">Dictionaries</a> section (the <code class="docutils literal notranslate"><span class="pre">get</span></code>/<code class="docutils literal notranslate"><span class="pre">pop</span></code> examples) for a refresher.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">You are given a dictionary representing a smartphone:</span>
+
+<span class="sd">    smartphone = {</span>
+<span class="sd">        'brand': 'Apple',</span>
+<span class="sd">        'model': 'iPhone 13',</span>
+<span class="sd">        'year_released': 2021,</span>
+<span class="sd">        'price': 799</span>
+<span class="sd">    }</span>
+
+<span class="sd">1. Use the get() method to retrieve the value for the key 'price'.</span>
+<span class="sd">2. Add a new key-value pair: 'storage': '128GB'.</span>
+<span class="sd">3. Update the 'price' to 749.</span>
+<span class="sd">4. Remove the 'year_released' key using the pop() method.</span>
+<span class="sd">5. Print the updated dictionary.</span>
+<span class="sd">"""</span>
+
+<span class="n">smartphone</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'brand'</span><span class="p">:</span> <span class="s1">'Apple'</span><span class="p">,</span>
+    <span class="s1">'model'</span><span class="p">:</span> <span class="s1">'iPhone 13'</span><span class="p">,</span>
+    <span class="s1">'year_released'</span><span class="p">:</span> <span class="mi">2021</span><span class="p">,</span>
+    <span class="s1">'price'</span><span class="p">:</span> <span class="mi">799</span>
+<span class="p">}</span>
+
+<span class="c1"># Your code here</span>
+
+</pre></div>
+</div>
+</section>
+<section id="problem-4-clear-on-a-shopping-cart-dictionary">
+<h2>Problem 4: clear() on a Shopping Cart Dictionary<a class="headerlink" href="#problem-4-clear-on-a-shopping-cart-dictionary" title="Link to this heading">#</a></h2>
+<p>You are managing a dictionary that tracks items in a shopping cart:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">shopping_cart</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'apple'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="s1">'banana'</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+    <span class="s1">'milk'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s1">'bread'</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Print the current contents of the <code class="docutils literal notranslate"><span class="pre">shopping_cart</span></code>.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">clear()</span></code> method to remove all items from the dictionary.</p></li>
+<li><p>Print the dictionary again to confirm it is empty.</p></li>
+</ol>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class12.html#dictionaries">Dictionaries</a> section (the <code class="docutils literal notranslate"><span class="pre">clear</span></code> example) for a refresher.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">You are managing a dictionary that tracks items in a shopping cart:</span>
+
+<span class="sd">    shopping_cart = {</span>
+<span class="sd">        'apple': 4,</span>
+<span class="sd">        'banana': 6,</span>
+<span class="sd">        'milk': 2,</span>
+<span class="sd">        'bread': 1</span>
+<span class="sd">    }</span>
+
+<span class="sd">1. Print the current contents of the shopping_cart.</span>
+<span class="sd">2. Use the clear() method to remove all items from the dictionary.</span>
+<span class="sd">3. Print the dictionary again to confirm it is empty.</span>
+<span class="sd">"""</span>
+
+<span class="n">shopping_cart</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'apple'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="s1">'banana'</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span>
+    <span class="s1">'milk'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s1">'bread'</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+
+<span class="c1"># Your code here</span>
+
+</pre></div>
+</div>
+</section>
+<section id="problem-5-keys-values-and-items">
+<h2>Problem 5: .keys(), .values() and .items()<a class="headerlink" href="#problem-5-keys-values-and-items" title="Link to this heading">#</a></h2>
+<p>You are given a dictionary representing the stock of items in a grocery
+store:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">store_stock</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'apples'</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+    <span class="s1">'bananas'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+    <span class="s1">'milk'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s1">'bread'</span><span class="p">:</span> <span class="mi">15</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">.keys()</span></code> method to print a list of all items in the store.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">.values()</span></code> method to calculate and print the total stock of
+all items.</p></li>
+<li><p>Use the <code class="docutils literal notranslate"><span class="pre">.items()</span></code> method to print each item and its stock as tuples.</p></li>
+<li><p>Use a loop to print each item and its stock in the format
+<code class="docutils literal notranslate"><span class="pre">&quot;Item:</span> <span class="pre">&lt;item&gt;,</span> <span class="pre">Stock:</span> <span class="pre">&lt;stock&gt;&quot;</span></code>.</p></li>
+</ol>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class12.html#dictionaries">Dictionaries</a> section (<code class="docutils literal notranslate"><span class="pre">keys()</span></code>/<code class="docutils literal notranslate"><span class="pre">values()</span></code>/<code class="docutils literal notranslate"><span class="pre">items()</span></code>) for a refresher.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">You are given a dictionary representing the stock of items in a grocery store:</span>
+
+<span class="sd">    store_stock = {</span>
+<span class="sd">        'apples': 50,</span>
+<span class="sd">        'bananas': 30,</span>
+<span class="sd">        'milk': 20,</span>
+<span class="sd">        'bread': 15</span>
+<span class="sd">    }</span>
+
+<span class="sd">1. Use the .keys() method to print a list of all items in the store.</span>
+<span class="sd">2. Use the .values() method to calculate and print the total stock of all</span>
+<span class="sd">   items.</span>
+<span class="sd">3. Use the .items() method to print each item and its stock as tuples.</span>
+<span class="sd">4. Use a loop to print each item and its stock in the format:</span>
+<span class="sd">     "Item: &lt;item&gt;, Stock: &lt;stock&gt;"</span>
+<span class="sd">"""</span>
+
+<span class="n">store_stock</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'apples'</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+    <span class="s1">'bananas'</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
+    <span class="s1">'milk'</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+    <span class="s1">'bread'</span><span class="p">:</span> <span class="mi">15</span>
+<span class="p">}</span>
+
+<span class="c1"># Your code here</span>
+
+</pre></div>
+</div>
+</section>
+<section id="problem-6-challenge-nested-dictionaries">
+<h2>Problem 6: Challenge – Nested Dictionaries<a class="headerlink" href="#problem-6-challenge-nested-dictionaries" title="Link to this heading">#</a></h2>
+<p>You are managing data about students and their test scores. The data is
+stored in a dictionary where each key is a student’s name, and the value
+is another dictionary containing the student’s scores for Math, Science,
+and English.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">students_scores</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'Alice'</span><span class="p">:</span>   <span class="p">{</span><span class="s1">'Math'</span><span class="p">:</span> <span class="mi">85</span><span class="p">,</span> <span class="s1">'Science'</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span> <span class="s1">'English'</span><span class="p">:</span> <span class="mi">88</span><span class="p">},</span>
+    <span class="s1">'Bob'</span><span class="p">:</span>     <span class="p">{</span><span class="s1">'Math'</span><span class="p">:</span> <span class="mi">78</span><span class="p">,</span> <span class="s1">'Science'</span><span class="p">:</span> <span class="mi">82</span><span class="p">,</span> <span class="s1">'English'</span><span class="p">:</span> <span class="mi">84</span><span class="p">},</span>
+    <span class="s1">'Charlie'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'Math'</span><span class="p">:</span> <span class="mi">92</span><span class="p">,</span> <span class="s1">'Science'</span><span class="p">:</span> <span class="mi">88</span><span class="p">,</span> <span class="s1">'English'</span><span class="p">:</span> <span class="mi">91</span><span class="p">},</span>
+    <span class="s1">'Dana'</span><span class="p">:</span>    <span class="p">{</span><span class="s1">'Math'</span><span class="p">:</span> <span class="mi">89</span><span class="p">,</span> <span class="s1">'Science'</span><span class="p">:</span> <span class="mi">94</span><span class="p">,</span> <span class="s1">'English'</span><span class="p">:</span> <span class="mi">87</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>Print the scores for <code class="docutils literal notranslate"><span class="pre">'Alice'</span></code>.</p></li>
+<li><p>Retrieve and print the Science score for <code class="docutils literal notranslate"><span class="pre">'Charlie'</span></code>.</p></li>
+<li><p>Add a new student, <code class="docutils literal notranslate"><span class="pre">'Eve'</span></code>, with scores Math: 88, Science: 86,
+English: 89.</p></li>
+<li><p>Calculate and print the average Math score for all students.</p></li>
+<li><p>Use a loop to print each student’s name and their average score in the
+format <code class="docutils literal notranslate"><span class="pre">&quot;Student:</span> <span class="pre">&lt;name&gt;,</span> <span class="pre">Average</span> <span class="pre">Score:</span> <span class="pre">&lt;average&gt;&quot;</span></code>.</p></li>
+</ol>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class12.html#dictionaries">Dictionaries</a> section (nested dictionaries) for a refresher.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">You are managing data about students and their test scores. The data is</span>
+<span class="sd">stored in a dictionary where each key is a student's name, and the value</span>
+<span class="sd">is another dictionary containing the student's scores for Math, Science,</span>
+<span class="sd">and English.</span>
+
+<span class="sd">    students_scores = {</span>
+<span class="sd">        'Alice':   {'Math': 85, 'Science': 90, 'English': 88},</span>
+<span class="sd">        'Bob':     {'Math': 78, 'Science': 82, 'English': 84},</span>
+<span class="sd">        'Charlie': {'Math': 92, 'Science': 88, 'English': 91},</span>
+<span class="sd">        'Dana':    {'Math': 89, 'Science': 94, 'English': 87}</span>
+<span class="sd">    }</span>
+
+<span class="sd">1. Print the scores for 'Alice'.</span>
+<span class="sd">2. Retrieve and print the Science score for 'Charlie'.</span>
+<span class="sd">3. Add a new student, 'Eve', with the following scores:</span>
+<span class="sd">     Math: 88, Science: 86, English: 89</span>
+<span class="sd">4. Calculate and print the average Math score for all students.</span>
+<span class="sd">5. Use a loop to print each student's name and their average score in</span>
+<span class="sd">   the format:  "Student: &lt;name&gt;, Average Score: &lt;average&gt;"</span>
+<span class="sd">"""</span>
+
+<span class="n">students_scores</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'Alice'</span><span class="p">:</span>   <span class="p">{</span><span class="s1">'Math'</span><span class="p">:</span> <span class="mi">85</span><span class="p">,</span> <span class="s1">'Science'</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span> <span class="s1">'English'</span><span class="p">:</span> <span class="mi">88</span><span class="p">},</span>
+    <span class="s1">'Bob'</span><span class="p">:</span>     <span class="p">{</span><span class="s1">'Math'</span><span class="p">:</span> <span class="mi">78</span><span class="p">,</span> <span class="s1">'Science'</span><span class="p">:</span> <span class="mi">82</span><span class="p">,</span> <span class="s1">'English'</span><span class="p">:</span> <span class="mi">84</span><span class="p">},</span>
+    <span class="s1">'Charlie'</span><span class="p">:</span> <span class="p">{</span><span class="s1">'Math'</span><span class="p">:</span> <span class="mi">92</span><span class="p">,</span> <span class="s1">'Science'</span><span class="p">:</span> <span class="mi">88</span><span class="p">,</span> <span class="s1">'English'</span><span class="p">:</span> <span class="mi">91</span><span class="p">},</span>
+    <span class="s1">'Dana'</span><span class="p">:</span>    <span class="p">{</span><span class="s1">'Math'</span><span class="p">:</span> <span class="mi">89</span><span class="p">,</span> <span class="s1">'Science'</span><span class="p">:</span> <span class="mi">94</span><span class="p">,</span> <span class="s1">'English'</span><span class="p">:</span> <span class="mi">87</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1"># Your code here</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./gpps"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../class/Class12.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Class 12: Dictionaries</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Class12_GPP_Solutions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Class 12 GPP Solutions: Python Dictionaries</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">Instructions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-dictionary-basics">Problem 1: Dictionary Basics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-2-add-new-key-value-pairs">Problem 1.2: Add New Key-Value Pairs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-3-loop-over-key-value-pairs">Problem 1.3: Loop Over Key-Value Pairs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-book-information">Problem 2: Book Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-get-and-pop-on-a-smartphone-dictionary">Problem 3: get() and pop() on a Smartphone Dictionary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4-clear-on-a-shopping-cart-dictionary">Problem 4: clear() on a Shopping Cart Dictionary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-5-keys-values-and-items">Problem 5: .keys(), .values() and .items()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-6-challenge-nested-dictionaries">Problem 6: Challenge – Nested Dictionaries</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Stormy Attaway, Brian DePasquale, Christine Mulvey, Kenn Sebesta
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
