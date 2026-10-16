@@ -188,11 +188,22 @@ file they'll actually work in, kept in sync by construction (the page
 apart the way a hand-copied duplicate could).
 
 **The `.py` file's structure:**
-- One top-of-file docstring: title, semester, a one-line description of
-  the file format, a list of its sections/problems and which class(es)
-  each covers, grading note, `INSTRUCTIONS`, and `PYCHARM REMINDERS`
+- One top-of-file docstring: title, a one-line description of the file
+  format, a list of its sections/problems and which class(es) each
+  covers, grading note, `INSTRUCTIONS`, and `PYCHARM REMINDERS`
   (`Shift+F10`, output in the terminal, save often) -- see any of the
-  established examples for the exact wording to reuse.
+  established examples for the exact wording to reuse. **Do not put a
+  semester (e.g. "EK125 - Fall 2026") in the header** -- this page is
+  permanent and reused semester to semester (see README.md's "student-
+  facing and permanent" framing), so a baked-in semester goes stale the
+  moment the calendar rolls over. The *current* semester's dates live
+  only in `appendix/Fall2026Schedule.md`, which is expected to be
+  replaced wholesale each term -- a GPP/homework/reading page itself
+  should just say `EK125`, not `EK125 - <semester>`. (An upstream source
+  file in EK125-Instructors/EK125-notebooks will usually have a semester
+  baked in -- strip it when porting rather than carrying it over; this
+  was fixed repo-wide on 2026-10-16 after it slipped through on several
+  Class 10-14 and HW5-7 ports.)
 - Each problem is a `# ====...` divider, a `# PROBLEM N: Title` comment,
   another divider, then a plain docstring with that problem's full
   instructions, then either a blank `# Your code here` scaffold or (for a

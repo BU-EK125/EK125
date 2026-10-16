@@ -1,6 +1,6 @@
 """
 Homework 6: NumPy and Dictionaries
-EK125 - Fall 2026
+EK125
 
 This is a script-based assignment: write and run all of your code in this
 single .py file in PyCharm.
