@@ -12,9 +12,10 @@ here).
 - **EK125** (this repo) -- the main, public, permanent jupyter-book site.
   Student-facing. Canonical source for reading content, GPP problem
   statements, and (Fall 2026 on) homework problem statements and GPP
-  solutions for Act 1 (Classes 1-7), plus Classes 9-12 (added
-  2026-10-02 and 2026-10-05 by explicit instructor request -- see README.md
-  for the authoritative scope statement; this is not a general Act 2
+  solutions for Act 1 (Classes 1-7), plus Classes 9-14 (added
+  2026-10-02, 2026-10-05, and 2026-10-16 by explicit instructor request --
+  see README.md for the authoritative scope statement; this is not a
+  general Act 2
   reopening).
 - **EK125-notebooks** (private) -- the instructor-side staging/source repo
   most content here gets ported *from*. Itself built as a second,
@@ -140,15 +141,36 @@ it; check `_toc.yml` to see what's actually published.
   identical problem content). Found and fixed a real bug while verifying
   Class 11's solutions: Challenge 1 asks to sum values "greater than or
   equal to 4" but both sources' solution code used `v > 4` (strict),
-  silently dropping the boundary value -- fixed to `v >= 4`. Do not extend
-  further into Act 2 (Classes 13-15) or Act 3 without being asked again.
+  silently dropping the boundary value -- fixed to `v >= 4`.
+- **Scope extended again to Classes 13-14 on 2026-10-16**, by explicit
+  instructor request, after a newly-drafted `EK125-Instructors/F26/Copy of
+  class14_gpp.py` turned out to reproduce the exact Class 13/14 topic
+  mismatch described below under "Known open items" -- Class 13's GPP was
+  ported straight from that same WIP batch (clean, matches its reading),
+  but Class 14's GPP was instead sourced from EK125-notebooks' `gpp/
+  Class_14_GPP.py`/`_Solutions.py` (the version already correctly fixed
+  there in September). Verifying Class 14's solutions end-to-end surfaced
+  four more real bugs, all fixed: two crashes (top-level illustrative code
+  using undefined variables; a `credits`/`course_credits` typo causing a
+  `NameError`) and two wrong docstring example outputs (`3.72` should be
+  `3.67`; `83.5` should be `83.50333333333333`). Do not extend further
+  into Act 2 (Class 15) or Act 3 without being asked again.
 
 ## Known open items worth checking before assuming fixed
 
-- **Class 14 and 15's GPPs were found misaligned with their own readings by
-  one class** (Class 14's GPP covered Class 13's scope/argument-passing
-  material) in an earlier audit. Not confirmed fixed -- verify before
-  relying on it.
+- ~~Class 14 and 15's GPPs were found misaligned with their own readings by
+  one class~~ -- **resolved 2026-10-16.** This was already fixed once, in
+  EK125-notebooks (2026-09-16, commits `2a8590a`/`a131231`): Class 14's slot
+  had Class 13's scope/copying content, and Class 15's slot had content
+  ("Scripts, Comments, and Documentation") that actually matched Class 14's
+  reading -- moved into Class 14's slot, Class 15's GPP deleted (no
+  replacement existed). That fix never made it into this repo's own
+  `CLAUDE.md` or into `EK125-Instructors`, which is why a freshly-drafted
+  WIP file for Class 14 reproduced the *exact same* mismatch again on
+  2026-10-16 (see the GPP-solutions scope history above). Class 15 still
+  has no GPP, by design, not a gap -- see if a genuine
+  visualization/matplotlib group exercise ever surfaces before assuming
+  one should be added.
 - A reading's "WRONG" example once claimed `int(line)` fails on a file
   read's trailing newline -- Python's `int()` actually tolerates trailing
   whitespace, so the demo may not raise as the prose claims. Worth
