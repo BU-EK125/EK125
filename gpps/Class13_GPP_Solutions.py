@@ -1,6 +1,6 @@
 """
 Class 13 GPP Solutions: User-Defined Functions, Scope, and Copying
-EK125 - Fall 2026
+EK125
 """
 
 # ==============================================================================
