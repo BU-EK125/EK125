@@ -63,6 +63,9 @@ parts:
           - file: gpps/Class13_GPP
           - file: gpps/Class13_GPP_Solutions
       - file: class/Class14
+        sections:
+          - file: gpps/Class14_GPP
+          - file: gpps/Class14_GPP_Solutions
       - file: class/Class15
   - caption: MATLAB
     chapters:
