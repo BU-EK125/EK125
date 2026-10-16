@@ -66,6 +66,7 @@ parts:
         sections:
           - file: gpps/Class14_GPP
           - file: gpps/Class14_GPP_Solutions
+      - file: homework/HW7
       - file: class/Class15
   - caption: MATLAB
     chapters:
