@@ -138,16 +138,16 @@ to a new semester, and don't keep treating it as current without
 checking -- a stale schedule actively misleads students about real due
 dates and exam logistics, which is worse than having no calendar at all.
 
-## Porting GPP solutions (Act 1, plus Classes 9-12)
+## Porting GPP solutions (Act 1, plus Classes 9-14)
 
 As of Fall 2026, GPP solutions are published for **Act 1 (Classes 1-7),
-plus Classes 9-12** -- a deliberate, scoped exception to the general rule
+plus Classes 9-14** -- a deliberate, scoped exception to the general rule
 that solutions stay private (which still applies everywhere else: Act 2
-Classes 13-15, Act 3, and all homework). Each extension past Act 1 was
-made by explicit instructor request, one class (or pair of classes) at a
-time -- see README.md for the authoritative, up-to-date scope statement,
-and don't extend this further into Act 2 (Classes 13-15) or Act 3 without
-being asked again.
+Class 15, Act 3, and all homework). Each extension past Act 1 was made by
+explicit instructor request, one class (or pair of classes) at a time --
+see README.md for the authoritative, up-to-date scope statement, and
+don't extend this further into Act 2 (Class 15) or Act 3 without being
+asked again.
 
 1. Source from EK125-notebooks' `gpp/Class_N_GPP_Solutions.ipynb` (or
    `.py`/`.md` for classes past the notebook era, though that doesn't apply
