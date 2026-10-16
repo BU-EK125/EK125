@@ -1,6 +1,6 @@
 """
 Homework 7: Modular Functions and File I/O
-EK125 - Spring 2026
+EK125 - Fall 2026
 
 This is a script-based assignment: write and run all of your code in this
 single .py file in PyCharm.

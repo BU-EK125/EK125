@@ -1,6 +1,6 @@
 """
 Class 12 GPP: Python Dictionaries
-EK125 - Spring 2026
+EK125 - Fall 2026
 
 Work in groups of THREE.
 

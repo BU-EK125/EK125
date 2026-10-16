@@ -1,6 +1,6 @@
 """
 Homework 5: Advanced Iteration, Nested Structures, and Slicing
-EK125 - Spring 2026
+EK125 - Fall 2026
 
 This is a script-based assignment -- unlike earlier homeworks, you'll write
 and run this entirely in PyCharm as a single .py file, not in Colab notebook
