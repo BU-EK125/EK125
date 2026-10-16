@@ -1,6 +1,6 @@
 """
 Class 11 GPP: Working with Arrays in NumPy
-EK125 - Fall 2026
+EK125
 
 Work in groups of THREE.
 
