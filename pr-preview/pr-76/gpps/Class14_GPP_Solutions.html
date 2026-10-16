@@ -1,0 +1,1049 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Class 14 GPP Solutions: Scripts, Comments, and Documentation &#8212; EK125</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gpps/Class14_GPP_Solutions';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class 15: Visualizing Data and Plotting in Python" href="../class/Class15.html" />
+    <link rel="prev" title="Class 14 GPP: Scripts, Comments, and Documentation" href="Class14_GPP.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">EK125</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to EK125
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendix/Fall2026Schedule.html">Fall 2026 Class Schedule</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python in Colab</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class1.html">Class 1: Introduction to Interactive Programming Using Google Colab</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class1_GPP.html">Class 1 GPP: Constants, Variables, Types, and Assignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class1_GPP_Solutions.html">Class 1 GPP Solutions: Constants, Variables, Types, and Assignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW1.html">Homework 1: Variables, Types, and Assignments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class2.html">Class 2: Sequences, Strings, and Lists in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class2_GPP.html">Class 2 GPP: Working with Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class2_GPP_Solutions.html">Class 2 GPP Solutions: Working with Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW2.html">Homework 2: Strings and Lists</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class3.html">Class 3: Booleans and Basic Logic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class3_GPP.html">Class 3 GPP: Boolean Logic Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class3_GPP_Solutions.html">Class 3 GPP Solutions: Boolean Logic Practice</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class4.html">Class 4: Coding Basics Wrap-up and Selection Statements</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class4_GPP.html">Class 4 GPP: Coding Basics Wrap-up and Selection Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class4_GPP_Solutions.html">Class 4 GPP Solutions: Coding Basics Wrap-up and Selection Statements</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW3.html">Homework 3: Boolean Logic, Sequences, and Selection Statements</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class5.html">Class 5: Importing Modules and Basic Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class5_GPP.html">Class 5 GPP: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class5_GPP_Solutions.html">Class 5 GPP Solutions: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class6.html">Class 6: Nested Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class6_GPP.html">Class 6 GPP: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class6_GPP_Solutions.html">Class 6 GPP Solutions: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW4.html">Homework 4: Loops and Randomness</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class7.html">Class 7: Advanced Iteration and Nested Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class7_GPP.html">Class 7 GPP: Advanced Iteration and Nested Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class7_GPP_Solutions.html">Class 7 GPP Solutions: Advanced Iteration and Nested Structures</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="Exam1_Review.html">EK125 Exam 1 - Top 30 GPP Problems for Paper Practice</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python in an IDE</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class9.html">Class 9: From Colab Notebooks to Running Python Locally</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class9_GPP.html">Class 9 GPP: Getting Comfortable with PyCharm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class9_GPP_Solutions.html">Class 9 GPP Solutions: Getting Comfortable with PyCharm</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class10.html">Class 10: Mastering Slicing in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class10_GPP.html">Class 10 GPP: Mastering Slicing in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class10_GPP_Solutions.html">Class 10 GPP Solutions: Mastering Slicing in Python</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW5.html">Homework 5: Advanced Iteration, Nested Structures, and Slicing</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class11.html">Class 11: Digging into arrays with NumPy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class11_GPP.html">Class 11 GPP: Working with Arrays in NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class11_GPP_Solutions.html">Class 11 GPP Solutions: Working with Arrays in NumPy</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class12.html">Class 12: Dictionaries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class12_GPP.html">Class 12 GPP: Python Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class12_GPP_Solutions.html">Class 12 GPP Solutions: Python Dictionaries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW6.html">Homework 6: NumPy and Dictionaries</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class13.html">Class 13: User-Defined Functions, Arguments, and Scope</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class13_GPP.html">Class 13 GPP: User-Defined Functions, Scope, and Copying</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class13_GPP_Solutions.html">Class 13 GPP Solutions: User-Defined Functions, Scope, and Copying</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../class/Class14.html">Class 14: Scripts, File I/O, and the Local File Environment</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Class14_GPP.html">Class 14 GPP: Scripts, Comments, and Documentation</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Class 14 GPP Solutions: Scripts, Comments, and Documentation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class15.html">Class 15: Visualizing Data and Plotting in Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MATLAB</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../class/Class16.html">Class 16: From Python to MATLAB: Syntax and Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class18.html">Class 18: Creating Vectors and Matrices in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class19.html">Class 19: Vector and Matrix Operations in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class20.html">Class 20: MATLAB Scripts, Documentation, and File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class21.html">Class 21: User Functions and Modular Programming in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class22.html">Class 22: Useful MATLAB Toolboxes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendix/Syllabus.html">Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/WeeklyRhythm.html">Weekly Rhythm of EK125</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/SubmittingAssignments.html">Instructions to receive and submit assignments</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/gpps/Class14_GPP_Solutions.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Class 14 GPP Solutions: Scripts, Comments, and Documentation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="class-14-gpp-solutions-scripts-comments-and-documentation">
+<h1>Class 14 GPP Solutions: Scripts, Comments, and Documentation<a class="headerlink" href="#class-14-gpp-solutions-scripts-comments-and-documentation" title="Link to this heading">#</a></h1>
+<p>This is the solved version of the script-based exercise: work through the
+<code class="docutils literal notranslate"><span class="pre">.py</span></code> file below to see the completed solution.</p>
+<p>Download: <a class="reference download internal" download="" href="../_downloads/9cd3916fe6bd88c82602e559c3d88b48/Class14_GPP_Solutions.py"><span class="xref download myst">Class14_GPP_Solutions.py</span></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">Class 14 GPP Solutions: Scripts, Comments, and Documentation</span>
+<span class="sd">EK125 - Spring 2026</span>
+<span class="sd">"""</span>
+
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># PROBLEM 1 SOLUTION: Good Comments vs. Bad Comments</span>
+<span class="c1"># ==============================================================================</span>
+<span class="sd">"""</span>
+<span class="sd">Example 1:</span>
+<span class="sd">    x = x + 1  # Add 1 to x</span>
+<span class="sd">SOLUTION: BAD comment - states the obvious.</span>
+<span class="sd">Better: No comment needed, or explain WHY we're incrementing.</span>
+
+<span class="sd">Example 2:</span>
+<span class="sd">    # Apply 20% curve because this exam was particularly challenging</span>
+<span class="sd">    final_grade = raw_score * 1.20</span>
+<span class="sd">SOLUTION: GOOD comment - explains WHY we're using 1.20.</span>
+
+<span class="sd">Example 3:</span>
+<span class="sd">    total = sum(numbers)  # Calculate the total of all numbers</span>
+<span class="sd">SOLUTION: BAD comment - states the obvious (sum clearly calculates total).</span>
+<span class="sd">Better: No comment, or explain WHY we need the total.</span>
+
+<span class="sd">Example 4:</span>
+<span class="sd">    # Convert temperature to Celsius for consistency with weather API</span>
+<span class="sd">    temp_c = (temp_f - 32) * 5/9</span>
+<span class="sd">SOLUTION: GOOD comment - explains WHY we're converting.</span>
+<span class="sd">"""</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># PROBLEM 2 SOLUTION: Adding Docstrings to Functions</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_final_grade</span><span class="p">(</span><span class="n">homework</span><span class="p">,</span> <span class="n">quizzes</span><span class="p">,</span> <span class="n">exams</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Calculate final grade based on homework, quizzes, and exams.</span>
+
+<span class="sd">    Uses weighted average: 27% homework, 20% quizzes, 30% exams,</span>
+<span class="sd">    plus 18% class participation (pre-added).</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        homework (list): List of homework grades (0-100)</span>
+<span class="sd">        quizzes (list): List of quiz grades (0-100)</span>
+<span class="sd">        exams (list): List of exam grades (0-100)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: Final grade out of 100</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; hw = [85, 90, 88]</span>
+<span class="sd">        &gt;&gt;&gt; quiz = [78, 82, 85]</span>
+<span class="sd">        &gt;&gt;&gt; exam = [82, 88]</span>
+<span class="sd">        &gt;&gt;&gt; calculate_final_grade(hw, quiz, exam)</span>
+<span class="sd">        83.50333333333333</span>
+<span class="sd">    """</span>
+    <span class="n">hw_avg</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">homework</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">homework</span><span class="p">)</span>
+    <span class="n">quiz_avg</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">quizzes</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">quizzes</span><span class="p">)</span>
+    <span class="n">exam_avg</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">exams</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">exams</span><span class="p">)</span>
+
+    <span class="n">final</span> <span class="o">=</span> <span class="n">hw_avg</span> <span class="o">*</span> <span class="mf">0.27</span> <span class="o">+</span> <span class="n">quiz_avg</span> <span class="o">*</span> <span class="mf">0.20</span> <span class="o">+</span> <span class="n">exam_avg</span> <span class="o">*</span> <span class="mf">0.30</span> <span class="o">+</span> <span class="mi">18</span>
+
+    <span class="k">return</span> <span class="n">final</span>
+
+<span class="c1"># Test the documented function:</span>
+<span class="n">hw</span> <span class="o">=</span> <span class="p">[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">92</span><span class="p">]</span>
+<span class="n">quiz</span> <span class="o">=</span> <span class="p">[</span><span class="mi">78</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">88</span><span class="p">]</span>
+<span class="n">exam</span> <span class="o">=</span> <span class="p">[</span><span class="mi">82</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">85</span><span class="p">]</span>
+
+<span class="n">grade</span> <span class="o">=</span> <span class="n">calculate_final_grade</span><span class="p">(</span><span class="n">hw</span><span class="p">,</span> <span class="n">quiz</span><span class="p">,</span> <span class="n">exam</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Final grade: </span><span class="si">{</span><span class="n">grade</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># PROBLEM 3 SOLUTION: Script Organization</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="c1"># SOLUTION: Properly organized code</span>
+<span class="sd">"""</span>
+<span class="sd">Health and Geometry Calculator Module</span>
+
+<span class="sd">This module provides functions for calculating BMI and circle areas.</span>
+<span class="sd">"""</span>
+
+<span class="c1"># Imports</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
+<span class="c1"># Constants</span>
+<span class="n">PI</span> <span class="o">=</span> <span class="mf">3.14159</span>
+
+<span class="c1"># Function definitions</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_bmi</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Calculate Body Mass Index.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        weight (float): Weight in kilograms</span>
+<span class="sd">        height (float): Height in meters</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: BMI value</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">weight</span> <span class="o">/</span> <span class="p">(</span><span class="n">height</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">circle_area</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Calculate the area of a circle.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        radius (float): Radius of the circle</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: Area of the circle</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">PI</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="c1"># Main program</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="c1"># Calculate and display BMI</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">calculate_bmi</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="mf">1.75</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"BMI: </span><span class="si">{</span><span class="n">result</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+    <span class="c1"># Calculate and display circle area</span>
+    <span class="n">area</span> <span class="o">=</span> <span class="n">circle_area</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Area: </span><span class="si">{</span><span class="n">area</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># PROBLEM 4 SOLUTION: Professional Temperature Converter</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="c1"># SOLUTION: Complete, professional module</span>
+<span class="sd">"""</span>
+<span class="sd">Temperature Conversion Module</span>
+
+<span class="sd">This module provides functions for converting between different temperature</span>
+<span class="sd">scales: Celsius, Fahrenheit, and Kelvin.</span>
+
+<span class="sd">Common conversions:</span>
+<span class="sd">- Celsius to Fahrenheit: F = (C * 9/5) + 32</span>
+<span class="sd">- Fahrenheit to Celsius: C = (F - 32) * 5/9</span>
+<span class="sd">- Kelvin to Celsius: C = K - 273.15</span>
+<span class="sd">"""</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">celsius_to_fahrenheit</span><span class="p">(</span><span class="n">celsius</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Convert temperature from Celsius to Fahrenheit.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        celsius (float): Temperature in degrees Celsius</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: Temperature in degrees Fahrenheit</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; celsius_to_fahrenheit(0)</span>
+<span class="sd">        32.0</span>
+<span class="sd">        &gt;&gt;&gt; celsius_to_fahrenheit(100)</span>
+<span class="sd">        212.0</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">celsius</span> <span class="o">*</span> <span class="mi">9</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="mi">32</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">fahrenheit_to_celsius</span><span class="p">(</span><span class="n">fahrenheit</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Convert temperature from Fahrenheit to Celsius.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        fahrenheit (float): Temperature in degrees Fahrenheit</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: Temperature in degrees Celsius</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; fahrenheit_to_celsius(32)</span>
+<span class="sd">        0.0</span>
+<span class="sd">        &gt;&gt;&gt; fahrenheit_to_celsius(212)</span>
+<span class="sd">        100.0</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">fahrenheit</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">*</span> <span class="mi">5</span><span class="o">/</span><span class="mi">9</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">kelvin_to_celsius</span><span class="p">(</span><span class="n">kelvin</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Convert temperature from Kelvin to Celsius.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        kelvin (float): Temperature in Kelvin</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: Temperature in degrees Celsius</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; kelvin_to_celsius(273.15)</span>
+<span class="sd">        0.0</span>
+<span class="sd">        &gt;&gt;&gt; kelvin_to_celsius(373.15)</span>
+<span class="sd">        100.0</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">kelvin</span> <span class="o">-</span> <span class="mf">273.15</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Demonstrate temperature conversions."""</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Temperature Conversion Examples"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"-"</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+
+    <span class="c1"># Test Celsius to Fahrenheit</span>
+    <span class="n">temp_c</span> <span class="o">=</span> <span class="mi">25</span>
+    <span class="n">temp_f</span> <span class="o">=</span> <span class="n">celsius_to_fahrenheit</span><span class="p">(</span><span class="n">temp_c</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">temp_c</span><span class="si">}</span><span class="s2"> C = </span><span class="si">{</span><span class="n">temp_f</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> F"</span><span class="p">)</span>
+
+    <span class="c1"># Test Fahrenheit to Celsius</span>
+    <span class="n">temp_f</span> <span class="o">=</span> <span class="mi">77</span>
+    <span class="n">temp_c</span> <span class="o">=</span> <span class="n">fahrenheit_to_celsius</span><span class="p">(</span><span class="n">temp_f</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">temp_f</span><span class="si">}</span><span class="s2"> F = </span><span class="si">{</span><span class="n">temp_c</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> C"</span><span class="p">)</span>
+
+    <span class="c1"># Test Kelvin to Celsius</span>
+    <span class="n">temp_k</span> <span class="o">=</span> <span class="mi">300</span>
+    <span class="n">temp_c</span> <span class="o">=</span> <span class="n">kelvin_to_celsius</span><span class="p">(</span><span class="n">temp_k</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">temp_k</span><span class="si">}</span><span class="s2"> K = </span><span class="si">{</span><span class="n">temp_c</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> C"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># PROBLEM 5 SOLUTION: Code Review - Fix the Documentation</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="c1"># BAD VERSION (for comparison, not called):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calc</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">:</span>
+            <span class="n">c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">c</span>
+
+<span class="c1"># SOLUTION: Improved version</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">filter_above_threshold</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="n">threshold</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Filter numbers that exceed a specified threshold.</span>
+
+<span class="sd">    Useful for data cleaning, outlier detection, or selecting values</span>
+<span class="sd">    above a certain limit.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        numbers (list): List of numeric values to filter</span>
+<span class="sd">        threshold (float): Minimum value (exclusive) to include</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list: Numbers from input list that are greater than threshold</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; filter_above_threshold([10, 25, 30, 15, 40], 20)</span>
+<span class="sd">        [25, 30, 40]</span>
+<span class="sd">    """</span>
+    <span class="n">filtered_numbers</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">:</span>
+            <span class="n">filtered_numbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">filtered_numbers</span>
+
+<span class="c1"># Test the improved function:</span>
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">23</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">56</span><span class="p">]</span>
+<span class="n">threshold</span> <span class="o">=</span> <span class="mi">40</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">filter_above_threshold</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="n">threshold</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Numbers above </span><span class="si">{</span><span class="n">threshold</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># PROBLEM 6 SOLUTION: Creating a Module with if __name__ == "__main__"</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="c1"># SOLUTION: Complete GPA calculator module</span>
+<span class="sd">"""</span>
+<span class="sd">GPA Calculator Module</span>
+
+<span class="sd">This module provides functions for calculating Grade Point Average (GPA)</span>
+<span class="sd">and converting numeric GPAs to letter grades.</span>
+
+<span class="sd">Can be imported by other programs or run directly as a demonstration.</span>
+<span class="sd">"""</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">calculate_gpa</span><span class="p">(</span><span class="n">grades</span><span class="p">,</span> <span class="n">credits</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Calculate weighted GPA based on grades and credits.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        grades (list): List of numeric grades (0.0-4.0 scale)</span>
+<span class="sd">        credits (list): List of credit hours for each course</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        float: Weighted GPA rounded to 2 decimal places</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; calculate_gpa([4.0, 3.7, 3.3], [3, 4, 3])</span>
+<span class="sd">        3.67</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">grades</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">credits</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="c1"># Calculate weighted sum of grades</span>
+    <span class="n">total_points</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">grade</span><span class="p">,</span> <span class="n">credit</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">grades</span><span class="p">,</span> <span class="n">credits</span><span class="p">):</span>
+        <span class="n">total_points</span> <span class="o">+=</span> <span class="n">grade</span> <span class="o">*</span> <span class="n">credit</span>
+
+    <span class="n">total_credits</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">credits</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">total_credits</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">total_points</span> <span class="o">/</span> <span class="n">total_credits</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">letter_grade</span><span class="p">(</span><span class="n">gpa</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Convert numeric GPA to letter grade.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        gpa (float): Numeric GPA (0.0-4.0 scale)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: Letter grade ('A', 'B', 'C', 'D', or 'F')</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; letter_grade(3.8)</span>
+<span class="sd">        'A'</span>
+<span class="sd">        &gt;&gt;&gt; letter_grade(2.9)</span>
+<span class="sd">        'B'</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">gpa</span> <span class="o">&gt;=</span> <span class="mf">3.7</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">'A'</span>
+    <span class="k">elif</span> <span class="n">gpa</span> <span class="o">&gt;=</span> <span class="mf">2.7</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">'B'</span>
+    <span class="k">elif</span> <span class="n">gpa</span> <span class="o">&gt;=</span> <span class="mf">1.7</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">'C'</span>
+    <span class="k">elif</span> <span class="n">gpa</span> <span class="o">&gt;=</span> <span class="mf">1.0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">'D'</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">'F'</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Demonstrate GPA calculation with example data."""</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"GPA Calculator Demo"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"-"</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+
+    <span class="c1"># Example student grades</span>
+    <span class="n">course_grades</span> <span class="o">=</span> <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">3.7</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">]</span>
+    <span class="n">course_credits</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+    <span class="n">gpa</span> <span class="o">=</span> <span class="n">calculate_gpa</span><span class="p">(</span><span class="n">course_grades</span><span class="p">,</span> <span class="n">course_credits</span><span class="p">)</span>
+    <span class="n">letter</span> <span class="o">=</span> <span class="n">letter_grade</span><span class="p">(</span><span class="n">gpa</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Grades: </span><span class="si">{</span><span class="n">course_grades</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Credits: </span><span class="si">{</span><span class="n">course_credits</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"GPA: </span><span class="si">{</span><span class="n">gpa</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Letter Grade: </span><span class="si">{</span><span class="n">letter</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># PROBLEM 7 SOLUTION: Documentation Best Practices</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="c1"># SOLUTION: Exemplary documentation</span>
+<span class="sd">"""</span>
+<span class="sd">Sensor Data Analysis Module</span>
+
+<span class="sd">Provides functions for analyzing temperature sensor readings,</span>
+<span class="sd">including statistical analysis and threshold detection.</span>
+<span class="sd">"""</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">analyze_sensor_data</span><span class="p">(</span><span class="n">temperature_readings</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Analyze temperature sensor data and identify high readings.</span>
+
+<span class="sd">    Provides statistical summary and flags readings above 75F,</span>
+<span class="sd">    which may indicate equipment overheating or environmental concerns.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        temperature_readings (list): Temperature values in Fahrenheit</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict: Dictionary containing:</span>
+<span class="sd">            - 'count' (int): Number of readings</span>
+<span class="sd">            - 'average' (float): Mean temperature</span>
+<span class="sd">            - 'min' (float): Lowest temperature</span>
+<span class="sd">            - 'max' (float): Highest temperature</span>
+<span class="sd">            - 'above_threshold' (list): Readings above 75F</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; temps = [68.5, 72.0, 78.3, 65.2, 80.1, 71.8]</span>
+<span class="sd">        &gt;&gt;&gt; analyze_sensor_data(temps)</span>
+<span class="sd">        {'count': 6, 'average': 72.65, 'min': 65.2, 'max': 80.1,</span>
+<span class="sd">         'above_threshold': [78.3, 80.1]}</span>
+<span class="sd">    """</span>
+    <span class="c1"># Early return for empty data</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">temperature_readings</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="c1"># Calculate basic statistics</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">temperature_readings</span><span class="p">)</span>
+    <span class="n">average</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">temperature_readings</span><span class="p">)</span> <span class="o">/</span> <span class="n">count</span>
+    <span class="n">minimum</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">temperature_readings</span><span class="p">)</span>
+    <span class="n">maximum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">temperature_readings</span><span class="p">)</span>
+
+    <span class="c1"># Identify readings above critical threshold (75F)</span>
+    <span class="c1"># This threshold indicates potential overheating concerns</span>
+    <span class="n">critical_threshold</span> <span class="o">=</span> <span class="mf">75.0</span>
+    <span class="n">above_threshold</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">reading</span> <span class="ow">in</span> <span class="n">temperature_readings</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">reading</span> <span class="o">&gt;</span> <span class="n">critical_threshold</span><span class="p">:</span>
+            <span class="n">above_threshold</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">reading</span><span class="p">)</span>
+
+    <span class="c1"># Return structured results</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">'count'</span><span class="p">:</span> <span class="n">count</span><span class="p">,</span>
+        <span class="s1">'average'</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">average</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+        <span class="s1">'min'</span><span class="p">:</span> <span class="n">minimum</span><span class="p">,</span>
+        <span class="s1">'max'</span><span class="p">:</span> <span class="n">maximum</span><span class="p">,</span>
+        <span class="s1">'above_threshold'</span><span class="p">:</span> <span class="n">above_threshold</span>
+    <span class="p">}</span>
+
+<span class="c1"># Test the function</span>
+<span class="n">test_readings</span> <span class="o">=</span> <span class="p">[</span><span class="mf">68.5</span><span class="p">,</span> <span class="mf">72.0</span><span class="p">,</span> <span class="mf">78.3</span><span class="p">,</span> <span class="mf">65.2</span><span class="p">,</span> <span class="mf">80.1</span><span class="p">,</span> <span class="mf">71.8</span><span class="p">,</span> <span class="mf">76.4</span><span class="p">]</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">analyze_sensor_data</span><span class="p">(</span><span class="n">test_readings</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Sensor Data Analysis:"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Count: </span><span class="si">{</span><span class="n">results</span><span class="p">[</span><span class="s1">'count'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Average: </span><span class="si">{</span><span class="n">results</span><span class="p">[</span><span class="s1">'average'</span><span class="p">]</span><span class="si">}</span><span class="s2"> F"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  Range: </span><span class="si">{</span><span class="n">results</span><span class="p">[</span><span class="s1">'min'</span><span class="p">]</span><span class="si">}</span><span class="s2"> F - </span><span class="si">{</span><span class="n">results</span><span class="p">[</span><span class="s1">'max'</span><span class="p">]</span><span class="si">}</span><span class="s2"> F"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"  High readings (&gt;75 F): </span><span class="si">{</span><span class="n">results</span><span class="p">[</span><span class="s1">'above_threshold'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"="</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># PROBLEM 8 SOLUTION: Understanding the if __name__ == "__main__" Pattern</span>
+<span class="c1"># ==============================================================================</span>
+<span class="sd">"""</span>
+<span class="sd">1. What does if __name__ == "__main__": mean?</span>
+
+<span class="sd">SOLUTION:</span>
+<span class="sd">This checks whether the Python file is being run directly or being imported</span>
+<span class="sd">as a module by another program. When you run a file directly, Python sets</span>
+<span class="sd">the special variable __name__ to "__main__". When you import it, __name__</span>
+<span class="sd">is set to the module's name instead.</span>
+
+
+<span class="sd">2. When does Python set __name__ to "__main__"?</span>
+
+<span class="sd">SOLUTION:</span>
+<span class="sd">When you execute the file directly from the command line or IDE. For example:</span>
+<span class="sd">- Running: python my_script.py</span>
+<span class="sd">- Clicking "Run" in VS Code or PyCharm</span>
+<span class="sd">- Not true when another file does: import my_script</span>
+
+
+<span class="sd">3. Why is this pattern useful?</span>
+
+<span class="sd">SOLUTION:</span>
+<span class="sd">It allows your code to serve two purposes:</span>
+<span class="sd">- As a reusable module that other programs can import</span>
+<span class="sd">- As a standalone script that can be run directly</span>
+<span class="sd">The code inside if __name__ == "__main__": only runs when executed directly,</span>
+<span class="sd">not when imported. This lets you include test code or demonstrations without</span>
+<span class="sd">affecting other programs that import your functions.</span>
+
+
+<span class="sd">4. What happens if you DON'T use this pattern?</span>
+
+<span class="sd">SOLUTION:</span>
+<span class="sd">All code at the module level runs immediately when the file is imported.</span>
+<span class="sd">This can cause problems:</span>
+<span class="sd">- Test code runs when you just want to import functions</span>
+<span class="sd">- Output appears when it shouldn't</span>
+<span class="sd">- Variables are created that you don't need</span>
+<span class="sd">- Side effects happen unexpectedly</span>
+<span class="sd">"""</span>
+
+<span class="c1"># SOLUTION: Example demonstrating the pattern</span>
+<span class="sd">"""</span>
+<span class="sd">Example Calculator Module</span>
+
+<span class="sd">Demonstrates the if __name__ == "__main__" pattern.</span>
+<span class="sd">"""</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Add two numbers."""</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Multiply two numbers."""</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Run demonstrations of calculator functions."""</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Calculator Demo"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"5 + 3 = </span><span class="si">{</span><span class="n">add</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"5 * 3 = </span><span class="si">{</span><span class="n">multiply</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># This only runs when the file is executed directly,</span>
+<span class="c1"># NOT when it's imported by another program</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+
+<span class="c1"># If another program does: import this_module</span>
+<span class="c1"># Then: add() and multiply() are available, but main() doesn't run</span>
+</pre></div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./gpps"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Class14_GPP.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Class 14 GPP: Scripts, Comments, and Documentation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../class/Class15.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Class 15: Visualizing Data and Plotting in Python</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Stormy Attaway, Brian DePasquale, Christine Mulvey, Kenn Sebesta
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
