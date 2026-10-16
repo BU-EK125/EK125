@@ -59,6 +59,9 @@ parts:
           - file: gpps/Class12_GPP_Solutions
       - file: homework/HW6
       - file: class/Class13
+        sections:
+          - file: gpps/Class13_GPP
+          - file: gpps/Class13_GPP_Solutions
       - file: class/Class14
       - file: class/Class15
   - caption: MATLAB
