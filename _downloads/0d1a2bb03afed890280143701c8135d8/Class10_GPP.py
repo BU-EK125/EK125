@@ -1,6 +1,6 @@
 """
 Class 10: Mastering Slicing in Python - Group Practice Problems
-EK125 - Spring 2026
+EK125 - Fall 2026
 
 Team Members:
 - Your Name
