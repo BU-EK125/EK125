@@ -1,6 +1,6 @@
 """
 Class 14 GPP Solutions: Scripts, Comments, and Documentation
-EK125 - Spring 2026
+EK125 - Fall 2026
 """
 
 # ==============================================================================
