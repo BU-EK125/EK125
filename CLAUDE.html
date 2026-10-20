@@ -420,6 +420,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-repo-map-bu-ek125-org-unless-noted">The repo map (BU-EK125 org, unless noted)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-structure-acts">Course structure (Acts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#incoming-curriculum-change-the-fitness-tracker-team-project-not-yet-ported">Incoming curriculum change: the Fitness Tracker team project (not yet ported)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#toolchain-trap">Toolchain trap</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-breaking-trap-link-only-headings">Build-breaking trap: link-only headings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pii-lesson-critical">PII lesson (critical)</a></li>
@@ -507,7 +508,78 @@ design (numbering jumps 7 to 9).</p></li>
 <li><p><strong>Act 3 = MATLAB</strong>: starts at Class 16 (Python-to-MATLAB bridge class).
 Classes 16, 18, and 19’s GPPs are <code class="docutils literal notranslate"><span class="pre">.md</span></code> pointers to third-party MathWorks
 interactive tutorials with their own built-in “reveal solution” UI –
-they have no separate GPP-solutions file by design, not a gap to fill.</p></li>
+they have no separate GPP-solutions file by design, not a gap to fill.
+<strong>This is stale as of 2026-10-20</strong> – see “Incoming curriculum change”
+below. Classes 16, 18, 19 are being replaced by a Python team project;
+MATLAB content’s new slot (if any) is not yet determined.</p></li>
+</ul>
+</section>
+<section id="incoming-curriculum-change-the-fitness-tracker-team-project-not-yet-ported">
+<h2>Incoming curriculum change: the Fitness Tracker team project (not yet ported)<a class="headerlink" href="#incoming-curriculum-change-the-fitness-tracker-team-project-not-yet-ported" title="Link to this heading">#</a></h2>
+<p>As of 2026-10-20, <code class="docutils literal notranslate"><span class="pre">EK125-Instructors/F26/New</span> <span class="pre">Material</span> <span class="pre">Drafts/</span></code> has a
+<strong>complete draft</strong> of a new multi-class team project, “EK125 Fitness
+Tracker Analyzer,” replacing live Classes 15-19 content (currently
+“Visualizing Data and Plotting” at 15, MATLAB at 16/18/19) with a single
+arc spanning <strong>Classes 15-19 (Mon 10/26 - Mon 11/9 2026)</strong>, plus a
+plotting add-on at the already-scheduled Class 21 (Mon 11/16). Confirmed
+against both <code class="docutils literal notranslate"><span class="pre">F26</span> <span class="pre">Class</span> <span class="pre">Schedule.docx</span></code> files in <code class="docutils literal notranslate"><span class="pre">EK125-Instructors/F26/</span> <span class="pre">Course</span> <span class="pre">Docs/</span></code> (identical content, no discrepancies) – the new topic
+titles below are the <em>official</em> schedule now, not just a draft idea.</p>
+<ul>
+<li><p><strong>The project</strong>: teams of 3 build a 3-function program
+(<code class="docutils literal notranslate"><span class="pre">load_tracker_data</span></code>/<code class="docutils literal notranslate"><span class="pre">analyze_metric</span></code>/<code class="docutils literal notranslate"><span class="pre">write_report</span></code>, wired together by
+<code class="docutils literal notranslate"><span class="pre">main.py</span></code>) that reads a 28-day fitness-tracker CSV and writes a summary
+report. Fixed function signatures across all teams; everything else
+(blank-value handling, metrics/goals, dict keys, rounding, report
+format) is a team decision recorded in a <strong>Team Contract</strong> (template:
+<code class="docutils literal notranslate"><span class="pre">Class</span> <span class="pre">15/Markdown/Team_Contract_Template.md</span></code>) that’s amended
+continuously through Class 19 (Decision Log, Integration Log). Explicit
+“no new Python syntax” framing – it’s pure review of Classes 12-14
+(dictionaries, functions, file I/O), the new skill is collaboration
+(contracts-before-code, stubs, incremental integration, debugging
+someone else’s code).</p></li>
+<li><p><strong>Per-class topics</strong> (each has a complete <code class="docutils literal notranslate"><span class="pre">Preread.md</span></code> + <code class="docutils literal notranslate"><span class="pre">Team_Activity.md</span></code></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Preclass_Assessment.md</span></code> + instructor notes + IPP/answer-key, all in
+<code class="docutils literal notranslate"><span class="pre">EK125-Instructors/F26/New</span> <span class="pre">Material</span> <span class="pre">Drafts/Class</span> <span class="pre">N/Markdown/</span></code>):</p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>Class 15</strong> (Mon 10/26) – Problem definition &amp; initial decisions.
+Deliverable: Team Contract, due Tue 10/27.</p></li>
+<li><p><strong>Class 16</strong> (Wed 10/28) – Stub building. Deliverable: running
+4-file skeleton, due Sun 11/1.</p></li>
+<li><p><strong>Class 17</strong> (Mon 11/2) – Writing real functions (tests-before-code).
+Deliverable: real functions + tests, due Tue 11/3.</p></li>
+<li><p><strong>Class 18</strong> (Wed 11/4) – Integrating it all together (one function
+at a time, “it runs” != “it’s right”). Deliverable: working program +
+report, due Sun 11/8.</p></li>
+<li><p><strong>Class 19</strong> (Mon 11/9) – Debugging &amp; reflection (5-step debugging
+method, Start/Stop/Continue retrospective). Deliverable: bug log +
+reflection, due Tue 11/10.</p></li>
+<li><p><strong>Class 21</strong> (Mon 11/16, already on the schedule as “Visualizing data
+and plotting in Python”) – each teammate adds one plotting function
+to their team’s program. <strong>No draft content exists yet for this one</strong>
+(checked – only Classes 15-19 have <code class="docutils literal notranslate"><span class="pre">New</span> <span class="pre">Material</span> <span class="pre">Drafts/</span></code> folders).</p></li>
+</ul>
+</li>
+<li><p><strong>Publish-eligibility note for whoever ports this</strong>: this repo’s rules
+(<a class="reference external" href="http://README.md">README.md</a>) only allow readings, GPP problem statements, GPP solutions
+(Act 1 + 9-14 only), and HW problem statements – so of this project’s
+file set, <code class="docutils literal notranslate"><span class="pre">Preread.md</span></code> (-&gt; <code class="docutils literal notranslate"><span class="pre">class/ClassN.md</span></code>) and <code class="docutils literal notranslate"><span class="pre">Team_Activity.md</span></code>
+(-&gt; the GPP-equivalent) are plausibly publishable; <code class="docutils literal notranslate"><span class="pre">Preclass_Assessment</span></code>
+(a graded quiz) and <code class="docutils literal notranslate"><span class="pre">IPP</span></code>/<code class="docutils literal notranslate"><span class="pre">IPP_AnswerKey</span></code> (individual assessment –
+belongs in <code class="docutils literal notranslate"><span class="pre">EK1225-IPP</span></code>, never here) are not; <code class="docutils literal notranslate"><span class="pre">Instructor_Notes</span></code> is
+obviously private. Not yet decided/confirmed with the instructor which
+of these actually get ported, or whether Team_Contract_Template/
+FitnessTracker_Project_Overview get a shared page of their own – ask
+before assuming.</p></li>
+<li><p><strong>As of 2026-10-20, nothing from this project has been ported</strong> –
+<code class="docutils literal notranslate"><span class="pre">appendix/Fall2026Schedule.md</span></code>’s Week 9 row lists the new Class 15/16
+topic titles as plain, unlinked text (same pattern used for an
+unpublished Homework entry) so the calendar stays accurate, but
+<code class="docutils literal notranslate"><span class="pre">class/Class15.md</span></code> etc. on the live site still have the old content.
+Weeks 10-11 (Classes 17-19, Exam 2 practice/review) have not been added
+to the calendar yet either – only “next week” (Week 9) was requested
+so far.</p></li>
 </ul>
 </section>
 <section id="toolchain-trap">
@@ -683,6 +755,7 @@ fine but don’t show up in the sidebar, check this first.</p>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-repo-map-bu-ek125-org-unless-noted">The repo map (BU-EK125 org, unless noted)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-structure-acts">Course structure (Acts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#incoming-curriculum-change-the-fitness-tracker-team-project-not-yet-ported">Incoming curriculum change: the Fitness Tracker team project (not yet ported)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#toolchain-trap">Toolchain trap</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-breaking-trap-link-only-headings">Build-breaking trap: link-only headings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pii-lesson-critical">PII lesson (critical)</a></li>

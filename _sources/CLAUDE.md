@@ -66,6 +66,72 @@ here).
   Classes 16, 18, and 19's GPPs are `.md` pointers to third-party MathWorks
   interactive tutorials with their own built-in "reveal solution" UI --
   they have no separate GPP-solutions file by design, not a gap to fill.
+  **This is stale as of 2026-10-20** -- see "Incoming curriculum change"
+  below. Classes 16, 18, 19 are being replaced by a Python team project;
+  MATLAB content's new slot (if any) is not yet determined.
+
+## Incoming curriculum change: the Fitness Tracker team project (not yet ported)
+
+As of 2026-10-20, `EK125-Instructors/F26/New Material Drafts/` has a
+**complete draft** of a new multi-class team project, "EK125 Fitness
+Tracker Analyzer," replacing live Classes 15-19 content (currently
+"Visualizing Data and Plotting" at 15, MATLAB at 16/18/19) with a single
+arc spanning **Classes 15-19 (Mon 10/26 - Mon 11/9 2026)**, plus a
+plotting add-on at the already-scheduled Class 21 (Mon 11/16). Confirmed
+against both `F26 Class Schedule.docx` files in `EK125-Instructors/F26/
+Course Docs/` (identical content, no discrepancies) -- the new topic
+titles below are the *official* schedule now, not just a draft idea.
+
+- **The project**: teams of 3 build a 3-function program
+  (`load_tracker_data`/`analyze_metric`/`write_report`, wired together by
+  `main.py`) that reads a 28-day fitness-tracker CSV and writes a summary
+  report. Fixed function signatures across all teams; everything else
+  (blank-value handling, metrics/goals, dict keys, rounding, report
+  format) is a team decision recorded in a **Team Contract** (template:
+  `Class 15/Markdown/Team_Contract_Template.md`) that's amended
+  continuously through Class 19 (Decision Log, Integration Log). Explicit
+  "no new Python syntax" framing -- it's pure review of Classes 12-14
+  (dictionaries, functions, file I/O), the new skill is collaboration
+  (contracts-before-code, stubs, incremental integration, debugging
+  someone else's code).
+- **Per-class topics** (each has a complete `Preread.md` + `Team_Activity.md`
+  + `Preclass_Assessment.md` + instructor notes + IPP/answer-key, all in
+  `EK125-Instructors/F26/New Material Drafts/Class N/Markdown/`):
+  - **Class 15** (Mon 10/26) -- Problem definition & initial decisions.
+    Deliverable: Team Contract, due Tue 10/27.
+  - **Class 16** (Wed 10/28) -- Stub building. Deliverable: running
+    4-file skeleton, due Sun 11/1.
+  - **Class 17** (Mon 11/2) -- Writing real functions (tests-before-code).
+    Deliverable: real functions + tests, due Tue 11/3.
+  - **Class 18** (Wed 11/4) -- Integrating it all together (one function
+    at a time, "it runs" != "it's right"). Deliverable: working program +
+    report, due Sun 11/8.
+  - **Class 19** (Mon 11/9) -- Debugging & reflection (5-step debugging
+    method, Start/Stop/Continue retrospective). Deliverable: bug log +
+    reflection, due Tue 11/10.
+  - **Class 21** (Mon 11/16, already on the schedule as "Visualizing data
+    and plotting in Python") -- each teammate adds one plotting function
+    to their team's program. **No draft content exists yet for this one**
+    (checked -- only Classes 15-19 have `New Material Drafts/` folders).
+- **Publish-eligibility note for whoever ports this**: this repo's rules
+  (README.md) only allow readings, GPP problem statements, GPP solutions
+  (Act 1 + 9-14 only), and HW problem statements -- so of this project's
+  file set, `Preread.md` (-> `class/ClassN.md`) and `Team_Activity.md`
+  (-> the GPP-equivalent) are plausibly publishable; `Preclass_Assessment`
+  (a graded quiz) and `IPP`/`IPP_AnswerKey` (individual assessment --
+  belongs in `EK1225-IPP`, never here) are not; `Instructor_Notes` is
+  obviously private. Not yet decided/confirmed with the instructor which
+  of these actually get ported, or whether Team_Contract_Template/
+  FitnessTracker_Project_Overview get a shared page of their own -- ask
+  before assuming.
+- **As of 2026-10-20, nothing from this project has been ported** --
+  `appendix/Fall2026Schedule.md`'s Week 9 row lists the new Class 15/16
+  topic titles as plain, unlinked text (same pattern used for an
+  unpublished Homework entry) so the calendar stays accurate, but
+  `class/Class15.md` etc. on the live site still have the old content.
+  Weeks 10-11 (Classes 17-19, Exam 2 practice/review) have not been added
+  to the calendar yet either -- only "next week" (Week 9) was requested
+  so far.
 
 ## Toolchain trap
 
