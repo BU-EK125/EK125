@@ -124,14 +124,64 @@ titles below are the *official* schedule now, not just a draft idea.
   of these actually get ported, or whether Team_Contract_Template/
   FitnessTracker_Project_Overview get a shared page of their own -- ask
   before assuming.
-- **As of 2026-10-20, nothing from this project has been ported** --
-  `appendix/Fall2026Schedule.md`'s Week 9 row lists the new Class 15/16
-  topic titles as plain, unlinked text (same pattern used for an
-  unpublished Homework entry) so the calendar stays accurate, but
-  `class/Class15.md` etc. on the live site still have the old content.
-  Weeks 10-11 (Classes 17-19, Exam 2 practice/review) have not been added
-  to the calendar yet either -- only "next week" (Week 9) was requested
-  so far.
+- **Class 15 was ported on 2026-10-22, by explicit instructor direction**
+  on what counts as publishable: "the prereadings are the usual readings,
+  they go in the gitbook like normal," the Project Overview "applies to
+  the next several classes," Team Activity files are the per-day
+  deliverable (two sections, Morning/Afternoon), and Class 15 additionally
+  has the project's data CSV and a Team Contract that needs to be
+  submitted. `Preclass_Assessment` (a graded quiz) and `IPP`/
+  `IPP_AnswerKey` were *not* mentioned and were not ported, consistent
+  with this repo's existing no-quizzes/no-IPP policy. Concretely:
+  - `class/Class15.md` -- ported from `Class15_Preread.md` (replaces the
+    old "Visualizing Data and Plotting" content; that old content was NOT
+    moved anywhere -- see "Known open items" for where it probably
+    belongs).
+  - `class/FitnessTrackerProject.md` -- new **standalone** page (not
+    nested under any one class, since the overview "applies to the next
+    several classes") ported from `FitnessTracker_Project_Overview.md`,
+    placed in `_toc.yml` right before `class/Class15`. Classes 16-19,
+    when ported, should link back to this page rather than duplicating it.
+  - `gpps/Class15_TeamActivity.md` -- new page type for this project:
+    like a GPP in that it's nested under its class in `_toc.yml` and
+    lives in `gpps/`, but named `_TeamActivity` instead of `_GPP` because
+    it isn't one (no single right answer to reveal, each team's contract
+    differs) -- **do not pair it with a `.py` scaffold**, there is no
+    starter code to give out, students create their files from scratch
+    per their own contract. Ported from `Class15_Team_Activity.md`
+    verbatim except: "Download `fitness_data.csv` from Blackboard" was
+    changed to point at this page's own download section instead (the
+    file now lives here, not Blackboard).
+  - `gpps/fitness_data.csv` and `gpps/Team_Contract_Template.docx` --
+    copied as-is from `EK125-Instructors/F26/New Material Drafts/Class 15/
+    Student/` (co-located with the page that downloads them, same pattern
+    as a GPP's `.py` scaffold). Checked `Team_Contract_Template.docx`'s
+    OOXML metadata before publishing (`docProps/core.xml` creator/title,
+    `docProps/app.xml`, `docProps/custom.xml`, `word/comments.xml`) --
+    all empty, safe to publish as-is. **Check this again for any future
+    `.docx` ported from this source** -- this repo has no established
+    PII-scrubbing procedure for `.docx` the way it does for `.ipynb`
+    (see "PII lesson" above); it was done ad hoc here by inspecting the
+    zip's XML parts directly.
+  - Added two cross-reference links from `class/Class15.md` back to
+    `class/Class13.html#part-1-user-defined-functions-morning` and
+    `class/Class12.html#dictionaries` and `class/Class14.html#part-2-
+    file-input-and-output-i-o` for the reading's own "functions/
+    dictionaries/files" backward references, and one forward link from
+    `gpps/Class15_TeamActivity.md` to `class/Class15.html#describing-a-
+    dictionary-of-lists`.
+  - **Classes 16-19 have not been ported yet** -- same source directory,
+    same per-class file set (`Preread.md` + `Team_Activity.md`), same
+    pattern established here should carry over directly, but each
+    `Team_Activity.md` should be re-checked for its own downloadable
+    files (e.g. Class 16's Team Activity references a "Broken Skeleton"
+    lab exercise folder that may need a similar co-located download).
+  - `appendix/Fall2026Schedule.md`'s Week 9 row still lists Class 15/16 as
+    plain unlinked text from the 2026-10-20 calendar update -- **this is
+    now stale for Class 15** (the page is live) and should be turned into
+    a real link next time the calendar is touched. Weeks 10-11 (Classes
+    17-19, Exam 2 practice/review) still haven't been added to the
+    calendar.
 
 ## Toolchain trap
 
@@ -224,6 +274,20 @@ it; check `_toc.yml` to see what's actually published.
 
 ## Known open items worth checking before assuming fixed
 
+- **Orphaned content: the old Class 15 "Visualizing Data and Plotting in
+  Python" reading.** Replaced outright by the Fitness Tracker project's
+  Preread on 2026-10-22 (see "Incoming curriculum change" above) -- its
+  content was not deleted from git history, but it also wasn't moved
+  anywhere. The live `F26 Class Schedule.docx` now has Class 21 titled
+  "Visualizing data and plotting in Python" -- the *exact* same topic --
+  strongly suggesting this old content's real new home is `class/
+  Class21.md`, which currently has unrelated MATLAB content ("User
+  Functions and Modular Programming in MATLAB") that doesn't match the
+  official schedule either. Not acted on: moving it cascades into
+  renumbering/relocating Class 21's current MATLAB content too (to
+  Class 22? further out?), which weaves into the Act 3 MATLAB sequence
+  restructuring that hasn't been confirmed with the instructor -- ask
+  before touching Classes 20-22.
 - ~~Class 14 and 15's GPPs were found misaligned with their own readings by
   one class~~ -- **resolved 2026-10-16.** This was already fixed once, in
   EK125-notebooks (2026-09-16, commits `2a8590a`/`a131231`): Class 14's slot

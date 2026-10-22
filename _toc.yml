@@ -67,7 +67,10 @@ parts:
           - file: gpps/Class14_GPP
           - file: gpps/Class14_GPP_Solutions
       - file: homework/HW7
+      - file: class/FitnessTrackerProject
       - file: class/Class15
+        sections:
+          - file: gpps/Class15_TeamActivity
   - caption: MATLAB
     chapters:
       - file: class/Class16
