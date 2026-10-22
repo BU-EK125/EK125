@@ -255,54 +255,6 @@ wrong "expected output" value, a stale header that no longer matched the
 file's actual sections) that a build succeeding would never surface on
 its own.
 
-## Team Activity pages (multi-class team projects, no `.py` scaffold)
-
-Introduced for the "Fitness Tracker Analyzer" project (Classes 15-19,
-added starting 2026-10-22) -- a multi-class team project where students
-write their own files from scratch against a contract they design
-themselves, rather than filling in blanks in a provided scaffold. This
-needs a different page shape from a normal GPP:
-
-- **No paired `.py` file.** A script-based GPP (above) gives students a
-  starter file with `# Your code here` blanks; a Team Activity page has
-  nothing to scaffold -- the whole point is that the team designs and
-  writes `loader.py`/`analyzer.py`/etc. themselves. Don't invent a `.py`
-  download that doesn't exist in the source material.
-- **Still goes in `gpps/`, nested under its class in `_toc.yml`** like a
-  normal GPP (it's the in-class group deliverable), but named
-  `ClassN_TeamActivity.md` rather than `ClassN_GPP.md` -- it isn't a GPP
-  (there's no single correct answer to reveal; every team's contract
-  differs), and it has no paired `_Solutions` file for the same reason.
-- **A shared "project overview" page, ported once.** When a project spans
-  several classes, its overview document (why the project exists, the
-  shared architecture, the grading rubric, the full multi-class schedule)
-  is its own **standalone page** -- `class/ProjectName.md`, not nested
-  under any single class's `sections:` -- placed in `_toc.yml` right
-  before the project's first class. Every class's Team Activity page
-  links back to it rather than duplicating its content.
-- **Per-class downloadable files beyond the usual `.py`** (a provided
-  dataset, a fillable document the team submits, a "broken" starter
-  folder for an in-class debugging exercise) get copied alongside the
-  `.md` page in `gpps/`, same co-location rule as a GPP's `.py` file, and
-  linked the same way: a plain heading (`## Download the Project Data`)
-  immediately followed by `Download: [name.ext](name.ext)` on its own
-  line -- the link-only-heading trap applies to every file type, not just
-  `.py`. Sphinx/MyST will copy and serve any file type referenced this
-  way (confirmed working for `.csv` and `.docx`, not just `.py`).
-- **Check non-`.py`/`.ipynb` downloads for metadata before publishing.**
-  A `.docx` carries its own PII surface (OOXML `docProps/core.xml`'s
-  creator/title, `docProps/app.xml`, `docProps/custom.xml`,
-  `word/comments.xml`) -- this repo has no scrubbing tool for it the way
-  it does for notebooks (see CLAUDE.md's "PII lesson"), so inspect it by
-  hand: `python3 -c "import zipfile; z = zipfile.ZipFile('file.docx');
-  print(z.read('docProps/core.xml').decode())"` (repeat for the other
-  parts listed above) and confirm there's no name baked in before
-  copying it into the repo.
-- **Adjust any "ask your instructor"/"download from Blackboard"-style
-  phrasing in the ported text** to point at this site instead, since the
-  file now lives here rather than wherever the source material assumed
-  it would be distributed from.
-
 ## Cross-reference links
 
 ### Why absolute URLs, not relative links
