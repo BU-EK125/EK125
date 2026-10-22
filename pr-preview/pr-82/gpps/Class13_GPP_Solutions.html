@@ -1,0 +1,1224 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Class 13 GPP Solutions: User-Defined Functions, Scope, and Copying &#8212; EK125</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gpps/Class13_GPP_Solutions';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class 14: Scripts, File I/O, and the Local File Environment" href="../class/Class14.html" />
+    <link rel="prev" title="Class 13 GPP: User-Defined Functions, Scope, and Copying" href="Class13_GPP.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">EK125</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to EK125
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendix/Fall2026Schedule.html">Fall 2026 Class Schedule</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python in Colab</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class1.html">Class 1: Introduction to Interactive Programming Using Google Colab</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class1_GPP.html">Class 1 GPP: Constants, Variables, Types, and Assignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class1_GPP_Solutions.html">Class 1 GPP Solutions: Constants, Variables, Types, and Assignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW1.html">Homework 1: Variables, Types, and Assignments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class2.html">Class 2: Sequences, Strings, and Lists in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class2_GPP.html">Class 2 GPP: Working with Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class2_GPP_Solutions.html">Class 2 GPP Solutions: Working with Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW2.html">Homework 2: Strings and Lists</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class3.html">Class 3: Booleans and Basic Logic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class3_GPP.html">Class 3 GPP: Boolean Logic Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class3_GPP_Solutions.html">Class 3 GPP Solutions: Boolean Logic Practice</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class4.html">Class 4: Coding Basics Wrap-up and Selection Statements</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class4_GPP.html">Class 4 GPP: Coding Basics Wrap-up and Selection Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class4_GPP_Solutions.html">Class 4 GPP Solutions: Coding Basics Wrap-up and Selection Statements</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW3.html">Homework 3: Boolean Logic, Sequences, and Selection Statements</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class5.html">Class 5: Importing Modules and Basic Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class5_GPP.html">Class 5 GPP: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class5_GPP_Solutions.html">Class 5 GPP Solutions: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class6.html">Class 6: Nested Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class6_GPP.html">Class 6 GPP: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class6_GPP_Solutions.html">Class 6 GPP Solutions: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW4.html">Homework 4: Loops and Randomness</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class7.html">Class 7: Advanced Iteration and Nested Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class7_GPP.html">Class 7 GPP: Advanced Iteration and Nested Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class7_GPP_Solutions.html">Class 7 GPP Solutions: Advanced Iteration and Nested Structures</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="Exam1_Review.html">EK125 Exam 1 - Top 30 GPP Problems for Paper Practice</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python in an IDE</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class9.html">Class 9: From Colab Notebooks to Running Python Locally</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class9_GPP.html">Class 9 GPP: Getting Comfortable with PyCharm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class9_GPP_Solutions.html">Class 9 GPP Solutions: Getting Comfortable with PyCharm</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class10.html">Class 10: Mastering Slicing in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class10_GPP.html">Class 10 GPP: Mastering Slicing in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class10_GPP_Solutions.html">Class 10 GPP Solutions: Mastering Slicing in Python</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW5.html">Homework 5: Advanced Iteration, Nested Structures, and Slicing</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class11.html">Class 11: Digging into arrays with NumPy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class11_GPP.html">Class 11 GPP: Working with Arrays in NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class11_GPP_Solutions.html">Class 11 GPP Solutions: Working with Arrays in NumPy</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class12.html">Class 12: Dictionaries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class12_GPP.html">Class 12 GPP: Python Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class12_GPP_Solutions.html">Class 12 GPP Solutions: Python Dictionaries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW6.html">Homework 6: NumPy and Dictionaries</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../class/Class13.html">Class 13: User-Defined Functions, Arguments, and Scope</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Class13_GPP.html">Class 13 GPP: User-Defined Functions, Scope, and Copying</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Class 13 GPP Solutions: User-Defined Functions, Scope, and Copying</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class14.html">Class 14: Scripts, File I/O, and the Local File Environment</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class14_GPP.html">Class 14 GPP: Scripts, Comments, and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class14_GPP_Solutions.html">Class 14 GPP Solutions: Scripts, Comments, and Documentation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW7.html">Homework 7: Modular Functions and File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/FitnessTrackerProject.html">EK125 Team Project: Fitness Tracker Analyzer</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class15.html">Class 15: Collaborating with Others — Problem Definition and Initial Decisions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class15_TeamActivity.html">Class 15: Team Activity — Define the Problem and Write the Contract</a></li>
+
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MATLAB</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../class/Class16.html">Class 16: From Python to MATLAB: Syntax and Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class18.html">Class 18: Creating Vectors and Matrices in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class19.html">Class 19: Vector and Matrix Operations in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class20.html">Class 20: MATLAB Scripts, Documentation, and File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class21.html">Class 21: User Functions and Modular Programming in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class22.html">Class 22: Useful MATLAB Toolboxes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendix/Syllabus.html">Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/WeeklyRhythm.html">Weekly Rhythm of EK125</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/SubmittingAssignments.html">Instructions to receive and submit assignments</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/gpps/Class13_GPP_Solutions.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Class 13 GPP Solutions: User-Defined Functions, Scope, and Copying</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="class-13-gpp-solutions-user-defined-functions-scope-and-copying">
+<h1>Class 13 GPP Solutions: User-Defined Functions, Scope, and Copying<a class="headerlink" href="#class-13-gpp-solutions-user-defined-functions-scope-and-copying" title="Link to this heading">#</a></h1>
+<p>This is the solved version of the script-based exercise: work through the
+<code class="docutils literal notranslate"><span class="pre">.py</span></code> file below to see the completed solution.</p>
+<p>Download: <a class="reference download internal" download="" href="../_downloads/1abe23f5e5a1969de6efa7bc958a340f/Class13_GPP_Solutions.py"><span class="xref download myst">Class13_GPP_Solutions.py</span></a></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">"""</span>
+<span class="sd">Class 13 GPP Solutions: User-Defined Functions, Scope, and Copying</span>
+<span class="sd">EK125</span>
+<span class="sd">"""</span>
+
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># PART 1: Understanding Parameter Passing</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Problem 1.1: Predict the Output (Immutable Types)</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">updateScore</span><span class="p">(</span><span class="n">score</span><span class="p">):</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="n">score</span> <span class="o">+</span> <span class="mi">10</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Inside function: </span><span class="si">{</span><span class="n">score</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="n">playerScore</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">updateScore</span><span class="p">(</span><span class="n">playerScore</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Outside function: </span><span class="si">{</span><span class="n">playerScore</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># EXPECTED OUTPUT:</span>
+<span class="c1"># Inside function: 60</span>
+<span class="c1"># Outside function: 50</span>
+<span class="c1">#</span>
+<span class="c1"># EXPLANATION:</span>
+<span class="c1"># Integers are IMMUTABLE. When we pass playerScore to the function, Python</span>
+<span class="c1"># creates a NEW local variable called 'score' with the value 50. When we do</span>
+<span class="c1"># score = score + 10, we're modifying the LOCAL variable, not the original.</span>
+<span class="c1"># The original playerScore remains unchanged.</span>
+<span class="c1">#</span>
+<span class="c1"># KEY CONCEPT: Pass by value for immutable types</span>
+
+
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Problem 1.2: Predict the Output (Mutable Types - Modifying)</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">updateScores</span><span class="p">(</span><span class="n">scores</span><span class="p">):</span>
+    <span class="n">scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Inside function: </span><span class="si">{</span><span class="n">scores</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="n">playerScores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">78</span><span class="p">]</span>
+<span class="n">updateScores</span><span class="p">(</span><span class="n">playerScores</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Outside function: </span><span class="si">{</span><span class="n">playerScores</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># EXPECTED OUTPUT:</span>
+<span class="c1"># Inside function: [85, 90, 78, 100]</span>
+<span class="c1"># Outside function: [85, 90, 78, 100]</span>
+<span class="c1">#</span>
+<span class="c1"># EXPLANATION:</span>
+<span class="c1"># Lists are MUTABLE. When we pass playerScores to the function, we're passing</span>
+<span class="c1"># a REFERENCE to the same list object in memory. When we call .append(), we're</span>
+<span class="c1"># modifying the actual list object, so the change is visible outside the function.</span>
+<span class="c1">#</span>
+<span class="c1"># KEY CONCEPT: Pass by reference for mutable types</span>
+
+
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Problem 1.3: Predict the Output (Mutable Types - Reassigning)</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">resetScores</span><span class="p">(</span><span class="n">scores</span><span class="p">):</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Inside function: </span><span class="si">{</span><span class="n">scores</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="n">playerScores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">78</span><span class="p">]</span>
+<span class="n">resetScores</span><span class="p">(</span><span class="n">playerScores</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Outside function: </span><span class="si">{</span><span class="n">playerScores</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># EXPECTED OUTPUT:</span>
+<span class="c1"># Inside function: [0, 0, 0]</span>
+<span class="c1"># Outside function: [85, 90, 78]</span>
+<span class="c1">#</span>
+<span class="c1"># EXPLANATION:</span>
+<span class="c1"># Even though lists are mutable, REASSIGNMENT creates a NEW local variable.</span>
+<span class="c1"># When we do scores = [0, 0, 0], we're creating a NEW list and making the</span>
+<span class="c1"># local variable 'scores' point to it. The original playerScores list is</span>
+<span class="c1"># unaffected. This is different from modifying the list in place (like .append()).</span>
+<span class="c1">#</span>
+<span class="c1"># KEY CONCEPT: Reassignment always creates a new local variable</span>
+
+
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># PART 2: Functions that Return Values</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Problem 2.1: Inches to Feet Converter</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">inchesToFeet</span><span class="p">(</span><span class="n">inches</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Convert inches to feet.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        inches: Number of inches (int)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Number of feet (float)</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">inches</span> <span class="o">/</span> <span class="mi">12</span>
+
+<span class="c1"># Test:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inchesToFeet</span><span class="p">(</span><span class="mi">36</span><span class="p">))</span>   <span class="c1"># Should print 3.0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inchesToFeet</span><span class="p">(</span><span class="mi">15</span><span class="p">))</span>   <span class="c1"># Should print 1.25</span>
+<span class="n">help</span><span class="p">(</span><span class="n">inchesToFeet</span><span class="p">)</span>
+
+
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Problem 2.2: Sign Function</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">sign</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Return the sign of a number.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        number: A numeric value (int or float)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        1 if positive, 0 if zero, -1 if negative</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">elif</span> <span class="n">number</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+
+<span class="c1"># Test all three cases:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sign</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>      <span class="c1"># Should print 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sign</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>      <span class="c1"># Should print 0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sign</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">))</span>     <span class="c1"># Should print -1</span>
+
+
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Problem 2.3: Rectangle Calculator</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">rectangleCalculator</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Calculate area and perimeter of a rectangle.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        length: Length of rectangle</span>
+<span class="sd">        width: Width of rectangle</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Tuple of (area, perimeter)</span>
+<span class="sd">    """</span>
+    <span class="n">area</span> <span class="o">=</span> <span class="n">length</span> <span class="o">*</span> <span class="n">width</span>
+    <span class="n">perimeter</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">length</span> <span class="o">+</span> <span class="n">width</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">area</span><span class="p">,</span> <span class="n">perimeter</span>
+
+<span class="c1"># Test and unpack:</span>
+<span class="n">rectArea</span><span class="p">,</span> <span class="n">rectPerimeter</span> <span class="o">=</span> <span class="n">rectangleCalculator</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Area: </span><span class="si">{</span><span class="n">rectArea</span><span class="si">}</span><span class="s2">, Perimeter: </span><span class="si">{</span><span class="n">rectPerimeter</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>  <span class="c1"># Area: 15, Perimeter: 16</span>
+
+
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Problem 2.4: Cumulative Product</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">cumulativeProduct</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Create a list of running products.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        numbers: List of numbers</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List of cumulative products</span>
+<span class="sd">    """</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">product</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+        <span class="n">product</span> <span class="o">=</span> <span class="n">product</span> <span class="o">*</span> <span class="n">num</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">product</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="c1"># Test:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cumulativeProduct</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]))</span>     <span class="c1"># [4, 8, 40]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cumulativeProduct</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]))</span>  <span class="c1"># [1, 2, 6, 24]</span>
+
+
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># PART 3: Functions that Print (No Return)</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Problem 3.1: Star Box Printer</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">printStarBox</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">columns</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Print a box of stars.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        rows: Number of rows to print</span>
+<span class="sd">        columns: Number of stars per row</span>
+<span class="sd">    """</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rows</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'*'</span> <span class="o">*</span> <span class="n">columns</span><span class="p">)</span>
+
+<span class="c1"># Test:</span>
+<span class="n">printStarBox</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="c1"># Output:</span>
+<span class="c1"># *****</span>
+<span class="c1"># *****</span>
+<span class="c1"># *****</span>
+
+
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Problem 3.2: Understanding None</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">printStarBox</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Return value: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>  <span class="c1"># Return value: None</span>
+
+<span class="c1"># EXPLANATION:</span>
+<span class="c1"># Functions that don't have a return statement return None by default.</span>
+
+
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Problem 3.3: Random String Selector</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">printRandomString</span><span class="p">(</span><span class="n">stringList</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Print a random string from a list.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        stringList: List of strings to choose from</span>
+<span class="sd">    """</span>
+    <span class="n">randomString</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">stringList</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">randomString</span><span class="p">)</span>
+
+<span class="c1"># Test:</span>
+<span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"apple"</span><span class="p">,</span> <span class="s2">"banana"</span><span class="p">,</span> <span class="s2">"cherry"</span><span class="p">,</span> <span class="s2">"date"</span><span class="p">]</span>
+<span class="n">printRandomString</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>  <span class="c1"># Prints a random fruit</span>
+
+
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># PART 4: Working with Keyword Arguments</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Problem 4.1: Student Record System</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">createStudent</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">studentId</span><span class="p">,</span> <span class="n">gpa</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">major</span><span class="o">=</span><span class="s2">"Undeclared"</span><span class="p">,</span> <span class="n">credits</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Create a student record dictionary."""</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">'name'</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+        <span class="s1">'id'</span><span class="p">:</span> <span class="n">studentId</span><span class="p">,</span>
+        <span class="s1">'gpa'</span><span class="p">:</span> <span class="n">gpa</span><span class="p">,</span>
+        <span class="s1">'major'</span><span class="p">:</span> <span class="n">major</span><span class="p">,</span>
+        <span class="s1">'credits'</span><span class="p">:</span> <span class="n">credits</span>
+    <span class="p">}</span>
+
+<span class="c1"># Test students:</span>
+<span class="n">student1</span> <span class="o">=</span> <span class="n">createStudent</span><span class="p">(</span><span class="s2">"Alice Smith"</span><span class="p">,</span> <span class="mi">12345</span><span class="p">)</span>
+<span class="n">student2</span> <span class="o">=</span> <span class="n">createStudent</span><span class="p">(</span><span class="s2">"Bob Jones"</span><span class="p">,</span> <span class="mi">23456</span><span class="p">,</span> <span class="n">major</span><span class="o">=</span><span class="s2">"Computer Science"</span><span class="p">)</span>
+<span class="n">student3</span> <span class="o">=</span> <span class="n">createStudent</span><span class="p">(</span><span class="s2">"Charlie Brown"</span><span class="p">,</span> <span class="mi">34567</span><span class="p">,</span> <span class="n">gpa</span><span class="o">=</span><span class="mf">3.8</span><span class="p">,</span> <span class="n">credits</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+<span class="n">student4</span> <span class="o">=</span> <span class="n">createStudent</span><span class="p">(</span><span class="s2">"Diana Prince"</span><span class="p">,</span> <span class="mi">45678</span><span class="p">,</span> <span class="n">major</span><span class="o">=</span><span class="s2">"Biology"</span><span class="p">,</span> <span class="n">gpa</span><span class="o">=</span><span class="mf">3.9</span><span class="p">,</span> <span class="n">credits</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="c1"># Print to verify:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">student4</span><span class="p">)</span>
+
+<span class="c1"># WHY KEYWORD ARGUMENTS ARE USEFUL:</span>
+<span class="c1"># - Don't have to remember parameter order</span>
+<span class="c1"># - Can skip defaults we don't want to change</span>
+<span class="c1"># - More readable: createStudent("Alice", 12345, gpa=3.5) is clearer than</span>
+<span class="c1">#   createStudent("Alice", 12345, 3.5, "Undeclared", 0)</span>
+
+
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># PART 5: Variable Scope (LEGB Rule)</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Problem 5.1: Fix the Broken Code</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+
+<span class="c1"># SOLUTION 1: Return the count and reassign (BEST PRACTICE)</span>
+<span class="n">studentsProcessed</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">processStudent</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">count</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Process a student and return updated count."""</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Processing </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">count</span>
+
+<span class="n">studentsProcessed</span> <span class="o">=</span> <span class="n">processStudent</span><span class="p">(</span><span class="s2">"Alice"</span><span class="p">,</span> <span class="n">studentsProcessed</span><span class="p">)</span>
+<span class="n">studentsProcessed</span> <span class="o">=</span> <span class="n">processStudent</span><span class="p">(</span><span class="s2">"Bob"</span><span class="p">,</span> <span class="n">studentsProcessed</span><span class="p">)</span>
+<span class="n">studentsProcessed</span> <span class="o">=</span> <span class="n">processStudent</span><span class="p">(</span><span class="s2">"Charlie"</span><span class="p">,</span> <span class="n">studentsProcessed</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Total processed: </span><span class="si">{</span><span class="n">studentsProcessed</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>  <span class="c1"># Prints 3</span>
+
+
+<span class="c1"># SOLUTION 2: Use a list (works because lists are mutable)</span>
+<span class="n">studentCount</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># List with one element</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">processStudent2</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Process a student using a mutable container."""</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Processing </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="n">studentCount</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">studentCount</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">"Processed: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span>
+
+<span class="n">processStudent2</span><span class="p">(</span><span class="s2">"Alice"</span><span class="p">)</span>
+<span class="n">processStudent2</span><span class="p">(</span><span class="s2">"Bob"</span><span class="p">)</span>
+<span class="n">processStudent2</span><span class="p">(</span><span class="s2">"Charlie"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Total processed: </span><span class="si">{</span><span class="n">studentCount</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>  <span class="c1"># Prints 3</span>
+
+<span class="c1"># 💡 Note: Solution 1 is better style -- avoid depending on mutable objects to</span>
+<span class="c1"># track state. We don't teach the `global` keyword in this course since</span>
+<span class="c1"># relying on it is bad practice.</span>
+
+
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Problem 5.2: Understanding Variable Lookup (LEGB)</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">outer</span><span class="p">():</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">20</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">inner</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Inner sees x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+    <span class="n">inner</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Outer sees x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="n">outer</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Global sees x = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># EXPECTED OUTPUT:</span>
+<span class="c1"># Inner sees x = 20</span>
+<span class="c1"># Outer sees x = 20</span>
+<span class="c1"># Global sees x = 10</span>
+
+<span class="c1"># EXPLANATION OF LEGB:</span>
+<span class="c1"># L = Local: Variables defined in the current function</span>
+<span class="c1"># E = Enclosing: Variables in the enclosing function (for nested functions)</span>
+<span class="c1"># G = Global: Variables defined at module level</span>
+<span class="c1"># B = Built-in: Python's built-in names (like print, len, etc.)</span>
+<span class="c1">#</span>
+<span class="c1"># When Python looks up a variable, it searches in this order: L -&gt; E -&gt; G -&gt; B</span>
+
+
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># PART 6: Copying Lists</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Problem 6.1: Protecting Your Data</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+
+<span class="n">grades</span> <span class="o">=</span> <span class="p">[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">88</span><span class="p">]</span>
+
+<span class="c1"># WRONG WAY:</span>
+<span class="n">sortedGrades1</span> <span class="o">=</span> <span class="n">grades</span>  <span class="c1"># This creates an ALIAS, not a copy!</span>
+<span class="n">sortedGrades1</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Original: </span><span class="si">{</span><span class="n">grades</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>        <span class="c1"># [78, 85, 88, 90, 92] - MODIFIED!</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Sorted: </span><span class="si">{</span><span class="n">sortedGrades1</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>   <span class="c1"># [78, 85, 88, 90, 92]</span>
+
+<span class="c1"># WHAT WENT WRONG:</span>
+<span class="c1"># sortedGrades1 and grades both point to the SAME list object in memory.</span>
+<span class="c1"># When we sort one, we're sorting the actual list, so both names see the change.</span>
+
+
+<span class="c1"># RIGHT WAY:</span>
+<span class="n">grades</span> <span class="o">=</span> <span class="p">[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">88</span><span class="p">]</span>
+<span class="n">sortedGrades2</span> <span class="o">=</span> <span class="n">grades</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>  <span class="c1"># Creates a NEW list with same values</span>
+<span class="n">sortedGrades2</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Original: </span><span class="si">{</span><span class="n">grades</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>        <span class="c1"># [85, 92, 78, 90, 88] - unchanged!</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Sorted: </span><span class="si">{</span><span class="n">sortedGrades2</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>   <span class="c1"># [78, 85, 88, 90, 92]</span>
+
+
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Problem 6.2: Shallow vs Deep Copy Challenge</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
+
+<span class="c1"># Shallow copy problem:</span>
+<span class="n">students</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s2">"Alice"</span><span class="p">,</span> <span class="p">[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">88</span><span class="p">]],</span>
+    <span class="p">[</span><span class="s2">"Bob"</span><span class="p">,</span> <span class="p">[</span><span class="mi">78</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">80</span><span class="p">]]</span>
+<span class="p">]</span>
+
+<span class="n">shallowCopy</span> <span class="o">=</span> <span class="n">students</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">shallowCopy</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">95</span><span class="p">)</span>  <span class="c1"># Add grade to Alice</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Original: </span><span class="si">{</span><span class="n">students</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>      <span class="c1"># Alice has 95 added!</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Shallow copy: </span><span class="si">{</span><span class="n">shallowCopy</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># WHAT HAPPENED:</span>
+<span class="c1"># .copy() creates a new list, but the INNER lists are still shared!</span>
+<span class="c1"># So both students and shallowCopy have references to the same grade lists.</span>
+
+
+<span class="c1"># Deep copy solution:</span>
+<span class="n">students</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s2">"Alice"</span><span class="p">,</span> <span class="p">[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">88</span><span class="p">]],</span>
+    <span class="p">[</span><span class="s2">"Bob"</span><span class="p">,</span> <span class="p">[</span><span class="mi">78</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">80</span><span class="p">]]</span>
+<span class="p">]</span>
+
+<span class="n">deepCopy</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">students</span><span class="p">)</span>
+<span class="n">deepCopy</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">95</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Original: </span><span class="si">{</span><span class="n">students</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>      <span class="c1"># Alice still has 3 grades</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Deep copy: </span><span class="si">{</span><span class="n">deepCopy</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>     <span class="c1"># Alice has 4 grades</span>
+
+<span class="c1"># EXPLANATION:</span>
+<span class="c1"># copy.deepcopy() recursively copies ALL nested objects, so the deep copy</span>
+<span class="c1"># is completely independent from the original.</span>
+
+
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># PART 7: Lambda Functions</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Problem 7.1: Lambda Basics</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+
+<span class="n">add_eh</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span> <span class="o">+</span> <span class="s2">", eh?"</span>
+
+<span class="c1"># Test:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">add_eh</span><span class="p">(</span><span class="s2">"Nice weather today"</span><span class="p">))</span>  <span class="c1"># Nice weather today, eh?</span>
+
+
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Problem 7.2: Lambda with Exclamation</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+
+<span class="n">add_excite</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span> <span class="o">+</span> <span class="s2">"!!!"</span>
+
+<span class="c1"># Test:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">add_excite</span><span class="p">(</span><span class="s2">"Wow"</span><span class="p">))</span>  <span class="c1"># Wow!!!</span>
+
+
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># PART 8: Mixed Return and Print Functions</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Problem 8.1: Menu Function</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">showMenuAndGetChoice</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Display menu and return user's valid choice."""</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">=== MENU ==="</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"1. Option A"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"2. Option B"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"3. Option C"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"============"</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter your choice (1-3): "</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">choice</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'1'</span><span class="p">,</span> <span class="s1">'2'</span><span class="p">,</span> <span class="s1">'3'</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">choice</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Invalid choice. Please enter 1, 2, or 3."</span><span class="p">)</span>
+
+<span class="c1"># Test (commented out to avoid blocking):</span>
+<span class="c1"># userChoice = showMenuAndGetChoice()</span>
+<span class="c1"># print(f"You selected: {userChoice}")</span>
+
+
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Problem 8.2: String Reverser</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">stringReverse</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Reverse a string and return the result.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        text: String to reverse</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Reversed string</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">text</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Alternative solution using a loop:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">stringReverse2</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Reverse a string using a loop."""</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="s2">""</span>
+    <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">char</span> <span class="o">+</span> <span class="n">result</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="c1"># Test:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stringReverse</span><span class="p">(</span><span class="s2">"Hello"</span><span class="p">))</span>   <span class="c1"># olleH</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stringReverse2</span><span class="p">(</span><span class="s2">"World"</span><span class="p">))</span>  <span class="c1"># dlroW</span>
+
+
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># PART 9: Putting It All Together</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Problem 9.1: Class Roster with Bonus Points</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">addBonus</span><span class="p">(</span><span class="n">students</span><span class="p">,</span> <span class="n">bonusPoints</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">makeBackup</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Add bonus points to all students.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        students: List of [name, score] pairs</span>
+<span class="sd">        bonusPoints: Points to add (default: 5)</span>
+<span class="sd">        makeBackup: If True, don't modify original (default: True)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List with bonus points added</span>
+<span class="sd">    """</span>
+    <span class="c1"># Make a copy if requested</span>
+    <span class="k">if</span> <span class="n">makeBackup</span><span class="p">:</span>
+        <span class="n">studentsCopy</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">students</span><span class="p">)</span>  <span class="c1"># Use deepcopy for nested lists</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">studentsCopy</span> <span class="o">=</span> <span class="n">students</span>  <span class="c1"># Use the original list directly</span>
+
+    <span class="c1"># Add bonus points to each student</span>
+    <span class="k">for</span> <span class="n">student</span> <span class="ow">in</span> <span class="n">studentsCopy</span><span class="p">:</span>
+        <span class="n">student</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">student</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">bonusPoints</span>
+
+    <span class="k">return</span> <span class="n">studentsCopy</span>
+
+
+<span class="c1"># Test cases:</span>
+<span class="n">roster</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">"Alice"</span><span class="p">,</span> <span class="mi">85</span><span class="p">],</span> <span class="p">[</span><span class="s2">"Bob"</span><span class="p">,</span> <span class="mi">90</span><span class="p">]]</span>
+
+<span class="c1"># Test 1: With backup (default)</span>
+<span class="n">result1</span> <span class="o">=</span> <span class="n">addBonus</span><span class="p">(</span><span class="n">roster</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Original: </span><span class="si">{</span><span class="n">roster</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>  <span class="c1"># [["Alice", 85], ["Bob", 90]] - unchanged!</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Result: </span><span class="si">{</span><span class="n">result1</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>    <span class="c1"># [["Alice", 90], ["Bob", 95]]</span>
+
+<span class="c1"># Test 2: Without backup</span>
+<span class="n">roster2</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">"Charlie"</span><span class="p">,</span> <span class="mi">78</span><span class="p">],</span> <span class="p">[</span><span class="s2">"Diana"</span><span class="p">,</span> <span class="mi">92</span><span class="p">]]</span>
+<span class="n">result2</span> <span class="o">=</span> <span class="n">addBonus</span><span class="p">(</span><span class="n">roster2</span><span class="p">,</span> <span class="n">bonusPoints</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">makeBackup</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Original: </span><span class="si">{</span><span class="n">roster2</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>  <span class="c1"># [["Charlie", 88], ["Diana", 102]] - modified!</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Result: </span><span class="si">{</span><span class="n">result2</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>    <span class="c1"># [["Charlie", 88], ["Diana", 102]] - same object</span>
+
+
+<span class="c1"># ==============================================================================</span>
+<span class="c1"># PART 10: Challenge Problems</span>
+<span class="c1"># ==============================================================================</span>
+
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Challenge 10.1: Interpolate Function</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">interpolate</span><span class="p">(</span><span class="n">point1</span><span class="p">,</span> <span class="n">point2</span><span class="p">,</span> <span class="n">x_i</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Linear interpolation between two points.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        point1: Tuple (x0, y0)</span>
+<span class="sd">        point2: Tuple (x1, y1)</span>
+<span class="sd">        x_i: X value to interpolate</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Interpolated y value</span>
+<span class="sd">    """</span>
+    <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span> <span class="o">=</span> <span class="n">point1</span>
+    <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">point2</span>
+
+    <span class="c1"># Check if x_i is in valid range</span>
+    <span class="k">if</span> <span class="n">x_i</span> <span class="o">&lt;</span> <span class="n">x0</span> <span class="ow">or</span> <span class="n">x_i</span> <span class="o">&gt;</span> <span class="n">x1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">"Error: x_i must be between x0 and x1"</span>
+
+    <span class="c1"># Calculate slope</span>
+    <span class="n">slope</span> <span class="o">=</span> <span class="p">(</span><span class="n">y1</span> <span class="o">-</span> <span class="n">y0</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span>
+
+    <span class="c1"># Calculate interpolated value</span>
+    <span class="n">y_i</span> <span class="o">=</span> <span class="n">y0</span> <span class="o">+</span> <span class="n">slope</span> <span class="o">*</span> <span class="p">(</span><span class="n">x_i</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">y_i</span>
+
+<span class="c1"># Test:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">interpolate</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="mf">0.5</span><span class="p">))</span>   <span class="c1"># 0.25</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">interpolate</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="mf">0.9</span><span class="p">))</span>   <span class="c1"># 0.45</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">interpolate</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="mf">1.5</span><span class="p">))</span>   <span class="c1"># Error message</span>
+
+
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Challenge 10.2: Prompt for Positive Number</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">promptForPositive</span><span class="p">(</span><span class="n">prompt_text</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Prompt user for a positive number with error checking.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        prompt_text: Description of what to enter (e.g., "length")</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Valid positive number</span>
+<span class="sd">    """</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Enter </span><span class="si">{</span><span class="n">prompt_text</span><span class="si">}</span><span class="s2">: "</span><span class="p">))</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">value</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Error: Value must be positive."</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Error: Please enter a valid number."</span><span class="p">)</span>
+
+<span class="c1"># Test (commented to avoid blocking):</span>
+<span class="c1"># length = promptForPositive("length")</span>
+<span class="c1"># print(f"You entered: {length}")</span>
+
+
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Challenge 10.3: Type-Dependent Return</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">typeDependentFunction</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Return different results based on input type.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        value: Can be int, float, list, or string</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Different output depending on type</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">value</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">value</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">"Unsupported type"</span>
+
+<span class="c1"># Test with different types:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">typeDependentFunction</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>              <span class="c1"># 25</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">typeDependentFunction</span><span class="p">(</span><span class="mf">3.14159</span><span class="p">))</span>        <span class="c1"># 3.14</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">typeDependentFunction</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]))</span>   <span class="c1"># 4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">typeDependentFunction</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">))</span>        <span class="c1"># HELLO</span>
+
+
+<span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># Challenge 10.4: Identity Matrix</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">createIdentityMatrix</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Create an identity matrix.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        size: Number of rows and columns</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Nested list representing identity matrix</span>
+<span class="sd">    """</span>
+    <span class="n">matrix</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span><span class="p">:</span>
+                <span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">row</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">matrix</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">matrix</span>
+
+<span class="c1"># Test:</span>
+<span class="n">identity3</span> <span class="o">=</span> <span class="n">createIdentityMatrix</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">identity3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+<span class="c1"># Output:</span>
+<span class="c1"># [1, 0, 0]</span>
+<span class="c1"># [0, 1, 0]</span>
+<span class="c1"># [0, 0, 1]</span>
+</pre></div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./gpps"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Class13_GPP.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Class 13 GPP: User-Defined Functions, Scope, and Copying</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../class/Class14.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Class 14: Scripts, File I/O, and the Local File Environment</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Stormy Attaway, Brian DePasquale, Christine Mulvey, Kenn Sebesta
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
