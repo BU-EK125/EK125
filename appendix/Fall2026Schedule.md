@@ -6,11 +6,11 @@ where Exam 1 practice happens. Please note that this is subject to change --
 see the [Syllabus](Syllabus.md) for the authoritative dates. Homework 8
 onward isn't published on this site yet, so those entries aren't linked.
 Starting with Class 15, the curriculum moves to a multi-class team project
-(the "Fitness Tracker Analyzer," spanning Classes 15-19); its reading and
-activity pages haven't been ported to this site yet, so those class
-entries are listed as plain text below rather than linked, and its
-Gradescope submissions are listed by project part rather than as a
-numbered "Homework."
+(the "[Fitness Tracker Analyzer](https://BU-EK125.github.io/EK125/class/FitnessTrackerProject.html)," spanning Classes 15-19); its Gradescope
+submissions are listed by project part rather than as a numbered
+"Homework." Classes 16-19's reading and activity pages haven't been
+ported to this site yet, so those entries are still listed as plain text
+below rather than linked.
 
 | Week | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday |
 |---|---|---|---|---|---|---|---|
@@ -22,4 +22,4 @@ numbered "Homework."
 | **Week 6**<br>Oct 5 -- 11 | **Oct 5**<br>[Class 9: From Colab Notebooks to Running Python Locally](https://BU-EK125.github.io/EK125/class/Class9.html)<br>[Homework 5](https://BU-EK125.github.io/EK125/homework/HW5.html) | | **Oct 7**<br>[Class 10: Mastering Slicing in Python](https://BU-EK125.github.io/EK125/class/Class10.html) | | **Oct 9**<br>Discussion 6 / Quiz 5 | | **Oct 11**<br>Homework 5 due tonight (11:59 PM) |
 | **Week 7**<br>Oct 12 -- 18 | **Oct 12**<br>Holiday -- no class (Monday schedule shifts to Tuesday)<br>[Homework 6](https://BU-EK125.github.io/EK125/homework/HW6.html) | **Oct 13**<br>[Class 11: Digging into arrays with NumPy](https://BU-EK125.github.io/EK125/class/Class11.html) | **Oct 14**<br>[Class 12: Dictionaries](https://BU-EK125.github.io/EK125/class/Class12.html) | | **Oct 16**<br>Discussion 7 / Quiz 6 | | **Oct 18**<br>Homework 6 due tonight (11:59 PM) |
 | **Week 8**<br>Oct 19 -- 25 | **Oct 19**<br>[Class 13: User-Defined Functions, Arguments, and Scope](https://BU-EK125.github.io/EK125/class/Class13.html)<br>[Homework 7](https://BU-EK125.github.io/EK125/homework/HW7.html) | | **Oct 21**<br>[Class 14: Scripts, File I/O, and the Local File Environment](https://BU-EK125.github.io/EK125/class/Class14.html) | | **Oct 23**<br>Discussion 8 / Quiz 7 | | **Oct 25**<br>Homework 7 due tonight (11:59 PM) |
-| **Week 9**<br>Oct 26 -- Nov 1 | **Oct 26**<br>Class 15: Collaborating with Others -- Problem Definition and Initial Decisions<br>*Fitness Tracker Project begins (Classes 15-19)* | **Oct 27**<br>Fitness Tracker Project Part 1: Team Contract due tonight (11:59 PM) | **Oct 28**<br>Class 16: Stub Building | | **Oct 30**<br>Discussion 9 / Quiz 8 | | **Nov 1**<br>Fitness Tracker Project Part 2: Running Skeleton due tonight (11:59 PM) |
+| **Week 9**<br>Oct 26 -- Nov 1 | **Oct 26**<br>[Class 15: Collaborating with Others -- Problem Definition and Initial Decisions](https://BU-EK125.github.io/EK125/class/Class15.html)<br>*[Fitness Tracker Project](https://BU-EK125.github.io/EK125/class/FitnessTrackerProject.html) begins (Classes 15-19)* | **Oct 27**<br>Fitness Tracker Project Part 1: Team Contract due tonight (11:59 PM) | **Oct 28**<br>Class 16: Stub Building | | **Oct 30**<br>Discussion 9 / Quiz 8 | | **Nov 1**<br>Fitness Tracker Project Part 2: Running Skeleton due tonight (11:59 PM) |
