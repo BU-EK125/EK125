@@ -254,7 +254,13 @@
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="homework/HW7.html">Homework 7: Modular Functions and File I/O</a></li>
-<li class="toctree-l1"><a class="reference internal" href="class/Class15.html">Class 15: Visualizing Data and Plotting in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="class/FitnessTrackerProject.html">EK125 Team Project: Fitness Tracker Analyzer</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="class/Class15.html">Class 15: Collaborating with Others — Problem Definition and Initial Decisions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class15_TeamActivity.html">Class 15: Team Activity — Define the Problem and Write the Contract</a></li>
+
+
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">MATLAB</span></p>
 <ul class="nav bd-sidenav">
@@ -572,14 +578,64 @@ obviously private. Not yet decided/confirmed with the instructor which
 of these actually get ported, or whether Team_Contract_Template/
 FitnessTracker_Project_Overview get a shared page of their own – ask
 before assuming.</p></li>
-<li><p><strong>As of 2026-10-20, nothing from this project has been ported</strong> –
-<code class="docutils literal notranslate"><span class="pre">appendix/Fall2026Schedule.md</span></code>’s Week 9 row lists the new Class 15/16
-topic titles as plain, unlinked text (same pattern used for an
-unpublished Homework entry) so the calendar stays accurate, but
-<code class="docutils literal notranslate"><span class="pre">class/Class15.md</span></code> etc. on the live site still have the old content.
-Weeks 10-11 (Classes 17-19, Exam 2 practice/review) have not been added
-to the calendar yet either – only “next week” (Week 9) was requested
-so far.</p></li>
+<li><p><strong>Class 15 was ported on 2026-10-22, by explicit instructor direction</strong>
+on what counts as publishable: “the prereadings are the usual readings,
+they go in the gitbook like normal,” the Project Overview “applies to
+the next several classes,” Team Activity files are the per-day
+deliverable (two sections, Morning/Afternoon), and Class 15 additionally
+has the project’s data CSV and a Team Contract that needs to be
+submitted. <code class="docutils literal notranslate"><span class="pre">Preclass_Assessment</span></code> (a graded quiz) and <code class="docutils literal notranslate"><span class="pre">IPP</span></code>/
+<code class="docutils literal notranslate"><span class="pre">IPP_AnswerKey</span></code> were <em>not</em> mentioned and were not ported, consistent
+with this repo’s existing no-quizzes/no-IPP policy. Concretely:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">class/Class15.md</span></code> – ported from <code class="docutils literal notranslate"><span class="pre">Class15_Preread.md</span></code> (replaces the
+old “Visualizing Data and Plotting” content; that old content was NOT
+moved anywhere – see “Known open items” for where it probably
+belongs).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">class/FitnessTrackerProject.md</span></code> – new <strong>standalone</strong> page (not
+nested under any one class, since the overview “applies to the next
+several classes”) ported from <code class="docutils literal notranslate"><span class="pre">FitnessTracker_Project_Overview.md</span></code>,
+placed in <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code> right before <code class="docutils literal notranslate"><span class="pre">class/Class15</span></code>. Classes 16-19,
+when ported, should link back to this page rather than duplicating it.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gpps/Class15_TeamActivity.md</span></code> – new page type for this project:
+like a GPP in that it’s nested under its class in <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code> and
+lives in <code class="docutils literal notranslate"><span class="pre">gpps/</span></code>, but named <code class="docutils literal notranslate"><span class="pre">_TeamActivity</span></code> instead of <code class="docutils literal notranslate"><span class="pre">_GPP</span></code> because
+it isn’t one (no single right answer to reveal, each team’s contract
+differs) – <strong>do not pair it with a <code class="docutils literal notranslate"><span class="pre">.py</span></code> scaffold</strong>, there is no
+starter code to give out, students create their files from scratch
+per their own contract. Ported from <code class="docutils literal notranslate"><span class="pre">Class15_Team_Activity.md</span></code>
+verbatim except: “Download <code class="docutils literal notranslate"><span class="pre">fitness_data.csv</span></code> from Blackboard” was
+changed to point at this page’s own download section instead (the
+file now lives here, not Blackboard).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gpps/fitness_data.csv</span></code> and <code class="docutils literal notranslate"><span class="pre">gpps/Team_Contract_Template.docx</span></code> –
+copied as-is from <code class="docutils literal notranslate"><span class="pre">EK125-Instructors/F26/New</span> <span class="pre">Material</span> <span class="pre">Drafts/Class</span> <span class="pre">15/</span> <span class="pre">Student/</span></code> (co-located with the page that downloads them, same pattern
+as a GPP’s <code class="docutils literal notranslate"><span class="pre">.py</span></code> scaffold). Checked <code class="docutils literal notranslate"><span class="pre">Team_Contract_Template.docx</span></code>’s
+OOXML metadata before publishing (<code class="docutils literal notranslate"><span class="pre">docProps/core.xml</span></code> creator/title,
+<code class="docutils literal notranslate"><span class="pre">docProps/app.xml</span></code>, <code class="docutils literal notranslate"><span class="pre">docProps/custom.xml</span></code>, <code class="docutils literal notranslate"><span class="pre">word/comments.xml</span></code>) –
+all empty, safe to publish as-is. <strong>Check this again for any future
+<code class="docutils literal notranslate"><span class="pre">.docx</span></code> ported from this source</strong> – this repo has no established
+PII-scrubbing procedure for <code class="docutils literal notranslate"><span class="pre">.docx</span></code> the way it does for <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>
+(see “PII lesson” above); it was done ad hoc here by inspecting the
+zip’s XML parts directly.</p></li>
+<li><p>Added two cross-reference links from <code class="docutils literal notranslate"><span class="pre">class/Class15.md</span></code> back to
+<code class="docutils literal notranslate"><span class="pre">class/Class13.html#part-1-user-defined-functions-morning</span></code> and
+<code class="docutils literal notranslate"><span class="pre">class/Class12.html#dictionaries</span></code> and <code class="docutils literal notranslate"><span class="pre">class/Class14.html#part-2-</span> <span class="pre">file-input-and-output-i-o</span></code> for the reading’s own “functions/
+dictionaries/files” backward references, and one forward link from
+<code class="docutils literal notranslate"><span class="pre">gpps/Class15_TeamActivity.md</span></code> to <code class="docutils literal notranslate"><span class="pre">class/Class15.html#describing-a-</span> <span class="pre">dictionary-of-lists</span></code>.</p></li>
+<li><p><strong>Classes 16-19 have not been ported yet</strong> – same source directory,
+same per-class file set (<code class="docutils literal notranslate"><span class="pre">Preread.md</span></code> + <code class="docutils literal notranslate"><span class="pre">Team_Activity.md</span></code>), same
+pattern established here should carry over directly, but each
+<code class="docutils literal notranslate"><span class="pre">Team_Activity.md</span></code> should be re-checked for its own downloadable
+files (e.g. Class 16’s Team Activity references a “Broken Skeleton”
+lab exercise folder that may need a similar co-located download).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">appendix/Fall2026Schedule.md</span></code>’s Week 9 row still lists Class 15/16 as
+plain unlinked text from the 2026-10-20 calendar update – <strong>this is
+now stale for Class 15</strong> (the page is live) and should be turned into
+a real link next time the calendar is touched. Weeks 10-11 (Classes
+17-19, Exam 2 practice/review) still haven’t been added to the
+calendar.</p></li>
+</ul>
+</li>
 </ul>
 </section>
 <section id="toolchain-trap">
@@ -671,6 +727,19 @@ into Act 2 (Class 15) or Act 3 without being asked again.</p></li>
 <section id="known-open-items-worth-checking-before-assuming-fixed">
 <h2>Known open items worth checking before assuming fixed<a class="headerlink" href="#known-open-items-worth-checking-before-assuming-fixed" title="Link to this heading">#</a></h2>
 <ul class="simple">
+<li><p><strong>Orphaned content: the old Class 15 “Visualizing Data and Plotting in
+Python” reading.</strong> Replaced outright by the Fitness Tracker project’s
+Preread on 2026-10-22 (see “Incoming curriculum change” above) – its
+content was not deleted from git history, but it also wasn’t moved
+anywhere. The live <code class="docutils literal notranslate"><span class="pre">F26</span> <span class="pre">Class</span> <span class="pre">Schedule.docx</span></code> now has Class 21 titled
+“Visualizing data and plotting in Python” – the <em>exact</em> same topic –
+strongly suggesting this old content’s real new home is <code class="docutils literal notranslate"><span class="pre">class/</span> <span class="pre">Class21.md</span></code>, which currently has unrelated MATLAB content (“User
+Functions and Modular Programming in MATLAB”) that doesn’t match the
+official schedule either. Not acted on: moving it cascades into
+renumbering/relocating Class 21’s current MATLAB content too (to
+Class 22? further out?), which weaves into the Act 3 MATLAB sequence
+restructuring that hasn’t been confirmed with the instructor – ask
+before touching Classes 20-22.</p></li>
 <li><p>~~Class 14 and 15’s GPPs were found misaligned with their own readings by
 one class~~ – <strong>resolved 2026-10-16.</strong> This was already fixed once, in
 EK125-notebooks (2026-09-16, commits <code class="docutils literal notranslate"><span class="pre">2a8590a</span></code>/<code class="docutils literal notranslate"><span class="pre">a131231</span></code>): Class 14’s slot
