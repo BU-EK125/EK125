@@ -12,9 +12,9 @@ Work with your project team of 3. You may use the reading and your notes. Do **n
 
 Download: [fitness_data.csv](fitness_data.csv)
 
-## Team Contract Template
+## Download the Team Contract Template
 
-Open: [Team Contract Template](Team_Contract_Template.md) -- the Recorder copies its structure into your team's shared document (Google Doc or similar) and types into it while the team talks.
+Download: [Team_Contract_Template.md](Team_Contract_Template.md)
 
 **Before you start:**
 
