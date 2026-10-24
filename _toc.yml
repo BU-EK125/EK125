@@ -73,7 +73,6 @@ parts:
       - file: class/Class15
         sections:
           - file: gpps/Class15_TeamActivity
-          - file: gpps/Team_Contract_Template
       - file: class/Class16
         sections:
           - file: gpps/Class16_TeamActivity
