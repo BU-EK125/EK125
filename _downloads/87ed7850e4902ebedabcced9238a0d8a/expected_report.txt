@@ -1,0 +1,28 @@
+FITNESS TRACKER SUMMARY REPORT
+==============================
+Days analyzed: 25
+
+Metric: steps
+  Average: 8843.4
+  Range:   4569.0 to 14773.0
+  Best day: Day 27
+  Goal: 8000  (met on 16 of 25 days)
+
+Metric: resting_hr
+  Average: 63.0
+  Range:   58.0 to 67.0
+  Best day: Day 14
+  Goal: 62  (met on 12 of 25 days)
+
+Metric: sleep_hours
+  Average: 7.2
+  Range:   5.7 to 8.9
+  Best day: Day 7
+  Goal: 7.0  (met on 15 of 25 days)
+
+Metric: active_minutes
+  Average: 41.4
+  Range:   16.0 to 69.0
+  Best day: Day 7
+  Goal: 30  (met on 19 of 25 days)
+

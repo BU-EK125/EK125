@@ -1,0 +1,882 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Class 17: Writing Real Functions &#8212; EK125</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'class/Class17';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class 17: Team Activity — Replace Your Stub with Real Code" href="../gpps/Class17_TeamActivity.html" />
+    <link rel="prev" title="Class 16: Team Activity — Build a Running Skeleton" href="../gpps/Class16_TeamActivity.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">EK125</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to EK125
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendix/Fall2026Schedule.html">Fall 2026 Class Schedule</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python in Colab</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class1.html">Class 1: Introduction to Interactive Programming Using Google Colab</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class1_GPP.html">Class 1 GPP: Constants, Variables, Types, and Assignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class1_GPP_Solutions.html">Class 1 GPP Solutions: Constants, Variables, Types, and Assignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW1.html">Homework 1: Variables, Types, and Assignments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class2.html">Class 2: Sequences, Strings, and Lists in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class2_GPP.html">Class 2 GPP: Working with Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class2_GPP_Solutions.html">Class 2 GPP Solutions: Working with Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW2.html">Homework 2: Strings and Lists</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class3.html">Class 3: Booleans and Basic Logic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class3_GPP.html">Class 3 GPP: Boolean Logic Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class3_GPP_Solutions.html">Class 3 GPP Solutions: Boolean Logic Practice</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class4.html">Class 4: Coding Basics Wrap-up and Selection Statements</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class4_GPP.html">Class 4 GPP: Coding Basics Wrap-up and Selection Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class4_GPP_Solutions.html">Class 4 GPP Solutions: Coding Basics Wrap-up and Selection Statements</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW3.html">Homework 3: Boolean Logic, Sequences, and Selection Statements</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class5.html">Class 5: Importing Modules and Basic Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class5_GPP.html">Class 5 GPP: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class5_GPP_Solutions.html">Class 5 GPP Solutions: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class6.html">Class 6: Nested Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class6_GPP.html">Class 6 GPP: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class6_GPP_Solutions.html">Class 6 GPP Solutions: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW4.html">Homework 4: Loops and Randomness</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class7.html">Class 7: Advanced Iteration and Nested Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class7_GPP.html">Class 7 GPP: Advanced Iteration and Nested Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class7_GPP_Solutions.html">Class 7 GPP Solutions: Advanced Iteration and Nested Structures</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../gpps/Exam1_Review.html">EK125 Exam 1 - Top 30 GPP Problems for Paper Practice</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python in an IDE</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class9.html">Class 9: From Colab Notebooks to Running Python Locally</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class9_GPP.html">Class 9 GPP: Getting Comfortable with PyCharm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class9_GPP_Solutions.html">Class 9 GPP Solutions: Getting Comfortable with PyCharm</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class10.html">Class 10: Mastering Slicing in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class10_GPP.html">Class 10 GPP: Mastering Slicing in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class10_GPP_Solutions.html">Class 10 GPP Solutions: Mastering Slicing in Python</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW5.html">Homework 5: Advanced Iteration, Nested Structures, and Slicing</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class11.html">Class 11: Digging into arrays with NumPy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class11_GPP.html">Class 11 GPP: Working with Arrays in NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class11_GPP_Solutions.html">Class 11 GPP Solutions: Working with Arrays in NumPy</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class12.html">Class 12: Dictionaries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class12_GPP.html">Class 12 GPP: Python Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class12_GPP_Solutions.html">Class 12 GPP Solutions: Python Dictionaries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW6.html">Homework 6: NumPy and Dictionaries</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class13.html">Class 13: User-Defined Functions, Arguments, and Scope</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class13_GPP.html">Class 13 GPP: User-Defined Functions, Scope, and Copying</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class13_GPP_Solutions.html">Class 13 GPP Solutions: User-Defined Functions, Scope, and Copying</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class14.html">Class 14: Scripts, File I/O, and the Local File Environment</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class14_GPP.html">Class 14 GPP: Scripts, Comments, and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class14_GPP_Solutions.html">Class 14 GPP Solutions: Scripts, Comments, and Documentation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW7.html">Homework 7: Modular Functions and File I/O</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Team Project: Fitness Tracker</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="FitnessTrackerProject.html">EK125 Team Project: Fitness Tracker Analyzer</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class15.html">Class 15: Collaborating with Others — Problem Definition and Initial Decisions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class15_TeamActivity.html">Class 15: Team Activity — Define the Problem and Write the Contract</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Team_Contract_Template.html">Fitness Tracker Analyzer: Team Contract</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class16.html">Class 16: Stub Building</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class16_TeamActivity.html">Class 16: Team Activity — Build a Running Skeleton</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Class 17: Writing Real Functions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class17_TeamActivity.html">Class 17: Team Activity — Replace Your Stub with Real Code</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class18.html">Class 18: Integrating It All Together</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class18_TeamActivity.html">Class 18: Team Activity — Integrate, One Piece at a Time</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class19.html">Class 19: Debugging and Reflection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class19_TeamActivity.html">Class 19: Team Activity — Bug Hunt and Retrospective</a></li>
+
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MATLAB</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Class21.html">Class 21: Visualizing Data and Plotting in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class22.html">Class 22: From Python to MATLAB: Syntax and Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class23.html">Class 23: Creating Vectors and Matrices in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class24.html">Class 24: Vector and Matrix Operations in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class25.html">Class 25: MATLAB Scripts, Documentation, and File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class26.html">Class 26: User Functions and Modular Programming in MATLAB</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendix/Syllabus.html">Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/WeeklyRhythm.html">Weekly Rhythm of EK125</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/SubmittingAssignments.html">Instructions to receive and submit assignments</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/class/Class17.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Class 17: Writing Real Functions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-where-we-are">Part 1: Where We Are</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-tests-first-then-code">Part 2: Tests First, Then Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-small-check-function">A small <code class="docutils literal notranslate"><span class="pre">check()</span></code> function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-test-function">A test function</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-from-pseudocode-to-code">Part 3: From Pseudocode to Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#style-rules-still-apply">Style rules still apply</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-testing-without-your-teammates">Part 4: Testing Without Your Teammates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-choosing-good-test-cases">Part 5: Choosing Good Test Cases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-boundaries-matter">Why boundaries matter</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-comparing-decimal-numbers">Part 6: Comparing Decimal Numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-working-in-parallel">Part 7: Working in Parallel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-key-concepts">Summary: Key Concepts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-your-understanding">Check Your Understanding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coming-up-in-class">Coming Up in Class</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="class-17-writing-real-functions">
+<h1>Class 17: Writing Real Functions<a class="headerlink" href="#class-17-writing-real-functions" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this reading, you should be able to:</p>
+<ul class="simple">
+<li><p>Turn pseudocode comments into working code, one step at a time</p></li>
+<li><p>Write <strong>tests before code</strong>, using expected values worked out by hand</p></li>
+<li><p>Write a small <code class="docutils literal notranslate"><span class="pre">check()</span></code> function that prints PASS or FAIL</p></li>
+<li><p>Test your function <strong>without</strong> your teammates’ code</p></li>
+<li><p>Choose test cases that catch bugs: the normal case, edge cases, and boundaries</p></li>
+<li><p>Compare floating-point numbers safely</p></li>
+<li><p>Test a function that writes a file</p></li>
+</ul>
+<p><strong>New syntax today:</strong> none. Everything here uses functions, <code class="docutils literal notranslate"><span class="pre">if</span></code>/<code class="docutils literal notranslate"><span class="pre">else</span></code>, loops, f-strings, and file I/O.</p>
+</section>
+<hr class="docutils" />
+<section id="part-1-where-we-are">
+<h2>Part 1: Where We Are<a class="headerlink" href="#part-1-where-we-are" title="Link to this heading">#</a></h2>
+<p>Your team has a <strong>running skeleton</strong>. Every function is a stub, and <code class="docutils literal notranslate"><span class="pre">main.py</span></code> runs from start to finish. Today each person replaces <strong>their own</strong> stub with real code.</p>
+<p>Back to the theater: the stand-ins rehearsed the whole show. Now the real actors step in, <strong>one at a time</strong>. The show keeps running the whole time, because every actor stands on exactly the same marks the stand-in did. That’s your contract.</p>
+<p>The most important rule today:</p>
+<blockquote>
+<div><p><strong>Your real function must keep every promise your stub kept</strong>: same header, same return type, same structure, same keys. If it does, your teammates’ code keeps working without any changes.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="part-2-tests-first-then-code">
+<h2>Part 2: Tests First, Then Code<a class="headerlink" href="#part-2-tests-first-then-code" title="Link to this heading">#</a></h2>
+<p>How will you know your function is right? Here’s how most beginners do it:</p>
+<ol class="arabic simple">
+<li><p>Write the code.</p></li>
+<li><p>Run it.</p></li>
+<li><p>Look at the output and think, “Yeah, that looks about right.”</p></li>
+</ol>
+<p>Step 3 is the problem. <strong>“Looks about right” is not a test.</strong> If you don’t know the right answer <em>before</em> you run the code, you’ll believe whatever the code tells you.</p>
+<p>You already have the right answers. In <a class="reference external" href="https://BU-EK125.github.io/EK125/gpps/Class15_TeamActivity.html#part-e-work-out-the-expected-answers-by-hand-about-20-minutes-together">Class 15</a> lab, your team worked out <strong>by hand</strong> exactly what each function should return for Days 1–5. Those are your <strong>expected values</strong>. Today, you write them into a test <strong>before</strong> you write the real code.</p>
+<section id="a-small-check-function">
+<h3>A small <code class="docutils literal notranslate"><span class="pre">check()</span></code> function<a class="headerlink" href="#a-small-check-function" title="Link to this heading">#</a></h3>
+<p>Comparing expected and actual values over and over gets repetitive, so write a function for it. That’s what functions are for!</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check</span><span class="p">(</span><span class="n">test_name</span><span class="p">,</span> <span class="n">expected</span><span class="p">,</span> <span class="n">actual</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Print PASS if expected equals actual; otherwise print FAIL and both values."""</span>
+    <span class="k">if</span> <span class="n">expected</span> <span class="o">==</span> <span class="n">actual</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"PASS: </span><span class="si">{</span><span class="n">test_name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"FAIL: </span><span class="si">{</span><span class="n">test_name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"   expected: </span><span class="si">{</span><span class="n">expected</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"   actual:   </span><span class="si">{</span><span class="n">actual</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>When a test fails, <code class="docutils literal notranslate"><span class="pre">check()</span></code> shows you <strong>both</strong> values, side by side. That usually tells you exactly what went wrong.</p>
+</section>
+<section id="a-test-function">
+<h3>A test function<a class="headerlink" href="#a-test-function" title="Link to this heading">#</a></h3>
+<p>Your tests go in a test function, called only when you run your file directly. This is the same pattern you used for stub tests in Class 16:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_summarize</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Test summarize_temperatures against hand-calculated values."""</span>
+    <span class="n">expected</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"average"</span><span class="p">:</span> <span class="mf">72.0</span><span class="p">,</span> <span class="s2">"high"</span><span class="p">:</span> <span class="mf">74.0</span><span class="p">,</span> <span class="s2">"low"</span><span class="p">:</span> <span class="mf">70.0</span><span class="p">}</span>
+    <span class="n">actual</span> <span class="o">=</span> <span class="n">summarize_temperatures</span><span class="p">([</span><span class="mf">70.0</span><span class="p">,</span> <span class="mf">72.0</span><span class="p">,</span> <span class="mf">74.0</span><span class="p">])</span>
+    <span class="n">check</span><span class="p">(</span><span class="s2">"three simple temps"</span><span class="p">,</span> <span class="n">expected</span><span class="p">,</span> <span class="n">actual</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">test_summarize</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Write the test first.</strong> Run it while your function is still a stub. It will print FAIL, which is fine: it proves your test can fail. Then write the real code and run it again until it prints PASS.</p>
+<blockquote>
+<div><p><strong>Key idea:</strong> Decide what the right answer is <em>before</em> you run the code. Then let the computer tell you whether you got it.</p>
+</div></blockquote>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-3-from-pseudocode-to-code">
+<h2>Part 3: From Pseudocode to Code<a class="headerlink" href="#part-3-from-pseudocode-to-code" title="Link to this heading">#</a></h2>
+<p>In Class 16 lab, you wrote pseudocode comments above your stub. Now turn each comment into one or two lines of code. <strong>Keep the comments.</strong> They become the explanation of your code.</p>
+<p>Here’s the weather station reader, from plan to code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">read_temperatures</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Read temperatures in degrees F from a file. Skips blank lines and -999."""</span>
+    <span class="c1"># 1. Make an empty list for the temperatures</span>
+    <span class="n">temps</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="c1"># 2. Open the file for reading</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="c1"># 3. For each line in the file:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+            <span class="c1"># a. strip the newline</span>
+            <span class="n">reading</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="c1"># b. if the line is not blank and not "-999", convert it and add it</span>
+            <span class="k">if</span> <span class="n">reading</span> <span class="o">!=</span> <span class="s2">""</span> <span class="ow">and</span> <span class="n">reading</span> <span class="o">!=</span> <span class="s2">"-999"</span><span class="p">:</span>
+                <span class="n">temps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">reading</span><span class="p">))</span>
+    <span class="c1"># 4. Return the list</span>
+    <span class="k">return</span> <span class="n">temps</span>
+</pre></div>
+</div>
+<p>Work one step at a time. After each step, <strong>run your tests.</strong> If something breaks, you know it was the step you just wrote.</p>
+<p>A common beginner move is to write all the code, run it once, and get six errors. Don’t! Write a few lines, run, and repeat.</p>
+<section id="style-rules-still-apply">
+<h3>Style rules still apply<a class="headerlink" href="#style-rules-still-apply" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>No <code class="docutils literal notranslate"><span class="pre">global</span></code> variables. Everything your function needs comes in through its parameters.</p></li>
+<li><p>No <code class="docutils literal notranslate"><span class="pre">break</span></code> or <code class="docutils literal notranslate"><span class="pre">continue</span></code>. Use an <code class="docutils literal notranslate"><span class="pre">if</span></code> inside the loop to decide what to do with each item, as the weather reader does.</p></li>
+<li><p>No <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span></code>. For these functions, <code class="docutils literal notranslate"><span class="pre">for</span></code> loops are all you need.</p></li>
+<li><p>Use readable variable names (<code class="docutils literal notranslate"><span class="pre">best_position</span></code>, not <code class="docutils literal notranslate"><span class="pre">bp</span></code>) and keep your comments.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-4-testing-without-your-teammates">
+<h2>Part 4: Testing Without Your Teammates<a class="headerlink" href="#part-4-testing-without-your-teammates" title="Link to this heading">#</a></h2>
+<p>You can test your own function <strong>today</strong>, even if nobody else on your team has written theirs.</p>
+<p><strong>If your function takes a dictionary or list as input:</strong> build a small one by hand, right in your test. The weather <code class="docutils literal notranslate"><span class="pre">summarize_temperatures</span></code> test above never calls the reader; it just passes in <code class="docutils literal notranslate"><span class="pre">[70.0,</span> <span class="pre">72.0,</span> <span class="pre">74.0]</span></code>. Make the input small enough that you can work out the answer in your head or on paper.</p>
+<p><strong>If your function reads a file:</strong> make a tiny test file. In PyCharm, right-click your project folder → <em>New → File</em> → <code class="docutils literal notranslate"><span class="pre">test_temps.txt</span></code>, and type a few lines:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">71.2</span>
+
+<span class="mf">70.8</span>
+<span class="o">-</span><span class="mi">999</span>
+<span class="mf">72.5</span>
+</pre></div>
+</div>
+<p>Then test against it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_reader</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Test read_temperatures on a tiny file with a blank line and a -999."""</span>
+    <span class="n">check</span><span class="p">(</span><span class="s2">"skips blank and -999"</span><span class="p">,</span> <span class="p">[</span><span class="mf">71.2</span><span class="p">,</span> <span class="mf">70.8</span><span class="p">,</span> <span class="mf">72.5</span><span class="p">],</span>
+          <span class="n">read_temperatures</span><span class="p">(</span><span class="s2">"test_temps.txt"</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><strong>If your function writes a file:</strong> call it, then <strong>open the file and read it back</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_save</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">"""Test save_summary by writing a file and reading it back."""</span>
+    <span class="n">save_summary</span><span class="p">({</span><span class="s2">"average"</span><span class="p">:</span> <span class="mf">72.0</span><span class="p">,</span> <span class="s2">"high"</span><span class="p">:</span> <span class="mf">74.0</span><span class="p">,</span> <span class="s2">"low"</span><span class="p">:</span> <span class="mf">70.0</span><span class="p">},</span> <span class="s2">"test_out.txt"</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"test_out.txt"</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">text</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">check</span><span class="p">(</span><span class="s2">"high appears in file"</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">"74.0"</span> <span class="ow">in</span> <span class="n">text</span><span class="p">)</span>
+    <span class="n">check</span><span class="p">(</span><span class="s2">"file has 3 lines"</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)))</span>   <span class="c1"># if the contract promises 3 lines</span>
+</pre></div>
+</div>
+<p>Checking whether a key phrase is <code class="docutils literal notranslate"><span class="pre">in</span></code> the text is usually better than comparing the entire file character by character.</p>
+</section>
+<hr class="docutils" />
+<section id="part-5-choosing-good-test-cases">
+<h2>Part 5: Choosing Good Test Cases<a class="headerlink" href="#part-5-choosing-good-test-cases" title="Link to this heading">#</a></h2>
+<p>One test isn’t enough. A function can pass the “normal” test and still be wrong. Good testers deliberately try the cases most likely to break the code.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Kind of test</p></th>
+<th class="head"><p>What it checks</p></th>
+<th class="head"><p>Weather example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Normal case</strong></p></td>
+<td><p>Typical data, hand-calculated</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[70.0,</span> <span class="pre">72.0,</span> <span class="pre">74.0]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Messy data</strong></p></td>
+<td><p>The messy cases in your contract</p></td>
+<td><p>A file with blank lines and <code class="docutils literal notranslate"><span class="pre">-999</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Tie</strong></p></td>
+<td><p>Two values equally “best”</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[74.0,</span> <span class="pre">70.0,</span> <span class="pre">74.0]</span></code>: which day is the high?</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Boundary</strong></p></td>
+<td><p>A value <em>exactly</em> equal to a limit</p></td>
+<td><p>A goal of 72.0 when one value is exactly 72.0</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Direction</strong></p></td>
+<td><p>“Higher is better” vs. “lower is better”</p></td>
+<td><p>A low temperature is “best” on a hot day</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Smallest input</strong></p></td>
+<td><p>One item</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[71.0]</span></code>: average, high, and low are all 71.0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="why-boundaries-matter">
+<h3>Why boundaries matter<a class="headerlink" href="#why-boundaries-matter" title="Link to this heading">#</a></h3>
+<p>Suppose a contract says “count the days <strong>at or above</strong> the goal,” and someone writes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="n">goal</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>instead of:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">value</span> <span class="o">&gt;=</span> <span class="n">goal</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>If none of the test values happens to equal the goal <em>exactly</em>, every test passes and the bug survives. A <strong>boundary test</strong> puts a value exactly on the line, on purpose.</p>
+<blockquote>
+<div><p><strong>Key idea:</strong> Normal tests show that your code <em>can</em> work. Edge and boundary tests show that it <em>does</em> work.</p>
+</div></blockquote>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-6-comparing-decimal-numbers">
+<h2>Part 6: Comparing Decimal Numbers<a class="headerlink" href="#part-6-comparing-decimal-numbers" title="Link to this heading">#</a></h2>
+<p>Try this in the Python console:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span>
+<span class="go">0.30000000000000004</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">==</span> <span class="mf">0.3</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p>Computers store most decimal numbers as very close approximations, so tiny errors can appear in the last digits. Your function can be <strong>correct</strong> and still fail a test that uses <code class="docutils literal notranslate"><span class="pre">==</span></code>.</p>
+<p>Two ways to handle this:</p>
+<ol class="arabic simple">
+<li><p><strong>Round where your contract says to round.</strong> If your contract says the average is rounded to 1 decimal place, then <code class="docutils literal notranslate"><span class="pre">round(...)</span></code> happens inside the function, and <code class="docutils literal notranslate"><span class="pre">==</span></code> works on the rounded result: <code class="docutils literal notranslate"><span class="pre">round(0.1</span> <span class="pre">+</span> <span class="pre">0.2,</span> <span class="pre">1)</span> <span class="pre">==</span> <span class="pre">0.3</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p><strong>Round inside the test</strong> when you compare an unrounded value: <code class="docutils literal notranslate"><span class="pre">check(&quot;average&quot;,</span> <span class="pre">72.3,</span> <span class="pre">round(actual[&quot;average&quot;],</span> <span class="pre">1))</span></code>.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="part-7-working-in-parallel">
+<h2>Part 7: Working in Parallel<a class="headerlink" href="#part-7-working-in-parallel" title="Link to this heading">#</a></h2>
+<p>Your teammates may finish before you, or after you. That’s fine:</p>
+<ul class="simple">
+<li><p>Your tests don’t need their code (Part 4).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">main.py</span></code> still runs with <strong>any mix</strong> of real functions and stubs, as long as every piece keeps the contract.</p></li>
+</ul>
+<p>Before you upload your file to the shared Drive folder, run <code class="docutils literal notranslate"><span class="pre">main.py</span></code> with your real function and your teammates’ latest files. If <code class="docutils literal notranslate"><span class="pre">main.py</span></code> crashed after your change, your function has broken a promise. Find it before your teammates do!</p>
+</section>
+<hr class="docutils" />
+<section id="summary-key-concepts">
+<h2>Summary: Key Concepts<a class="headerlink" href="#summary-key-concepts" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Keep every promise the stub kept:</strong> same header, return type, structure, and keys.</p></li>
+<li><p><strong>Tests first:</strong> write expected values (worked out by hand) into a test <em>before</em> writing the code.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">check(test_name,</span> <span class="pre">expected,</span> <span class="pre">actual)</span></code>:</strong> prints PASS or FAIL, with both values on failure.</p></li>
+<li><p><strong>Pseudocode → code:</strong> one comment at a time; run the tests after each step; keep the comments.</p></li>
+<li><p><strong>Test alone:</strong> hand-built inputs, tiny test files, and reading output files back.</p></li>
+<li><p><strong>Good test cases:</strong> normal, messy data, tie, boundary, direction, smallest input.</p></li>
+<li><p><strong>Floats:</strong> round where the contract says, or round inside the test.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="check-your-understanding">
+<h2>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Why should you work out the expected value <em>before</em> running your code?</p></li>
+<li><p>Your test prints FAIL while your function is still a stub. Is that a problem? Why or why not?</p></li>
+<li><p>Write a <code class="docutils literal notranslate"><span class="pre">check()</span></code> call that tests whether <code class="docutils literal notranslate"><span class="pre">summarize_temperatures([71.0])</span></code> returns <code class="docutils literal notranslate"><span class="pre">{&quot;average&quot;:</span> <span class="pre">71.0,</span> <span class="pre">&quot;high&quot;:</span> <span class="pre">71.0,</span> <span class="pre">&quot;low&quot;:</span> <span class="pre">71.0}</span></code>.</p></li>
+<li><p>The Analyst wants to test <code class="docutils literal notranslate"><span class="pre">analyze_metric</span></code> before the Loader is finished. How?</p></li>
+<li><p>Give one boundary test for a function that counts days with at least 8000 steps.</p></li>
+<li><p>Why might <code class="docutils literal notranslate"><span class="pre">check(&quot;average&quot;,</span> <span class="pre">0.3,</span> <span class="pre">0.1</span> <span class="pre">+</span> <span class="pre">0.2)</span></code> print FAIL even though the math is right? How would you fix the test?</p></li>
+<li><p>How can you test a function whose only job is to write a file?</p></li>
+<li><p>Your real function passes all your tests, but <code class="docutils literal notranslate"><span class="pre">main.py</span></code> now crashes in a teammate’s file. What should you check first?</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="coming-up-in-class">
+<h2>Coming Up in Class<a class="headerlink" href="#coming-up-in-class" title="Link to this heading">#</a></h2>
+<p>You’ll write your tests from the Class 15 hand calculations, then replace your stub with real code, one pseudocode step at a time. In lab, we’ll build the two trickiest functions together: the Loader’s skip-the-row logic and the Analyst’s best-day loop.</p>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./class"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../gpps/Class16_TeamActivity.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Class 16: Team Activity — Build a Running Skeleton</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../gpps/Class17_TeamActivity.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Class 17: Team Activity — Replace Your Stub with Real Code</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-where-we-are">Part 1: Where We Are</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-tests-first-then-code">Part 2: Tests First, Then Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-small-check-function">A small <code class="docutils literal notranslate"><span class="pre">check()</span></code> function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-test-function">A test function</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-from-pseudocode-to-code">Part 3: From Pseudocode to Code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#style-rules-still-apply">Style rules still apply</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-testing-without-your-teammates">Part 4: Testing Without Your Teammates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-choosing-good-test-cases">Part 5: Choosing Good Test Cases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-boundaries-matter">Why boundaries matter</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-comparing-decimal-numbers">Part 6: Comparing Decimal Numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-7-working-in-parallel">Part 7: Working in Parallel</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-key-concepts">Summary: Key Concepts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-your-understanding">Check Your Understanding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coming-up-in-class">Coming Up in Class</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Stormy Attaway, Brian DePasquale, Christine Mulvey, Kenn Sebesta
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
