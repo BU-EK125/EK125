@@ -1,446 +1,490 @@
-# Class 22: Useful MATLAB Toolboxes
+# Class 22: From Python to MATLAB: Syntax and Plotting
 
-*A Guide for Introductory Programming Students*
+## Introduction
 
----
+Welcome to MATLAB! As you transition from Python, you'll find that many programming concepts you've already learned translate directly. However, MATLAB has some important syntax differences and was specifically designed for matrix operations and numerical computing. This guide will help you bridge your Python knowledge to MATLAB, with a focus on plotting.
 
-## What Are MATLAB Toolboxes?
+## What Will Feel Familiar: PyCharm and MATLAB
 
-MATLAB toolboxes are collections of specialized functions, apps, and algorithms that extend MATLAB's capabilities for specific application areas. Think of them as add-on packages that provide domain-specific tools—similar to libraries in Python. While base MATLAB provides fundamental programming capabilities, toolboxes give you powerful, pre-built functions for areas like signal processing, statistics, image processing, and control systems.
+You've spent the past several weeks working in PyCharm, and that experience will serve you well in MATLAB. Both are full-featured IDEs (Integrated Development Environments) designed for writing, running, and debugging code. Many of the interface elements and workflows you've gotten used to in PyCharm have direct equivalents in MATLAB.
 
-Toolboxes save you time by providing tested, optimized implementations of complex algorithms that would take weeks or months to write from scratch. For engineers, they're essential for real-world problem solving.
+### Similar Interface Layout
 
----
+**PyCharm has:**
+- **Editor panel** (center) — where you write your `.py` files
+- **Project panel** (left side) — shows your files and folders
+- **Run panel** (bottom) — displays program output and where `input()` prompts appear
+- **Green "Run" button** (top right) — executes your current file
+- **Right-click menu** — offers quick actions like "Run 'filename'"
 
-## Installing Toolboxes
+**MATLAB has:**
+- **Editor window** (center/top) — where you write your `.m` files
+- **Current Folder browser** (left side) — shows your files and folders
+- **Command Window** (bottom/right) — displays output and where you can type commands interactively
+- **Green "Run" button** (top of editor) — executes your current script
+- **Right-click menu** — offers similar quick actions
 
-To install a toolbox in MATLAB:
+### Similar Workflow
 
-- Go to the **Home** tab in the MATLAB ribbon
-- Click the **Add-Ons** button
-- Select **Get Add-Ons**
-- Search for the toolbox you need (e.g., Signal Processing Toolbox)
-- Click **Install**
+The basic workflow you've been using in PyCharm translates directly:
 
-**Note:** You need a valid MATLAB license with toolbox access. BU students typically have access through the campus license.
+| Task | PyCharm | MATLAB |
+|------|---------|--------|
+| Create new file | Right-click project → New → Python File | Click "New Script" button or File → New → Script |
+| Write code | In the editor panel | In the Editor window |
+| Run code | Click green play button or right-click → Run | Click green "Run" button |
+| See output | Run panel at bottom | Command Window |
+| Organize files | Project panel on left | Current Folder browser on left |
 
----
+### Key Differences to Note
 
-## Essential Toolboxes for Undergraduate Engineers
+While the overall structure is similar, there are a few differences:
 
-### 1. Signal Processing Toolbox
+1. **File extensions:** `.py` files in Python become `.m` files in MATLAB (the "m" stands for MATLAB)
 
-The Signal Processing Toolbox is fundamental for analyzing and manipulating signals—time-series data like audio, sensor readings, biomedical signals (ECG, EEG), and more. This toolbox is essential for electrical, biomedical, and mechanical engineers.
+2. **Workspace window:** MATLAB has an additional panel (usually top-right) called the **Workspace** that shows all your current variables and their values. This is similar to what you might have seen in PyCharm's debugger view, but it's always visible in MATLAB.
 
-#### Key Function: findpeaks()
+3. **Interactive Command Window:** MATLAB's Command Window is more prominent than PyCharm's Python Console because MATLAB was designed to be used interactively. You can type commands directly into the Command Window and see immediate results, similar to how Colab cells worked. This is useful for quick calculations and testing, but most of your code will still be written in `.m` script files.
 
-One of the most useful functions in this toolbox is `findpeaks()`, which automatically identifies peaks (local maxima) in your data. This is incredibly valuable for:
+4. **Built-in functions everywhere:** While Python requires you to `import` most functionality (like `import numpy`), MATLAB has a huge library of mathematical functions built-in and ready to use (like `sin`, `cos`, `mean`, `plot`, etc.).
 
-- Finding heartbeats in ECG signals
-- Detecting peaks in spectroscopy data
-- Identifying resonant frequencies
-- Locating maxima in any waveform
+### The Bottom Line
 
-#### Basic Syntax:
-
-```matlab
-[pks, locs] = findpeaks(data);
-```
-
-Where:
-- **pks** returns the values of the peaks
-- **locs** returns the indices where peaks occur
-- **data** is your signal vector
-
-#### Advanced Parameters:
-
-`findpeaks()` becomes even more powerful when you use its optional parameters to filter out unwanted peaks:
-
-| Parameter | Description |
-|-----------|-------------|
-| `MinPeakHeight` | Finds only peaks greater than a threshold value |
-| `MinPeakProminence` | Finds peaks with a minimum vertical drop on both sides |
-| `MinPeakDistance` | Finds peaks separated by more than a minimum distance |
-
-#### Example: ECG Peak Detection
-
-```matlab
-% Load ECG data
-time = ecgData(:, 1);
-voltage = ecgData(:, 2);
-
-% Find R-peaks (QRS complex) in ECG
-[pks, locs] = findpeaks(voltage, ...
-    'MinPeakHeight', 0.5, ...
-    'MinPeakDistance', 300);
-
-% Plot results
-plot(time, voltage);
-hold on;
-plot(time(locs), pks, 'ro');
-xlabel('Time (s)');
-ylabel('Voltage (mV)');
-```
-
-#### Other Useful Signal Processing Functions:
-
-- `fft()` - Fast Fourier Transform for frequency analysis
-- `filter()` - Apply digital filters to data
-- `butter()` - Design Butterworth filters
-- `spectrogram()` - Time-frequency analysis
+**If you can navigate PyCharm, you can navigate MATLAB.** The same organizational logic applies: write your code in the editor, run it with a button, and check your output in a panel below or beside your code. The language syntax will be different (that's what we're learning!), but the IDE experience should feel comfortably familiar.
 
 ---
 
-### 2. Statistics and Machine Learning Toolbox
+## Installing MATLAB at Boston University
 
-This toolbox provides functions for statistical analysis, data visualization, and machine learning. It's essential for analyzing experimental data, performing hypothesis testing, and building predictive models.
+Boston University has a site-wide license giving all BU students, faculty, and staff unlimited access to MATLAB, Simulink, and 49 add-on products at no additional cost. Here's how to install it on your personal computer:
 
-#### Key Functions for Data Analysis
+### Installation Steps
 
-**histogram()**
+1. **Create a MathWorks Account**
+   - Go to the MathWorks BU Portal and create an account using your BU email address
+   - You'll need to authenticate with your BU credentials
 
-Creates histogram plots to visualize data distributions:
+2. **Download MATLAB**
+   - Log into the MathWorks BU Portal
+   - Select the "40523728 Individual Academic – Total Headcount" license
+   - Download the installer for your operating system (Windows, Mac, or Linux)
 
-```matlab
-histogram(heartRate);
-xlabel('Heart Rate (bpm)');
-ylabel('Frequency');
-```
+3. **Install the Software**
+   - Run the installer you downloaded
+   - Follow the on-screen installation prompts
+   - Choose which toolboxes you want to install (it's not a bad idea to just install them all)
 
-**boxchart()**
+4. **Activate Your License**
+   - After installation, MATLAB will prompt you to activate
+   - Select "Activate automatically using the Internet (recommended)"
+   - Sign in with your MathWorks account when prompted
+   - The activation process will link MATLAB to BU's license
 
-Creates box plots to compare distributions across groups:
+**Important Notes:**
+- You can install MATLAB on each computer you personally use (home and office machines)
+- The license requires annual renewal (typically in July), but you'll receive notifications
+- If you have any installation issues, contact BU IT Help at ithelp@bu.edu
 
-```matlab
-% Combine data from different conditions
-combinedData = [restingHR; exerciseHR];
-group = [ones(size(restingHR)); 2*ones(size(exerciseHR))];
-
-% Create box plot
-boxchart(group, combinedData);
-xticklabels({'Resting', 'Exercise'});
-ylabel('Heart Rate (bpm)');
-```
-
-**ttest2() - Two-Sample t-Test**
-
-The t-test is a statistical hypothesis test used to determine if two datasets are significantly different from each other. It's one of the most common statistical tests in engineering and science.
-
-**Syntax:**
-
-```matlab
-h = ttest2(data1, data2);
-```
-
-Where:
-- **h = 1** means the datasets are significantly different (reject null hypothesis)
-- **h = 0** means there's not enough evidence to claim they're different
-
-**Example:**
-
-```matlab
-% Test if resting and exercise heart rates are different
-h = ttest2(restingHeartRate, exerciseHeartRate);
-
-if h == 1
-    disp('Heart rates are significantly different!');
-else
-    disp('Cannot claim they are different.');
-end
-```
-
-#### Other Useful Statistical Functions:
-
-- `mean()`, `median()`, `std()` - Basic statistics
-- `corrcoef()` - Correlation coefficients
-- `fitlm()` - Linear regression
-- `kmeans()` - K-means clustering
+**Resources:**
+- Full installation guide: https://www.bu.edu/tech/services/cccs/desktop/distribution/mathsci/matlab/
+- FAQ: https://www.bu.edu/tech/services/cccs/desktop/distribution/mathsci/matlab/faqs/
 
 ---
 
-### 3. Optimization Toolbox
+## Key Syntax Differences
 
-The Optimization Toolbox helps you find optimal solutions to engineering problems—minimizing cost, maximizing efficiency, or finding the best design parameters. Essential for mechanical, industrial, and systems engineers.
+### Semicolons and Output
+In Python, statements automatically suppress output unless you explicitly print. In MATLAB, it's the opposite:
 
-**Key Functions:**
-
-- `fminunc()` - Unconstrained optimization
-- `fmincon()` - Constrained optimization
-- `linprog()` - Linear programming
-- `ga()` - Genetic algorithm
-
-#### Example: Finding the Minimum of a Function
-
-Suppose you want to find the minimum value of a cost function. Here's how to use `fminunc()`:
-
-```matlab
-% Define a cost function (e.g., f(x) = x^2 + 3x + 5)
-costFunction = @(x) x^2 + 3*x + 5;
-
-% Set starting guess
-x0 = 0;
-
-% Find the minimum
-[xmin, fval] = fminunc(costFunction, x0);
-
-fprintf('Minimum occurs at x = %.2f\n', xmin);
-fprintf('Minimum value = %.2f\n', fval);
+**Python:**
+```python
+x = 5          # No output
+print(x)       # Displays: 5
 ```
 
-#### Example: Constrained Optimization
-
-For a problem with constraints, such as designing a cylindrical can with minimum surface area for a given volume:
-
+**MATLAB:**
 ```matlab
-% Objective: minimize surface area (2*pi*r^2 + 2*pi*r*h)
-% Constraint: volume must equal 500 cm^3 (pi*r^2*h = 500)
-
-% Objective function (surface area)
-objective = @(x) 2*pi*x(1)^2 + 2*pi*x(1)*x(2);
-
-% Constraint: pi*r^2*h = 500, rewritten as pi*r^2*h - 500 = 0
-constraint = @(x) deal([], pi*x(1)^2*x(2) - 500);
-
-% Initial guess [radius, height]
-x0 = [5, 5];
-
-% Lower bounds (radius and height must be positive)
-lb = [0.1, 0.1];
-
-% Solve
-options = optimoptions('fmincon', 'Display', 'off');
-[x, fval] = fmincon(objective, x0, [], [], [], [], lb, [], constraint, options);
-
-fprintf('Optimal radius: %.2f cm\n', x(1));
-fprintf('Optimal height: %.2f cm\n', x(2));
-fprintf('Minimum surface area: %.2f cm^2\n', fval);
+x = 5          % Displays: x = 5
+x = 5;         % Suppresses output (semicolon!)
+disp(x)        % Displays: 5
 ```
+
+**Key point:** Use semicolons in MATLAB to suppress output, especially in loops!
+
+### Comments
+- **Python:** `# This is a comment`
+- **MATLAB:** `% This is a comment`
+
+### Indexing
+This is one of the most important differences:
+
+**Python:** Zero-indexed (starts at 0)
+```python
+my_list = [10, 20, 30, 40]
+print(my_list[0])      # 10 (first element)
+print(my_list[-1])     # 40 (last element)
+```
+
+**MATLAB:** One-indexed (starts at 1)
+```matlab
+my_array = [10, 20, 30, 40];
+disp(my_array(1))      % 10 (first element)
+disp(my_array(end))    % 40 (last element)
+```
+
+**Watch out:** MATLAB uses parentheses `()` for indexing, not square brackets!
+
+### Arrays vs Lists
+MATLAB is built around arrays (especially matrices). Creating them is straightforward:
+
+**Python:**
+```python
+my_list = [1, 2, 3, 4]
+import numpy as np
+my_array = np.array([1, 2, 3, 4])
+```
+
+**MATLAB:**
+```matlab
+my_array = [1, 2, 3, 4];              % Row vector
+my_column = [1; 2; 3; 4];             % Column vector (semicolon!)
+my_matrix = [1, 2, 3; 4, 5, 6];       % 2x3 matrix
+```
+
+### Ranges and Sequences
+
+**Python:**
+```python
+range(0, 10)           # 0 to 9
+range(0, 10, 2)        # 0, 2, 4, 6, 8
+```
+
+**MATLAB:**
+```matlab
+0:9                    % 0 to 9
+0:2:9                  % 0, 2, 4, 6, 8 (start:step:end)
+linspace(0, 10, 5)     % 5 evenly spaced points from 0 to 10
+```
+
+### Logical Operators
+
+| Operation | Python | MATLAB |
+|-----------|--------|--------|
+| AND       | `and` or `&` | `&&` or `&` |
+| OR        | `or` or `\|` | `\|\|` or `\|` |
+| NOT       | `not` or `~` | `~` |
+
+For single comparisons, use `&&` and `||` in MATLAB. For element-wise operations on arrays, use `&` and `|`.
 
 ---
 
-### 4. Symbolic Math Toolbox
+## Plotting in MATLAB
 
-This toolbox lets you perform symbolic mathematics—working with equations algebraically rather than numerically. Perfect for calculus, differential equations, and analytical solutions.
+If you've used matplotlib in Python, MATLAB's plotting will feel familiar—in fact, matplotlib was inspired by MATLAB's plotting syntax!
 
-**Example:**
+### Basic Line Plot
 
-```matlab
-syms x
-y = x^2 + 3*x + 2;
-
-% Take derivative symbolically
-dy = diff(y, x);    % Returns: 2*x + 3
-
-% Solve equation
-roots = solve(y == 0, x);    % Returns: -2, -1
+**Python (matplotlib):**
+```python
+import matplotlib.pyplot as plt
+x = [1, 2, 3, 4, 5]
+y = [1, 4, 9, 16, 25]
+plt.plot(x, y)
+plt.xlabel('X values')
+plt.ylabel('Y values')
+plt.title('My Plot')
+plt.show()
 ```
 
----
-
-### 5. Control System Toolbox
-
-Essential for mechanical, electrical, and aerospace engineers working with feedback control systems, system modeling, and stability analysis.
-
-**Key Functions:**
-
-- `tf()` - Create transfer functions
-- `step()` - Step response analysis
-- `bode()` - Bode plot
-- `pid()` - PID controller design
-
-#### Example: Analyzing a Transfer Function
-
-Let's analyze a simple first-order system, like an RC circuit or thermal system:
-
+**MATLAB:**
 ```matlab
-% Create a transfer function: H(s) = 1/(s + 2)
-num = 1;           % Numerator coefficients
-den = [1, 2];      % Denominator coefficients (s + 2)
-sys = tf(num, den);
-
-% Display the transfer function
-disp('Transfer Function:');
-disp(sys);
-
-% Plot the step response
-figure;
-step(sys);
-title('Step Response');
-grid on;
-
-% Plot the Bode diagram (frequency response)
-figure;
-bode(sys);
-grid on;
+x = [1, 2, 3, 4, 5];
+y = [1, 4, 9, 16, 25];
+plot(x, y)
+xlabel('X values')
+ylabel('Y values')
+title('My Plot')
 ```
 
-#### Example: Designing a PID Controller
+**Key difference:** No need to import anything or call `show()`—MATLAB automatically displays the plot!
 
-Design a PID controller for a second-order plant:
+### Customizing Plots
+
+You can customize line style, color, and markers:
 
 ```matlab
-% Define the plant (system to control): G(s) = 1/(s^2 + 2s + 1)
-plant = tf(1, [1, 2, 1]);
-
-% Design a PID controller
-Kp = 10;   % Proportional gain
-Ki = 5;    % Integral gain
-Kd = 2;    % Derivative gain
-controller = pid(Kp, Ki, Kd);
-
-% Create closed-loop system
-closedLoop = feedback(controller * plant, 1);
-
-% Plot the step response of the controlled system
-figure;
-step(closedLoop);
-title('PID Controlled System Response');
-grid on;
-
-% Display settling time and overshoot
-info = stepinfo(closedLoop);
-fprintf('Settling Time: %.2f seconds\n', info.SettlingTime);
-fprintf('Overshoot: %.2f%%\n', info.Overshoot);
+x = 0:0.1:2*pi;
+y = sin(x);
+plot(x, y, 'r--', 'LineWidth', 2)  % Red dashed line, thickness 2
+xlabel('x')
+ylabel('sin(x)')
+title('Sine Wave')
+grid on                             % Add grid lines
 ```
 
----
+Common line styles:
+- `'-'` solid line (default)
+- `'--'` dashed line
+- `':'` dotted line
+- `'-.'` dash-dot line
 
-### 6. Image Processing Toolbox
+Common markers:
+- `'o'` circle
+- `'+'` plus sign
+- `'*'` asterisk
+- `'.'` point
+- `'x'` cross
+- `'s'` square
+- `'d'` diamond
+- `'^'` upward triangle
+- `'v'` downward triangle
 
-Work with images, video, and computer vision applications. Useful for computer science, electrical, and biomedical engineers.
+Common colors:
+- `'r'` red, `'g'` green, `'b'` blue, `'k'` black, `'m'` magenta, `'c'` cyan, `'y'` yellow
 
-**Key Functions:**
+You can combine line style, marker, and color: `plot(x, y, 'r--o')` creates a red dashed line with circle markers.
 
-- `imread()`, `imshow()` - Read and display images
-- `rgb2gray()` - Convert to grayscale
-- `edge()` - Edge detection
-- `imfilter()` - Apply filters
+### Multiple Lines on One Plot
 
-#### Example: Basic Image Processing
-
-```matlab
-% Read and display an image
-img = imread('photo.jpg');
-figure;
-imshow(img);
-title('Original Image');
-
-% Convert to grayscale
-grayImg = rgb2gray(img);
-figure;
-imshow(grayImg);
-title('Grayscale Image');
-
-% Save the processed image
-imwrite(grayImg, 'photo_grayscale.jpg');
+**Python:**
+```python
+plt.plot(x, y1, label='Line 1')
+plt.plot(x, y2, label='Line 2')
+plt.legend()
 ```
 
-#### Example: Edge Detection
-
-Detecting edges is useful for identifying boundaries and features in images:
-
+**MATLAB:**
 ```matlab
-% Read image and convert to grayscale
-img = imread('photo.jpg');
-grayImg = rgb2gray(img);
-
-% Apply different edge detection methods
-edgesCanny = edge(grayImg, 'Canny');
-edgesSobel = edge(grayImg, 'Sobel');
-
-% Display results
-figure;
-subplot(1, 3, 1);
-imshow(grayImg);
-title('Original');
-
-subplot(1, 3, 2);
-imshow(edgesCanny);
-title('Canny Edge Detection');
-
-subplot(1, 3, 3);
-imshow(edgesSobel);
-title('Sobel Edge Detection');
+x = 0:0.1:2*pi;
+y1 = sin(x);
+y2 = cos(x);
+plot(x, y1, x, y2)           % Multiple pairs of x,y
+legend('sin(x)', 'cos(x)')
 ```
 
-#### Example: Image Filtering
-
-Apply filters to reduce noise or enhance features:
+Or using `hold on`:
 
 ```matlab
-% Read image
-img = imread('photo.jpg');
-grayImg = rgb2gray(img);
+plot(x, y1)
+hold on                      % Keep current plot, add to it
+plot(x, y2)
+hold off                     % Return to default behavior
+legend('sin(x)', 'cos(x)')
+```
 
-% Create a Gaussian filter to blur the image
-h = fspecial('gaussian', [5 5], 2);
-blurredImg = imfilter(grayImg, h);
+### Subplots
 
-% Create a sharpening filter
-h_sharp = fspecial('unsharp');
-sharpenedImg = imfilter(grayImg, h_sharp);
+**Python:**
+```python
+plt.subplot(2, 1, 1)  # 2 rows, 1 column, plot 1
+plt.plot(x, y1)
 
-% Display results
-figure;
-subplot(1, 3, 1);
-imshow(grayImg);
-title('Original');
+plt.subplot(2, 1, 2)  # 2 rows, 1 column, plot 2
+plt.plot(x, y2)
+```
 
-subplot(1, 3, 2);
-imshow(blurredImg);
-title('Blurred (Gaussian)');
+**MATLAB:**
+```matlab
+subplot(2, 1, 1)      % 2 rows, 1 column, plot 1
+plot(x, y1)
+title('First Plot')
 
-subplot(1, 3, 3);
-imshow(sharpenedImg);
-title('Sharpened');
+subplot(2, 1, 2)      % 2 rows, 1 column, plot 2
+plot(x, y2)
+title('Second Plot')
+```
+
+### Scatter Plots and Other Plot Types
+
+```matlab
+% Scatter plot
+x = randn(100, 1);    % 100 random numbers
+y = randn(100, 1);
+scatter(x, y)
+title('Scatter Plot')
+
+% Bar plot
+categories = 1:5;
+values = [23, 45, 31, 52, 38];
+bar(categories, values)
+title('Bar Chart')
+
+% Histogram
+data = randn(1000, 1);
+histogram(data, 30)   % 30 bins
+title('Histogram')
 ```
 
 ---
 
-## Checking Which Toolboxes You Have
+## MATLAB Documentation: Your Best Resource
 
-To see which toolboxes are installed on your system, type:
+One of the biggest advantages of MATLAB is its exceptional documentation. As you learn MATLAB, you'll frequently reference the documentation for built-in functions. Below are summaries of the key functions we'll use in class, followed by links to the full documentation pages.
+
+### Plot Types
+
+**`plot(x, y)`** - 2-D line plot
+- Creates line plots from vectors of x and y data
+- Can plot multiple lines: `plot(x1, y1, x2, y2, ...)`
+- Customize with line specs: `plot(x, y, 'r--')` for red dashed line
+- Many name-value pairs available: `'LineWidth'`, `'Color'`, `'Marker'`, etc.
+
+**`scatter(x, y)`** - Scatter plot
+- Displays data points without connecting lines
+- Useful for showing relationships between variables
+- Can control marker size: `scatter(x, y, sizes)`
+- Can control marker color: `scatter(x, y, sizes, colors)`
+- Optional: `'filled'` makes solid markers instead of hollow
+
+**`bar(x, y)`** - Bar graph
+- Creates vertical bar charts (use `barh` for horizontal)
+- Great for categorical data or comparing discrete values
+- Can create grouped or stacked bars for multiple data series
+- Customize with `'FaceColor'`, `'EdgeColor'`, `'BarWidth'`
+
+**`histogram(data)`** - Histogram plot
+- Shows distribution of data by grouping into bins
+- Can specify number of bins: `histogram(data, 20)`
+- Can specify bin edges: `histogram(data, [0, 5, 10, 15])`
+- Options for normalization: `'probability'`, `'pdf'`, `'count'`
+
+### Colors and Colormaps
+
+**Specify Plot Colors**
+- Short color codes: `'r'` (red), `'g'` (green), `'b'` (blue), `'k'` (black), `'m'` (magenta), `'c'` (cyan), `'y'` (yellow), `'w'` (white)
+- RGB triplets: `[0.5, 0.2, 0.8]` for custom colors (values 0-1)
+- Hexadecimal: `'#FF5733'` for precise colors
+- Named colors: `'crimson'`, `'teal'`, etc.
+
+**`colormap`** - View and set current colormap
+- Controls color schemes for images and surface plots
+- Built-in colormaps: `'parula'` (default), `'jet'`, `'hot'`, `'cool'`, `'gray'`
+- Set with: `colormap(jet)` or `colormap('parula')`
+- Create custom colormaps with RGB arrays
+
+### Axes and Labels
+
+**Axes Appearance**
+- Control many visual aspects: limits, scale (linear/log), colors, grid
+- Set axis limits: `xlim([0, 10])`, `ylim([-5, 5])`
+- Toggle grid: `grid on` or `grid off`
+- Set aspect ratio: `axis equal`, `axis square`
+
+**`xticks(values)`** - Set or query x-axis tick values
+- Define where tick marks appear: `xticks([0, 2, 4, 6, 8, 10])`
+- Query current ticks: `current_ticks = xticks`
+- Similarly: `yticks` for y-axis
+
+**`xticklabels(labels)`** - Set or query x-axis tick labels
+- Change what text appears at tick marks: `xticklabels({'Low', 'Med', 'High'})`
+- Useful for categorical data
+- Similarly: `yticklabels` for y-axis
+
+**`xtickangle(angle)`** - Rotate x-axis tick labels
+- Rotate labels for better readability: `xtickangle(45)` for 45-degree rotation
+- Helpful when labels are long or numerous
+- Similarly: `ytickangle` for y-axis
+
+**`xlabel(text)`, `ylabel(text)`** - Label axes
+- Add descriptive text to axes: `xlabel('Time (seconds)')`
+- Can customize font, size, interpreter: `xlabel('Distance (m)', 'FontSize', 14)`
+
+**`title(text)`** - Add title to plot
+- Adds title above the plot: `title('Temperature vs Time')`
+- Customize: `title('My Plot', 'FontSize', 16, 'FontWeight', 'bold')`
+
+**`legend(labels)`** - Add legend to axes
+- Identifies multiple lines/data series: `legend('Data 1', 'Data 2')`
+- Control location: `legend('Location', 'northwest')` or `'best'`
+- Can specify which objects to include in legend
+
+### Saving Figures
+
+**`saveas(fig, filename)`** - Save figure to file
+- Saves current figure: `saveas(gcf, 'myplot.png')`
+- Supports many formats: `.png`, `.jpg`, `.pdf`, `.fig`, `.eps`
+- Specify format explicitly: `saveas(gcf, 'myplot', 'png')`
+- `gcf` means "get current figure"
+
+### Full Documentation Links
+
+For complete details, examples, and advanced usage, refer to these MATLAB documentation pages:
+
+**Plot Types:**
+- [2-D line plot - MATLAB](https://www.mathworks.com/help/matlab/ref/plot.html)
+- [Scatter plot - MATLAB](https://www.mathworks.com/help/matlab/ref/scatter.html)
+- [Bar graph - MATLAB](https://www.mathworks.com/help/matlab/ref/bar.html)
+- [Histogram plot - MATLAB](https://www.mathworks.com/help/matlab/ref/histogram.html)
+
+**Colors and Appearance:**
+- [Specify Plot Colors - MATLAB & Simulink](https://www.mathworks.com/help/matlab/creating_plots/specify-plot-colors.html)
+- [View and set current colormap - MATLAB](https://www.mathworks.com/help/matlab/ref/colormap.html)
+- [Axes Appearance - MATLAB & Simulink](https://www.mathworks.com/help/matlab/creating_plots/axes-appearance.html)
+
+**Axes Customization:**
+- [xticks - Set or query x-axis tick values - MATLAB](https://www.mathworks.com/help/matlab/ref/xticks.html)
+- [xticklabels - Set or query x-axis tick labels - MATLAB](https://www.mathworks.com/help/matlab/ref/xticklabels.html)
+- [xtickangle - Rotate x-axis tick labels - MATLAB](https://www.mathworks.com/help/matlab/ref/xtickangle.html)
+- [xlabel - Label x-axis - MATLAB](https://www.mathworks.com/help/matlab/ref/xlabel.html)
+- [title - Add title - MATLAB](https://www.mathworks.com/help/matlab/ref/title.html)
+- [legend - Add legend to axes - MATLAB](https://www.mathworks.com/help/matlab/ref/legend.html)
+
+**Saving:**
+- [saveas - Save figure - MATLAB](https://www.mathworks.com/help/matlab/ref/saveas.html)
+
+---
+
+## Try It Yourself
+
+Once you have MATLAB installed, try running this complete example:
 
 ```matlab
-ver
+% Create data
+x = linspace(0, 4*pi, 100);
+y1 = sin(x);
+y2 = sin(x) .* exp(-x/10);  % Note the .* for element-wise multiplication!
+
+% Create figure with two subplots
+figure
+subplot(2, 1, 1)
+plot(x, y1, 'b-', 'LineWidth', 1.5)
+title('Simple Sine Wave')
+xlabel('x')
+ylabel('sin(x)')
+grid on
+
+subplot(2, 1, 2)
+plot(x, y2, 'r-', 'LineWidth', 1.5)
+title('Damped Sine Wave')
+xlabel('x')
+ylabel('sin(x) * exp(-x/10)')
+grid on
 ```
 
-This will list all installed toolboxes and their version numbers.
+---
+
+## Quick Reference Table
+
+| Task | Python | MATLAB |
+|------|--------|--------|
+| Suppress output | Automatic | Add `;` at end |
+| Comment | `#` | `%` |
+| First index | `0` | `1` |
+| Last index | `-1` | `end` |
+| Indexing | `arr[i]` | `arr(i)` |
+| Range | `range(0, 10)` | `0:9` |
+| Plot | `plt.plot(x, y)` | `plot(x, y)` |
+| Show plot | `plt.show()` | Automatic |
+| Element-wise multiply | `arr1 * arr2` (NumPy) | `arr1 .* arr2` |
 
 ---
 
-## Using Help Documentation
+## Coming to Class Prepared
 
-MATLAB's built-in documentation is excellent. To learn more about any toolbox function:
+Before class, make sure you:
+1. Have MATLAB installed and can open it
+2. Can create a simple array: `x = 1:10;`
+3. Can create a basic plot: `plot(x, x.^2)` (try it!)
+4. Understand the indexing difference (1-based vs 0-based)
 
-- `help functionname` - Quick syntax reference in Command Window
-- `doc functionname` - Opens full documentation with examples
-
-For example:
-
-```matlab
-doc findpeaks
-```
-
-This opens comprehensive documentation with syntax, parameters, examples, and tips.
-
----
-
-## Summary: Toolboxes for Your Course Project
-
-For the ECG data analysis project, you'll need:
-
-- **Signal Processing Toolbox** - for `findpeaks()` to detect heartbeats
-- **Statistics and Machine Learning Toolbox** - for `histogram()`, `boxchart()`, and `ttest2()`
-
-Make sure both are installed before starting your project!
-
----
-
-## Conclusion
-
-MATLAB toolboxes transform MATLAB from a general-purpose programming environment into a powerful domain-specific tool. By leveraging these pre-built, optimized functions, you can focus on solving engineering problems rather than reinventing algorithms.
-
-As you progress through your engineering education, you'll encounter many more toolboxes. The patterns you learn now—reading documentation, understanding parameters, combining functions—will serve you throughout your career.
-
-*Happy coding!*
+We'll build on these concepts in class with more advanced plotting techniques and real-world examples!

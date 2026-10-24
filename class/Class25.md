@@ -1,4 +1,4 @@
-# Class 20: MATLAB Scripts, Documentation, and File I/O 
+# Class 25: MATLAB Scripts, Documentation, and File I/O 
 
 ## Learning Objectives
 By the end of this reading, you should be able to:

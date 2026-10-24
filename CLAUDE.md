@@ -61,77 +61,125 @@ here).
 
 - **Act 1 = "Python in Colab"**: Classes 1-7. Class 8 does not exist by
   design (numbering jumps 7 to 9).
-- **Act 2 = "Python in an IDE"**: starts around Class 9.
-- **Act 3 = MATLAB**: starts at Class 16 (Python-to-MATLAB bridge class).
-  Classes 16, 18, and 19's GPPs are `.md` pointers to third-party MathWorks
-  interactive tutorials with their own built-in "reveal solution" UI --
-  they have no separate GPP-solutions file by design, not a gap to fill.
-  **This is stale as of 2026-10-20** -- see "Incoming curriculum change"
-  below. Classes 16, 18, 19 are being replaced by a Python team project;
-  MATLAB content's new slot (if any) is not yet determined.
+- **Act 2 = "Python in an IDE"**: Classes 9-14.
+- **Classes 15-19 = the "Fitness Tracker Analyzer" team project**, its own
+  `_toc.yml` caption ("Team Project: Fitness Tracker") between "Python in
+  an IDE" and "MATLAB" -- see "The Fitness Tracker team project" below.
+- **Act 3 = MATLAB**: Class 21 (visualization, in Python) leads into
+  Class 22 (the Python-to-MATLAB bridge class), then vectors/matrices,
+  scripts, and user-defined functions through Class 26. **This is a
+  renumbering of what used to be Classes 15/16/18/19/20/21** -- see
+  "Renumbering" below before assuming any `ClassN.md` file's number is
+  stable across sessions from before 2026-10-23.
 
-## Incoming curriculum change: the Fitness Tracker team project (not yet ported)
+## The Fitness Tracker team project (ported 2026-10-23)
 
-As of 2026-10-20, `EK125-Instructors/F26/New Material Drafts/` has a
-**complete draft** of a new multi-class team project, "EK125 Fitness
-Tracker Analyzer," replacing live Classes 15-19 content (currently
-"Visualizing Data and Plotting" at 15, MATLAB at 16/18/19) with a single
-arc spanning **Classes 15-19 (Mon 10/26 - Mon 11/9 2026)**, plus a
-plotting add-on at the already-scheduled Class 21 (Mon 11/16). Confirmed
-against both `F26 Class Schedule.docx` files in `EK125-Instructors/F26/
-Course Docs/` (identical content, no discrepancies) -- the new topic
-titles below are the *official* schedule now, not just a draft idea.
+`EK125-Instructors/F26/New Material Drafts/` has a complete draft of a
+multi-class team project, "EK125 Fitness Tracker Analyzer," occupying
+**Classes 15-19 (Mon 10/26 - Mon 11/9 2026)**, plus a plotting add-on at
+Class 21 (Mon 11/16, not yet drafted -- see "Known open items"). Confirmed
+against `EK125-Instructors/F26/Course Docs/F26 Class Schedule.docx`
+(extracted via `zipfile`+`xml.etree.ElementTree` on `word/document.xml`,
+since this repo has no docx reader) -- that schedule is the single source
+of truth for every class number from here through the end of the
+semester (Class 27, Exam 3 practice).
 
 - **The project**: teams of 3 build a 3-function program
   (`load_tracker_data`/`analyze_metric`/`write_report`, wired together by
   `main.py`) that reads a 28-day fitness-tracker CSV and writes a summary
   report. Fixed function signatures across all teams; everything else
   (blank-value handling, metrics/goals, dict keys, rounding, report
-  format) is a team decision recorded in a **Team Contract** (template:
-  `Class 15/Markdown/Team_Contract_Template.md`) that's amended
-  continuously through Class 19 (Decision Log, Integration Log). Explicit
-  "no new Python syntax" framing -- it's pure review of Classes 12-14
-  (dictionaries, functions, file I/O), the new skill is collaboration
-  (contracts-before-code, stubs, incremental integration, debugging
-  someone else's code).
-- **Per-class topics** (each has a complete `Preread.md` + `Team_Activity.md`
-  + `Preclass_Assessment.md` + instructor notes + IPP/answer-key, all in
-  `EK125-Instructors/F26/New Material Drafts/Class N/Markdown/`):
-  - **Class 15** (Mon 10/26) -- Problem definition & initial decisions.
-    Deliverable: Team Contract, due Tue 10/27.
-  - **Class 16** (Wed 10/28) -- Stub building. Deliverable: running
-    4-file skeleton, due Sun 11/1.
-  - **Class 17** (Mon 11/2) -- Writing real functions (tests-before-code).
-    Deliverable: real functions + tests, due Tue 11/3.
-  - **Class 18** (Wed 11/4) -- Integrating it all together (one function
-    at a time, "it runs" != "it's right"). Deliverable: working program +
-    report, due Sun 11/8.
-  - **Class 19** (Mon 11/9) -- Debugging & reflection (5-step debugging
-    method, Start/Stop/Continue retrospective). Deliverable: bug log +
-    reflection, due Tue 11/10.
-  - **Class 21** (Mon 11/16, already on the schedule as "Visualizing data
-    and plotting in Python") -- each teammate adds one plotting function
-    to their team's program. **No draft content exists yet for this one**
-    (checked -- only Classes 15-19 have `New Material Drafts/` folders).
-- **Publish-eligibility note for whoever ports this**: this repo's rules
-  (README.md) only allow readings, GPP problem statements, GPP solutions
-  (Act 1 + 9-14 only), and HW problem statements -- so of this project's
-  file set, `Preread.md` (-> `class/ClassN.md`) and `Team_Activity.md`
-  (-> the GPP-equivalent) are plausibly publishable; `Preclass_Assessment`
-  (a graded quiz) and `IPP`/`IPP_AnswerKey` (individual assessment --
-  belongs in `EK1225-IPP`, never here) are not; `Instructor_Notes` is
-  obviously private. Not yet decided/confirmed with the instructor which
-  of these actually get ported, or whether Team_Contract_Template/
-  FitnessTracker_Project_Overview get a shared page of their own -- ask
-  before assuming.
-- **As of 2026-10-20, nothing from this project has been ported** --
-  `appendix/Fall2026Schedule.md`'s Week 9 row lists the new Class 15/16
-  topic titles as plain, unlinked text (same pattern used for an
-  unpublished Homework entry) so the calendar stays accurate, but
-  `class/Class15.md` etc. on the live site still have the old content.
-  Weeks 10-11 (Classes 17-19, Exam 2 practice/review) have not been added
-  to the calendar yet either -- only "next week" (Week 9) was requested
-  so far.
+  format) is a team decision recorded in a **Team Contract** that's
+  amended continuously through Class 19 (Decision Log, Integration Log).
+  Explicit "no new Python syntax" framing -- it's pure review of Classes
+  12-14 (dictionaries, functions, file I/O); the new skill is
+  collaboration (contracts-before-code, stubs, incremental integration,
+  debugging someone else's code).
+- **Published, by explicit instructor direction** (prereadings are normal
+  readings; the Project Overview applies across all five classes and gets
+  its own page; Team Activity files are the per-day deliverable,
+  structured as Morning + Afternoon sections; downloadable files should be
+  `.md`, not `.docx`):
+  - `class/FitnessTrackerProject.md` -- standalone page (not nested under
+    any one class), first chapter in the new caption, ported from
+    `FitnessTracker_Project_Overview.md`.
+  - `class/Class15.md` through `class/Class19.md` -- ported from each
+    class's `Preread.md`.
+  - `gpps/Class15_TeamActivity.md` through `gpps/Class19_TeamActivity.md`
+    -- ported from each class's `Team_Activity.md`. Named `_TeamActivity`,
+    not `_GPP`, and **never paired with a `.py` scaffold** -- there is no
+    starter code to give out, teams write their files from scratch against
+    their own contract. See CONVENTIONS.md's "Team Activity pages" section
+    for the full pattern.
+  - `gpps/fitness_data.csv` and `gpps/Team_Contract_Template.md` (the
+    `.md` source, not the `.docx` export -- downloadable files in this
+    project are markdown per instructor direction) -- both linked from
+    Class 15's Team Activity page.
+  - Three in-class debugging exercises, each a small multi-file Python
+    program with planted bugs, copied into their own subfolder under
+    `gpps/` (filenames collide across them -- all three have their own
+    `loader.py`/`analyzer.py`/`main.py`/`reporter.py` -- hence the
+    subfolders) and linked from the relevant Team Activity page:
+    `gpps/class16_broken_skeleton/` (3 bugs, linked from Class 16),
+    `gpps/class18_integration_clinic/` (1 silent bug: `loader.py` checks
+    each column for blanks independently instead of skipping the whole
+    row, so `"day"` ends up longer than the other lists and everything
+    after the first blank row is misaligned -- explains why the best
+    step-day comes out as Day 25 instead of the correct Day 27, linked
+    from Class 18), `gpps/class19_team7_bug_hunt/` (5 bugs + an
+    `expected_report.txt` to diff against, linked from Class 19). All
+    three reuse the single `gpps/fitness_data.csv` rather than duplicating
+    an identical copy (confirmed byte-identical via `diff` before relying
+    on that).
+  - Verified every one of the project's numeric claims against the real
+    `fitness_data.csv` before publishing (the Class 18 "data facts" table:
+    25 complete days, steps avg 8843.4/min 4569/max 14773/best day 27,
+    resting HR avg 63.0/min 58/max 67/best day 14, sleep min 5.7/max
+    8.9/best day 7, active-minutes avg 41.4/best day 7 -- all confirmed
+    correct via an independent Python recomputation). No bugs found in the
+    project's own content (unlike the Class 13/14 GPP ports -- this
+    material was clean).
+  - **Not published**: `Preclass_Assessment` (a graded quiz) and
+    `IPP`/`IPP_AnswerKey` (individual assessment -- belongs in
+    `EK1225-IPP`, never here) -- not mentioned by the instructor's
+    direction and excluded consistent with this repo's existing
+    no-quizzes/no-IPP policy. `Instructor_Notes` obviously private too.
+- **Cross-reference links added**: Class 15's reading links to Class 12
+  (`#dictionaries`), Class 13 (`#part-1-user-defined-functions-morning`),
+  and Class 14 (`#part-2-file-input-and-output-i-o`); Class 16 additionally
+  links back to Class 5 (`#what-is-a-module`) and Class 14
+  (`#the-if-name-main-pattern`); Class 17 and Class 18 link forward/back to
+  Class 15's Team Activity page's hand-calculation section
+  (`gpps/Class15_TeamActivity.html#part-e-work-out-the-expected-answers-
+  by-hand-about-20-minutes-together`).
+
+## Renumbering (2026-10-23): Classes displaced by the Fitness Tracker project
+
+The Fitness Tracker project's slot (Classes 15-19) was previously occupied
+by other live content, which got renumbered forward rather than deleted,
+per the confirmed mapping in the official `F26 Class Schedule.docx`:
+
+| Old number | New number | Topic |
+|---|---|---|
+| 15 | 21 | Visualizing Data and Plotting in Python |
+| 16 | 22 | From Python to MATLAB: Syntax and Plotting |
+| 18 | 23 | Creating Vectors and Matrices in MATLAB |
+| 19 | 24 | Vector and Matrix Operations in MATLAB |
+| 20 | 25 | MATLAB Scripts, Documentation, and File I/O |
+| 21 | 26 | User Functions and Modular Programming in MATLAB |
+
+Each move was a `git mv` (processed in descending old-number order so a
+later move never overwrote a file still waiting to be moved out of its
+target slot) plus a one-line edit to that file's own `# Class N:` title
+heading -- no other content changed, and none of these files had internal
+cross-references to other class numbers (checked by grep before moving).
+**Old Class 22 ("Useful MATLAB Toolboxes") has no confirmed new slot** --
+the official schedule's last two classes are 26 (User Functions, above)
+and 27 (Exam 3 practice, no matching content) -- so it was moved to
+`archive/Class22_UsefulMATLABToolboxes.md` rather than guessed into a
+number. `intro.md`'s Act 3 description also dropped its "tour of MATLAB's
+toolboxes" line for the same reason -- don't re-add it without a confirmed
+slot for this content.
 
 ## Toolchain trap
 
@@ -233,10 +281,24 @@ it; check `_toc.yml` to see what's actually published.
   replacement existed). That fix never made it into this repo's own
   `CLAUDE.md` or into `EK125-Instructors`, which is why a freshly-drafted
   WIP file for Class 14 reproduced the *exact same* mismatch again on
-  2026-10-16 (see the GPP-solutions scope history above). Class 15 still
-  has no GPP, by design, not a gap -- see if a genuine
-  visualization/matplotlib group exercise ever surfaces before assuming
-  one should be added.
+  2026-10-16 (see the GPP-solutions scope history above). **Note: this
+  bullet is about the old Class 13/14 scope-porting mismatch, not the
+  2026-10-23 Fitness Tracker renumbering** -- Class 15 (the number) now
+  refers to a completely different reading than either of those; see
+  "The Fitness Tracker team project" above.
+- **Class 21's plotting add-on has no draft content yet.** The Fitness
+  Tracker Project Overview and the Class 19 Team Activity's homework note
+  both describe Class 21 (Mon 11/16) as "each teammate adds one plotting
+  function to their project," and the live `class/Class21.md` (renumbered
+  from old Class 15) already covers matplotlib -- but no `Class21
+  _TeamActivity`-equivalent exists yet, because `EK125-Instructors/F26/New
+  Material Drafts/` only has folders for Classes 15-19. Check there again
+  before Class 21's actual date approaches.
+- **Old Class 22 ("Useful MATLAB Toolboxes") is sitting in `archive/`
+  with no confirmed new slot** (see "Renumbering" above) -- the official
+  schedule's last class is 27 ("Exam 3 practice"), which doesn't match
+  this content at all. Ask the instructor where (or whether) this belongs
+  before either restoring it or deleting it outright.
 - A reading's "WRONG" example once claimed `int(line)` fails on a file
   read's trailing newline -- Python's `int()` actually tolerates trailing
   whitespace, so the demo may not raise as the prose claims. Worth

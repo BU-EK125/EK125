@@ -67,15 +67,33 @@ parts:
           - file: gpps/Class14_GPP
           - file: gpps/Class14_GPP_Solutions
       - file: homework/HW7
+  - caption: "Team Project: Fitness Tracker"
+    chapters:
+      - file: class/FitnessTrackerProject
       - file: class/Class15
+        sections:
+          - file: gpps/Class15_TeamActivity
+          - file: gpps/Team_Contract_Template
+      - file: class/Class16
+        sections:
+          - file: gpps/Class16_TeamActivity
+      - file: class/Class17
+        sections:
+          - file: gpps/Class17_TeamActivity
+      - file: class/Class18
+        sections:
+          - file: gpps/Class18_TeamActivity
+      - file: class/Class19
+        sections:
+          - file: gpps/Class19_TeamActivity
   - caption: MATLAB
     chapters:
-      - file: class/Class16
-      - file: class/Class18
-      - file: class/Class19
-      - file: class/Class20
       - file: class/Class21
       - file: class/Class22
+      - file: class/Class23
+      - file: class/Class24
+      - file: class/Class25
+      - file: class/Class26
   - caption: Appendix
     chapters:
       - file: appendix/Syllabus

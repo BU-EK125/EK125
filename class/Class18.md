@@ -1,525 +1,177 @@
-# Class 18: Creating Vectors and Matrices in MATLAB
+# Class 18: Integrating It All Together
 
-## Introduction to MATLAB's Matrix-Based Structure
+## Learning Objectives
 
-MATLAB® is short for Matrix Laboratory. Everything in MATLAB is written to work with vectors and matrices. Vectors and matrices are used to store sets of values, all of which are the same type. A matrix can be visualized as a table of values. The dimensions of a matrix are r × c, where r is the number of rows and c is the number of columns. This is pronounced "r by c".
+By the end of this reading, you should be able to:
 
-A vector can be either a row vector or a column vector. If a vector has n elements, a row vector would have the dimensions 1 × n, and a column vector would have the dimensions n × 1. A scalar (one value) has the dimensions 1 × 1. Therefore, vectors and scalars are actually just special cases of matrices.
+- Plan an integration that adds **one real function at a time**
+- Run the program on a small file with known answers before running it on the real data
+- Read a traceback that passes through several files, and find where the error **started**
+- Use **reasonableness checks** to catch a program that runs but gives wrong answers
+- Decide whether to fix the **code** or the **contract** when two pieces disagree
+- Keep an **integration log**
 
-### Visual Examples
+**New syntax today:** none.
 
-Here are some diagrams showing, from left to right, a scalar, a column vector, a row vector, and a matrix:
+---
 
-```
-3       5       [8 3 11 9]      [6 3 8]
-        8                       [5 7 9]
-        4
+## Part 1: One Bulb at a Time
 
-```
+You're stringing holiday lights. Ten bulbs are burned out, so you buy ten new ones, replace all ten at once, and plug the string in. It's still dark. Which bulb is the problem? It could be any of the ten, or more than one.
 
-- The scalar is 1 × 1
-- The column vector is 3 × 1 (three rows by one column)
-- The row vector is 1 × 4 (one row by four columns)
-- The matrix is 2 × 3 (two rows by three columns)
+Now try it differently: replace **one** bulb, plug in, check. Replace the next, plug in, check. The moment the string goes dark, you know exactly which bulb caused it.
 
-All of the values stored in these matrices are stored in what are called **elements**.
+Integration works the same way. Your team has three real functions. You *could* drop them all in and run `main.py`. But if it crashes, or worse, runs and gives the wrong answer, you won't know which piece caused it.
 
-## Creating Row Vectors
+> **Key idea:** Add one real function at a time, and run after every change. When something breaks, it was the last thing you added.
 
-There are several ways to create row vector variables:
+---
 
-### Direct Entry Method
+## Part 2: The Integration Plan
 
-The most direct way is to put the values that you want in the vector in square brackets, separated by either spaces or commas:
+### Order: follow the data
 
-```matlab
->> v = [1 2 3 4]
-v =
-    1  2  3  4
+Data flows Loader → Analyst → Report Writer, so integrate in the same order:
 
->> v = [1,2,3,4]
-v =
-    1  2  3  4
-```
+| Step | Real functions | Stubs | Why this order |
+|---|---|---|---|
+| 0 | none | all three | Your Class 16 skeleton. It should still run. |
+| 1 | Loader | Analyst, Report Writer | Everything downstream depends on the data being right |
+| 2 | Loader, Analyst | Report Writer | Now the numbers are real |
+| 3 | all three | none | The real report |
 
-### Colon Operator Method
+After **every** step: run `main.py`, run `check_seams.py`, and compare the output to what you expect.
 
-If the values in the vector are regularly spaced, the colon operator can be used to iterate through these values:
+### Start small: the Days 1–5 file
 
-```matlab
->> vec = 2:6
-vec =
-    2  3  4  5  6
+Here's the trick that makes integration much easier. **Run `main.py` on your small test file first**, not the real data:
+
+```python
+data = load_tracker_data("test_days1to5.csv")    # temporarily
 ```
 
-With the colon operator, a step value can also be specified by using another colon, in the form (first:step:last):
+You worked out the correct answer for Days 1–5 by hand in [Class 15](https://BU-EK125.github.io/EK125/gpps/Class15_TeamActivity.html#part-e-work-out-the-expected-answers-by-hand-about-20-minutes-together). So after each step, you know **exactly** what the report should say. Only after the small file works perfectly do you switch to `fitness_data.csv`.
 
-```matlab
->> nv = 1:2:9
-nv =
-    1  3  5  7  9
-```
+---
 
-### linspace Function
+## Part 3: Reading a Traceback That Crosses Files
 
-The linspace function creates a linearly spaced vector; linspace(x,y,n) creates a vector with n values in the inclusive range from x to y. If n is omitted, the default is 100 elements:
-
-```matlab
->> ls = linspace(3,15,5)
-ls =
-    3  6  9  12  15
-```
-
-## Accessing Vector Elements
-
-The elements in a vector are numbered sequentially; each element number is called the **index** or **subscript**. In MATLAB, the indices start at 1. For example:
+When an error happens inside a function, Python shows the **traceback**: the chain of calls that led there. With several files, it can look intimidating:
 
 ```
-newvec
-  1    2    3    4    5    6    7    8    9   10
-[1    3    5    7    9    3    6    9   12   15]
+Traceback (most recent call last):
+  File "main.py", line 30, in <module>
+    main()
+  File "main.py", line 25, in main
+    write_report(results_list, "fitness_report.txt")
+  File "reporter.py", line 31, in write_report
+    f"(met on {results['days_meeting_goal']} of "
+KeyError: 'days_meeting_goal'
 ```
 
-A particular element in a vector is accessed using the name of the vector variable and the index in parentheses:
+Read it **from the bottom up**:
 
-```matlab
->> newvec(5)
-ans =
-    9
+1. **Last line: what went wrong.** `KeyError: 'days_meeting_goal'`. A dictionary doesn't have that key.
+2. **The block just above it: where it happened.** In `reporter.py`, line 31, inside `write_report`.
+3. **The blocks above that: how we got there.** `main.py` called `main()`, which called `write_report(...)`.
+
+### Where it crashed is not always where the bug is
+
+The crash happened in the **Report Writer's** file. But the dictionary that's missing the key was **made by the Analyst**. So there are two possibilities:
+
+- The Analyst's function returns the wrong key name. The Analyst is off-contract.
+- The Report Writer asks for the wrong key name. The Report Writer is off-contract.
+
+**The contract decides.** Look up the Analyst's *Returns* section. If it says `"days_meeting_goal"`, the Analyst needs to fix their code. If it says something else, the Report Writer does.
+
+> **Key idea:** The error appears where a bad value is **used**. The bug is often where that value was **created**. Follow the value back across the seam, and let the contract decide who's wrong.
+
+---
+
+## Part 4: "It Runs" Is Not the Same as "It's Right"
+
+The most dangerous moment in integration is when the program **runs with no errors** for the first time. It feels like you're done. You may not be.
+
+### A program that runs and lies
+
+Suppose the weather station reader skipped blank lines but forgot about `-999`. With the readings 71.2, 70.8, 72.5, -999 and 71.9, the program runs fine and prints:
+
+```
+Average: -142.5 F
+Low:     -999.0 F
 ```
 
-The expression newvec(5) would be pronounced "newvec sub 5", where sub is short for the word subscript.
+No error message. But nobody in Boston has ever recorded a temperature of −999°F. A program can't tell you its answer is ridiculous. **You** have to check.
 
-### Extracting Subsets
+### Reasonableness checks
 
-A subset of a vector, which would be a vector itself, can also be obtained using the colon operator:
+When you don't know the exact right answer, you can still check whether an answer is **possible**:
 
-```matlab
->> b = newvec(4:6)
-b =
-    7  9  3
-```
+| Check | Question to ask | Fitness tracker example |
+|---|---|---|
+| **Counts** | Is the number of items what it should be? | 28 rows minus 3 incomplete rows = **25** days analyzed |
+| **Lengths** | Are lists that should match the same length? | `len(data["day"]) == len(data["steps"])` |
+| **Ranges** | Are values physically possible? | Resting heart rate between about 40 and 100 bpm; sleep between 0 and 24 hours |
+| **Consistency** | Do related numbers agree? | Average between minimum and maximum; days meeting goal ≤ days analyzed |
+| **Cross-check** | Does one result agree with the raw data? | Find the best step day's row in the CSV. Does its step count equal the maximum? |
 
-## Creating Column Vectors
+The last one is powerful. If the report says the best step day is Day 25, open the CSV and look at Day 25. If its step count isn't the maximum, something is wrong, even though the program ran perfectly.
 
-### Direct Entry Method
+### Data facts
 
-One way to create a column vector is to explicitly put the values in square brackets, separated by **semicolons** (rather than commas or spaces):
+Your instructor will give you a short list of **data facts** for `fitness_data.csv`: numbers that don't depend on your team's goals or decisions (such as the number of complete days and the maximum step count). Compare your final report against them.
 
-```matlab
->> c = [1; 2; 3; 4]
-c =
-    1
-    2
-    3
-    4
-```
+---
 
-### Transpose Method
+## Part 5: Fix the Code, or Fix the Contract?
 
-There is no direct way to use the colon operator to get a column vector. However, any row vector created using any method can be transposed to result in a column vector. In general, the transpose of a matrix is a new matrix in which the rows and columns are interchanged.
+When two pieces disagree, someone has to change something. Ask in this order:
 
-In MATLAB, the **apostrophe** (or single quote) is built in as the transpose operator:
+1. **What does the contract say?** If one side matches the contract and the other doesn't, the side that doesn't match gets fixed. That owner fixes their own file.
+2. **Is the contract unclear or silent?** Maybe it never said what happens on a tie, or whether `goal` is an int or a float. Then the **team** decides. The Recorder updates the contract and adds a dated line to the Decision Log. *Then* the code changes to match.
+3. **Is the contract wrong?** Maybe you discover the Report Writer needs a value the Analyst never promised. Same as #2: the team agrees, the contract is updated, and then the code changes.
 
-```matlab
->> r = 1:3;
->> c = r'
-c =
-    1
-    2
-    3
-```
+Never "just fix it" quietly in your own file to work around a teammate's mistake. A workaround hides the problem, and the next person to use that function will hit it again.
 
-## Creating Matrices
+---
 
-Creating a matrix variable is simply a generalization of creating row and column vector variables. The values within a row are separated by either spaces or commas, and the different rows are separated by semicolons:
+## Part 6: The Integration Log
 
-```matlab
->> mat = [4 3 1; 2 5 6]
-mat =
-    4  3  1
-    2  5  6
-```
+Engineers keep logs so that problems, and their solutions, aren't forgotten. Your **integration log** records every step:
 
-### Accessing Matrix Elements
+| Step | Real functions | Data file | Matches expected? | What broke | Cause | Fix (who) |
+|---|---|---|---|---|---|---|
+| 1 | Loader | Days 1–5 | Yes | — | — | — |
+| 2 | Loader + Analyst | Days 1–5 | No | `best_day` was 4 for steps | Returned position, not day number | Analyst: use `days[best_index]` |
 
-To refer to matrix elements, the row and then the column subscripts are given in parentheses (always the row first and then the column):
+The log turns "we fixed some stuff" into evidence of exactly what your team found and how. You'll use it in Class 19's reflection.
 
-```matlab
->> mat = [2:4; 3:5]
-mat =
-    2  3  4
-    3  4  5
+---
 
->> mat(2,3)
-ans =
-    5
-```
+## Summary: Key Concepts
 
-This is called **subscripted indexing**; it uses the row and column subscripts.
+- **One at a time:** add one real function, run, check. Repeat.
+- **Follow the data:** Loader, then Analyst, then Report Writer.
+- **Start small:** use the Days 1–5 file first, where you know the exact answer.
+- **Tracebacks:** read bottom-up (what, then where, then how we got there). The bug is often upstream, where the value was created.
+- **Reasonableness checks:** counts, lengths, ranges, consistency, cross-checks.
+- **Code or contract?** The contract decides. If it's unclear, the team decides, updates the contract, logs it, and then the code changes.
+- **Integration log:** a written record of each step, what broke, and why.
 
-### Accessing Matrix Subsets
+---
 
-It is also possible to refer to a subset of a matrix:
+## Check Your Understanding
 
-```matlab
->> mat(1:2,2:3)
-ans =
-    3  4
-    4  5
-```
+1. Why integrate one function at a time instead of all three at once?
+2. Why run on the Days 1–5 file before the full data file?
+3. In the traceback in Part 3, which file and function did the crash happen in? Which teammate's function *created* the dictionary that was missing the key?
+4. The report says "Days analyzed: 26." The file has 28 rows, and 3 of them have blanks. What should the number be, and which function would you look at first?
+5. The report says the best step day is Day 25. How would you cross-check that against the CSV file?
+6. The Report Writer needs the number of days analyzed, but the Analyst's contract never promised it. What should the team do?
+7. Give two reasonableness checks you could apply to a resting heart rate average.
 
-## Modifying Vector and Matrix Elements
-
-Once you've created vectors and matrices, you can modify their contents by assigning new values to specific elements or subsets.
+---
 
-### Modifying Individual Elements
+## Coming Up in Class
 
-To change a single element, use its index (for vectors) or row and column subscripts (for matrices):
-
-```matlab
->> v = [10 20 30 40 50];
->> v(3) = 99
-v =
-    10  20  99  40  50
-
->> mat = [1 2 3; 4 5 6; 7 8 9];
->> mat(2,3) = 100
-mat =
-    1    2    3
-    4    5  100
-    7    8    9
-```
-
-### Modifying Entire Rows or Columns
-
-You can use the colon operator to select and modify entire rows or columns. A single colon by itself means "all elements in that dimension":
-
-```matlab
->> mat = [1 2 3; 4 5 6; 7 8 9];
->> mat(2,:) = [40 50 60]  % Modify entire second row
-mat =
-     1   2   3
-    40  50  60
-     7   8   9
-
->> mat(:,1) = [10; 20; 30]  % Modify entire first column
-mat =
-    10   2   3
-    20  50  60
-    30   8   9
-```
-
-### Modifying Submatrices
-
-You can modify a rectangular subset of a matrix by specifying row and column ranges:
-
-```matlab
->> mat = [1 2 3 4; 5 6 7 8; 9 10 11 12; 13 14 15 16];
->> mat(2:3, 2:4) = [0 0 0; 0 0 0]
-mat =
-     1   2   3   4
-     5   0   0   0
-     9   0   0   0
-    13  14  15  16
-```
-
-You can also replace a submatrix with a scalar value, which will be replicated to fill all selected positions:
-
-```matlab
->> mat = [1 2 3; 4 5 6; 7 8 9];
->> mat(1:2, 2:3) = 0
-mat =
-    1  0  0
-    4  0  0
-    7  8  9
-```
-
-### Modifying with Vector Subscripts
-
-You can select specific (non-contiguous) elements using a vector of indices:
-
-```matlab
->> v = [10 20 30 40 50];
->> v([1 3 5]) = [100 300 500]
-v =
-   100  20  300  40  500
-
->> mat = [1 2 3; 4 5 6; 7 8 9];
->> mat([1 3], [1 3]) = [10 30; 70 90]  % Modify corners
-mat =
-    10   2  30
-     4   5   6
-    70   8  90
-```
-
-### Modifying Using Logical Indexing
-
-Logical indexing allows you to modify elements that meet certain conditions. This is very powerful for selective modifications:
-
-```matlab
->> v = [5 12 8 3 15 9];
->> v(v > 10) = 10  % Cap all values greater than 10
-v =
-    5  10  8  3  10  9
-
->> mat = [1 -2 3; -4 5 -6; 7 -8 9];
->> mat(mat < 0) = 0  % Replace all negative values with 0
-mat =
-    1  0  3
-    0  5  0
-    7  0  9
-```
-
-You can also use logical conditions to create more complex modifications:
-
-```matlab
->> scores = [85 92 78 95 88];
->> scores(scores < 80) = 80  % Set minimum score to 80
-scores =
-    85  92  80  95  88
-
->> mat = [10 25 30; 45 50 65; 70 85 90];
->> mat(mat >= 50 & mat <= 70) = 60  % Set values in range [50,70] to 60
-mat =
-    10  25  30
-    45  60  60
-    60  85  90
-```
-
-### Important Notes on Modification
-
-1. When modifying submatrices, the dimensions of the replacement values must match the dimensions being replaced (unless you're using a scalar).
-2. Logical indexing returns elements in a column vector, so modifications using logical indexing work element-by-element.
-3. You can combine logical conditions using `&` (AND), `|` (OR), and `~` (NOT).
-
-## Special Matrix-Creating Functions
-
-MATLAB has many functions that help create matrices with certain values or a particular structure:
-
-### zeros - Create Array of All Zeros
-
-Creates a matrix filled with zeros:
-
-- zeros(n) creates an n × n matrix of zeros
-- zeros(m,n) creates an m × n matrix of zeros
-
-```matlab
->> Z = zeros(3)
-Z =
-    0  0  0
-    0  0  0
-    0  0  0
-```
-
-### ones - Create Array of All Ones
-
-Creates a matrix filled with ones:
-
-- ones(n) creates an n × n matrix of ones
-- ones(m,n) creates an m × n matrix of ones
-
-```matlab
->> O = ones(2,4)
-O =
-    1  1  1  1
-    1  1  1  1
-```
-
-### eye - Create Identity Matrix
-
-Creates an identity matrix (diagonal elements are 1, all others are 0):
-
-- eye(n) creates an n × n identity matrix
-
-```matlab
->> I = eye(3)
-I =
-    1  0  0
-    0  1  0
-    0  0  1
-```
-
-### rand - Uniformly Distributed Random Numbers
-
-Creates a matrix with random elements uniformly distributed on the interval (0, 1):
-
-- rand(n) creates an n × n matrix
-- rand(m,n) creates an m × n matrix
-
-```matlab
->> R = rand(2,3)
-R =
-    0.8147  0.9134  0.2785
-    0.9058  0.6324  0.5469
-```
-
-### randn - Normally Distributed Random Numbers
-
-Creates a matrix with random elements having a normal distribution (mean = 0, variance = 1):
-
-- randn(n) creates an n × n matrix
-- randn(m,n) creates an m × n matrix
-
-```matlab
->> N = randn(2,2)
-N =
-   -0.4326   0.2877
-   -1.6656  -1.1465
-```
-
-### randi - Uniformly Distributed Random Integers
-
-Creates a matrix with random integer values:
-
-- randi(imax, n) creates an n × n matrix with integers from 1 to imax
-- randi(imax, m, n) creates an m × n matrix
-- randi([imin imax], m, n) creates a matrix with integers in the range [imin, imax]
-
-```matlab
->> R = randi(10, 3, 4)
-R =
-     9   2   7   1
-    10   7   1   5
-     2  10   5   8
-```
-
-## Concatenating Matrices
-
-**Concatenation** is the process of joining matrices together to create a larger matrix. Square brackets [] serve as the concatenation operator.
-
-### Horizontal Concatenation
-
-To concatenate matrices side-by-side, separate them with commas or spaces:
-
-```matlab
->> A = [1 2; 3 4];
->> B = [5 6; 7 8];
->> C = [A, B]
-C =
-    1  2  5  6
-    3  4  7  8
-```
-
-**Important:** When concatenating horizontally, matrices must have the same number of rows.
-
-You can also use the horzcat function:
-
-```matlab
->> C = horzcat(A, B)
-```
-
-### Vertical Concatenation
-
-To concatenate matrices top-to-bottom, separate them with semicolons:
-
-```matlab
->> A = [1 2; 3 4];
->> B = [5 6; 7 8];
->> C = [A; B]
-C =
-    1  2
-    3  4
-    5  6
-    7  8
-```
-
-**Important:** When concatenating vertically, matrices must have the same number of columns.
-
-You can also use the vertcat function:
-
-```matlab
->> C = vertcat(A, B)
-```
-
-### Multi-Dimensional Concatenation
-
-The cat function allows concatenation along any dimension:
-
-- cat(1,A,B) concatenates vertically (along dimension 1)
-- cat(2,A,B) concatenates horizontally (along dimension 2)
-- cat(3,A,B) concatenates along the third dimension
-
-## Expanding Matrices
-
-You can expand a matrix by directly assigning values to elements outside the current size. MATLAB automatically expands the matrix and fills new positions with zeros:
-
-```matlab
->> A = [1 2; 3 4];
->> A(3,4) = 10
-A =
-    1  2  0   0
-    3  4  0   0
-    0  0  0  10
-```
-
-### Preallocation Best Practice
-
-For loops that repeatedly expand matrices, it's best to preallocate space for the largest anticipated matrix. Without preallocation, MATLAB has to allocate memory every time the size increases, slowing down operations:
-
-```matlab
->> A = zeros(10000, 10000);  % Preallocate
-```
-
-## Reshaping Arrays
-
-The reshape function rearranges existing elements in an array without changing the number of elements or their order. Elements are taken column-wise from the input array to fill the output array.
-
-### Basic Syntax
-
-```matlab
->> A = 1:12;
->> B = reshape(A, [3, 4])
-B =
-    1  4  7  10
-    2  5  8  11
-    3  6  9  12
-```
-
-### Automatic Dimension Calculation
-
-You can use [] as a placeholder for one dimension, and MATLAB will automatically calculate it:
-
-```matlab
->> A = 1:12;
->> B = reshape(A, [2, []])  % Automatically calculates 6 columns
-B =
-    1  3  5  7   9  11
-    2  4  6  8  10  12
-```
-
-### Important Notes About Reshape
-
-1. The total number of elements must remain the same
-2. Elements are taken **column-wise** from the input
-3. To reshape row-wise, transpose before and after: reshape(A', [m,n])'
-4. reshape rearranges existing elements; use resize to add or remove elements
-
-## Key Takeaways
-
-1. MATLAB stores all data as matrices (vectors and scalars are special cases)
-2. Indices in MATLAB start at 1
-3. Use : for creating sequences and accessing ranges
-4. Use ; to separate rows, , or spaces to separate columns
-5. The ' operator transposes matrices
-6. Square brackets [] are used for both creation and concatenation
-7. MATLAB provides many functions (zeros, ones, eye, rand, randn, randi) for creating special matrices
-8. When concatenating, dimensions must be compatible
-9. You can modify individual elements, rows, columns, or submatrices using indexing
-10. Logical indexing provides powerful conditional modification capabilities
-11. reshape preserves elements but changes dimensions (column-wise ordering)
-12. Preallocate large matrices for better performance
-
-## Additional MATLAB Documentation Resources
-
-For more detailed information about these functions and concepts, refer to the official MATLAB documentation:
-
-- [Creating, Concatenating, and Expanding Matrices - MATLAB & Simulink](https://www.mathworks.com/help/matlab/math/creating-and-concatenating-matrices.html)
-- [linspace - Generate linearly spaced vector - MATLAB](https://www.mathworks.com/help/matlab/ref/linspace.html)
-- [ones - Create array of all ones - MATLAB](https://www.mathworks.com/help/matlab/ref/ones.html)
-- [zeros - Create array of all zeros - MATLAB](https://www.mathworks.com/help/matlab/ref/zeros.html)
-- [eye - Create an identity matrix - MATLAB](https://www.mathworks.com/help/matlab/ref/eye.html)
-- [rand - Uniformly distributed random numbers - MATLAB](https://www.mathworks.com/help/matlab/ref/rand.html)
-- [randn - Normally distributed random numbers - MATLAB](https://www.mathworks.com/help/matlab/ref/randn.html)
-- [randi - Uniformly distributed random integers - MATLAB](https://www.mathworks.com/help/matlab/ref/randi.html)
-- [reshape - Reshape array by rearranging existing elements - MATLAB](https://www.mathworks.com/help/matlab/ref/reshape.html)
+You'll integrate your three real functions, one at a time: first on the Days 1–5 file, then on the full data. In lab, you'll meet a program that runs perfectly and is still wrong, and figure out why.
