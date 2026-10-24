@@ -14,7 +14,7 @@ Download: [fitness_data.csv](fitness_data.csv)
 
 ## Download the Team Contract Template
 
-Download: [Team_Contract_Template.md](Team_Contract_Template.md)
+Open: [Team_Contract_Template.md](Team_Contract_Template.md) -- this opens the template as a regular page, not a file download. To get an editable copy, click the ⬇ **download icon in the top-right corner** of that page, then choose **Download source file** to save the raw `.md` file.
 
 **Before you start:**
 
