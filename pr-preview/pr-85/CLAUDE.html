@@ -1,0 +1,938 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Cross-repo context for EK125 &#8212; EK125</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'CLAUDE';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">EK125</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to EK125
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="appendix/Fall2026Schedule.html">Fall 2026 Class Schedule</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python in Colab</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="class/Class1.html">Class 1: Introduction to Interactive Programming Using Google Colab</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class1_GPP.html">Class 1 GPP: Constants, Variables, Types, and Assignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class1_GPP_Solutions.html">Class 1 GPP Solutions: Constants, Variables, Types, and Assignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="homework/HW1.html">Homework 1: Variables, Types, and Assignments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="class/Class2.html">Class 2: Sequences, Strings, and Lists in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class2_GPP.html">Class 2 GPP: Working with Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class2_GPP_Solutions.html">Class 2 GPP Solutions: Working with Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="homework/HW2.html">Homework 2: Strings and Lists</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="class/Class3.html">Class 3: Booleans and Basic Logic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class3_GPP.html">Class 3 GPP: Boolean Logic Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class3_GPP_Solutions.html">Class 3 GPP Solutions: Boolean Logic Practice</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="class/Class4.html">Class 4: Coding Basics Wrap-up and Selection Statements</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class4_GPP.html">Class 4 GPP: Coding Basics Wrap-up and Selection Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class4_GPP_Solutions.html">Class 4 GPP Solutions: Coding Basics Wrap-up and Selection Statements</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="homework/HW3.html">Homework 3: Boolean Logic, Sequences, and Selection Statements</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="class/Class5.html">Class 5: Importing Modules and Basic Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class5_GPP.html">Class 5 GPP: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class5_GPP_Solutions.html">Class 5 GPP Solutions: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="class/Class6.html">Class 6: Nested Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class6_GPP.html">Class 6 GPP: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class6_GPP_Solutions.html">Class 6 GPP Solutions: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="homework/HW4.html">Homework 4: Loops and Randomness</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="class/Class7.html">Class 7: Advanced Iteration and Nested Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class7_GPP.html">Class 7 GPP: Advanced Iteration and Nested Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class7_GPP_Solutions.html">Class 7 GPP Solutions: Advanced Iteration and Nested Structures</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="gpps/Exam1_Review.html">EK125 Exam 1 - Top 30 GPP Problems for Paper Practice</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python in an IDE</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="class/Class9.html">Class 9: From Colab Notebooks to Running Python Locally</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class9_GPP.html">Class 9 GPP: Getting Comfortable with PyCharm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class9_GPP_Solutions.html">Class 9 GPP Solutions: Getting Comfortable with PyCharm</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="class/Class10.html">Class 10: Mastering Slicing in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class10_GPP.html">Class 10 GPP: Mastering Slicing in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class10_GPP_Solutions.html">Class 10 GPP Solutions: Mastering Slicing in Python</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="homework/HW5.html">Homework 5: Advanced Iteration, Nested Structures, and Slicing</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="class/Class11.html">Class 11: Digging into arrays with NumPy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class11_GPP.html">Class 11 GPP: Working with Arrays in NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class11_GPP_Solutions.html">Class 11 GPP Solutions: Working with Arrays in NumPy</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="class/Class12.html">Class 12: Dictionaries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class12_GPP.html">Class 12 GPP: Python Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class12_GPP_Solutions.html">Class 12 GPP Solutions: Python Dictionaries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="homework/HW6.html">Homework 6: NumPy and Dictionaries</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="class/Class13.html">Class 13: User-Defined Functions, Arguments, and Scope</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class13_GPP.html">Class 13 GPP: User-Defined Functions, Scope, and Copying</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class13_GPP_Solutions.html">Class 13 GPP Solutions: User-Defined Functions, Scope, and Copying</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="class/Class14.html">Class 14: Scripts, File I/O, and the Local File Environment</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class14_GPP.html">Class 14 GPP: Scripts, Comments, and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class14_GPP_Solutions.html">Class 14 GPP Solutions: Scripts, Comments, and Documentation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="homework/HW7.html">Homework 7: Modular Functions and File I/O</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Team Project: Fitness Tracker</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="class/FitnessTrackerProject.html">EK125 Team Project: Fitness Tracker Analyzer</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="class/Class15.html">Class 15: Collaborating with Others — Problem Definition and Initial Decisions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class15_TeamActivity.html">Class 15: Team Activity — Define the Problem and Write the Contract</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="class/Class16.html">Class 16: Stub Building</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class16_TeamActivity.html">Class 16: Team Activity — Build a Running Skeleton</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="class/Class17.html">Class 17: Writing Real Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class17_TeamActivity.html">Class 17: Team Activity — Replace Your Stub with Real Code</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="class/Class18.html">Class 18: Integrating It All Together</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class18_TeamActivity.html">Class 18: Team Activity — Integrate, One Piece at a Time</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="class/Class19.html">Class 19: Debugging and Reflection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="gpps/Class19_TeamActivity.html">Class 19: Team Activity — Bug Hunt and Retrospective</a></li>
+
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MATLAB</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="class/Class21.html">Class 21: Visualizing Data and Plotting in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="class/Class22.html">Class 22: From Python to MATLAB: Syntax and Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="class/Class23.html">Class 23: Creating Vectors and Matrices in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="class/Class24.html">Class 24: Vector and Matrix Operations in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="class/Class25.html">Class 25: MATLAB Scripts, Documentation, and File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="class/Class26.html">Class 26: User Functions and Modular Programming in MATLAB</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="appendix/Syllabus.html">Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/WeeklyRhythm.html">Weekly Rhythm of EK125</a></li>
+<li class="toctree-l1"><a class="reference internal" href="appendix/SubmittingAssignments.html">Instructions to receive and submit assignments</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/CLAUDE.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Cross-repo context for EK125</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-repo-map-bu-ek125-org-unless-noted">The repo map (BU-EK125 org, unless noted)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-structure-acts">Course structure (Acts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fitness-tracker-team-project-ported-2026-10-23">The Fitness Tracker team project (ported 2026-10-23)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#renumbering-2026-10-23-classes-displaced-by-the-fitness-tracker-project">Renumbering (2026-10-23): Classes displaced by the Fitness Tracker project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#toolchain-trap">Toolchain trap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-breaking-trap-link-only-headings">Build-breaking trap: link-only headings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pii-lesson-critical">PII lesson (critical)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orphaned-legacy-files">Orphaned legacy files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#process-lessons-from-repo-history">Process lessons from repo history</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#known-open-items-worth-checking-before-assuming-fixed">Known open items worth checking before assuming fixed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidebar-bug-to-watch-for">Sidebar bug to watch for</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="cross-repo-context-for-ek125">
+<h1>Cross-repo context for EK125<a class="headerlink" href="#cross-repo-context-for-ek125" title="Link to this heading">#</a></h1>
+<p>This file exists to carry over knowledge from work done across the wider
+EK125 repo ecosystem that isn’t written down in this repo’s own <a class="reference external" href="http://README.md">README.md</a>
+or <a class="reference external" href="http://CONVENTIONS.md">CONVENTIONS.md</a> (both of which are authoritative for this repo’s own
+porting patterns, cross-reference/common-mistake auditing standards, and
+the GPP-solutions porting pattern – read those first, don’t duplicate them
+here).</p>
+<section id="the-repo-map-bu-ek125-org-unless-noted">
+<h2>The repo map (BU-EK125 org, unless noted)<a class="headerlink" href="#the-repo-map-bu-ek125-org-unless-noted" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>EK125</strong> (this repo) – the main, public, permanent jupyter-book site.
+Student-facing. Canonical source for reading content, GPP problem
+statements, and (Fall 2026 on) homework problem statements and GPP
+solutions for Act 1 (Classes 1-7), plus Classes 9-14 (added
+2026-10-02, 2026-10-05, and 2026-10-16 by explicit instructor request –
+see <a class="reference external" href="http://README.md">README.md</a> for the authoritative scope statement; this is not a
+general Act 2
+reopening).</p></li>
+<li><p><strong>EK125-notebooks</strong> (private) – the instructor-side staging/source repo
+most content here gets ported <em>from</em>. Itself built as a second,
+internal-only jupyter-book site (has its own <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code>/<code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code>).
+Not always trustworthy as-is – files there have repeatedly turned out
+stale or polluted (worked answers baked into what should be blank GPP
+scaffolds, old grading rubrics, joke placeholder names). Always
+cross-check against what students are actually currently given before
+trusting it as source. It also has two gitignored folders, <code class="docutils literal notranslate"><span class="pre">/HWs/</span></code> and
+<code class="docutils literal notranslate"><span class="pre">/ipp/</span></code>, holding real homework and IPP solutions – never referenced by
+its own <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code>, never to be copied anywhere public.</p></li>
+<li><p><strong>EK125-C1-DePasquale-Slides</strong> (public) – marimo slide decks: one
+lecture-through-the-reading deck per class from Class 6 on, with
+built-in GPP-sourced quick-checks. Classes 2-4 predate that format
+(lecture-only, no quick-checks).</p></li>
+<li><p><strong>EK1225-IPP</strong> (public; typo’d name, “1225” not “125”, permanent/live –
+inherited from a local folder name, not worth renaming now) – a sibling
+site cloned from the Slides repo’s pattern, publishing per-class
+Individual Practice Problem (IPP) handouts as marimo decks. Convention
+established there: <strong>IPP decks show the questions only, no answer
+reveal</strong> (unlike GPP decks, which may reveal answers) – IPPs are
+individual assessments, kept as blank practice worksheets by deliberate
+choice.</p></li>
+<li><p><strong>EK125-hw-help</strong>, <strong>EK125-discussions</strong> (public) – companion sites for
+homework-help-session and discussion-section notebooks. Not yet audited
+by any Claude session as of this writing; check their own README/
+CONVENTIONS (if any) before assuming this file’s conventions apply.</p></li>
+<li><p><strong>EK125-Instructors</strong> (private) – the raw-material working repo, organized
+by semester (<code class="docutils literal notranslate"><span class="pre">S26</span></code>, <code class="docutils literal notranslate"><span class="pre">F25</span></code>, <code class="docutils literal notranslate"><span class="pre">F26</span></code>, <code class="docutils literal notranslate"><span class="pre">copyOfShared</span></code>). <strong>This was transferred
+from a personal repo (<code class="docutils literal notranslate"><span class="pre">briandepasquale/EK125WIP</span></code>) into the org and
+renamed</strong> – same repo, same git history, formerly known as “EK125WIP” in
+older notes/transcripts. A local checkout’s remote may still point at the
+old <code class="docutils literal notranslate"><span class="pre">briandepasquale/EK125WIP.git</span></code> URL (pushes still work via GitHub’s
+redirect, but should be repointed to
+<code class="docutils literal notranslate"><span class="pre">https://github.com/BU-EK125/EK125-Instructors.git</span></code> when convenient). This
+is upstream of EK125-notebooks – GPP solutions in EK125-notebooks were
+minted from files here. Also where next-semester (F26) marimo lecture-deck
+drafts for Classes 2-4 already exist (<code class="docutils literal notranslate"><span class="pre">F26/Class</span> <span class="pre">N/Slides/</span></code>), not yet
+pushed to EK125-C1-DePasquale-Slides – check there before redrafting a
+deck for one of those classes.</p></li>
+</ul>
+</section>
+<section id="course-structure-acts">
+<h2>Course structure (Acts)<a class="headerlink" href="#course-structure-acts" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Act 1 = “Python in Colab”</strong>: Classes 1-7. Class 8 does not exist by
+design (numbering jumps 7 to 9).</p></li>
+<li><p><strong>Act 2 = “Python in an IDE”</strong>: Classes 9-14.</p></li>
+<li><p><strong>Classes 15-19 = the “Fitness Tracker Analyzer” team project</strong>, its own
+<code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code> caption (“Team Project: Fitness Tracker”) between “Python in
+an IDE” and “MATLAB” – see “The Fitness Tracker team project” below.</p></li>
+<li><p><strong>Act 3 = MATLAB</strong>: Class 21 (visualization, in Python) leads into
+Class 22 (the Python-to-MATLAB bridge class), then vectors/matrices,
+scripts, and user-defined functions through Class 26. <strong>This is a
+renumbering of what used to be Classes 15/16/18/19/20/21</strong> – see
+“Renumbering” below before assuming any <code class="docutils literal notranslate"><span class="pre">ClassN.md</span></code> file’s number is
+stable across sessions from before 2026-10-23.</p></li>
+</ul>
+</section>
+<section id="the-fitness-tracker-team-project-ported-2026-10-23">
+<h2>The Fitness Tracker team project (ported 2026-10-23)<a class="headerlink" href="#the-fitness-tracker-team-project-ported-2026-10-23" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">EK125-Instructors/F26/New</span> <span class="pre">Material</span> <span class="pre">Drafts/</span></code> has a complete draft of a
+multi-class team project, “EK125 Fitness Tracker Analyzer,” occupying
+<strong>Classes 15-19 (Mon 10/26 - Mon 11/9 2026)</strong>, plus a plotting add-on at
+Class 21 (Mon 11/16, not yet drafted – see “Known open items”). Confirmed
+against <code class="docutils literal notranslate"><span class="pre">EK125-Instructors/F26/Course</span> <span class="pre">Docs/F26</span> <span class="pre">Class</span> <span class="pre">Schedule.docx</span></code>
+(extracted via <code class="docutils literal notranslate"><span class="pre">zipfile</span></code>+<code class="docutils literal notranslate"><span class="pre">xml.etree.ElementTree</span></code> on <code class="docutils literal notranslate"><span class="pre">word/document.xml</span></code>,
+since this repo has no docx reader) – that schedule is the single source
+of truth for every class number from here through the end of the
+semester (Class 27, Exam 3 practice).</p>
+<ul class="simple">
+<li><p><strong>The project</strong>: teams of 3 build a 3-function program
+(<code class="docutils literal notranslate"><span class="pre">load_tracker_data</span></code>/<code class="docutils literal notranslate"><span class="pre">analyze_metric</span></code>/<code class="docutils literal notranslate"><span class="pre">write_report</span></code>, wired together by
+<code class="docutils literal notranslate"><span class="pre">main.py</span></code>) that reads a 28-day fitness-tracker CSV and writes a summary
+report. Fixed function signatures across all teams; everything else
+(blank-value handling, metrics/goals, dict keys, rounding, report
+format) is a team decision recorded in a <strong>Team Contract</strong> that’s
+amended continuously through Class 19 (Decision Log, Integration Log).
+Explicit “no new Python syntax” framing – it’s pure review of Classes
+12-14 (dictionaries, functions, file I/O); the new skill is
+collaboration (contracts-before-code, stubs, incremental integration,
+debugging someone else’s code).</p></li>
+<li><p><strong>Published, by explicit instructor direction</strong> (prereadings are normal
+readings; the Project Overview applies across all five classes and gets
+its own page; Team Activity files are the per-day deliverable,
+structured as Morning + Afternoon sections; downloadable files should be
+<code class="docutils literal notranslate"><span class="pre">.md</span></code>, not <code class="docutils literal notranslate"><span class="pre">.docx</span></code>):</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">class/FitnessTrackerProject.md</span></code> – standalone page (not nested under
+any one class), first chapter in the new caption, ported from
+<code class="docutils literal notranslate"><span class="pre">FitnessTracker_Project_Overview.md</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">class/Class15.md</span></code> through <code class="docutils literal notranslate"><span class="pre">class/Class19.md</span></code> – ported from each
+class’s <code class="docutils literal notranslate"><span class="pre">Preread.md</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gpps/Class15_TeamActivity.md</span></code> through <code class="docutils literal notranslate"><span class="pre">gpps/Class19_TeamActivity.md</span></code>
+– ported from each class’s <code class="docutils literal notranslate"><span class="pre">Team_Activity.md</span></code>. Named <code class="docutils literal notranslate"><span class="pre">_TeamActivity</span></code>,
+not <code class="docutils literal notranslate"><span class="pre">_GPP</span></code>, and <strong>never paired with a <code class="docutils literal notranslate"><span class="pre">.py</span></code> scaffold</strong> – there is no
+starter code to give out, teams write their files from scratch against
+their own contract. See <a class="reference external" href="http://CONVENTIONS.md">CONVENTIONS.md</a>’s “Team Activity pages” section
+for the full pattern.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gpps/fitness_data.csv</span></code> and <code class="docutils literal notranslate"><span class="pre">gpps/Team_Contract_Template.md</span></code> (the
+<code class="docutils literal notranslate"><span class="pre">.md</span></code> source, not the <code class="docutils literal notranslate"><span class="pre">.docx</span></code> export – downloadable files in this
+project are markdown per instructor direction) – both linked from
+Class 15’s Team Activity page.</p></li>
+<li><p>Three in-class debugging exercises, each a small multi-file Python
+program with planted bugs, copied into their own subfolder under
+<code class="docutils literal notranslate"><span class="pre">gpps/</span></code> (filenames collide across them – all three have their own
+<code class="docutils literal notranslate"><span class="pre">loader.py</span></code>/<code class="docutils literal notranslate"><span class="pre">analyzer.py</span></code>/<code class="docutils literal notranslate"><span class="pre">main.py</span></code>/<code class="docutils literal notranslate"><span class="pre">reporter.py</span></code> – hence the
+subfolders) and linked from the relevant Team Activity page:
+<code class="docutils literal notranslate"><span class="pre">gpps/class16_broken_skeleton/</span></code> (3 bugs, linked from Class 16),
+<code class="docutils literal notranslate"><span class="pre">gpps/class18_integration_clinic/</span></code> (1 silent bug: <code class="docutils literal notranslate"><span class="pre">loader.py</span></code> checks
+each column for blanks independently instead of skipping the whole
+row, so <code class="docutils literal notranslate"><span class="pre">&quot;day&quot;</span></code> ends up longer than the other lists and everything
+after the first blank row is misaligned – explains why the best
+step-day comes out as Day 25 instead of the correct Day 27, linked
+from Class 18), <code class="docutils literal notranslate"><span class="pre">gpps/class19_team7_bug_hunt/</span></code> (5 bugs + an
+<code class="docutils literal notranslate"><span class="pre">expected_report.txt</span></code> to diff against, linked from Class 19). All
+three reuse the single <code class="docutils literal notranslate"><span class="pre">gpps/fitness_data.csv</span></code> rather than duplicating
+an identical copy (confirmed byte-identical via <code class="docutils literal notranslate"><span class="pre">diff</span></code> before relying
+on that).</p></li>
+<li><p>Verified every one of the project’s numeric claims against the real
+<code class="docutils literal notranslate"><span class="pre">fitness_data.csv</span></code> before publishing (the Class 18 “data facts” table:
+25 complete days, steps avg 8843.4/min 4569/max 14773/best day 27,
+resting HR avg 63.0/min 58/max 67/best day 14, sleep min 5.7/max
+8.9/best day 7, active-minutes avg 41.4/best day 7 – all confirmed
+correct via an independent Python recomputation). No bugs found in the
+project’s own content (unlike the Class 13/14 GPP ports – this
+material was clean).</p></li>
+<li><p><strong>Not published</strong>: <code class="docutils literal notranslate"><span class="pre">Preclass_Assessment</span></code> (a graded quiz) and
+<code class="docutils literal notranslate"><span class="pre">IPP</span></code>/<code class="docutils literal notranslate"><span class="pre">IPP_AnswerKey</span></code> (individual assessment – belongs in
+<code class="docutils literal notranslate"><span class="pre">EK1225-IPP</span></code>, never here) – not mentioned by the instructor’s
+direction and excluded consistent with this repo’s existing
+no-quizzes/no-IPP policy. <code class="docutils literal notranslate"><span class="pre">Instructor_Notes</span></code> obviously private too.</p></li>
+</ul>
+</li>
+<li><p><strong>Cross-reference links added</strong>: Class 15’s reading links to Class 12
+(<code class="docutils literal notranslate"><span class="pre">#dictionaries</span></code>), Class 13 (<code class="docutils literal notranslate"><span class="pre">#part-1-user-defined-functions-morning</span></code>),
+and Class 14 (<code class="docutils literal notranslate"><span class="pre">#part-2-file-input-and-output-i-o</span></code>); Class 16 additionally
+links back to Class 5 (<code class="docutils literal notranslate"><span class="pre">#what-is-a-module</span></code>) and Class 14
+(<code class="docutils literal notranslate"><span class="pre">#the-if-name-main-pattern</span></code>); Class 17 and Class 18 link forward/back to
+Class 15’s Team Activity page’s hand-calculation section
+(<code class="docutils literal notranslate"><span class="pre">gpps/Class15_TeamActivity.html#part-e-work-out-the-expected-answers-</span> <span class="pre">by-hand-about-20-minutes-together</span></code>).</p></li>
+</ul>
+</section>
+<section id="renumbering-2026-10-23-classes-displaced-by-the-fitness-tracker-project">
+<h2>Renumbering (2026-10-23): Classes displaced by the Fitness Tracker project<a class="headerlink" href="#renumbering-2026-10-23-classes-displaced-by-the-fitness-tracker-project" title="Link to this heading">#</a></h2>
+<p>The Fitness Tracker project’s slot (Classes 15-19) was previously occupied
+by other live content, which got renumbered forward rather than deleted,
+per the confirmed mapping in the official <code class="docutils literal notranslate"><span class="pre">F26</span> <span class="pre">Class</span> <span class="pre">Schedule.docx</span></code>:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Old number</p></th>
+<th class="head"><p>New number</p></th>
+<th class="head"><p>Topic</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>15</p></td>
+<td><p>21</p></td>
+<td><p>Visualizing Data and Plotting in Python</p></td>
+</tr>
+<tr class="row-odd"><td><p>16</p></td>
+<td><p>22</p></td>
+<td><p>From Python to MATLAB: Syntax and Plotting</p></td>
+</tr>
+<tr class="row-even"><td><p>18</p></td>
+<td><p>23</p></td>
+<td><p>Creating Vectors and Matrices in MATLAB</p></td>
+</tr>
+<tr class="row-odd"><td><p>19</p></td>
+<td><p>24</p></td>
+<td><p>Vector and Matrix Operations in MATLAB</p></td>
+</tr>
+<tr class="row-even"><td><p>20</p></td>
+<td><p>25</p></td>
+<td><p>MATLAB Scripts, Documentation, and File I/O</p></td>
+</tr>
+<tr class="row-odd"><td><p>21</p></td>
+<td><p>26</p></td>
+<td><p>User Functions and Modular Programming in MATLAB</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Each move was a <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">mv</span></code> (processed in descending old-number order so a
+later move never overwrote a file still waiting to be moved out of its
+target slot) plus a one-line edit to that file’s own <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Class</span> <span class="pre">N:</span></code> title
+heading – no other content changed, and none of these files had internal
+cross-references to other class numbers (checked by grep before moving).
+<strong>Old Class 22 (“Useful MATLAB Toolboxes”) has no confirmed new slot</strong> –
+the official schedule’s last two classes are 26 (User Functions, above)
+and 27 (Exam 3 practice, no matching content) – so it was moved to
+<code class="docutils literal notranslate"><span class="pre">archive/Class22_UsefulMATLABToolboxes.md</span></code> rather than guessed into a
+number. <code class="docutils literal notranslate"><span class="pre">intro.md</span></code>’s Act 3 description also dropped its “tour of MATLAB’s
+toolboxes” line for the same reason – don’t re-add it without a confirmed
+slot for this content.</p>
+</section>
+<section id="toolchain-trap">
+<h2>Toolchain trap<a class="headerlink" href="#toolchain-trap" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">jupyter-book</span></code> installs v2.x by default, an incompatible
+ground-up MyST rewrite (<code class="docutils literal notranslate"><span class="pre">myst.yml</span></code>, new CLI) that does NOT work with this
+repo’s classic <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code>/<code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code> Sphinx-book-theme format. Always
+pin <code class="docutils literal notranslate"><span class="pre">jupyter-book&lt;2</span></code> (currently built against 1.0.4).</p>
+</section>
+<section id="build-breaking-trap-link-only-headings">
+<h2>Build-breaking trap: link-only headings<a class="headerlink" href="#build-breaking-trap-link-only-headings" title="Link to this heading">#</a></h2>
+<p>A Markdown/MyST heading whose entire text is a link – e.g. <code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">[HW5.py</span> <span class="pre">](HW5.py)</span></code> – crashes the whole <code class="docutils literal notranslate"><span class="pre">jb</span> <span class="pre">build</span></code> with <code class="docutils literal notranslate"><span class="pre">KeyError:</span> <span class="pre">'anchorname'</span></code>
+deep in Sphinx’s <code class="docutils literal notranslate"><span class="pre">document_toc</span></code> (building that page’s own sidebar
+“Contents”). It’s not a warning, it’s a hard build failure, and the
+traceback’s “Last messages” can point at a totally unrelated page (the
+crash surfaces wherever Sphinx next touches the global toctree, not
+necessarily the page with the bad heading) – bisect by reverting changes
+one file at a time if you hit this blind. The fix: never make a heading’s
+full text a link. Put the link in the body text below the heading instead
+(e.g. <code class="docutils literal notranslate"><span class="pre">##</span> <span class="pre">Download</span> <span class="pre">the</span> <span class="pre">Assignment</span> <span class="pre">File</span></code> followed by <code class="docutils literal notranslate"><span class="pre">Download:</span> <span class="pre">[HW5.py</span> <span class="pre">](HW5.py)</span></code> as a separate line). Found while adding download-file headings
+to <code class="docutils literal notranslate"><span class="pre">homework/HW5.md</span></code> and <code class="docutils literal notranslate"><span class="pre">gpps/Class9_GPP.ipynb</span></code>.</p>
+</section>
+<section id="pii-lesson-critical">
+<h2>PII lesson (critical)<a class="headerlink" href="#pii-lesson-critical" title="Link to this heading">#</a></h2>
+<p>Raw notebook files sourced from EK125-notebooks (or further upstream,
+EK125-Instructors) can carry real personal information in Colab execution metadata
+– <code class="docutils literal notranslate"><span class="pre">executionInfo.user.displayName</span></code>/<code class="docutils literal notranslate"><span class="pre">userId</span></code> per cell, <code class="docutils literal notranslate"><span class="pre">colab.provenance</span></code>
+at the notebook level. <strong>Never copy a cell directly from an upstream
+source into this repo.</strong> Always rebuild each cell from scratch, keeping
+only <code class="docutils literal notranslate"><span class="pre">cell_type</span></code> and the joined <code class="docutils literal notranslate"><span class="pre">source</span></code> text, with fresh minimal metadata
+(<code class="docutils literal notranslate"><span class="pre">{&quot;id&quot;:</span> <span class="pre">&lt;new-uuid&gt;}</span></code>). See this repo’s own <a class="reference external" href="http://CONVENTIONS.md">CONVENTIONS.md</a> for the full
+porting-pattern writeup.</p>
+</section>
+<section id="orphaned-legacy-files">
+<h2>Orphaned legacy files<a class="headerlink" href="#orphaned-legacy-files" title="Link to this heading">#</a></h2>
+<p>This repo predates its current <code class="docutils literal notranslate"><span class="pre">ClassN.md</span></code>/<code class="docutils literal notranslate"><span class="pre">ClassN.ipynb</span></code> naming –
+content was originally organized as <code class="docutils literal notranslate"><span class="pre">Week1A</span></code>/<code class="docutils literal notranslate"><span class="pre">Week1B</span></code> … <code class="docutils literal notranslate"><span class="pre">Week15B</span></code> before
+being renamed. Old <code class="docutils literal notranslate"><span class="pre">Week*.md</span></code> files may still exist in the repo unreferenced
+by <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code> and unbuilt – don’t mistake one for live content if you find
+it; check <code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code> to see what’s actually published.</p>
+</section>
+<section id="process-lessons-from-repo-history">
+<h2>Process lessons from repo history<a class="headerlink" href="#process-lessons-from-repo-history" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Verify which remote a local checkout tracks</strong> before treating it as
+source-of-truth for seeding or comparing against another repo – a
+personal fork can silently diverge (missing recent renames/restructures,
+or carrying unpushed local-only edits) from the canonical <code class="docutils literal notranslate"><span class="pre">BU-EK125/EK125</span></code>
+origin.</p></li>
+<li><p><strong>Before bulk-copying content into a sibling repo</strong> (e.g. EK125-notebooks
+or EK125-Instructors/EK125WIP), check the destination’s own <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code>/<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> first –
+a blind copy can clobber already-completed, already-pushed work that a
+different session did in the meantime.</p></li>
+<li><p>When converting a static reading into an executed notebook, watch for
+prose that reads a file before another cell has written it (needs a
+hidden setup cell inserted first for correct sequential execution), and
+never try to execute pure pseudocode blocks (undefined placeholder
+functions) – those need <code class="docutils literal notranslate"><span class="pre">skip-execution</span></code>, not a real run.</p></li>
+<li><p><strong>GPP-solutions scope was extended to Classes 9-10 on 2026-10-02</strong>, by
+explicit instructor request in a Claude Code session – previously Act 1
+(Classes 1-7) only. <code class="docutils literal notranslate"><span class="pre">Class9_GPP_Solutions.ipynb</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Class10_GPP_Solutions.md</span></code>/<code class="docutils literal notranslate"><span class="pre">.py</span></code> were ported from EK125-notebooks’
+<code class="docutils literal notranslate"><span class="pre">gpp/Class_9_GPP_Solutions.*</span></code>/<code class="docutils literal notranslate"><span class="pre">gpp/Class_10_GPP_Solutions.*</span></code> after
+cross-checking them line-for-line against the current public GPPs.</p></li>
+<li><p><strong>Scope extended again to Classes 11-12 on 2026-10-05</strong>, by explicit
+instructor request. Unlike Classes 9-10, Classes 11-12 didn’t have a
+public GPP at all yet – both the GPP and its solutions were ported
+together, as new <code class="docutils literal notranslate"><span class="pre">.py</span></code>/<code class="docutils literal notranslate"><span class="pre">.md</span></code> script-based pairs (per <a class="reference external" href="http://CONVENTIONS.md">CONVENTIONS.md</a>’s
+“Script-based pages” section), sourced from <code class="docutils literal notranslate"><span class="pre">EK125-Instructors/F26/</span></code>
+(the freshest copies, “just received from the instructor” per the
+request) and cross-checked against EK125-notebooks’ <code class="docutils literal notranslate"><span class="pre">gpp/</span> <span class="pre">Class_11_GPP*</span></code>/<code class="docutils literal notranslate"><span class="pre">gpp/Class_12_GPP*</span></code> (older, notebook-format versions with
+identical problem content). Found and fixed a real bug while verifying
+Class 11’s solutions: Challenge 1 asks to sum values “greater than or
+equal to 4” but both sources’ solution code used <code class="docutils literal notranslate"><span class="pre">v</span> <span class="pre">&gt;</span> <span class="pre">4</span></code> (strict),
+silently dropping the boundary value – fixed to <code class="docutils literal notranslate"><span class="pre">v</span> <span class="pre">&gt;=</span> <span class="pre">4</span></code>.</p></li>
+<li><p><strong>Scope extended again to Classes 13-14 on 2026-10-16</strong>, by explicit
+instructor request, after a newly-drafted <code class="docutils literal notranslate"><span class="pre">EK125-Instructors/F26/Copy</span> <span class="pre">of</span> <span class="pre">class14_gpp.py</span></code> turned out to reproduce the exact Class 13/14 topic
+mismatch described below under “Known open items” – Class 13’s GPP was
+ported straight from that same WIP batch (clean, matches its reading),
+but Class 14’s GPP was instead sourced from EK125-notebooks’ <code class="docutils literal notranslate"><span class="pre">gpp/</span> <span class="pre">Class_14_GPP.py</span></code>/<code class="docutils literal notranslate"><span class="pre">_Solutions.py</span></code> (the version already correctly fixed
+there in September). Verifying Class 14’s solutions end-to-end surfaced
+four more real bugs, all fixed: two crashes (top-level illustrative code
+using undefined variables; a <code class="docutils literal notranslate"><span class="pre">credits</span></code>/<code class="docutils literal notranslate"><span class="pre">course_credits</span></code> typo causing a
+<code class="docutils literal notranslate"><span class="pre">NameError</span></code>) and two wrong docstring example outputs (<code class="docutils literal notranslate"><span class="pre">3.72</span></code> should be
+<code class="docutils literal notranslate"><span class="pre">3.67</span></code>; <code class="docutils literal notranslate"><span class="pre">83.5</span></code> should be <code class="docutils literal notranslate"><span class="pre">83.50333333333333</span></code>). Do not extend further
+into Act 2 (Class 15) or Act 3 without being asked again.</p></li>
+</ul>
+</section>
+<section id="known-open-items-worth-checking-before-assuming-fixed">
+<h2>Known open items worth checking before assuming fixed<a class="headerlink" href="#known-open-items-worth-checking-before-assuming-fixed" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>~~Class 14 and 15’s GPPs were found misaligned with their own readings by
+one class~~ – <strong>resolved 2026-10-16.</strong> This was already fixed once, in
+EK125-notebooks (2026-09-16, commits <code class="docutils literal notranslate"><span class="pre">2a8590a</span></code>/<code class="docutils literal notranslate"><span class="pre">a131231</span></code>): Class 14’s slot
+had Class 13’s scope/copying content, and Class 15’s slot had content
+(“Scripts, Comments, and Documentation”) that actually matched Class 14’s
+reading – moved into Class 14’s slot, Class 15’s GPP deleted (no
+replacement existed). That fix never made it into this repo’s own
+<code class="docutils literal notranslate"><span class="pre">CLAUDE.md</span></code> or into <code class="docutils literal notranslate"><span class="pre">EK125-Instructors</span></code>, which is why a freshly-drafted
+WIP file for Class 14 reproduced the <em>exact same</em> mismatch again on
+2026-10-16 (see the GPP-solutions scope history above). <strong>Note: this
+bullet is about the old Class 13/14 scope-porting mismatch, not the
+2026-10-23 Fitness Tracker renumbering</strong> – Class 15 (the number) now
+refers to a completely different reading than either of those; see
+“The Fitness Tracker team project” above.</p></li>
+<li><p><strong>Class 21’s plotting add-on has no draft content yet.</strong> The Fitness
+Tracker Project Overview and the Class 19 Team Activity’s homework note
+both describe Class 21 (Mon 11/16) as “each teammate adds one plotting
+function to their project,” and the live <code class="docutils literal notranslate"><span class="pre">class/Class21.md</span></code> (renumbered
+from old Class 15) already covers matplotlib – but no <code class="docutils literal notranslate"><span class="pre">Class21</span> <span class="pre">_TeamActivity</span></code>-equivalent exists yet, because <code class="docutils literal notranslate"><span class="pre">EK125-Instructors/F26/New</span> <span class="pre">Material</span> <span class="pre">Drafts/</span></code> only has folders for Classes 15-19. Check there again
+before Class 21’s actual date approaches.</p></li>
+<li><p><strong>Old Class 22 (“Useful MATLAB Toolboxes”) is sitting in <code class="docutils literal notranslate"><span class="pre">archive/</span></code>
+with no confirmed new slot</strong> (see “Renumbering” above) – the official
+schedule’s last class is 27 (“Exam 3 practice”), which doesn’t match
+this content at all. Ask the instructor where (or whether) this belongs
+before either restoring it or deleting it outright.</p></li>
+<li><p>A reading’s “WRONG” example once claimed <code class="docutils literal notranslate"><span class="pre">int(line)</span></code> fails on a file
+read’s trailing newline – Python’s <code class="docutils literal notranslate"><span class="pre">int()</span></code> actually tolerates trailing
+whitespace, so the demo may not raise as the prose claims. Worth
+spot-checking Class 14’s file-I/O reading if you’re ever in that content.</p></li>
+<li><p>A pedagogical sequencing critique was raised for Classes 1-4: <code class="docutils literal notranslate"><span class="pre">input()</span></code>/
+type-casting aren’t formally taught until Class 4, even though Class 3’s
+examples rely on them conceptually, and Class 4 opens by admitting it’s
+a “wrap-up… retread some ground” catch-up class. Not acted on as of
+this writing – a design question for the instructor, not a bug to fix
+unilaterally.</p></li>
+</ul>
+</section>
+<section id="sidebar-bug-to-watch-for">
+<h2>Sidebar bug to watch for<a class="headerlink" href="#sidebar-bug-to-watch-for" title="Link to this heading">#</a></h2>
+<p>A class page with <strong>more than one top-level <code class="docutils literal notranslate"><span class="pre">#</span></code> (H1) heading</strong> (instead of
+<code class="docutils literal notranslate"><span class="pre">##</span></code> for its major sections) silently drops its nested TOC children from
+the sidebar – the page still builds cleanly with no warning and is
+directly reachable, it’s just invisible in navigation. Fixed once already
+for <code class="docutils literal notranslate"><span class="pre">class/Class4.md</span></code>; if a future class’s GPP/Solutions seem to build
+fine but don’t show up in the sidebar, check this first.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-repo-map-bu-ek125-org-unless-noted">The repo map (BU-EK125 org, unless noted)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-structure-acts">Course structure (Acts)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fitness-tracker-team-project-ported-2026-10-23">The Fitness Tracker team project (ported 2026-10-23)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#renumbering-2026-10-23-classes-displaced-by-the-fitness-tracker-project">Renumbering (2026-10-23): Classes displaced by the Fitness Tracker project</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#toolchain-trap">Toolchain trap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-breaking-trap-link-only-headings">Build-breaking trap: link-only headings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pii-lesson-critical">PII lesson (critical)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orphaned-legacy-files">Orphaned legacy files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#process-lessons-from-repo-history">Process lessons from repo history</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#known-open-items-worth-checking-before-assuming-fixed">Known open items worth checking before assuming fixed</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sidebar-bug-to-watch-for">Sidebar bug to watch for</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Stormy Attaway, Brian DePasquale, Christine Mulvey, Kenn Sebesta
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
