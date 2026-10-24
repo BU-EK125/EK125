@@ -283,9 +283,18 @@ different page shape from a normal GPP:
 - **Downloadable files should be `.md`, not `.docx` or other Office
   formats**, even if the upstream source material ships a `.docx` export
   alongside its `.md` source (the Fitness Tracker project's Team Contract
-  Template did) -- link the `.md` version. This keeps every downloadable
-  file on the site in the same plain-text, diffable format, and avoids
-  the OOXML-metadata check below for the common case.
+  Template did) -- link the `.md` version, same `## Download the X` +
+  `Download: [name.md](name.md)` pattern as any other download. This
+  keeps every downloadable file on the site in the same plain-text,
+  diffable format, and avoids the OOXML-metadata check below for the
+  common case. **Don't add the linked `.md` file to `_toc.yml`** just to
+  silence the resulting "document isn't included in any toctree" build
+  warning -- Sphinx builds every `.md` file it finds into a page whether
+  or not it's in the toctree (same as this repo's own `CLAUDE.md`, which
+  produces that exact warning already, by design), so the warning is
+  expected and harmless; adding it to the toctree instead turns a
+  download link into a real sidebar page, which isn't what a "download
+  this and fill it in" document is for.
 - **Per-class downloadable files beyond the Team Contract** (a provided
   dataset, a "broken" starter folder for an in-class debugging exercise)
   get copied alongside the `.md` page in `gpps/`, same co-location rule as
