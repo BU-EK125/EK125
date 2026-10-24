@@ -1,0 +1,1000 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Class 15: Collaborating with Others — Problem Definition and Initial Decisions &#8212; EK125</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'class/Class15';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class 15: Team Activity — Define the Problem and Write the Contract" href="../gpps/Class15_TeamActivity.html" />
+    <link rel="prev" title="EK125 Team Project: Fitness Tracker Analyzer" href="FitnessTrackerProject.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">EK125</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to EK125
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendix/Fall2026Schedule.html">Fall 2026 Class Schedule</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python in Colab</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class1.html">Class 1: Introduction to Interactive Programming Using Google Colab</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class1_GPP.html">Class 1 GPP: Constants, Variables, Types, and Assignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class1_GPP_Solutions.html">Class 1 GPP Solutions: Constants, Variables, Types, and Assignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW1.html">Homework 1: Variables, Types, and Assignments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class2.html">Class 2: Sequences, Strings, and Lists in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class2_GPP.html">Class 2 GPP: Working with Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class2_GPP_Solutions.html">Class 2 GPP Solutions: Working with Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW2.html">Homework 2: Strings and Lists</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class3.html">Class 3: Booleans and Basic Logic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class3_GPP.html">Class 3 GPP: Boolean Logic Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class3_GPP_Solutions.html">Class 3 GPP Solutions: Boolean Logic Practice</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class4.html">Class 4: Coding Basics Wrap-up and Selection Statements</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class4_GPP.html">Class 4 GPP: Coding Basics Wrap-up and Selection Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class4_GPP_Solutions.html">Class 4 GPP Solutions: Coding Basics Wrap-up and Selection Statements</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW3.html">Homework 3: Boolean Logic, Sequences, and Selection Statements</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class5.html">Class 5: Importing Modules and Basic Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class5_GPP.html">Class 5 GPP: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class5_GPP_Solutions.html">Class 5 GPP Solutions: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class6.html">Class 6: Nested Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class6_GPP.html">Class 6 GPP: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class6_GPP_Solutions.html">Class 6 GPP Solutions: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW4.html">Homework 4: Loops and Randomness</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class7.html">Class 7: Advanced Iteration and Nested Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class7_GPP.html">Class 7 GPP: Advanced Iteration and Nested Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class7_GPP_Solutions.html">Class 7 GPP Solutions: Advanced Iteration and Nested Structures</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../gpps/Exam1_Review.html">EK125 Exam 1 - Top 30 GPP Problems for Paper Practice</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python in an IDE</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class9.html">Class 9: From Colab Notebooks to Running Python Locally</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class9_GPP.html">Class 9 GPP: Getting Comfortable with PyCharm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class9_GPP_Solutions.html">Class 9 GPP Solutions: Getting Comfortable with PyCharm</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class10.html">Class 10: Mastering Slicing in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class10_GPP.html">Class 10 GPP: Mastering Slicing in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class10_GPP_Solutions.html">Class 10 GPP Solutions: Mastering Slicing in Python</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW5.html">Homework 5: Advanced Iteration, Nested Structures, and Slicing</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class11.html">Class 11: Digging into arrays with NumPy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class11_GPP.html">Class 11 GPP: Working with Arrays in NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class11_GPP_Solutions.html">Class 11 GPP Solutions: Working with Arrays in NumPy</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class12.html">Class 12: Dictionaries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class12_GPP.html">Class 12 GPP: Python Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class12_GPP_Solutions.html">Class 12 GPP Solutions: Python Dictionaries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW6.html">Homework 6: NumPy and Dictionaries</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class13.html">Class 13: User-Defined Functions, Arguments, and Scope</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class13_GPP.html">Class 13 GPP: User-Defined Functions, Scope, and Copying</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class13_GPP_Solutions.html">Class 13 GPP Solutions: User-Defined Functions, Scope, and Copying</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class14.html">Class 14: Scripts, File I/O, and the Local File Environment</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class14_GPP.html">Class 14 GPP: Scripts, Comments, and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class14_GPP_Solutions.html">Class 14 GPP Solutions: Scripts, Comments, and Documentation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW7.html">Homework 7: Modular Functions and File I/O</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Team Project: Fitness Tracker</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="FitnessTrackerProject.html">EK125 Team Project: Fitness Tracker Analyzer</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Class 15: Collaborating with Others — Problem Definition and Initial Decisions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class15_TeamActivity.html">Class 15: Team Activity — Define the Problem and Write the Contract</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Team_Contract_Template.html">Fitness Tracker Analyzer: Team Contract</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class16.html">Class 16: Stub Building</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class16_TeamActivity.html">Class 16: Team Activity — Build a Running Skeleton</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class17.html">Class 17: Writing Real Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class17_TeamActivity.html">Class 17: Team Activity — Replace Your Stub with Real Code</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class18.html">Class 18: Integrating It All Together</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class18_TeamActivity.html">Class 18: Team Activity — Integrate, One Piece at a Time</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class19.html">Class 19: Debugging and Reflection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class19_TeamActivity.html">Class 19: Team Activity — Bug Hunt and Retrospective</a></li>
+
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MATLAB</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Class21.html">Class 21: Visualizing Data and Plotting in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class22.html">Class 22: From Python to MATLAB: Syntax and Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class23.html">Class 23: Creating Vectors and Matrices in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class24.html">Class 24: Vector and Matrix Operations in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class25.html">Class 25: MATLAB Scripts, Documentation, and File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class26.html">Class 26: User Functions and Modular Programming in MATLAB</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendix/Syllabus.html">Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/WeeklyRhythm.html">Weekly Rhythm of EK125</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/SubmittingAssignments.html">Instructions to receive and submit assignments</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/class/Class15.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Class 15: Collaborating with Others — Problem Definition and Initial Decisions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-why-team-programs-break">Part 1: Why Team Programs Break</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-story-you-will-recognize">A story you will recognize</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-small-example">A small example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-define-the-problem-before-you-solve-it">Part 2: Define the Problem Before You Solve It</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#always-look-at-the-real-data-first">Always look at the real data first</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-break-the-program-into-functions">Part 3: Break the Program into Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-the-function-contract">Part 4: The Function Contract</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-contract">What is a contract?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-the-contract-as-a-docstring">Write the contract as a docstring</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#show-an-example-value">Show an example value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#describing-a-dictionary-of-lists">Describing a dictionary of lists</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contracts-describe-what-never-how">Contracts describe <em>what</em>, never <em>how</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-decisions-to-make-on-day-one">Part 5: Decisions to Make on Day One</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-working-as-a-team">Part 6: Working as a Team</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#roles">Roles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-working-agreement">A working agreement</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-key-concepts">Summary: Key Concepts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-your-understanding">Check Your Understanding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coming-up-in-class">Coming Up in Class</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="class-15-collaborating-with-others-problem-definition-and-initial-decisions">
+<h1>Class 15: Collaborating with Others — Problem Definition and Initial Decisions<a class="headerlink" href="#class-15-collaborating-with-others-problem-definition-and-initial-decisions" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this reading, you should be able to:</p>
+<ul class="simple">
+<li><p>Explain why team programs break at the “seams” between people’s code</p></li>
+<li><p>Define a problem by stating its inputs, outputs, and messy cases</p></li>
+<li><p>Break a program into functions using the input → process → output pattern</p></li>
+<li><p>Write a <strong>function contract</strong> that a teammate could use without asking you any questions</p></li>
+<li><p>Describe the structure of a return value precisely, using an example value</p></li>
+<li><p>Recognize the decisions a team must make <em>before</em> writing code</p></li>
+</ul>
+<p><strong>Good news:</strong> there is no new Python syntax in this reading. Everything here uses functions (<a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class13.html#part-1-user-defined-functions-morning">Class 13</a>), dictionaries (<a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class12.html#dictionaries">Class 12</a>), and files (<a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class14.html#part-2-file-input-and-output-i-o">Class 14</a>). Today’s new skill is <em>thinking and communicating</em> like a programmer on a team.</p>
+<p>This reading kicks off the <strong>Fitness Tracker Analyzer</strong>, a team project running from this class through Class 19 – see the <a class="reference external" href="https://BU-EK125.github.io/EK125/class/FitnessTrackerProject.html">Project Overview</a> for the full plan.</p>
+</section>
+<hr class="docutils" />
+<section id="part-1-why-team-programs-break">
+<h2>Part 1: Why Team Programs Break<a class="headerlink" href="#part-1-why-team-programs-break" title="Link to this heading">#</a></h2>
+<section id="a-story-you-will-recognize">
+<h3>A story you will recognize<a class="headerlink" href="#a-story-you-will-recognize" title="Link to this heading">#</a></h3>
+<p>Three students split a lab report. One writes the methods, one writes the results, one writes the discussion. They each work alone all weekend and paste it together Sunday night. The result:</p>
+<ul class="simple">
+<li><p>The methods section says the sample size was 20. The results section analyzes 25.</p></li>
+<li><p>The results section calls the measurement “deflection.” The discussion calls it “displacement.”</p></li>
+<li><p>The discussion refers to “Figure 3,” which nobody made.</p></li>
+</ul>
+<p>Each section is fine on its own, but the report doesn’t work. The problems are all at the <strong>seams</strong>, where one person’s work meets another’s.</p>
+<p>Team programs fail the same way. Each function can be correct on its own, and the program still crashes when the pieces are put together.</p>
+</section>
+<section id="a-small-example">
+<h3>A small example<a class="headerlink" href="#a-small-example" title="Link to this heading">#</a></h3>
+<p>A team is writing a weather station program with three functions. Each person writes one:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Written by Person A</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">read_temperatures</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Read temperatures from a file."""</span>
+    <span class="n">temps</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">temps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()))</span>
+    <span class="k">return</span> <span class="n">temps</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Written by Person B</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">summarize_temperatures</span><span class="p">(</span><span class="n">temps</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Summarize a list of temperatures."""</span>
+    <span class="n">summary</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"avg"</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="n">temps</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">temps</span><span class="p">),</span>
+               <span class="s2">"hi"</span><span class="p">:</span> <span class="nb">max</span><span class="p">(</span><span class="n">temps</span><span class="p">),</span>
+               <span class="s2">"lo"</span><span class="p">:</span> <span class="nb">min</span><span class="p">(</span><span class="n">temps</span><span class="p">)}</span>
+    <span class="k">return</span> <span class="n">summary</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Written by Person C</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">print_summary</span><span class="p">(</span><span class="n">summary</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Print the temperature summary."""</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Average: </span><span class="si">{</span><span class="n">summary</span><span class="p">[</span><span class="s1">'average'</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> F"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"High:    </span><span class="si">{</span><span class="n">summary</span><span class="p">[</span><span class="s1">'high'</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> F"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Low:     </span><span class="si">{</span><span class="n">summary</span><span class="p">[</span><span class="s1">'low'</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> F"</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>All three functions are written correctly. Here is what happens when the team runs them together:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">temps</span> <span class="o">=</span> <span class="n">read_temperatures</span><span class="p">(</span><span class="s2">"station.txt"</span><span class="p">)</span>
+<span class="n">summary</span> <span class="o">=</span> <span class="n">summarize_temperatures</span><span class="p">(</span><span class="n">temps</span><span class="p">)</span>
+<span class="n">print_summary</span><span class="p">(</span><span class="n">summary</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ne">KeyError</span><span class="p">:</span> <span class="s1">'average'</span>
+</pre></div>
+</div>
+<p>Person B named the key <code class="docutils literal notranslate"><span class="pre">&quot;avg&quot;</span></code>. Person C expected <code class="docutils literal notranslate"><span class="pre">&quot;average&quot;</span></code>. Neither of them is wrong, but they never agreed.</p>
+<p>It gets worse. Suppose they fix the key names. The program runs and prints:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Average</span><span class="p">:</span> <span class="mf">21.4</span> <span class="n">F</span>
+</pre></div>
+</div>
+<p>Is 21.4°F a cold day in Boston? Or is the file in Celsius, so it was really a pleasant 70°F? The program <em>ran</em>, but nobody agreed on <strong>units</strong>, so the output is wrong without any error message. This kind of bug is the most dangerous: <strong>a program that runs and gives the wrong answer.</strong></p>
+<blockquote>
+<div><p><strong>Key idea:</strong> When code is written by more than one person, most bugs live at the seams between functions, not inside them.</p>
+</div></blockquote>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-2-define-the-problem-before-you-solve-it">
+<h2>Part 2: Define the Problem Before You Solve It<a class="headerlink" href="#part-2-define-the-problem-before-you-solve-it" title="Link to this heading">#</a></h2>
+<p>Before anyone writes a line of code, the team needs to agree on <strong>what the program is supposed to do.</strong> Engineers call this <em>problem definition</em>. Answer these four questions:</p>
+<ol class="arabic simple">
+<li><p><strong>What goes in?</strong> What are the inputs? Where do they come from? What do they look like?</p></li>
+<li><p><strong>What comes out?</strong> What should the program produce: a printed message, a file, a value?</p></li>
+<li><p><strong>What counts as success?</strong> How will we know the output is right?</p></li>
+<li><p><strong>What is messy?</strong> What could be missing, wrong, or unusual in the input?</p></li>
+</ol>
+<section id="always-look-at-the-real-data-first">
+<h3>Always look at the real data first<a class="headerlink" href="#always-look-at-the-real-data-first" title="Link to this heading">#</a></h3>
+<p>The fourth question is the one beginners skip. You cannot answer it without <strong>opening the data file and reading it</strong>. Real data is almost never clean. Here is what a few lines of weather station data might actually look like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">71.2</span>
+<span class="mf">70.8</span>
+
+<span class="mf">72.5</span>
+<span class="o">-</span><span class="mi">999</span>
+<span class="mf">71.9</span>
+</pre></div>
+</div>
+<p>There is a blank line, and a reading of <code class="docutils literal notranslate"><span class="pre">-999</span></code>. Many sensors write <code class="docutils literal notranslate"><span class="pre">-999</span></code> when they fail to take a measurement. If nobody on the team notices this, the average temperature will be wildly wrong, and every function will appear to “work.”</p>
+<blockquote>
+<div><p><strong>Key idea:</strong> Open the data file and look at it before you design anything. Find the messy parts and decide, as a team, what to do with them.</p>
+</div></blockquote>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-3-break-the-program-into-functions">
+<h2>Part 3: Break the Program into Functions<a class="headerlink" href="#part-3-break-the-program-into-functions" title="Link to this heading">#</a></h2>
+<p>Many programs follow the same three-step pattern:</p>
+<ol class="arabic simple">
+<li><p><strong>Get the input(s)</strong></p></li>
+<li><p><strong>Calculate the result(s)</strong></p></li>
+<li><p><strong>Display or save the result(s)</strong></p></li>
+</ol>
+<p>That pattern is also a natural way to divide work among three people. One person owns each step:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">station</span><span class="o">.</span><span class="n">txt</span>
+       <span class="o">|</span>
+       <span class="n">v</span>
+<span class="n">read_temperatures</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>  <span class="o">--------&gt;</span>  <span class="nb">list</span> <span class="n">of</span> <span class="n">temperatures</span>
+                                                <span class="o">|</span>
+                                                <span class="n">v</span>
+                              <span class="n">summarize_temperatures</span><span class="p">(</span><span class="n">temps</span><span class="p">)</span>  <span class="o">--------&gt;</span>  <span class="n">summary</span> <span class="n">dictionary</span>
+                                                                               <span class="o">|</span>
+                                                                               <span class="n">v</span>
+                                                               <span class="n">print_summary</span><span class="p">(</span><span class="n">summary</span><span class="p">)</span>
+                                                                               <span class="o">|</span>
+                                                                               <span class="n">v</span>
+                                                                      <span class="n">text</span> <span class="n">on</span> <span class="n">the</span> <span class="n">screen</span>
+</pre></div>
+</div>
+<p>Notice what travels along each arrow: a <strong>list</strong> goes from the first function to the second, and a <strong>dictionary</strong> goes from the second to the third. Those arrows are the seams, and they are exactly where the team needs to agree.</p>
+<p>A short <strong>main program</strong> calls the functions in order and passes values along the arrows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">temps</span> <span class="o">=</span> <span class="n">read_temperatures</span><span class="p">(</span><span class="s2">"station.txt"</span><span class="p">)</span>
+<span class="n">summary</span> <span class="o">=</span> <span class="n">summarize_temperatures</span><span class="p">(</span><span class="n">temps</span><span class="p">)</span>
+<span class="n">print_summary</span><span class="p">(</span><span class="n">summary</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You can write this main program on day one, <em>before any of the functions exist.</em> It is the team’s plan, written in Python. Writing it forces three questions:</p>
+<ul class="simple">
+<li><p>What does each function <strong>need</strong> (its parameters)?</p></li>
+<li><p>What does each function <strong>give back</strong> (its return value)?</p></li>
+<li><p>Where does each returned value <strong>go next</strong>?</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="part-4-the-function-contract">
+<h2>Part 4: The Function Contract<a class="headerlink" href="#part-4-the-function-contract" title="Link to this heading">#</a></h2>
+<section id="what-is-a-contract">
+<h3>What is a contract?<a class="headerlink" href="#what-is-a-contract" title="Link to this heading">#</a></h3>
+<p>Think about the charging port on your phone. Hundreds of companies make chargers, and none of them have ever met the people who designed your phone. The charger still works, because both sides follow one written standard. The standard specifies the plug’s shape, voltage, and pin layout. Neither side needs to know how the other is built inside.</p>
+<p>A <strong>function contract</strong> is that written standard for one function. It tells a teammate everything they need to <em>use</em> your function without ever reading the code inside it.</p>
+<p>A complete contract answers five questions:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Question</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>1. Name:</strong> what is the function called?</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">summarize_temperatures</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2. Inputs:</strong> what are the parameters? What type is each? What units?</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">temps</span></code>: list of floats, °F</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>3. Output:</strong> what exactly is returned? What type and structure?</p></td>
+<td><p>a dictionary with keys <code class="docutils literal notranslate"><span class="pre">&quot;average&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;high&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;low&quot;</span></code>; each value is a float in °F</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>4. Side effects:</strong> does it print? Write a file? Change its inputs?</p></td>
+<td><p>none (does not print, does not change <code class="docutils literal notranslate"><span class="pre">temps</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>5. Assumptions and messy cases:</strong> what must be true of the input?</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">temps</span></code> has at least one value; no <code class="docutils literal notranslate"><span class="pre">-999</span></code> values (the reader removes them)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="write-the-contract-as-a-docstring">
+<h3>Write the contract as a docstring<a class="headerlink" href="#write-the-contract-as-a-docstring" title="Link to this heading">#</a></h3>
+<p>In <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class13.html#part-1-user-defined-functions-morning">Class 13</a> you learned that every function begins with a <strong>docstring</strong>. The docstring is the natural home for the contract, because it travels with the function and anyone can display it with <code class="docutils literal notranslate"><span class="pre">help()</span></code>. Here is the complete contract for Person B’s function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summarize_temperatures</span><span class="p">(</span><span class="n">temps</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Calculate the average, high, and low of a list of temperatures.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        temps (list of float): temperature readings in degrees F.</span>
+<span class="sd">            Must contain at least one value. Must NOT contain -999</span>
+<span class="sd">            (read_temperatures removes those).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        dict with exactly these three keys:</span>
+<span class="sd">            "average" (float): mean temperature, degrees F, NOT rounded</span>
+<span class="sd">            "high"    (float): largest temperature, degrees F</span>
+<span class="sd">            "low"     (float): smallest temperature, degrees F</span>
+
+<span class="sd">        Example: {"average": 71.6, "high": 72.5, "low": 70.8}</span>
+
+<span class="sd">    Side effects: none. Does not print. Does not change temps.</span>
+<span class="sd">    """</span>
+</pre></div>
+</div>
+<p>Read it as if you were Person C. You know the key is <code class="docutils literal notranslate"><span class="pre">&quot;average&quot;</span></code>, not <code class="docutils literal notranslate"><span class="pre">&quot;avg&quot;</span></code>. You know the values are in °F. You know the values are not rounded, so <em>you</em> need to round when you print. You never have to ask Person B a single question. That is the test of a good contract.</p>
+</section>
+<section id="show-an-example-value">
+<h3>Show an example value<a class="headerlink" href="#show-an-example-value" title="Link to this heading">#</a></h3>
+<p>The most useful line in that contract is the one that starts with <code class="docutils literal notranslate"><span class="pre">Example:</span></code>. Words like “a dictionary of statistics” can mean many different things. A literal example value can only mean one thing.</p>
+<p>Compare these two descriptions of the same return value:</p>
+<blockquote>
+<div><p><strong>Vague:</strong> “Returns the temperature data.”</p>
+</div></blockquote>
+<blockquote>
+<div><p><strong>Precise:</strong> “Returns a list of floats, one per valid reading, in the order they appear in the file. Example: <code class="docutils literal notranslate"><span class="pre">[71.2,</span> <span class="pre">70.8,</span> <span class="pre">72.5,</span> <span class="pre">71.9]</span></code>”</p>
+</div></blockquote>
+<p>From the vague version, a teammate can’t tell whether to expect a list, a dictionary, a string, or a tuple, or whether the values are numbers or strings like <code class="docutils literal notranslate"><span class="pre">&quot;71.2&quot;</span></code>. From the precise version, they could write code against it right now.</p>
+<blockquote>
+<div><p><strong>Key idea:</strong> For every return value, write down its type, its structure, and one concrete example value.</p>
+</div></blockquote>
+</section>
+<section id="describing-a-dictionary-of-lists">
+<h3>Describing a dictionary of lists<a class="headerlink" href="#describing-a-dictionary-of-lists" title="Link to this heading">#</a></h3>
+<p>Many engineering programs store table-like data as a <strong>dictionary of lists</strong>: one key per column, and each value is the list of numbers in that column. Suppose a weather station records two measurements per hour:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hour</span><span class="p">,</span><span class="n">temp_f</span><span class="p">,</span><span class="n">humidity</span>
+<span class="mi">1</span><span class="p">,</span><span class="mf">71.2</span><span class="p">,</span><span class="mi">40</span>
+<span class="mi">2</span><span class="p">,</span><span class="mf">70.8</span><span class="p">,</span><span class="mi">42</span>
+<span class="mi">3</span><span class="p">,</span><span class="mf">72.5</span><span class="p">,</span><span class="mi">39</span>
+</pre></div>
+</div>
+<p>As a dictionary of lists, this becomes:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">"hour"</span><span class="p">:</span>     <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+ <span class="s2">"temp_f"</span><span class="p">:</span>   <span class="p">[</span><span class="mf">71.2</span><span class="p">,</span> <span class="mf">70.8</span><span class="p">,</span> <span class="mf">72.5</span><span class="p">],</span>
+ <span class="s2">"humidity"</span><span class="p">:</span> <span class="p">[</span><span class="mf">40.0</span><span class="p">,</span> <span class="mf">42.0</span><span class="p">,</span> <span class="mf">39.0</span><span class="p">]}</span>
+</pre></div>
+</div>
+<p>To get every temperature, you use <code class="docutils literal notranslate"><span class="pre">data[&quot;temp_f&quot;]</span></code>. To get the humidity during hour 2, you use <code class="docutils literal notranslate"><span class="pre">data[&quot;humidity&quot;][1]</span></code>. That is index 1, because Python counts from 0.</p>
+<p>This structure only works if one rule holds: <strong>all the lists are the same length, and position <code class="docutils literal notranslate"><span class="pre">i</span></code> in every list belongs to the same row.</strong> Position 1 is hour 2 in <em>every</em> list. If one list loses an item and the others don’t, the columns slide out of line. Every value after that point gets matched to the wrong hour, and Python will not warn you. Any team that uses a dictionary of lists has to decide how it will keep the lists lined up. That rule belongs in the contract.</p>
+</section>
+<section id="contracts-describe-what-never-how">
+<h3>Contracts describe <em>what</em>, never <em>how</em><a class="headerlink" href="#contracts-describe-what-never-how" title="Link to this heading">#</a></h3>
+<p>A contract does <strong>not</strong> say whether the function uses a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop, NumPy, or <code class="docutils literal notranslate"><span class="pre">sum()</span></code>. That is the owner’s choice, and the owner can change it at any time without telling anyone, as long as the inputs and outputs stay exactly the same.</p>
+<p>That is what makes parallel work possible. Person C can write <code class="docutils literal notranslate"><span class="pre">print_summary</span></code> on Monday, even though Person B won’t finish <code class="docutils literal notranslate"><span class="pre">summarize_temperatures</span></code> until Thursday. Person C only needs the contract.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-5-decisions-to-make-on-day-one">
+<h2>Part 5: Decisions to Make on Day One<a class="headerlink" href="#part-5-decisions-to-make-on-day-one" title="Link to this heading">#</a></h2>
+<p>Some decisions affect <em>everyone’s</em> code. If they aren’t made at the start, each person makes them separately, and the decisions don’t match. Settle these as a team, before anyone writes code:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Decision</p></th>
+<th class="head"><p>Example question</p></th>
+<th class="head"><p>Why it matters</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Names</strong></p></td>
+<td><p>Is the key <code class="docutils literal notranslate"><span class="pre">&quot;average&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;avg&quot;</span></code>? Is the parameter <code class="docutils literal notranslate"><span class="pre">temps</span></code> or <code class="docutils literal notranslate"><span class="pre">temperatures</span></code>?</p></td>
+<td><p>A misspelled key causes a <code class="docutils literal notranslate"><span class="pre">KeyError</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Units</strong></p></td>
+<td><p>Are temperatures in °F or °C? Are times in hours or minutes?</p></td>
+<td><p>Mismatched units give wrong answers <em>with no error</em></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Types</strong></p></td>
+<td><p>Is <code class="docutils literal notranslate"><span class="pre">day</span></code> an <code class="docutils literal notranslate"><span class="pre">int</span></code> or a <code class="docutils literal notranslate"><span class="pre">float</span></code>? Are numbers stored as numbers or as strings?</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;71.2&quot;</span> <span class="pre">+</span> <span class="pre">1</span></code> crashes; <code class="docutils literal notranslate"><span class="pre">71.2</span> <span class="pre">+</span> <span class="pre">1</span></code> does not</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Messy data</strong></p></td>
+<td><p>What happens to blank values? To <code class="docutils literal notranslate"><span class="pre">-999</span></code>? Who handles them: the reader or the analyzer?</p></td>
+<td><p>If nobody handles them, everybody’s results are wrong</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Rounding</strong></p></td>
+<td><p>Who rounds: the function that calculates, or the function that prints?</p></td>
+<td><p>Rounding twice, or not at all, gives the wrong digits</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Ties and edge cases</strong></p></td>
+<td><p>If two days have the same high, which one is “best”?</p></td>
+<td><p>Two teammates might pick different days</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Ownership</strong></p></td>
+<td><p>Who writes which function? Which file does it live in?</p></td>
+<td><p>Prevents two people from editing the same file</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>When the team makes a decision, <strong>write it down</strong> in a <strong>Decision Log</strong>: a simple, dated list of what you decided and why. Six days from now, when someone asks “wait, did we say the reader or the analyzer removes blanks?”, the answer is in the log, not in three people’s memories.</p>
+<blockquote>
+<div><p><strong>Key idea:</strong> A decision that isn’t written down hasn’t really been made.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="part-6-working-as-a-team">
+<h2>Part 6: Working as a Team<a class="headerlink" href="#part-6-working-as-a-team" title="Link to this heading">#</a></h2>
+<section id="roles">
+<h3>Roles<a class="headerlink" href="#roles" title="Link to this heading">#</a></h3>
+<p>In your project, each person <strong>owns one function</strong> for the entire project. You are its expert. You write its contract section, its stub, its real code, and its tests, and you must be able to explain every line of it.</p>
+<p>On top of that, three <strong>duties</strong> rotate each class, so everyone practices every part of team programming:</p>
+<ul class="simple">
+<li><p><strong>Integrator:</strong> puts everyone’s code together and runs the whole program</p></li>
+<li><p><strong>Tester:</strong> checks each function against the contract</p></li>
+<li><p><strong>Recorder:</strong> keeps the contract and Decision Log up to date, and submits the team’s work</p></li>
+</ul>
+</section>
+<section id="a-working-agreement">
+<h3>A working agreement<a class="headerlink" href="#a-working-agreement" title="Link to this heading">#</a></h3>
+<p>Good teams agree on how they will work, not just what they will build. Before you leave class, agree on:</p>
+<ul class="simple">
+<li><p><strong>How you will communicate</strong> (a group chat, email, or something else) and how fast you will reply</p></li>
+<li><p><strong>When you will meet</strong> outside class, if you need to</p></li>
+<li><p><strong>Where shared files live</strong> and who may edit each one. In your project, every function has its own <code class="docutils literal notranslate"><span class="pre">.py</span></code> file, and only its owner edits it.</p></li>
+<li><p><strong>What happens if someone is stuck.</strong> Asking for help early is part of the job. Silence until the deadline is not.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="summary-key-concepts">
+<h2>Summary: Key Concepts<a class="headerlink" href="#summary-key-concepts" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Seams:</strong> the places where one person’s code passes data to another’s. Most team bugs live here.</p></li>
+<li><p><strong>Problem definition:</strong> inputs, outputs, what counts as success, and what’s messy. Always look at the real data first.</p></li>
+<li><p><strong>Decomposition:</strong> splitting a program into functions, often input → process → output, with a main program that calls them in order.</p></li>
+<li><p><strong>Function contract:</strong> name, inputs, output, side effects, and assumptions, written in the docstring.</p></li>
+<li><p><strong>Example value:</strong> a concrete literal that shows exactly what a function returns. It is the most precise part of a contract.</p></li>
+<li><p><strong>Dictionary of lists:</strong> a table stored as one list per column. All lists must stay the same length and stay lined up.</p></li>
+<li><p><strong>What, not how:</strong> a contract never says how the function works inside.</p></li>
+<li><p><strong>Decision Log:</strong> a dated, written record of team decisions.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="check-your-understanding">
+<h2>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>In the weather station example, each function was correct on its own. Why did the program still fail?</p></li>
+<li><p>Why is “the program runs but gives the wrong answer” worse than “the program crashes”?</p></li>
+<li><p>Name the five parts of a function contract.</p></li>
+<li><p>Rewrite this vague contract precisely: <em>“<code class="docutils literal notranslate"><span class="pre">read_temperatures</span></code> returns the temperatures.”</em></p></li>
+<li><p>In a dictionary of lists, why must every list stay the same length? What goes wrong if one list loses an item?</p></li>
+<li><p>Person B decides to rewrite <code class="docutils literal notranslate"><span class="pre">summarize_temperatures</span></code> using NumPy instead of <code class="docutils literal notranslate"><span class="pre">sum()</span></code>, <code class="docutils literal notranslate"><span class="pre">max()</span></code>, and <code class="docutils literal notranslate"><span class="pre">min()</span></code>. Does Person C need to change anything? Why or why not?</p></li>
+<li><p>Your teammate’s function returns <code class="docutils literal notranslate"><span class="pre">{&quot;average&quot;:</span> <span class="pre">71.6,</span> <span class="pre">&quot;high&quot;:</span> <span class="pre">72.5,</span> <span class="pre">&quot;low&quot;:</span> <span class="pre">70.8}</span></code>. Write the line of code that prints only the high temperature.</p></li>
+<li><p>Give one example of a team decision that, if it is skipped, causes wrong answers <em>without</em> any error message.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="coming-up-in-class">
+<h2>Coming Up in Class<a class="headerlink" href="#coming-up-in-class" title="Link to this heading">#</a></h2>
+<p>In class, your team will:</p>
+<ul class="simple">
+<li><p>open the real fitness tracker data and find its messy parts</p></li>
+<li><p>design your program</p></li>
+<li><p>divide up the functions</p></li>
+<li><p>write your <strong>Team Contract</strong></p></li>
+</ul>
+<p>Come ready to make decisions!</p>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./class"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="FitnessTrackerProject.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">EK125 Team Project: Fitness Tracker Analyzer</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../gpps/Class15_TeamActivity.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Class 15: Team Activity — Define the Problem and Write the Contract</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-why-team-programs-break">Part 1: Why Team Programs Break</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-story-you-will-recognize">A story you will recognize</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-small-example">A small example</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-define-the-problem-before-you-solve-it">Part 2: Define the Problem Before You Solve It</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#always-look-at-the-real-data-first">Always look at the real data first</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-break-the-program-into-functions">Part 3: Break the Program into Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-the-function-contract">Part 4: The Function Contract</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-contract">What is a contract?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#write-the-contract-as-a-docstring">Write the contract as a docstring</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#show-an-example-value">Show an example value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#describing-a-dictionary-of-lists">Describing a dictionary of lists</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contracts-describe-what-never-how">Contracts describe <em>what</em>, never <em>how</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-decisions-to-make-on-day-one">Part 5: Decisions to Make on Day One</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-working-as-a-team">Part 6: Working as a Team</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#roles">Roles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-working-agreement">A working agreement</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-key-concepts">Summary: Key Concepts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-your-understanding">Check Your Understanding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coming-up-in-class">Coming Up in Class</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Stormy Attaway, Brian DePasquale, Christine Mulvey, Kenn Sebesta
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

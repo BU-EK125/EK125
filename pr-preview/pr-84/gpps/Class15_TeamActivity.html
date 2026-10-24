@@ -1,0 +1,828 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Class 15: Team Activity — Define the Problem and Write the Contract &#8212; EK125</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'gpps/Class15_TeamActivity';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Fitness Tracker Analyzer: Team Contract" href="Team_Contract_Template.html" />
+    <link rel="prev" title="Class 15: Collaborating with Others — Problem Definition and Initial Decisions" href="../class/Class15.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">EK125</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to EK125
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendix/Fall2026Schedule.html">Fall 2026 Class Schedule</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python in Colab</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class1.html">Class 1: Introduction to Interactive Programming Using Google Colab</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class1_GPP.html">Class 1 GPP: Constants, Variables, Types, and Assignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class1_GPP_Solutions.html">Class 1 GPP Solutions: Constants, Variables, Types, and Assignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW1.html">Homework 1: Variables, Types, and Assignments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class2.html">Class 2: Sequences, Strings, and Lists in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class2_GPP.html">Class 2 GPP: Working with Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class2_GPP_Solutions.html">Class 2 GPP Solutions: Working with Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW2.html">Homework 2: Strings and Lists</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class3.html">Class 3: Booleans and Basic Logic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class3_GPP.html">Class 3 GPP: Boolean Logic Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class3_GPP_Solutions.html">Class 3 GPP Solutions: Boolean Logic Practice</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class4.html">Class 4: Coding Basics Wrap-up and Selection Statements</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class4_GPP.html">Class 4 GPP: Coding Basics Wrap-up and Selection Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class4_GPP_Solutions.html">Class 4 GPP Solutions: Coding Basics Wrap-up and Selection Statements</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW3.html">Homework 3: Boolean Logic, Sequences, and Selection Statements</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class5.html">Class 5: Importing Modules and Basic Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class5_GPP.html">Class 5 GPP: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class5_GPP_Solutions.html">Class 5 GPP Solutions: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class6.html">Class 6: Nested Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class6_GPP.html">Class 6 GPP: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class6_GPP_Solutions.html">Class 6 GPP Solutions: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW4.html">Homework 4: Loops and Randomness</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class7.html">Class 7: Advanced Iteration and Nested Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class7_GPP.html">Class 7 GPP: Advanced Iteration and Nested Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class7_GPP_Solutions.html">Class 7 GPP Solutions: Advanced Iteration and Nested Structures</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="Exam1_Review.html">EK125 Exam 1 - Top 30 GPP Problems for Paper Practice</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python in an IDE</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class9.html">Class 9: From Colab Notebooks to Running Python Locally</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class9_GPP.html">Class 9 GPP: Getting Comfortable with PyCharm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class9_GPP_Solutions.html">Class 9 GPP Solutions: Getting Comfortable with PyCharm</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class10.html">Class 10: Mastering Slicing in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class10_GPP.html">Class 10 GPP: Mastering Slicing in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class10_GPP_Solutions.html">Class 10 GPP Solutions: Mastering Slicing in Python</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW5.html">Homework 5: Advanced Iteration, Nested Structures, and Slicing</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class11.html">Class 11: Digging into arrays with NumPy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class11_GPP.html">Class 11 GPP: Working with Arrays in NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class11_GPP_Solutions.html">Class 11 GPP Solutions: Working with Arrays in NumPy</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class12.html">Class 12: Dictionaries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class12_GPP.html">Class 12 GPP: Python Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class12_GPP_Solutions.html">Class 12 GPP Solutions: Python Dictionaries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW6.html">Homework 6: NumPy and Dictionaries</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class13.html">Class 13: User-Defined Functions, Arguments, and Scope</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class13_GPP.html">Class 13 GPP: User-Defined Functions, Scope, and Copying</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class13_GPP_Solutions.html">Class 13 GPP Solutions: User-Defined Functions, Scope, and Copying</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class14.html">Class 14: Scripts, File I/O, and the Local File Environment</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class14_GPP.html">Class 14 GPP: Scripts, Comments, and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Class14_GPP_Solutions.html">Class 14 GPP Solutions: Scripts, Comments, and Documentation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW7.html">Homework 7: Modular Functions and File I/O</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Team Project: Fitness Tracker</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../class/FitnessTrackerProject.html">EK125 Team Project: Fitness Tracker Analyzer</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../class/Class15.html">Class 15: Collaborating with Others — Problem Definition and Initial Decisions</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Class 15: Team Activity — Define the Problem and Write the Contract</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="Team_Contract_Template.html">Fitness Tracker Analyzer: Team Contract</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class16.html">Class 16: Stub Building</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class16_TeamActivity.html">Class 16: Team Activity — Build a Running Skeleton</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class17.html">Class 17: Writing Real Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class17_TeamActivity.html">Class 17: Team Activity — Replace Your Stub with Real Code</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class18.html">Class 18: Integrating It All Together</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class18_TeamActivity.html">Class 18: Team Activity — Integrate, One Piece at a Time</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../class/Class19.html">Class 19: Debugging and Reflection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="Class19_TeamActivity.html">Class 19: Team Activity — Bug Hunt and Retrospective</a></li>
+
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MATLAB</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../class/Class21.html">Class 21: Visualizing Data and Plotting in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class22.html">Class 22: From Python to MATLAB: Syntax and Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class23.html">Class 23: Creating Vectors and Matrices in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class24.html">Class 24: Vector and Matrix Operations in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class25.html">Class 25: MATLAB Scripts, Documentation, and File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../class/Class26.html">Class 26: User Functions and Modular Programming in MATLAB</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendix/Syllabus.html">Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/WeeklyRhythm.html">Weekly Rhythm of EK125</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/SubmittingAssignments.html">Instructions to receive and submit assignments</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/gpps/Class15_TeamActivity.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Class 15: Team Activity — Define the Problem and Write the Contract</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Class 15: Team Activity — Define the Problem and Write the Contract</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-the-project-data">Download the Project Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#team-contract-template">Team Contract Template</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#morning-class-50-minutes">MORNING CLASS (50 minutes)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-a-meet-the-data-7-minutes">Part A: Meet the Data (7 minutes)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-b-design-the-program-and-divide-the-work-8-minutes">Part B: Design the Program and Divide the Work (8 minutes)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-c-make-the-team-decisions-10-minutes">Part C: Make the Team Decisions (10 minutes)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-d-draft-your-own-contract-section-15-minutes">Part D: Draft Your Own Contract Section (15 minutes)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#afternoon-lab-50-minutes">AFTERNOON LAB (50 minutes)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-e-work-out-the-expected-answers-by-hand-about-20-minutes-together">Part E: Work Out the Expected Answers by Hand (about 20 minutes, together)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-f-contract-stress-test-10-minutes">Part F: Contract Stress Test (10 minutes)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-g-finish-the-contract-remaining-time">Part G: Finish the Contract (remaining time)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-leave-lab">Before You Leave Lab</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="class-15-team-activity-define-the-problem-and-write-the-contract">
+<h1>Class 15: Team Activity — Define the Problem and Write the Contract<a class="headerlink" href="#class-15-team-activity-define-the-problem-and-write-the-contract" title="Link to this heading">#</a></h1>
+<p><strong>EK125 Fitness Tracker Project, Part 1</strong> – see the <a class="reference external" href="https://BU-EK125.github.io/EK125/class/FitnessTrackerProject.html">Project Overview</a> for the full arc.</p>
+<p>Work with your project team of 3. You may use the reading and your notes. Do <strong>not</strong> use AI. Every decision today should come from your team.</p>
+<p><strong>Today runs across both sessions:</strong> the morning class (Parts A-D) and the afternoon lab (Parts E-G).</p>
+<p><strong>Today’s goal:</strong> By the end of today, your team has a <strong>Team Contract</strong> precise enough that each of you could write your own function <em>without ever seeing your teammates’ code.</em></p>
+<section id="download-the-project-data">
+<h2>Download the Project Data<a class="headerlink" href="#download-the-project-data" title="Link to this heading">#</a></h2>
+<p>Download: <a class="reference download internal" download="" href="../_downloads/4526abdc77adddf13d9c38a36b6190fe/fitness_data.csv"><span class="xref download myst">fitness_data.csv</span></a></p>
+</section>
+<section id="team-contract-template">
+<h2>Team Contract Template<a class="headerlink" href="#team-contract-template" title="Link to this heading">#</a></h2>
+<p>Open: <a class="reference internal" href="Team_Contract_Template.html"><span class="std std-doc">Team Contract Template</span></a> – the Recorder copies its structure into your team’s shared document (Google Doc or similar) and types into it while the team talks.</p>
+<p><strong>Before you start:</strong></p>
+<ol class="arabic simple">
+<li><p>In PyCharm, create a new project folder named <code class="docutils literal notranslate"><span class="pre">FitnessTracker</span></code>.</p></li>
+<li><p>Download <code class="docutils literal notranslate"><span class="pre">fitness_data.csv</span></code> (above) into that folder.</p></li>
+<li><p>One person creates your team’s <strong>shared Google Drive folder</strong> (BU account) and shares it with the team. Put <code class="docutils literal notranslate"><span class="pre">fitness_data.csv</span></code> and the Team Contract in it.</p></li>
+<li><p>Open the <strong>Team Contract Template</strong> (above). Today’s Recorder types into it while the team talks.</p></li>
+</ol>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="morning-class-50-minutes">
+<h1>MORNING CLASS (50 minutes)<a class="headerlink" href="#morning-class-50-minutes" title="Link to this heading">#</a></h1>
+<section id="part-a-meet-the-data-7-minutes">
+<h2>Part A: Meet the Data (7 minutes)<a class="headerlink" href="#part-a-meet-the-data-7-minutes" title="Link to this heading">#</a></h2>
+<p>Open <code class="docutils literal notranslate"><span class="pre">fitness_data.csv</span></code> in PyCharm and <strong>read it</strong> (double-click it in the project panel). Do not write any code yet. Answer as a team:</p>
+<p><strong>A1.</strong> How many rows of data (days) are in the file? ______</p>
+<p><strong>A2.</strong> List every day that has at least one blank value, and which columns are blank:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Day</p></th>
+<th class="head"><p>Blank column(s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>A3.</strong> If you skip every row that has <em>any</em> blank value, how many complete days are left? ______</p>
+<p><strong>A4.</strong> For each metric, is a <strong>higher</strong> number better or a <strong>lower</strong> number better? (Hint: think about what a lower resting heart rate means for fitness.)</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Metric</p></th>
+<th class="head"><p>Higher or lower is better?</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">steps</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">resting_hr</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sleep_hours</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">active_minutes</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<hr class="docutils" />
+<section id="part-b-design-the-program-and-divide-the-work-8-minutes">
+<h2>Part B: Design the Program and Divide the Work (8 minutes)<a class="headerlink" href="#part-b-design-the-program-and-divide-the-work-8-minutes" title="Link to this heading">#</a></h2>
+<p><strong>C1. Claim your functions.</strong> Each person owns one function for the whole project. Write names in <strong>Section 1</strong> of the contract.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Function owner</p></th>
+<th class="head"><p>Function header (fixed, do not change)</p></th>
+<th class="head"><p>File</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Data Loader</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">load_tracker_data(filename)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">loader.py</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Data Analyst</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">analyze_metric(data,</span> <span class="pre">metric,</span> <span class="pre">goal,</span> <span class="pre">higher_is_better=True)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">analyzer.py</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Report Writer</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">write_report(results_list,</span> <span class="pre">filename)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">reporter.py</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>C2. Fill in the duty rotation</strong> in Section 1 (Integrator, Tester, Recorder for Classes 15-19).</p>
+<p><strong>C3. Write the main program.</strong> Today’s <strong>Integrator</strong> leads this. On paper first, write the lines of Python that <code class="docutils literal notranslate"><span class="pre">main.py</span></code> will run, using the three function headers above. Your main program must:</p>
+<ul class="simple">
+<li><p>load the data from <code class="docutils literal notranslate"><span class="pre">fitness_data.csv</span></code></p></li>
+<li><p>call <code class="docutils literal notranslate"><span class="pre">analyze_metric</span></code> once for <strong>each</strong> metric your team analyzes, and collect every result in a list named <code class="docutils literal notranslate"><span class="pre">results_list</span></code></p></li>
+<li><p>write the report to a file</p></li>
+</ul>
+<p>You do <strong>not</strong> need the functions to exist yet. You are writing the plan. Copy it into <strong>Section 3</strong> of the contract.</p>
+<blockquote>
+<div><p><strong>Hint:</strong> You can call <code class="docutils literal notranslate"><span class="pre">analyze_metric</span></code> four separate times and <code class="docutils literal notranslate"><span class="pre">.append()</span></code> each result. Or you can loop over a list of tuples like <code class="docutils literal notranslate"><span class="pre">(&quot;steps&quot;,</span> <span class="pre">8000,</span> <span class="pre">True)</span></code>. Both are fine. Pick one and write it down.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="part-c-make-the-team-decisions-10-minutes">
+<h2>Part C: Make the Team Decisions (10 minutes)<a class="headerlink" href="#part-c-make-the-team-decisions-10-minutes" title="Link to this heading">#</a></h2>
+<p>Decide each of the following together. The Recorder logs each decision in the <strong>Decision Log</strong> (Section 5), with today’s date and a one-line reason.</p>
+<ol class="arabic simple">
+<li><p><strong>Blank values:</strong> what happens to a row with a blank value? (Reread “<a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class15.html#describing-a-dictionary-of-lists">Describing a dictionary of lists</a>” in the reading before you decide.)</p></li>
+<li><p><strong>Metrics and goals:</strong> which metrics will you analyze (at least 3, and <code class="docutils literal notranslate"><span class="pre">resting_hr</span></code> must be one of them)? What is the daily goal for each?</p></li>
+<li><p><strong>Types:</strong> is <code class="docutils literal notranslate"><span class="pre">day</span></code> stored as an <code class="docutils literal notranslate"><span class="pre">int</span></code> or a <code class="docutils literal notranslate"><span class="pre">float</span></code>? What about the other columns?</p></li>
+<li><p><strong>Results keys:</strong> what are the exact key names in the dictionary that <code class="docutils literal notranslate"><span class="pre">analyze_metric</span></code> returns? It must include at least the average, minimum, maximum, best day, and number of days the goal was met. <strong>Report Writer:</strong> what <em>else</em> do you need in order to write the report? Ask for it now.</p></li>
+<li><p><strong>Rounding:</strong> does <code class="docutils literal notranslate"><span class="pre">analyze_metric</span></code> round, or does <code class="docutils literal notranslate"><span class="pre">write_report</span></code> round? To how many decimal places?</p></li>
+<li><p><strong>Ties:</strong> if two days tie for the best value, which day is reported?</p></li>
+<li><p><strong>Report:</strong> what is the report’s file name, and what will it look like? Sketch 3-4 lines.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="part-d-draft-your-own-contract-section-15-minutes">
+<h2>Part D: Draft Your Own Contract Section (15 minutes)<a class="headerlink" href="#part-d-draft-your-own-contract-section-15-minutes" title="Link to this heading">#</a></h2>
+<p>In <strong>Section 4</strong>, each owner writes the full docstring contract for their own function. Every contract needs all five parts from the reading:</p>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> <strong>Name and header</strong> (copied exactly)</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> <strong>Parameters:</strong> each one with its type, units, and an example</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> <strong>Returns:</strong> type, exact structure (every key, if it’s a dictionary), and <strong>a concrete example value</strong> (you can fill this in during lab)</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> <strong>Side effects:</strong> does it print? Write a file? Change its input?</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> <strong>Assumptions and messy cases:</strong> what must be true of the input? What happens with blank values?</p></li>
+</ul>
+<p><strong>The two seams to get right:</strong></p>
+<ul class="simple">
+<li><p>The <strong>Data Loader</strong>’s <em>Returns</em> and the <strong>Data Analyst</strong>’s <code class="docutils literal notranslate"><span class="pre">data</span></code> <em>parameter</em> must describe the <strong>same</strong> dictionary.</p></li>
+<li><p>The <strong>Data Analyst</strong>’s <em>Returns</em> and the <strong>Report Writer</strong>’s <code class="docutils literal notranslate"><span class="pre">results_list</span></code> <em>parameter</em> must use the <strong>same</strong> key names.</p></li>
+</ul>
+<p>Before you leave, read each other’s sections and check these two seams. Don’t worry about the <strong>Example</strong> values yet. You’ll work those out in lab.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="afternoon-lab-50-minutes">
+<h1>AFTERNOON LAB (50 minutes)<a class="headerlink" href="#afternoon-lab-50-minutes" title="Link to this heading">#</a></h1>
+<section id="part-e-work-out-the-expected-answers-by-hand-about-20-minutes-together">
+<h2>Part E: Work Out the Expected Answers by Hand (about 20 minutes, together)<a class="headerlink" href="#part-e-work-out-the-expected-answers-by-hand-about-20-minutes-together" title="Link to this heading">#</a></h2>
+<p>We’ll work through this as a class, step by step.</p>
+<p><strong>Warm-up: what does Python actually see?</strong></p>
+<p><strong>W1.</strong> When Python reads line 2 of this file, it gets the string <code class="docutils literal notranslate"><span class="pre">&quot;1,8478,61,8.1,50\n&quot;</span></code>. After <code class="docutils literal notranslate"><span class="pre">.strip().split(&quot;,&quot;)</span></code>, what list do you get? Are the items numbers or strings?</p>
+<p><strong>Answer:</strong> ______________________________________________________</p>
+<p><strong>W2.</strong> What does the line for Day 9 become after <code class="docutils literal notranslate"><span class="pre">.strip().split(&quot;,&quot;)</span></code>?</p>
+<p><strong>Answer:</strong> ______________________________________________________</p>
+<p><strong>Now the functions.</strong> Using <strong>only Days 1-5</strong> of <code class="docutils literal notranslate"><span class="pre">fitness_data.csv</span></code>, work out by hand (calculator allowed) what your functions should produce:</p>
+<ol class="arabic simple">
+<li><p><strong>Data Loader:</strong> write the exact dictionary <code class="docutils literal notranslate"><span class="pre">load_tracker_data</span></code> would return for a file containing only Days 1-5.</p></li>
+<li><p><strong>Data Analyst:</strong> using that dictionary, write the exact dictionary <code class="docutils literal notranslate"><span class="pre">analyze_metric</span></code> would return for <code class="docutils literal notranslate"><span class="pre">steps</span></code> with your goal. Then do the same for <code class="docutils literal notranslate"><span class="pre">resting_hr</span></code> with your goal (remember: <strong>lower</strong> is better).</p></li>
+<li><p><strong>Report Writer:</strong> write the exact report text <code class="docutils literal notranslate"><span class="pre">write_report</span></code> would produce from those two results.</p></li>
+</ol>
+<p>Put these into your contract as the <strong>Example</strong> values. <strong>Keep this work.</strong> In Class 17, these hand-calculated answers become your <strong>test cases</strong>: they’re how you’ll know your real function is correct.</p>
+</section>
+<hr class="docutils" />
+<section id="part-f-contract-stress-test-10-minutes">
+<h2>Part F: Contract Stress Test (10 minutes)<a class="headerlink" href="#part-f-contract-stress-test-10-minutes" title="Link to this heading">#</a></h2>
+<p>Swap Team Contracts with a neighboring team. Using <strong>only their contract</strong>, without talking to them, answer these on a sheet of paper:</p>
+<ol class="arabic simple">
+<li><p>Write the line of code that loads their data file.</p></li>
+<li><p>Write the line of code that analyzes <code class="docutils literal notranslate"><span class="pre">steps</span></code> with their goal.</p></li>
+<li><p>Write the line of code that prints the <strong>average</strong> from that result.</p></li>
+<li><p>Write the <strong>exact value</strong> their <code class="docutils literal notranslate"><span class="pre">load_tracker_data</span></code> would return if the file contained only Days 1 and 2.</p></li>
+<li><p>List <strong>every question</strong> you wanted to ask them because their contract didn’t say.</p></li>
+</ol>
+<p>Return the sheet. <strong>Your team’s job:</strong> for every question the other team listed, add the missing detail to your contract. Log any changes in the Decision Log.</p>
+<blockquote>
+<div><p>A perfect contract gets <strong>zero</strong> questions in this stress test. Each question you receive shows something your own teammates might have guessed wrong.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="part-g-finish-the-contract-remaining-time">
+<h2>Part G: Finish the Contract (remaining time)<a class="headerlink" href="#part-g-finish-the-contract-remaining-time" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Answer the four problem-definition questions in <strong>Section 2</strong>: What goes in? What comes out? What counts as success (how would you check the report is right)? What is messy (use Part A)?</p></li>
+<li><p>Fix everything the stress test turned up, and log changes in the Decision Log.</p></li>
+<li><p>Fill in the working agreement (Section 6).</p></li>
+<li><p>Go through the submission checklist at the end of the template.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="before-you-leave-lab">
+<h2>Before You Leave Lab<a class="headerlink" href="#before-you-leave-lab" title="Link to this heading">#</a></h2>
+<ul class="contains-task-list simple">
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Every section of the Team Contract has a draft, including Example values</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Each person knows which function they own and which duty they have in Class 16</p></li>
+<li class="task-list-item"><p><input class="task-list-item-checkbox" disabled="disabled" type="checkbox"> Your team has agreed on a communication plan (Section 6)</p></li>
+</ul>
+<p><strong>Homework:</strong> Finish the Team Contract. The Recorder submits it as a <strong>PDF</strong> to Gradescope (<strong>Fitness Tracker Part 1: Team Contract</strong>) as a group submission with all three names, by <strong>Tuesday 10/27, 11:59 PM.</strong> Use the checklist at the end of the template before submitting.</p>
+<p><strong>Next class (Class 16):</strong> you’ll turn this contract into <strong>stubs</strong> and get the whole program running before any real code is written.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./gpps"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../class/Class15.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Class 15: Collaborating with Others — Problem Definition and Initial Decisions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Team_Contract_Template.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Fitness Tracker Analyzer: Team Contract</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Class 15: Team Activity — Define the Problem and Write the Contract</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-the-project-data">Download the Project Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#team-contract-template">Team Contract Template</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#morning-class-50-minutes">MORNING CLASS (50 minutes)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-a-meet-the-data-7-minutes">Part A: Meet the Data (7 minutes)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-b-design-the-program-and-divide-the-work-8-minutes">Part B: Design the Program and Divide the Work (8 minutes)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-c-make-the-team-decisions-10-minutes">Part C: Make the Team Decisions (10 minutes)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-d-draft-your-own-contract-section-15-minutes">Part D: Draft Your Own Contract Section (15 minutes)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#afternoon-lab-50-minutes">AFTERNOON LAB (50 minutes)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-e-work-out-the-expected-answers-by-hand-about-20-minutes-together">Part E: Work Out the Expected Answers by Hand (about 20 minutes, together)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-f-contract-stress-test-10-minutes">Part F: Contract Stress Test (10 minutes)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-g-finish-the-contract-remaining-time">Part G: Finish the Contract (remaining time)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-you-leave-lab">Before You Leave Lab</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Stormy Attaway, Brian DePasquale, Christine Mulvey, Kenn Sebesta
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
