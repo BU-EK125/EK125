@@ -1,0 +1,871 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Class 18: Integrating It All Together &#8212; EK125</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'class/Class18';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class 18: Team Activity — Integrate, One Piece at a Time" href="../gpps/Class18_TeamActivity.html" />
+    <link rel="prev" title="Class 17: Team Activity — Replace Your Stub with Real Code" href="../gpps/Class17_TeamActivity.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">EK125</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to EK125
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendix/Fall2026Schedule.html">Fall 2026 Class Schedule</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python in Colab</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class1.html">Class 1: Introduction to Interactive Programming Using Google Colab</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class1_GPP.html">Class 1 GPP: Constants, Variables, Types, and Assignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class1_GPP_Solutions.html">Class 1 GPP Solutions: Constants, Variables, Types, and Assignments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW1.html">Homework 1: Variables, Types, and Assignments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class2.html">Class 2: Sequences, Strings, and Lists in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class2_GPP.html">Class 2 GPP: Working with Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class2_GPP_Solutions.html">Class 2 GPP Solutions: Working with Sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../homework/HW2.html">Homework 2: Strings and Lists</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class3.html">Class 3: Booleans and Basic Logic</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class3_GPP.html">Class 3 GPP: Boolean Logic Practice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class3_GPP_Solutions.html">Class 3 GPP Solutions: Boolean Logic Practice</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class4.html">Class 4: Coding Basics Wrap-up and Selection Statements</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class4_GPP.html">Class 4 GPP: Coding Basics Wrap-up and Selection Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class4_GPP_Solutions.html">Class 4 GPP Solutions: Coding Basics Wrap-up and Selection Statements</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW3.html">Homework 3: Boolean Logic, Sequences, and Selection Statements</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class5.html">Class 5: Importing Modules and Basic Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class5_GPP.html">Class 5 GPP: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class5_GPP_Solutions.html">Class 5 GPP Solutions: <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> loops</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class6.html">Class 6: Nested Loops</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class6_GPP.html">Class 6 GPP: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class6_GPP_Solutions.html">Class 6 GPP Solutions: Nested <code class="docutils literal notranslate"><span class="pre">for</span></code> loops</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW4.html">Homework 4: Loops and Randomness</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class7.html">Class 7: Advanced Iteration and Nested Structures</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class7_GPP.html">Class 7 GPP: Advanced Iteration and Nested Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class7_GPP_Solutions.html">Class 7 GPP Solutions: Advanced Iteration and Nested Structures</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../gpps/Exam1_Review.html">EK125 Exam 1 - Top 30 GPP Problems for Paper Practice</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python in an IDE</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class9.html">Class 9: From Colab Notebooks to Running Python Locally</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class9_GPP.html">Class 9 GPP: Getting Comfortable with PyCharm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class9_GPP_Solutions.html">Class 9 GPP Solutions: Getting Comfortable with PyCharm</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class10.html">Class 10: Mastering Slicing in Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class10_GPP.html">Class 10 GPP: Mastering Slicing in Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class10_GPP_Solutions.html">Class 10 GPP Solutions: Mastering Slicing in Python</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW5.html">Homework 5: Advanced Iteration, Nested Structures, and Slicing</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class11.html">Class 11: Digging into arrays with NumPy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class11_GPP.html">Class 11 GPP: Working with Arrays in NumPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class11_GPP_Solutions.html">Class 11 GPP Solutions: Working with Arrays in NumPy</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class12.html">Class 12: Dictionaries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class12_GPP.html">Class 12 GPP: Python Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class12_GPP_Solutions.html">Class 12 GPP Solutions: Python Dictionaries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW6.html">Homework 6: NumPy and Dictionaries</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class13.html">Class 13: User-Defined Functions, Arguments, and Scope</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class13_GPP.html">Class 13 GPP: User-Defined Functions, Scope, and Copying</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class13_GPP_Solutions.html">Class 13 GPP Solutions: User-Defined Functions, Scope, and Copying</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class14.html">Class 14: Scripts, File I/O, and the Local File Environment</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class14_GPP.html">Class 14 GPP: Scripts, Comments, and Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class14_GPP_Solutions.html">Class 14 GPP Solutions: Scripts, Comments, and Documentation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../homework/HW7.html">Homework 7: Modular Functions and File I/O</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Team Project: Fitness Tracker</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="FitnessTrackerProject.html">EK125 Team Project: Fitness Tracker Analyzer</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class15.html">Class 15: Collaborating with Others — Problem Definition and Initial Decisions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class15_TeamActivity.html">Class 15: Team Activity — Define the Problem and Write the Contract</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class16.html">Class 16: Stub Building</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class16_TeamActivity.html">Class 16: Team Activity — Build a Running Skeleton</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class17.html">Class 17: Writing Real Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class17_TeamActivity.html">Class 17: Team Activity — Replace Your Stub with Real Code</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Class 18: Integrating It All Together</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class18_TeamActivity.html">Class 18: Team Activity — Integrate, One Piece at a Time</a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Class19.html">Class 19: Debugging and Reflection</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gpps/Class19_TeamActivity.html">Class 19: Team Activity — Bug Hunt and Retrospective</a></li>
+
+
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">MATLAB</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Class21.html">Class 21: Visualizing Data and Plotting in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class22.html">Class 22: From Python to MATLAB: Syntax and Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class23.html">Class 23: Creating Vectors and Matrices in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class24.html">Class 24: Vector and Matrix Operations in MATLAB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class25.html">Class 25: MATLAB Scripts, Documentation, and File I/O</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Class26.html">Class 26: User Functions and Modular Programming in MATLAB</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../appendix/Syllabus.html">Course Syllabus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/WeeklyRhythm.html">Weekly Rhythm of EK125</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/SubmittingAssignments.html">Instructions to receive and submit assignments</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/class/Class18.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Class 18: Integrating It All Together</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-one-bulb-at-a-time">Part 1: One Bulb at a Time</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-the-integration-plan">Part 2: The Integration Plan</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#order-follow-the-data">Order: follow the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#start-small-the-days-15-file">Start small: the Days 1–5 file</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-reading-a-traceback-that-crosses-files">Part 3: Reading a Traceback That Crosses Files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#where-it-crashed-is-not-always-where-the-bug-is">Where it crashed is not always where the bug is</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-it-runs-is-not-the-same-as-it-s-right">Part 4: “It Runs” Is Not the Same as “It’s Right”</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-program-that-runs-and-lies">A program that runs and lies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reasonableness-checks">Reasonableness checks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-facts">Data facts</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-fix-the-code-or-fix-the-contract">Part 5: Fix the Code, or Fix the Contract?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-the-integration-log">Part 6: The Integration Log</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-key-concepts">Summary: Key Concepts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-your-understanding">Check Your Understanding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coming-up-in-class">Coming Up in Class</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="class-18-integrating-it-all-together">
+<h1>Class 18: Integrating It All Together<a class="headerlink" href="#class-18-integrating-it-all-together" title="Link to this heading">#</a></h1>
+<section id="learning-objectives">
+<h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this reading, you should be able to:</p>
+<ul class="simple">
+<li><p>Plan an integration that adds <strong>one real function at a time</strong></p></li>
+<li><p>Run the program on a small file with known answers before running it on the real data</p></li>
+<li><p>Read a traceback that passes through several files, and find where the error <strong>started</strong></p></li>
+<li><p>Use <strong>reasonableness checks</strong> to catch a program that runs but gives wrong answers</p></li>
+<li><p>Decide whether to fix the <strong>code</strong> or the <strong>contract</strong> when two pieces disagree</p></li>
+<li><p>Keep an <strong>integration log</strong></p></li>
+</ul>
+<p><strong>New syntax today:</strong> none.</p>
+</section>
+<hr class="docutils" />
+<section id="part-1-one-bulb-at-a-time">
+<h2>Part 1: One Bulb at a Time<a class="headerlink" href="#part-1-one-bulb-at-a-time" title="Link to this heading">#</a></h2>
+<p>You’re stringing holiday lights. Ten bulbs are burned out, so you buy ten new ones, replace all ten at once, and plug the string in. It’s still dark. Which bulb is the problem? It could be any of the ten, or more than one.</p>
+<p>Now try it differently: replace <strong>one</strong> bulb, plug in, check. Replace the next, plug in, check. The moment the string goes dark, you know exactly which bulb caused it.</p>
+<p>Integration works the same way. Your team has three real functions. You <em>could</em> drop them all in and run <code class="docutils literal notranslate"><span class="pre">main.py</span></code>. But if it crashes, or worse, runs and gives the wrong answer, you won’t know which piece caused it.</p>
+<blockquote>
+<div><p><strong>Key idea:</strong> Add one real function at a time, and run after every change. When something breaks, it was the last thing you added.</p>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="part-2-the-integration-plan">
+<h2>Part 2: The Integration Plan<a class="headerlink" href="#part-2-the-integration-plan" title="Link to this heading">#</a></h2>
+<section id="order-follow-the-data">
+<h3>Order: follow the data<a class="headerlink" href="#order-follow-the-data" title="Link to this heading">#</a></h3>
+<p>Data flows Loader → Analyst → Report Writer, so integrate in the same order:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Step</p></th>
+<th class="head"><p>Real functions</p></th>
+<th class="head"><p>Stubs</p></th>
+<th class="head"><p>Why this order</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>none</p></td>
+<td><p>all three</p></td>
+<td><p>Your Class 16 skeleton. It should still run.</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Loader</p></td>
+<td><p>Analyst, Report Writer</p></td>
+<td><p>Everything downstream depends on the data being right</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>Loader, Analyst</p></td>
+<td><p>Report Writer</p></td>
+<td><p>Now the numbers are real</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>all three</p></td>
+<td><p>none</p></td>
+<td><p>The real report</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>After <strong>every</strong> step: run <code class="docutils literal notranslate"><span class="pre">main.py</span></code>, run <code class="docutils literal notranslate"><span class="pre">check_seams.py</span></code>, and compare the output to what you expect.</p>
+</section>
+<section id="start-small-the-days-15-file">
+<h3>Start small: the Days 1–5 file<a class="headerlink" href="#start-small-the-days-15-file" title="Link to this heading">#</a></h3>
+<p>Here’s the trick that makes integration much easier. <strong>Run <code class="docutils literal notranslate"><span class="pre">main.py</span></code> on your small test file first</strong>, not the real data:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">load_tracker_data</span><span class="p">(</span><span class="s2">"test_days1to5.csv"</span><span class="p">)</span>    <span class="c1"># temporarily</span>
+</pre></div>
+</div>
+<p>You worked out the correct answer for Days 1–5 by hand in <a class="reference external" href="https://BU-EK125.github.io/EK125/gpps/Class15_TeamActivity.html#part-e-work-out-the-expected-answers-by-hand-about-20-minutes-together">Class 15</a>. So after each step, you know <strong>exactly</strong> what the report should say. Only after the small file works perfectly do you switch to <code class="docutils literal notranslate"><span class="pre">fitness_data.csv</span></code>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-3-reading-a-traceback-that-crosses-files">
+<h2>Part 3: Reading a Traceback That Crosses Files<a class="headerlink" href="#part-3-reading-a-traceback-that-crosses-files" title="Link to this heading">#</a></h2>
+<p>When an error happens inside a function, Python shows the <strong>traceback</strong>: the chain of calls that led there. With several files, it can look intimidating:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s2">"main.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">30</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="n">main</span><span class="p">()</span>
+  <span class="n">File</span> <span class="s2">"main.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">25</span><span class="p">,</span> <span class="ow">in</span> <span class="n">main</span>
+    <span class="n">write_report</span><span class="p">(</span><span class="n">results_list</span><span class="p">,</span> <span class="s2">"fitness_report.txt"</span><span class="p">)</span>
+  <span class="n">File</span> <span class="s2">"reporter.py"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">31</span><span class="p">,</span> <span class="ow">in</span> <span class="n">write_report</span>
+    <span class="sa">f</span><span class="s2">"(met on </span><span class="si">{</span><span class="n">results</span><span class="p">[</span><span class="s1">'days_meeting_goal'</span><span class="p">]</span><span class="si">}</span><span class="s2"> of "</span>
+<span class="ne">KeyError</span><span class="p">:</span> <span class="s1">'days_meeting_goal'</span>
+</pre></div>
+</div>
+<p>Read it <strong>from the bottom up</strong>:</p>
+<ol class="arabic simple">
+<li><p><strong>Last line: what went wrong.</strong> <code class="docutils literal notranslate"><span class="pre">KeyError:</span> <span class="pre">'days_meeting_goal'</span></code>. A dictionary doesn’t have that key.</p></li>
+<li><p><strong>The block just above it: where it happened.</strong> In <code class="docutils literal notranslate"><span class="pre">reporter.py</span></code>, line 31, inside <code class="docutils literal notranslate"><span class="pre">write_report</span></code>.</p></li>
+<li><p><strong>The blocks above that: how we got there.</strong> <code class="docutils literal notranslate"><span class="pre">main.py</span></code> called <code class="docutils literal notranslate"><span class="pre">main()</span></code>, which called <code class="docutils literal notranslate"><span class="pre">write_report(...)</span></code>.</p></li>
+</ol>
+<section id="where-it-crashed-is-not-always-where-the-bug-is">
+<h3>Where it crashed is not always where the bug is<a class="headerlink" href="#where-it-crashed-is-not-always-where-the-bug-is" title="Link to this heading">#</a></h3>
+<p>The crash happened in the <strong>Report Writer’s</strong> file. But the dictionary that’s missing the key was <strong>made by the Analyst</strong>. So there are two possibilities:</p>
+<ul class="simple">
+<li><p>The Analyst’s function returns the wrong key name. The Analyst is off-contract.</p></li>
+<li><p>The Report Writer asks for the wrong key name. The Report Writer is off-contract.</p></li>
+</ul>
+<p><strong>The contract decides.</strong> Look up the Analyst’s <em>Returns</em> section. If it says <code class="docutils literal notranslate"><span class="pre">&quot;days_meeting_goal&quot;</span></code>, the Analyst needs to fix their code. If it says something else, the Report Writer does.</p>
+<blockquote>
+<div><p><strong>Key idea:</strong> The error appears where a bad value is <strong>used</strong>. The bug is often where that value was <strong>created</strong>. Follow the value back across the seam, and let the contract decide who’s wrong.</p>
+</div></blockquote>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-4-it-runs-is-not-the-same-as-it-s-right">
+<h2>Part 4: “It Runs” Is Not the Same as “It’s Right”<a class="headerlink" href="#part-4-it-runs-is-not-the-same-as-it-s-right" title="Link to this heading">#</a></h2>
+<p>The most dangerous moment in integration is when the program <strong>runs with no errors</strong> for the first time. It feels like you’re done. You may not be.</p>
+<section id="a-program-that-runs-and-lies">
+<h3>A program that runs and lies<a class="headerlink" href="#a-program-that-runs-and-lies" title="Link to this heading">#</a></h3>
+<p>Suppose the weather station reader skipped blank lines but forgot about <code class="docutils literal notranslate"><span class="pre">-999</span></code>. With the readings 71.2, 70.8, 72.5, -999 and 71.9, the program runs fine and prints:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Average</span><span class="p">:</span> <span class="o">-</span><span class="mf">142.5</span> <span class="n">F</span>
+<span class="n">Low</span><span class="p">:</span>     <span class="o">-</span><span class="mf">999.0</span> <span class="n">F</span>
+</pre></div>
+</div>
+<p>No error message. But nobody in Boston has ever recorded a temperature of −999°F. A program can’t tell you its answer is ridiculous. <strong>You</strong> have to check.</p>
+</section>
+<section id="reasonableness-checks">
+<h3>Reasonableness checks<a class="headerlink" href="#reasonableness-checks" title="Link to this heading">#</a></h3>
+<p>When you don’t know the exact right answer, you can still check whether an answer is <strong>possible</strong>:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Check</p></th>
+<th class="head"><p>Question to ask</p></th>
+<th class="head"><p>Fitness tracker example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Counts</strong></p></td>
+<td><p>Is the number of items what it should be?</p></td>
+<td><p>28 rows minus 3 incomplete rows = <strong>25</strong> days analyzed</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Lengths</strong></p></td>
+<td><p>Are lists that should match the same length?</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">len(data[&quot;day&quot;])</span> <span class="pre">==</span> <span class="pre">len(data[&quot;steps&quot;])</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Ranges</strong></p></td>
+<td><p>Are values physically possible?</p></td>
+<td><p>Resting heart rate between about 40 and 100 bpm; sleep between 0 and 24 hours</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Consistency</strong></p></td>
+<td><p>Do related numbers agree?</p></td>
+<td><p>Average between minimum and maximum; days meeting goal ≤ days analyzed</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Cross-check</strong></p></td>
+<td><p>Does one result agree with the raw data?</p></td>
+<td><p>Find the best step day’s row in the CSV. Does its step count equal the maximum?</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The last one is powerful. If the report says the best step day is Day 25, open the CSV and look at Day 25. If its step count isn’t the maximum, something is wrong, even though the program ran perfectly.</p>
+</section>
+<section id="data-facts">
+<h3>Data facts<a class="headerlink" href="#data-facts" title="Link to this heading">#</a></h3>
+<p>Your instructor will give you a short list of <strong>data facts</strong> for <code class="docutils literal notranslate"><span class="pre">fitness_data.csv</span></code>: numbers that don’t depend on your team’s goals or decisions (such as the number of complete days and the maximum step count). Compare your final report against them.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="part-5-fix-the-code-or-fix-the-contract">
+<h2>Part 5: Fix the Code, or Fix the Contract?<a class="headerlink" href="#part-5-fix-the-code-or-fix-the-contract" title="Link to this heading">#</a></h2>
+<p>When two pieces disagree, someone has to change something. Ask in this order:</p>
+<ol class="arabic simple">
+<li><p><strong>What does the contract say?</strong> If one side matches the contract and the other doesn’t, the side that doesn’t match gets fixed. That owner fixes their own file.</p></li>
+<li><p><strong>Is the contract unclear or silent?</strong> Maybe it never said what happens on a tie, or whether <code class="docutils literal notranslate"><span class="pre">goal</span></code> is an int or a float. Then the <strong>team</strong> decides. The Recorder updates the contract and adds a dated line to the Decision Log. <em>Then</em> the code changes to match.</p></li>
+<li><p><strong>Is the contract wrong?</strong> Maybe you discover the Report Writer needs a value the Analyst never promised. Same as #2: the team agrees, the contract is updated, and then the code changes.</p></li>
+</ol>
+<p>Never “just fix it” quietly in your own file to work around a teammate’s mistake. A workaround hides the problem, and the next person to use that function will hit it again.</p>
+</section>
+<hr class="docutils" />
+<section id="part-6-the-integration-log">
+<h2>Part 6: The Integration Log<a class="headerlink" href="#part-6-the-integration-log" title="Link to this heading">#</a></h2>
+<p>Engineers keep logs so that problems, and their solutions, aren’t forgotten. Your <strong>integration log</strong> records every step:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Step</p></th>
+<th class="head"><p>Real functions</p></th>
+<th class="head"><p>Data file</p></th>
+<th class="head"><p>Matches expected?</p></th>
+<th class="head"><p>What broke</p></th>
+<th class="head"><p>Cause</p></th>
+<th class="head"><p>Fix (who)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Loader</p></td>
+<td><p>Days 1–5</p></td>
+<td><p>Yes</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Loader + Analyst</p></td>
+<td><p>Days 1–5</p></td>
+<td><p>No</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">best_day</span></code> was 4 for steps</p></td>
+<td><p>Returned position, not day number</p></td>
+<td><p>Analyst: use <code class="docutils literal notranslate"><span class="pre">days[best_index]</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The log turns “we fixed some stuff” into evidence of exactly what your team found and how. You’ll use it in Class 19’s reflection.</p>
+</section>
+<hr class="docutils" />
+<section id="summary-key-concepts">
+<h2>Summary: Key Concepts<a class="headerlink" href="#summary-key-concepts" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>One at a time:</strong> add one real function, run, check. Repeat.</p></li>
+<li><p><strong>Follow the data:</strong> Loader, then Analyst, then Report Writer.</p></li>
+<li><p><strong>Start small:</strong> use the Days 1–5 file first, where you know the exact answer.</p></li>
+<li><p><strong>Tracebacks:</strong> read bottom-up (what, then where, then how we got there). The bug is often upstream, where the value was created.</p></li>
+<li><p><strong>Reasonableness checks:</strong> counts, lengths, ranges, consistency, cross-checks.</p></li>
+<li><p><strong>Code or contract?</strong> The contract decides. If it’s unclear, the team decides, updates the contract, logs it, and then the code changes.</p></li>
+<li><p><strong>Integration log:</strong> a written record of each step, what broke, and why.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="check-your-understanding">
+<h2>Check Your Understanding<a class="headerlink" href="#check-your-understanding" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Why integrate one function at a time instead of all three at once?</p></li>
+<li><p>Why run on the Days 1–5 file before the full data file?</p></li>
+<li><p>In the traceback in Part 3, which file and function did the crash happen in? Which teammate’s function <em>created</em> the dictionary that was missing the key?</p></li>
+<li><p>The report says “Days analyzed: 26.” The file has 28 rows, and 3 of them have blanks. What should the number be, and which function would you look at first?</p></li>
+<li><p>The report says the best step day is Day 25. How would you cross-check that against the CSV file?</p></li>
+<li><p>The Report Writer needs the number of days analyzed, but the Analyst’s contract never promised it. What should the team do?</p></li>
+<li><p>Give two reasonableness checks you could apply to a resting heart rate average.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="coming-up-in-class">
+<h2>Coming Up in Class<a class="headerlink" href="#coming-up-in-class" title="Link to this heading">#</a></h2>
+<p>You’ll integrate your three real functions, one at a time: first on the Days 1–5 file, then on the full data. In lab, you’ll meet a program that runs perfectly and is still wrong, and figure out why.</p>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./class"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../gpps/Class17_TeamActivity.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Class 17: Team Activity — Replace Your Stub with Real Code</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../gpps/Class18_TeamActivity.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Class 18: Team Activity — Integrate, One Piece at a Time</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning Objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-one-bulb-at-a-time">Part 1: One Bulb at a Time</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-the-integration-plan">Part 2: The Integration Plan</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#order-follow-the-data">Order: follow the data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#start-small-the-days-15-file">Start small: the Days 1–5 file</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-reading-a-traceback-that-crosses-files">Part 3: Reading a Traceback That Crosses Files</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#where-it-crashed-is-not-always-where-the-bug-is">Where it crashed is not always where the bug is</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-it-runs-is-not-the-same-as-it-s-right">Part 4: “It Runs” Is Not the Same as “It’s Right”</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-program-that-runs-and-lies">A program that runs and lies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reasonableness-checks">Reasonableness checks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-facts">Data facts</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-fix-the-code-or-fix-the-contract">Part 5: Fix the Code, or Fix the Contract?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-6-the-integration-log">Part 6: The Integration Log</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-key-concepts">Summary: Key Concepts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-your-understanding">Check Your Understanding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coming-up-in-class">Coming Up in Class</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Stormy Attaway, Brian DePasquale, Christine Mulvey, Kenn Sebesta
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
