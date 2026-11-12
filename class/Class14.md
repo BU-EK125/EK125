@@ -867,19 +867,26 @@ with open('important_data.txt', 'a') as file:
 
 ### Mistake 3: Forgetting to Strip Newlines Before Splitting
 
-`int()` and `float()` are forgiving -- they ignore leading/trailing whitespace, including `\n`, so `float('72\n')` works fine. But `.split(',')` is not forgiving: the newline is still part of the *last* field, since it comes before the split happens.
+One line of `data.csv` looks like `"1,75\n"` -- a day number, a temperature, and the newline at the end.
 
 ```python
-# BAD - the last column still has '\n' stuck to it
-with open('data.csv', 'r') as file:
-    for line in file:
-        values = line.split(',')  # last value is "75\n", not "75"
+line = "1,75\n"
 
-# GOOD - strip before splitting
-with open('data.csv', 'r') as file:
-    for line in file:
-        values = line.strip().split(',')
+# int() and float() are forgiving: they ignore the '\n' on their own.
+float("75\n")  # 75.0 -- works fine, no .strip() needed here
+
+# BAD - split() is NOT forgiving: the '\n' stays stuck to the last field
+day, temp = line.split(',')
+temp          # "75\n"  <- still has the newline
+temp == "75"  # False!  the string comparison fails
+print(temp)   # prints "75" then a blank line -- the '\n' is still there
+
+# GOOD - strip the whole line before splitting
+day, temp = line.strip().split(',')
+temp          # "75"  <- clean
 ```
+
+So `.strip()` isn't needed to make `float(temp)` work -- it already would. It's needed because `temp` is still a *string* with a `\n` attached until you convert it, and anything that touches that string before converting it (splitting a line, comparing it, printing it) will see the newline.
 
 ### Mistake 4: Hardcoding Paths
 
