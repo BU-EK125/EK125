@@ -515,7 +515,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-common-mistakes-and-how-to-avoid-them">Part 5: Common Mistakes and How to Avoid Them</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-1-forgetting-to-close-files-without-with">Mistake 1: Forgetting to Close Files (Without <code class="docutils literal notranslate"><span class="pre">with</span></code>)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-2-using-w-mode-carelessly">Mistake 2: Using <code class="docutils literal notranslate"><span class="pre">'w'</span></code> Mode Carelessly</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-3-forgetting-to-strip-newlines">Mistake 3: Forgetting to Strip Newlines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-3-forgetting-to-strip-newlines-before-splitting">Mistake 3: Forgetting to Strip Newlines Before Splitting</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-4-hardcoding-paths">Mistake 4: Hardcoding Paths</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-5-not-checking-if-file-exists">Mistake 5: Not Checking if File Exists</a></li>
 </ul>
@@ -1410,15 +1410,18 @@ Think of borrowing a book from the library:</p>
 </pre></div>
 </div>
 </section>
-<section id="mistake-3-forgetting-to-strip-newlines">
-<h3>Mistake 3: Forgetting to Strip Newlines<a class="headerlink" href="#mistake-3-forgetting-to-strip-newlines" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># BAD - Numbers have '\n' at the end</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'numbers.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
-    <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">]</span>  <span class="c1"># Error! "72\n" is not a float</span>
+<section id="mistake-3-forgetting-to-strip-newlines-before-splitting">
+<h3>Mistake 3: Forgetting to Strip Newlines Before Splitting<a class="headerlink" href="#mistake-3-forgetting-to-strip-newlines-before-splitting" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">int()</span></code> and <code class="docutils literal notranslate"><span class="pre">float()</span></code> are forgiving – they ignore leading/trailing whitespace, including <code class="docutils literal notranslate"><span class="pre">\n</span></code>, so <code class="docutils literal notranslate"><span class="pre">float('72\n')</span></code> works fine. But <code class="docutils literal notranslate"><span class="pre">.split(',')</span></code> is not forgiving: the newline is still part of the <em>last</em> field, since it comes before the split happens.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># BAD - the last column still has '\n' stuck to it</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'data.csv'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">','</span><span class="p">)</span>  <span class="c1"># last value is "75\n", not "75"</span>
 
-<span class="c1"># GOOD - Strip whitespace first</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'numbers.txt'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
-    <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">]</span>
+<span class="c1"># GOOD - strip before splitting</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'data.csv'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">','</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -1634,7 +1637,7 @@ Think of borrowing a book from the library:</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#part-5-common-mistakes-and-how-to-avoid-them">Part 5: Common Mistakes and How to Avoid Them</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-1-forgetting-to-close-files-without-with">Mistake 1: Forgetting to Close Files (Without <code class="docutils literal notranslate"><span class="pre">with</span></code>)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-2-using-w-mode-carelessly">Mistake 2: Using <code class="docutils literal notranslate"><span class="pre">'w'</span></code> Mode Carelessly</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-3-forgetting-to-strip-newlines">Mistake 3: Forgetting to Strip Newlines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-3-forgetting-to-strip-newlines-before-splitting">Mistake 3: Forgetting to Strip Newlines Before Splitting</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-4-hardcoding-paths">Mistake 4: Hardcoding Paths</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mistake-5-not-checking-if-file-exists">Mistake 5: Not Checking if File Exists</a></li>
 </ul>
