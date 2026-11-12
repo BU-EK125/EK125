@@ -865,16 +865,20 @@ with open('important_data.txt', 'a') as file:
     file.write('new data\n')
 ```
 
-### Mistake 3: Forgetting to Strip Newlines
+### Mistake 3: Forgetting to Strip Newlines Before Splitting
+
+`int()` and `float()` are forgiving -- they ignore leading/trailing whitespace, including `\n`, so `float('72\n')` works fine. But `.split(',')` is not forgiving: the newline is still part of the *last* field, since it comes before the split happens.
 
 ```python
-# BAD - Numbers have '\n' at the end
-with open('numbers.txt', 'r') as file:
-    numbers = [float(line) for line in file]  # Error! "72\n" is not a float
+# BAD - the last column still has '\n' stuck to it
+with open('data.csv', 'r') as file:
+    for line in file:
+        values = line.split(',')  # last value is "75\n", not "75"
 
-# GOOD - Strip whitespace first
-with open('numbers.txt', 'r') as file:
-    numbers = [float(line.strip()) for line in file]
+# GOOD - strip before splitting
+with open('data.csv', 'r') as file:
+    for line in file:
+        values = line.strip().split(',')
 ```
 
 ### Mistake 4: Hardcoding Paths
