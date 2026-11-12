@@ -1412,18 +1412,24 @@ Think of borrowing a book from the library:</p>
 </section>
 <section id="mistake-3-forgetting-to-strip-newlines-before-splitting">
 <h3>Mistake 3: Forgetting to Strip Newlines Before Splitting<a class="headerlink" href="#mistake-3-forgetting-to-strip-newlines-before-splitting" title="Link to this heading">#</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">int()</span></code> and <code class="docutils literal notranslate"><span class="pre">float()</span></code> are forgiving – they ignore leading/trailing whitespace, including <code class="docutils literal notranslate"><span class="pre">\n</span></code>, so <code class="docutils literal notranslate"><span class="pre">float('72\n')</span></code> works fine. But <code class="docutils literal notranslate"><span class="pre">.split(',')</span></code> is not forgiving: the newline is still part of the <em>last</em> field, since it comes before the split happens.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># BAD - the last column still has '\n' stuck to it</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'data.csv'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
-        <span class="n">values</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">','</span><span class="p">)</span>  <span class="c1"># last value is "75\n", not "75"</span>
+<p>One line of <code class="docutils literal notranslate"><span class="pre">data.csv</span></code> looks like <code class="docutils literal notranslate"><span class="pre">&quot;1,75\n&quot;</span></code> – a day number, a temperature, and the newline at the end.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">line</span> <span class="o">=</span> <span class="s2">"1,75</span><span class="se">\n</span><span class="s2">"</span>
 
-<span class="c1"># GOOD - strip before splitting</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'data.csv'</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
-        <span class="n">values</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">','</span><span class="p">)</span>
+<span class="c1"># int() and float() are forgiving: they ignore the '\n' on their own.</span>
+<span class="nb">float</span><span class="p">(</span><span class="s2">"75</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>  <span class="c1"># 75.0 -- works fine, no .strip() needed here</span>
+
+<span class="c1"># BAD - split() is NOT forgiving: the '\n' stays stuck to the last field</span>
+<span class="n">day</span><span class="p">,</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">','</span><span class="p">)</span>
+<span class="n">temp</span>          <span class="c1"># "75\n"  &lt;- still has the newline</span>
+<span class="n">temp</span> <span class="o">==</span> <span class="s2">"75"</span>  <span class="c1"># False!  the string comparison fails</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>   <span class="c1"># prints "75" then a blank line -- the '\n' is still there</span>
+
+<span class="c1"># GOOD - strip the whole line before splitting</span>
+<span class="n">day</span><span class="p">,</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">','</span><span class="p">)</span>
+<span class="n">temp</span>          <span class="c1"># "75"  &lt;- clean</span>
 </pre></div>
 </div>
+<p>So <code class="docutils literal notranslate"><span class="pre">.strip()</span></code> isn’t needed to make <code class="docutils literal notranslate"><span class="pre">float(temp)</span></code> work – it already would. It’s needed because <code class="docutils literal notranslate"><span class="pre">temp</span></code> is still a <em>string</em> with a <code class="docutils literal notranslate"><span class="pre">\n</span></code> attached until you convert it, and anything that touches that string before converting it (splitting a line, comparing it, printing it) will see the newline.</p>
 </section>
 <section id="mistake-4-hardcoding-paths">
 <h3>Mistake 4: Hardcoding Paths<a class="headerlink" href="#mistake-4-hardcoding-paths" title="Link to this heading">#</a></h3>
