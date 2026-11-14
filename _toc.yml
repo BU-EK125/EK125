@@ -89,10 +89,23 @@ parts:
     chapters:
       - file: class/Class21
       - file: class/Class22
+        sections:
+          - file: gpps/Class22_GPP
+          - file: gpps/Class22_GPP_Solutions
       - file: class/Class23
+        sections:
+          - file: gpps/Class23_GPP
       - file: class/Class24
+        sections:
+          - file: gpps/Class24_GPP
       - file: class/Class25
+        sections:
+          - file: gpps/Class25_GPP
+          - file: gpps/Class25_GPP_Solutions
       - file: class/Class26
+        sections:
+          - file: gpps/Class26_GPP
+          - file: gpps/Class26_GPP_Solutions
   - caption: Appendix
     chapters:
       - file: appendix/Syllabus
