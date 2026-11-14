@@ -59,7 +59,19 @@ ans =
     5   16   40   14
 ```
 
-The vector implicitly "expanded" to the same size as the matrix for element-wise arithmetic. If both elements are vectors, they will both be "expanded".
+Here both vectors are the same size (1 × 4), so MATLAB simply adds them element by element.
+
+When the sizes are different but compatible, MATLAB implicitly "expands" the smaller array to match. For example, adding a 1 × 3 row vector to a 2 × 3 matrix adds the row vector to each row of the matrix:
+
+```matlab
+>> mat = [1 2 3; 4 5 6];
+>> mat + [10 20 30]
+ans =
+    11    22    33
+    14    25    36
+```
+
+If one operand is a row vector and the other is a column vector, they will both be "expanded" (see the 1-by-3 plus 2-by-1 example in the next section).
 
 ### Array Multiplication Operators
 
@@ -281,14 +293,24 @@ ans =
 **`flipud`** flips a column vector or the rows of a matrix up to down:
 
 ```matlab
->> vec = 2:3:14
-vec =
-     2     5     8    11    14
+>> cvec = (2:3:14)'
+cvec =
+     2
+     5
+     8
+    11
+    14
 
->> flipud(vec)
+>> flipud(cvec)
 ans =
-    14    11     8     5     2
+    14
+    11
+     8
+     5
+     2
 ```
+
+Note that `flipud` on a *row* vector returns it unchanged, because a row vector has only one row to flip.
 
 **`flip`** flips a row vector left to right or a column vector or matrix up to down.
 
@@ -385,15 +407,17 @@ Notice that the result is a row vector that contains the result of the function 
 
 Many statistical functions accept an optional dimensional argument that specifies whether the operation should be applied to the columns independently (the default) or to the rows.
 
-To get the mean of each row, specify `2` as the second input:
+To get the maximum of each row, specify `2` as the dimension. For `max` and `min`, the dimension is the *third* input, so an empty `[]` goes in the second position:
 
 ```matlab
->> max(mat,2)
+>> max(mat,[],2)
 ans =
      7
      8
     10
 ```
+
+**Watch out:** `max(mat,2)` (without the `[]`) does something different: it compares every element with the number 2 and returns whichever is larger. For `sum` and `mean`, the dimension *is* the second input: `sum(mat,2)` and `mean(mat,2)` give the row sums and row means.
 
 To get an overall value, for example overall maximum, get the max of this row vector:
 
@@ -410,7 +434,7 @@ ans =
 You could also specify the operating dimension of the function as `"all"`:
 
 ```matlab
->> max(mat,"all")
+>> max(mat,[],"all")
 ans =
     10
 ```
@@ -583,7 +607,7 @@ ans =
 5. Matrix multiplication requires inner dimensions to match (columns of first = rows of second)
 6. Logical operators create logical arrays that can be used for indexing
 7. Most statistical functions operate column-wise by default on matrices
-8. Use dimension arguments (e.g., `2` for rows, `"all"` for entire array) to control function behavior
+8. Use dimension arguments (e.g., `2` for rows, `"all"` for entire array) to control function behavior; for `max` and `min` the dimension goes third: `max(mat,[],2)`
 9. Functions like `reshape`, `flip`, and `repmat` modify array structure
 10. Square matrix functions like `diag`, `trace`, and `eye` are useful for linear algebra
 
@@ -595,7 +619,7 @@ For more detailed information about these functions and concepts, refer to the o
 
 - [Array vs. Matrix Operations - MATLAB & Simulink](https://www.mathworks.com/help/matlab/matlab_prog/array-vs-matrix-operations.html)
 - [Reshape array by rearranging existing elements - MATLAB](https://www.mathworks.com/help/matlab/ref/reshape.html)
-- [rot90 - Rotate CW 90 deg - MATLAB](https://www.mathworks.com/help/matlab/ref/rot90.html)
+- [rot90 - Rotate array 90 degrees - MATLAB](https://www.mathworks.com/help/matlab/ref/rot90.html)
 - [fliplr - Flip array left to right - MATLAB](https://www.mathworks.com/help/matlab/ref/fliplr.html)
 - [flipud - Flip array up to down - MATLAB](https://www.mathworks.com/help/matlab/ref/flipud.html)
 - [flip - Flip order of elements - MATLAB](https://www.mathworks.com/help/matlab/ref/flip.html)
