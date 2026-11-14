@@ -10,17 +10,14 @@ A vector can be either a row vector or a column vector. If a vector has n elemen
 
 Here are some diagrams showing, from left to right, a scalar, a column vector, a row vector, and a matrix:
 
-```
-3       5       [8 3 11 9]      [6 3 8]
-        8                       [5 7 9]
+3       5       [8 3 11 9]      [6 3]
+        8                       [5 7]
         4
-
-```
 
 - The scalar is 1 × 1
 - The column vector is 3 × 1 (three rows by one column)
 - The row vector is 1 × 4 (one row by four columns)
-- The matrix is 2 × 3 (two rows by three columns)
+- The matrix is 2 × 2 (two rows by two columns)
 
 All of the values stored in these matrices are stored in what are called **elements**.
 
@@ -73,6 +70,14 @@ ls =
 ## Accessing Vector Elements
 
 The elements in a vector are numbered sequentially; each element number is called the **index** or **subscript**. In MATLAB, the indices start at 1. For example:
+
+```matlab
+>> newvec = [1 3 5 7 9 3 6 9 12 15]
+newvec =
+    1  3  5  7  9  3  6  9  12  15
+```
+
+The index of each element is shown above it:
 
 ```
 newvec
@@ -290,7 +295,7 @@ mat =
 ### Important Notes on Modification
 
 1. When modifying submatrices, the dimensions of the replacement values must match the dimensions being replaced (unless you're using a scalar).
-2. Logical indexing returns elements in a column vector, so modifications using logical indexing work element-by-element.
+2. Logical indexing selects only the elements where the condition is true, so modifications using logical indexing work element-by-element and leave all other elements unchanged. (When you *extract* elements from a matrix with logical indexing, e.g. `mat(mat < 0)`, the result comes back as a column vector.)
 3. You can combine logical conditions using `&` (AND), `|` (OR), and `~` (NOT).
 
 ## Special Matrix-Creating Functions
@@ -458,7 +463,10 @@ A =
 For loops that repeatedly expand matrices, it's best to preallocate space for the largest anticipated matrix. Without preallocation, MATLAB has to allocate memory every time the size increases, slowing down operations:
 
 ```matlab
->> A = zeros(10000, 10000);  % Preallocate
+results = zeros(1, 1000);   % Preallocate space for 1000 values
+for k = 1:1000
+    results(k) = k^2;       % Fill in one element at a time
+end
 ```
 
 ## Reshaping Arrays
@@ -478,11 +486,11 @@ B =
 
 ### Automatic Dimension Calculation
 
-You can use [] as a placeholder for one dimension, and MATLAB will automatically calculate it:
+When you give the dimensions as separate inputs, you can use [] as a placeholder for one of them, and MATLAB will automatically calculate it:
 
 ```matlab
 >> A = 1:12;
->> B = reshape(A, [2, []])  % Automatically calculates 6 columns
+>> B = reshape(A, 2, [])  % Automatically calculates 6 columns
 B =
     1  3  5  7   9  11
     2  4  6  8  10  12
@@ -493,7 +501,7 @@ B =
 1. The total number of elements must remain the same
 2. Elements are taken **column-wise** from the input
 3. To reshape row-wise, transpose before and after: reshape(A', [m,n])'
-4. reshape rearranges existing elements; use resize to add or remove elements
+4. reshape only rearranges existing elements; to add or remove elements, use indexing and concatenation instead (MATLAB R2023b and later also has a `resize` function)
 
 ## Key Takeaways
 
