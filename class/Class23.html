@@ -531,17 +531,14 @@ document.write(`
 <section id="visual-examples">
 <h3>Visual Examples<a class="headerlink" href="#visual-examples" title="Link to this heading">#</a></h3>
 <p>Here are some diagrams showing, from left to right, a scalar, a column vector, a row vector, and a matrix:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span>       <span class="mi">5</span>       <span class="p">[</span><span class="mi">8</span> <span class="mi">3</span> <span class="mi">11</span> <span class="mi">9</span><span class="p">]</span>      <span class="p">[</span><span class="mi">6</span> <span class="mi">3</span> <span class="mi">8</span><span class="p">]</span>
-        <span class="mi">8</span>                       <span class="p">[</span><span class="mi">5</span> <span class="mi">7</span> <span class="mi">9</span><span class="p">]</span>
-        <span class="mi">4</span>
-
-</pre></div>
-</div>
+<p>3       5       [8 3 11 9]      [6 3]
+8                       [5 7]
+4</p>
 <ul class="simple">
 <li><p>The scalar is 1 × 1</p></li>
 <li><p>The column vector is 3 × 1 (three rows by one column)</p></li>
 <li><p>The row vector is 1 × 4 (one row by four columns)</p></li>
-<li><p>The matrix is 2 × 3 (two rows by three columns)</p></li>
+<li><p>The matrix is 2 × 2 (two rows by two columns)</p></li>
 </ul>
 <p>All of the values stored in these matrices are stored in what are called <strong>elements</strong>.</p>
 </section>
@@ -590,6 +587,12 @@ document.write(`
 <section id="accessing-vector-elements">
 <h2>Accessing Vector Elements<a class="headerlink" href="#accessing-vector-elements" title="Link to this heading">#</a></h2>
 <p>The elements in a vector are numbered sequentially; each element number is called the <strong>index</strong> or <strong>subscript</strong>. In MATLAB, the indices start at 1. For example:</p>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">newvec</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="mi">15</span><span class="p">]</span>
+<span class="n">newvec</span><span class="w"> </span><span class="p">=</span>
+<span class="w">    </span><span class="mi">1</span><span class="w">  </span><span class="mi">3</span><span class="w">  </span><span class="mi">5</span><span class="w">  </span><span class="mi">7</span><span class="w">  </span><span class="mi">9</span><span class="w">  </span><span class="mi">3</span><span class="w">  </span><span class="mi">6</span><span class="w">  </span><span class="mi">9</span><span class="w">  </span><span class="mi">12</span><span class="w">  </span><span class="mi">15</span>
+</pre></div>
+</div>
+<p>The index of each element is shown above it:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">newvec</span>
   <span class="mi">1</span>    <span class="mi">2</span>    <span class="mi">3</span>    <span class="mi">4</span>    <span class="mi">5</span>    <span class="mi">6</span>    <span class="mi">7</span>    <span class="mi">8</span>    <span class="mi">9</span>   <span class="mi">10</span>
 <span class="p">[</span><span class="mi">1</span>    <span class="mi">3</span>    <span class="mi">5</span>    <span class="mi">7</span>    <span class="mi">9</span>    <span class="mi">3</span>    <span class="mi">6</span>    <span class="mi">9</span>   <span class="mi">12</span>   <span class="mi">15</span><span class="p">]</span>
@@ -787,7 +790,7 @@ document.write(`
 <h3>Important Notes on Modification<a class="headerlink" href="#important-notes-on-modification" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>When modifying submatrices, the dimensions of the replacement values must match the dimensions being replaced (unless you’re using a scalar).</p></li>
-<li><p>Logical indexing returns elements in a column vector, so modifications using logical indexing work element-by-element.</p></li>
+<li><p>Logical indexing selects only the elements where the condition is true, so modifications using logical indexing work element-by-element and leave all other elements unchanged. (When you <em>extract</em> elements from a matrix with logical indexing, e.g. <code class="docutils literal notranslate"><span class="pre">mat(mat</span> <span class="pre">&lt;</span> <span class="pre">0)</span></code>, the result comes back as a column vector.)</p></li>
 <li><p>You can combine logical conditions using <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> (AND), <code class="docutils literal notranslate"><span class="pre">|</span></code> (OR), and <code class="docutils literal notranslate"><span class="pre">~</span></code> (NOT).</p></li>
 </ol>
 </section>
@@ -946,7 +949,10 @@ document.write(`
 <section id="preallocation-best-practice">
 <h3>Preallocation Best Practice<a class="headerlink" href="#preallocation-best-practice" title="Link to this heading">#</a></h3>
 <p>For loops that repeatedly expand matrices, it’s best to preallocate space for the largest anticipated matrix. Without preallocation, MATLAB has to allocate memory every time the size increases, slowing down operations:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="mi">10000</span><span class="p">,</span><span class="w"> </span><span class="mi">10000</span><span class="p">);</span><span class="w">  </span><span class="c">% Preallocate</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">);</span><span class="w">   </span><span class="c">% Preallocate space for 1000 values</span>
+<span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="mi">1000</span>
+<span class="w">    </span><span class="n">results</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">k</span><span class="o">^</span><span class="mi">2</span><span class="p">;</span><span class="w">       </span><span class="c">% Fill in one element at a time</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 </section>
@@ -967,9 +973,9 @@ document.write(`
 </section>
 <section id="automatic-dimension-calculation">
 <h3>Automatic Dimension Calculation<a class="headerlink" href="#automatic-dimension-calculation" title="Link to this heading">#</a></h3>
-<p>You can use [] as a placeholder for one dimension, and MATLAB will automatically calculate it:</p>
+<p>When you give the dimensions as separate inputs, you can use [] as a placeholder for one of them, and MATLAB will automatically calculate it:</p>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="mi">12</span><span class="p">;</span>
-<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">reshape</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="p">[]])</span><span class="w">  </span><span class="c">% Automatically calculates 6 columns</span>
+<span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">reshape</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="p">[])</span><span class="w">  </span><span class="c">% Automatically calculates 6 columns</span>
 <span class="n">B</span><span class="w"> </span><span class="p">=</span>
 <span class="w">    </span><span class="mi">1</span><span class="w">  </span><span class="mi">3</span><span class="w">  </span><span class="mi">5</span><span class="w">  </span><span class="mi">7</span><span class="w">   </span><span class="mi">9</span><span class="w">  </span><span class="mi">11</span>
 <span class="w">    </span><span class="mi">2</span><span class="w">  </span><span class="mi">4</span><span class="w">  </span><span class="mi">6</span><span class="w">  </span><span class="mi">8</span><span class="w">  </span><span class="mi">10</span><span class="w">  </span><span class="mi">12</span>
@@ -982,7 +988,7 @@ document.write(`
 <li><p>The total number of elements must remain the same</p></li>
 <li><p>Elements are taken <strong>column-wise</strong> from the input</p></li>
 <li><p>To reshape row-wise, transpose before and after: reshape(A’, [m,n])’</p></li>
-<li><p>reshape rearranges existing elements; use resize to add or remove elements</p></li>
+<li><p>reshape only rearranges existing elements; to add or remove elements, use indexing and concatenation instead (MATLAB R2023b and later also has a <code class="docutils literal notranslate"><span class="pre">resize</span></code> function)</p></li>
 </ol>
 </section>
 </section>

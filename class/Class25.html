@@ -491,9 +491,8 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-data-for-reuse">4. Saving Data for Reuse</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">8. Saving Data for Reuse</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mat-files-best-for-matlab-to-matlab-reuse">MAT Files - Best for MATLAB-to-MATLAB Reuse</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-data-for-reuse">4. Saving Data for Reuse</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mat-files-best-for-working-within-matlab">.mat Files - Best for Working Within MATLAB</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-mat-files">Advantages of .mat Files</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-to-mat-files">Saving to .mat Files</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-from-mat-files">Loading from .mat Files</a></li>
@@ -545,7 +544,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls">Common Pitfalls</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-input-output-basic-operations">7. File Input/Output - Basic Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-input-output-basic-operations">6. File Input/Output - Basic Operations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-text-files">Reading Text Files</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#method-1-load-for-simple-numeric-data">Method 1: <code class="docutils literal notranslate"><span class="pre">load</span></code> for Simple Numeric Data</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#method-2-readmatrix-recommended-for-modern-matlab">Method 2: <code class="docutils literal notranslate"><span class="pre">readmatrix</span></code> (Recommended for Modern MATLAB)</a></li>
@@ -560,7 +559,7 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-management-best-practices">9. File Management Best Practices</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-management-best-practices">7. File Management Best Practices</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-if-files-exist">Check if Files Exist</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-modes">File Modes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#always-close-files">Always Close Files</a></li>
@@ -581,7 +580,7 @@ document.write(`
 <h1>Class 25: MATLAB Scripts, Documentation, and File I/O<a class="headerlink" href="#class-25-matlab-scripts-documentation-and-file-i-o" title="Link to this heading">#</a></h1>
 <section id="learning-objectives">
 <h2>Learning Objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
-<p>By the end of this reading, you should be able to:</p>
+<p>By the end of this prereading, you should be able to:</p>
 <ul class="simple">
 <li><p>Create and run MATLAB script files</p></li>
 <li><p>Document your code with comments and function headers</p></li>
@@ -853,12 +852,9 @@ document.write(`
 </section>
 <section id="saving-data-for-reuse">
 <h2>4. Saving Data for Reuse<a class="headerlink" href="#saving-data-for-reuse" title="Link to this heading">#</a></h2>
-</section>
-<section id="id1">
-<h2>8. Saving Data for Reuse<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<section id="mat-files-best-for-working-within-matlab">
+<h3>.mat Files - Best for Working Within MATLAB<a class="headerlink" href="#mat-files-best-for-working-within-matlab" title="Link to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">.mat</span></code> files are MATLAB’s native format and the most efficient way to save workspace data.</p>
-<section id="mat-files-best-for-matlab-to-matlab-reuse">
-<h3>MAT Files - Best for MATLAB-to-MATLAB Reuse<a class="headerlink" href="#mat-files-best-for-matlab-to-matlab-reuse" title="Link to this heading">#</a></h3>
 <section id="advantages-of-mat-files">
 <h4>Advantages of .mat Files<a class="headerlink" href="#advantages-of-mat-files" title="Link to this heading">#</a></h4>
 <ul class="simple">
@@ -878,8 +874,11 @@ document.write(`
 <span class="c">% Save all workspace variables</span>
 <span class="nb">save</span><span class="p">(</span><span class="s">'my_workspace.mat'</span><span class="p">);</span>
 
-<span class="c">% Save with version compatibility (for older MATLAB versions)</span>
+<span class="c">% Save very large variables (over 2 GB) using the v7.3 format</span>
 <span class="nb">save</span><span class="p">(</span><span class="s">'data.mat'</span><span class="p">,</span><span class="w"> </span><span class="s">'x'</span><span class="p">,</span><span class="w"> </span><span class="s">'y'</span><span class="p">,</span><span class="w"> </span><span class="s">'-v7.3'</span><span class="p">);</span>
+
+<span class="c">% Save in an older format so older MATLAB versions can read it</span>
+<span class="nb">save</span><span class="p">(</span><span class="s">'data_old.mat'</span><span class="p">,</span><span class="w"> </span><span class="s">'x'</span><span class="p">,</span><span class="w"> </span><span class="s">'y'</span><span class="p">,</span><span class="w"> </span><span class="s">'-v7'</span><span class="p">);</span>
 </pre></div>
 </div>
 </section>
@@ -960,8 +959,8 @@ document.write(`
 </tr>
 <tr class="row-even"><td><p>.xlsx</p></td>
 <td><p>Creating reports</p></td>
-<td><p>Formatted, familiar</p></td>
-<td><p>Slower, requires Excel</p></td>
+<td><p>Familiar to non-programmers</p></td>
+<td><p>Slower to read and write</p></td>
 </tr>
 <tr class="row-odd"><td><p>.txt</p></td>
 <td><p>Custom formatting needed</p></td>
@@ -1231,7 +1230,7 @@ document.write(`
 <span class="nb">fprintf</span><span class="p">(</span><span class="s">'Modified: %s\n'</span><span class="p">,</span><span class="w"> </span><span class="n">dateModified</span><span class="p">);</span>
 
 <span class="c">% Extract parts of file path</span>
-<span class="p">[</span><span class="n">filepath</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">ext</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fileparts</span><span class="p">(</span><span class="s">'Data\experiment1.csv'</span><span class="p">);</span>
+<span class="p">[</span><span class="n">filepath</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">ext</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fileparts</span><span class="p">(</span><span class="s">'Data/experiment1.csv'</span><span class="p">);</span><span class="w">  </span><span class="c">% Forward slashes work on all systems</span>
 <span class="c">% filepath = 'Data'</span>
 <span class="c">% name = 'experiment1'</span>
 <span class="c">% ext = '.csv'</span>
@@ -1252,22 +1251,22 @@ document.write(`
 <section id="common-pitfalls">
 <h3>Common Pitfalls<a class="headerlink" href="#common-pitfalls" title="Link to this heading">#</a></h3>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="c">% DON'T: Hardcode full paths</span>
-<span class="n">data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">load</span><span class="p">(</span><span class="s">'C:\Users\John\Documents\MATLAB\data.csv'</span><span class="p">);</span><span class="w">  </span><span class="c">% Won't work on other computers</span>
+<span class="n">data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">readmatrix</span><span class="p">(</span><span class="s">'C:\Users\John\Documents\MATLAB\data.csv'</span><span class="p">);</span><span class="w">  </span><span class="c">% Won't work on other computers</span>
 
 <span class="c">% DO: Use relative paths</span>
-<span class="n">data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">load</span><span class="p">(</span><span class="nb">fullfile</span><span class="p">(</span><span class="s">'Data'</span><span class="p">,</span><span class="w"> </span><span class="s">'data.csv'</span><span class="p">));</span>
+<span class="n">data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">readmatrix</span><span class="p">(</span><span class="nb">fullfile</span><span class="p">(</span><span class="s">'Data'</span><span class="p">,</span><span class="w"> </span><span class="s">'data.csv'</span><span class="p">));</span>
 
 <span class="c">% DON'T: Use system-specific separators</span>
-<span class="nb">path</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">'Data\Raw\experiment.csv'</span><span class="p">;</span><span class="w">  </span><span class="c">% Breaks on Mac/Linux</span>
+<span class="n">filePath</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">'Data\Raw\experiment.csv'</span><span class="p">;</span><span class="w">  </span><span class="c">% Breaks on Mac/Linux</span>
 
 <span class="c">% DO: Use fullfile</span>
-<span class="nb">path</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fullfile</span><span class="p">(</span><span class="s">'Data'</span><span class="p">,</span><span class="w"> </span><span class="s">'Raw'</span><span class="p">,</span><span class="w"> </span><span class="s">'experiment.csv'</span><span class="p">);</span>
+<span class="n">filePath</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">fullfile</span><span class="p">(</span><span class="s">'Data'</span><span class="p">,</span><span class="w"> </span><span class="s">'Raw'</span><span class="p">,</span><span class="w"> </span><span class="s">'experiment.csv'</span><span class="p">);</span><span class="w">  </span><span class="c">% (avoid naming a variable 'path': that's a built-in MATLAB function)</span>
 </pre></div>
 </div>
 </section>
 </section>
 <section id="file-input-output-basic-operations">
-<h2>7. File Input/Output - Basic Operations<a class="headerlink" href="#file-input-output-basic-operations" title="Link to this heading">#</a></h2>
+<h2>6. File Input/Output - Basic Operations<a class="headerlink" href="#file-input-output-basic-operations" title="Link to this heading">#</a></h2>
 <section id="reading-text-files">
 <h3>Reading Text Files<a class="headerlink" href="#reading-text-files" title="Link to this heading">#</a></h3>
 <section id="method-1-load-for-simple-numeric-data">
@@ -1335,7 +1334,7 @@ document.write(`
 </section>
 </section>
 <section id="file-management-best-practices">
-<h2>9. File Management Best Practices<a class="headerlink" href="#file-management-best-practices" title="Link to this heading">#</a></h2>
+<h2>7. File Management Best Practices<a class="headerlink" href="#file-management-best-practices" title="Link to this heading">#</a></h2>
 <section id="check-if-files-exist">
 <h3>Check if Files Exist<a class="headerlink" href="#check-if-files-exist" title="Link to this heading">#</a></h3>
 <div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="nb">isfile</span><span class="p">(</span><span class="s">'data.txt'</span><span class="p">)</span>
@@ -1466,9 +1465,8 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-data-for-reuse">4. Saving Data for Reuse</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">8. Saving Data for Reuse</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mat-files-best-for-matlab-to-matlab-reuse">MAT Files - Best for MATLAB-to-MATLAB Reuse</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-data-for-reuse">4. Saving Data for Reuse</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mat-files-best-for-working-within-matlab">.mat Files - Best for Working Within MATLAB</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-mat-files">Advantages of .mat Files</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-to-mat-files">Saving to .mat Files</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-from-mat-files">Loading from .mat Files</a></li>
@@ -1520,7 +1518,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-pitfalls">Common Pitfalls</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-input-output-basic-operations">7. File Input/Output - Basic Operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-input-output-basic-operations">6. File Input/Output - Basic Operations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-text-files">Reading Text Files</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#method-1-load-for-simple-numeric-data">Method 1: <code class="docutils literal notranslate"><span class="pre">load</span></code> for Simple Numeric Data</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#method-2-readmatrix-recommended-for-modern-matlab">Method 2: <code class="docutils literal notranslate"><span class="pre">readmatrix</span></code> (Recommended for Modern MATLAB)</a></li>
@@ -1535,7 +1533,7 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-management-best-practices">9. File Management Best Practices</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-management-best-practices">7. File Management Best Practices</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-if-files-exist">Check if Files Exist</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#file-modes">File Modes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#always-close-files">Always Close Files</a></li>

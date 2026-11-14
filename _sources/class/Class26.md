@@ -266,7 +266,7 @@ end
 
 **Good:**
 ```matlab
-function cleanData = cleanData(rawData)
+function cleaned = cleanData(rawData)
     % Only handles data cleaning
 end
 
@@ -300,15 +300,17 @@ help calculateCircleArea
 Check that inputs meet your expectations:
 
 ```matlab
-function area = calculateRectangleArea(length, width)
+function area = calculateRectangleArea(rectLength, rectWidth)
 % CALCULATERECTANGLEAREA Computes the area of a rectangle
+%   (We avoid naming an input "length" because that would hide
+%   MATLAB's built-in length function inside this function.)
     
     % Input validation
-    if length <= 0 || width <= 0
+    if rectLength <= 0 || rectWidth <= 0
         error('Length and width must be positive values');
     end
     
-    area = length * width;
+    area = rectLength * rectWidth;
 end
 ```
 
@@ -362,6 +364,7 @@ function cleaned = removeOutliers(data)
 end
 
 function stats = calculateStatistics(data)
+    % stats is a structure: like a Python dictionary, it stores values under names (called fields)
     stats.mean = mean(data);
     stats.median = median(data);
     stats.std = std(data);

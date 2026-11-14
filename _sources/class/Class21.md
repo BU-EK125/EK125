@@ -34,7 +34,7 @@ Matplotlib is Python's most widely-used plotting library. It provides both simpl
 import matplotlib.pyplot as plt
 ```
 
-The convention is to import matplotlib's pyplot module as `plt`. You'll see this pattern everywhere in Python data visualization code. In Google Colab, matplotlib is already available and ready to use.
+The convention is to import matplotlib's pyplot module as `plt`. You'll see this pattern everywhere in Python data visualization code. In PyCharm, matplotlib must be installed in your project once before you can import it: open the **Python Packages** tool window and install `matplotlib` (or run `pip install matplotlib` in PyCharm's Terminal). The same applies to the other libraries in this reading, such as `folium`.
 
 ## 3. Creating Your First Plot
 
@@ -262,8 +262,8 @@ coffeeShopData = [
 # Add heatmap layer
 HeatMap(coffeeShopData, radius=15, blur=25, max_zoom=1).add_to(bostonMap)
 
-# Display map (works in Colab and Jupyter notebooks)
-bostonMap
+# Save the map as a web page, then open the .html file in your browser
+bostonMap.save('boston_heatmap.html')
 ```
 
 The intensity value (third element in each list) is optional. If omitted, all points are weighted equally:
@@ -287,7 +287,7 @@ studyLocations = [
 # Add heatmap
 HeatMap(studyLocations, radius=20).add_to(buMap)
 
-buMap
+buMap.save('bu_study_heatmap.html')
 ```
 
 Parameters for `HeatMap()`:
@@ -341,7 +341,7 @@ This plot makes it easy to identify patterns:
 - Students with varying performance show lines that cross many others
 - Correlations between subjects become visible (if lines tend to move together)
 
-**Note**: Matplotlib's parallel coordinates implementation has limitations, particularly when trying to use student names as a proper categorical axis. For more sophisticated parallel coordinates plots with better interactivity (hovering to highlight lines, filtering by dragging on axes), see the Plotly example in the Appendix, which handles this visualization much better.
+**Note**: Matplotlib's parallel coordinates implementation has limitations, particularly when trying to use student names as a proper categorical axis. For more sophisticated parallel coordinates plots with better interactivity (filtering by dragging on axes), see the Plotly example in the Appendix, which handles this visualization much better.
 
 Key features of parallel coordinates plots:
 - Each vertical axis represents one variable (subject)
@@ -758,9 +758,9 @@ plt.show()
 - **plt.show()**: Displays the plot on screen
 - **dpi**: Dots per inch, controls image resolution
 
-## Appendix: Advanced Plotting Libraries in Colab
+## Appendix: Advanced Plotting Libraries
 
-While matplotlib is the foundation of Python plotting and what you'll use most in this course, Google Colab provides access to several more advanced plotting libraries. These libraries offer features like interactivity, 3D visualization, and more sophisticated default styling. You're not required to use these for coursework, but they're worth knowing about for your own projects.
+While matplotlib is the foundation of Python plotting and what you'll use most in this course, Python has several more advanced plotting libraries. These libraries offer features like interactivity, 3D visualization, and more sophisticated default styling. You're not required to use these for coursework, but they're worth knowing about for your own projects.
 
 ### Plotly: Interactive Plots
 
@@ -866,7 +866,7 @@ fig.show()
 ```
 
 #### Interactive Parallel Coordinates Plot
-Plotly excels at parallel coordinates plots with full interactivity. Hovering over a line highlights it and shows all values:
+Plotly excels at parallel coordinates plots with full interactivity. Clicking and dragging along any axis filters the lines:
 
 ```python
 import plotly.graph_objects as go
@@ -917,31 +917,11 @@ fig = go.Figure(data=
 )
 
 fig.update_layout(
-    title='Interactive, click and drag on any axis to filter (you'll see a crosshair))',
+    title="Interactive: click and drag on any axis to filter (you'll see a crosshair)",
     font=dict(size=12),
     width=1000,
     height=600,
     margin=dict(l=100, r=100, t=80, b=100)
-)
-
-# Move axis labels to bottom
-fig.update_traces(
-    dimensions=[
-        dict(
-            label = 'Student', 
-            values = df.index,
-            tickvals = list(range(len(df))),
-            ticktext = df['Student'].tolist()
-        ),
-        dict(label = 'Math', values = df['Math'], range = [0, 100]),
-        dict(label = 'Physics', values = df['Physics'], range = [0, 100]),
-        dict(label = 'Programming', values = df['Programming'], range = [0, 100]),
-        dict(label = 'Writing', values = df['Writing'], range = [0, 100]),
-        dict(label = 'Communication', values = df['Communication'], range = [0, 100])
-    ],
-    labelfont=dict(size=12),
-    tickfont=dict(size=10),
-    rangefont=dict(size=12)
 )
 
 fig.show()
@@ -1008,6 +988,7 @@ plt.show()
 #### Seaborn Pair Plot
 ```python
 import seaborn as sns
+import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
@@ -1055,7 +1036,8 @@ chart = alt.Chart(df).mark_line(point=True).encode(
     title='Monthly Sales and Expenses'
 ).interactive()
 
-chart
+# Save the chart as a web page, then open the .html file in your browser
+chart.save('sales_chart.html')
 ```
 
 ### Bokeh: Interactive Web-Ready Plots
@@ -1063,11 +1045,11 @@ chart
 Bokeh is designed for creating interactive visualizations for web browsers. It's particularly good for building dashboards and applications.
 
 ```python
-from bokeh.plotting import figure, show, output_notebook
+from bokeh.plotting import figure, show, output_file
 from bokeh.models import HoverTool
 
-# Enable output to notebook
-output_notebook()
+# Send output to an .html file (show() will open it in your browser)
+output_file('bokeh_plot.html')
 
 # Data
 x = [1, 2, 3, 4, 5]
@@ -1114,7 +1096,7 @@ The advanced libraries are tools to add to your toolkit once you understand the 
 
 ### Getting Started with These Libraries
 
-All these libraries are pre-installed in Google Colab. To use any of them:
+Install any of these in PyCharm the same way you installed matplotlib (Python Packages tool window, or `pip install plotly seaborn altair bokeh` in the Terminal). Then import them:
 
 ```python
 # Plotly
@@ -1128,7 +1110,7 @@ import seaborn as sns
 import altair as alt
 
 # Bokeh
-from bokeh.plotting import figure, show, output_notebook
+from bokeh.plotting import figure, show, output_file
 ```
 
 For your coursework, focus on mastering matplotlib first. Once you're comfortable with the fundamentals, experiment with these libraries for personal projects or when their specific features (like interactivity) provide clear advantages for your analysis.

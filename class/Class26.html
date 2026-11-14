@@ -749,7 +749,7 @@ document.write(`
 </pre></div>
 </div>
 <p><strong>Good:</strong></p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>cleanData<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">cleanData</span><span class="p">(</span>rawData<span class="p">)</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>cleaned<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">cleanData</span><span class="p">(</span>rawData<span class="p">)</span>
 <span class="w">    </span><span class="c">% Only handles data cleaning</span>
 <span class="k">end</span>
 
@@ -785,15 +785,17 @@ document.write(`
 <section id="input-validation">
 <h3>4. Input Validation<a class="headerlink" href="#input-validation" title="Link to this heading">#</a></h3>
 <p>Check that inputs meet your expectations:</p>
-<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>area<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">calculateRectangleArea</span><span class="p">(</span>length, width<span class="p">)</span>
+<div class="highlight-matlab notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>area<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">calculateRectangleArea</span><span class="p">(</span>rectLength, rectWidth<span class="p">)</span>
 <span class="c">% CALCULATERECTANGLEAREA Computes the area of a rectangle</span>
+<span class="c">%   (We avoid naming an input "length" because that would hide</span>
+<span class="c">%   MATLAB's built-in length function inside this function.)</span>
 <span class="w">    </span>
 <span class="w">    </span><span class="c">% Input validation</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nb">length</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">width</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">rectLength</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">rectWidth</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span>
 <span class="w">        </span><span class="nb">error</span><span class="p">(</span><span class="s">'Length and width must be positive values'</span><span class="p">);</span>
 <span class="w">    </span><span class="k">end</span>
 <span class="w">    </span>
-<span class="w">    </span><span class="nb">area</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">length</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">width</span><span class="p">;</span>
+<span class="w">    </span><span class="nb">area</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">rectLength</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">rectWidth</span><span class="p">;</span>
 <span class="k">end</span>
 </pre></div>
 </div>
@@ -848,6 +850,7 @@ document.write(`
 <span class="k">end</span>
 
 <span class="k">function</span><span class="w"> </span>stats<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">calculateStatistics</span><span class="p">(</span>data<span class="p">)</span>
+<span class="w">    </span><span class="c">% stats is a structure: like a Python dictionary, it stores values under names (called fields)</span>
 <span class="w">    </span><span class="n">stats</span><span class="p">.</span><span class="n">mean</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">mean</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
 <span class="w">    </span><span class="n">stats</span><span class="p">.</span><span class="n">median</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">median</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
 <span class="w">    </span><span class="n">stats</span><span class="p">.</span><span class="n">std</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">std</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>

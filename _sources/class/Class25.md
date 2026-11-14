@@ -1,7 +1,7 @@
 # Class 25: MATLAB Scripts, Documentation, and File I/O 
 
 ## Learning Objectives
-By the end of this reading, you should be able to:
+By the end of this prereading, you should be able to:
 - Create and run MATLAB script files
 - Document your code with comments and function headers
 - Read data from and write data to text files
@@ -242,11 +242,9 @@ imwrite(colorImg, 'output.jpg', 'Quality', 95);
 
 ## 4. Saving Data for Reuse
 
-## 8. Saving Data for Reuse
+### .mat Files - Best for Working Within MATLAB
 
 `.mat` files are MATLAB's native format and the most efficient way to save workspace data.
-
-### MAT Files - Best for MATLAB-to-MATLAB Reuse
 
 #### Advantages of .mat Files
 - Fast to read and write
@@ -264,8 +262,11 @@ save('experiment_data.mat', 'temperature', 'pressure');
 % Save all workspace variables
 save('my_workspace.mat');
 
-% Save with version compatibility (for older MATLAB versions)
+% Save very large variables (over 2 GB) using the v7.3 format
 save('data.mat', 'x', 'y', '-v7.3');
+
+% Save in an older format so older MATLAB versions can read it
+save('data_old.mat', 'x', 'y', '-v7');
 ```
 
 #### Loading from .mat Files
@@ -327,7 +328,7 @@ fclose(fileID);
 |--------|----------|------------|---------------|
 | .mat | Working within MATLAB | Fast, preserves types | MATLAB-specific |
 | .csv | Sharing with other programs | Universal, readable | Numeric/text only |
-| .xlsx | Creating reports | Formatted, familiar | Slower, requires Excel |
+| .xlsx | Creating reports | Familiar to non-programmers | Slower to read and write |
 | .txt | Custom formatting needed | Full control | Manual parsing |
 
 ## 5. Working with Directories and File Paths
@@ -572,7 +573,7 @@ fprintf('Size: %d bytes\n', fileSize);
 fprintf('Modified: %s\n', dateModified);
 
 % Extract parts of file path
-[filepath, name, ext] = fileparts('Data\experiment1.csv');
+[filepath, name, ext] = fileparts('Data/experiment1.csv');  % Forward slashes work on all systems
 % filepath = 'Data'
 % name = 'experiment1'
 % ext = '.csv'
@@ -591,19 +592,19 @@ fprintf('Modified: %s\n', dateModified);
 
 ```matlab
 % DON'T: Hardcode full paths
-data = load('C:\Users\John\Documents\MATLAB\data.csv');  % Won't work on other computers
+data = readmatrix('C:\Users\John\Documents\MATLAB\data.csv');  % Won't work on other computers
 
 % DO: Use relative paths
-data = load(fullfile('Data', 'data.csv'));
+data = readmatrix(fullfile('Data', 'data.csv'));
 
 % DON'T: Use system-specific separators
-path = 'Data\Raw\experiment.csv';  % Breaks on Mac/Linux
+filePath = 'Data\Raw\experiment.csv';  % Breaks on Mac/Linux
 
 % DO: Use fullfile
-path = fullfile('Data', 'Raw', 'experiment.csv');
+filePath = fullfile('Data', 'Raw', 'experiment.csv');  % (avoid naming a variable 'path': that's a built-in MATLAB function)
 ```
 
-## 7. File Input/Output - Basic Operations
+## 6. File Input/Output - Basic Operations
 
 ### Reading Text Files
 
@@ -661,7 +662,7 @@ Common format specifiers:
 - `%s` - string
 - `\n` - newline
 
-## 9. File Management Best Practices
+## 7. File Management Best Practices
 
 ### Check if Files Exist
 ```matlab

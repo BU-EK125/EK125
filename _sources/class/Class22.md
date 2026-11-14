@@ -354,7 +354,7 @@ One of the biggest advantages of MATLAB is its exceptional documentation. As you
 - Short color codes: `'r'` (red), `'g'` (green), `'b'` (blue), `'k'` (black), `'m'` (magenta), `'c'` (cyan), `'y'` (yellow), `'w'` (white)
 - RGB triplets: `[0.5, 0.2, 0.8]` for custom colors (values 0-1)
 - Hexadecimal: `'#FF5733'` for precise colors
-- Named colors: `'crimson'`, `'teal'`, etc.
+- Long color names: `'red'`, `'green'`, `'blue'`, `'black'`, etc. MATLAB recognizes only eight basic color names; for anything else (crimson, teal, orange...) use an RGB triplet or hex code
 
 **`colormap`** - View and set current colormap
 - Controls color schemes for images and surface plots

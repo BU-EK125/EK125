@@ -501,7 +501,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-complete-example">13. A Complete Example</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-to-consider">Questions to Consider</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-terms-to-remember">Key Terms to Remember</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-advanced-plotting-libraries-in-colab">Appendix: Advanced Plotting Libraries in Colab</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-advanced-plotting-libraries">Appendix: Advanced Plotting Libraries</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotly-interactive-plots">Plotly: Interactive Plots</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-plotly-line-plot">Basic Plotly Line Plot</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-series-with-plotly">Multiple Series with Plotly</a></li>
@@ -571,7 +571,7 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </pre></div>
 </div>
-<p>The convention is to import matplotlib’s pyplot module as <code class="docutils literal notranslate"><span class="pre">plt</span></code>. You’ll see this pattern everywhere in Python data visualization code. In Google Colab, matplotlib is already available and ready to use.</p>
+<p>The convention is to import matplotlib’s pyplot module as <code class="docutils literal notranslate"><span class="pre">plt</span></code>. You’ll see this pattern everywhere in Python data visualization code. In PyCharm, matplotlib must be installed in your project once before you can import it: open the <strong>Python Packages</strong> tool window and install <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> (or run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">matplotlib</span></code> in PyCharm’s Terminal). The same applies to the other libraries in this reading, such as <code class="docutils literal notranslate"><span class="pre">folium</span></code>.</p>
 </section>
 </section>
 <section id="creating-your-first-plot">
@@ -800,8 +800,8 @@ document.write(`
 <span class="c1"># Add heatmap layer</span>
 <span class="n">HeatMap</span><span class="p">(</span><span class="n">coffeeShopData</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">blur</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">max_zoom</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">bostonMap</span><span class="p">)</span>
 
-<span class="c1"># Display map (works in Colab and Jupyter notebooks)</span>
-<span class="n">bostonMap</span>
+<span class="c1"># Save the map as a web page, then open the .html file in your browser</span>
+<span class="n">bostonMap</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">'boston_heatmap.html'</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The intensity value (third element in each list) is optional. If omitted, all points are weighted equally:</p>
@@ -823,7 +823,7 @@ document.write(`
 <span class="c1"># Add heatmap</span>
 <span class="n">HeatMap</span><span class="p">(</span><span class="n">studyLocations</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">buMap</span><span class="p">)</span>
 
-<span class="n">buMap</span>
+<span class="n">buMap</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">'bu_study_heatmap.html'</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Parameters for <code class="docutils literal notranslate"><span class="pre">HeatMap()</span></code>:</p>
@@ -880,7 +880,7 @@ document.write(`
 <li><p>Students with varying performance show lines that cross many others</p></li>
 <li><p>Correlations between subjects become visible (if lines tend to move together)</p></li>
 </ul>
-<p><strong>Note</strong>: Matplotlib’s parallel coordinates implementation has limitations, particularly when trying to use student names as a proper categorical axis. For more sophisticated parallel coordinates plots with better interactivity (hovering to highlight lines, filtering by dragging on axes), see the Plotly example in the Appendix, which handles this visualization much better.</p>
+<p><strong>Note</strong>: Matplotlib’s parallel coordinates implementation has limitations, particularly when trying to use student names as a proper categorical axis. For more sophisticated parallel coordinates plots with better interactivity (filtering by dragging on axes), see the Plotly example in the Appendix, which handles this visualization much better.</p>
 <p>Key features of parallel coordinates plots:</p>
 <ul class="simple">
 <li><p>Each vertical axis represents one variable (subject)</p></li>
@@ -1306,9 +1306,9 @@ document.write(`
 <li><p><strong>dpi</strong>: Dots per inch, controls image resolution</p></li>
 </ul>
 </section>
-<section id="appendix-advanced-plotting-libraries-in-colab">
-<h2>Appendix: Advanced Plotting Libraries in Colab<a class="headerlink" href="#appendix-advanced-plotting-libraries-in-colab" title="Link to this heading">#</a></h2>
-<p>While matplotlib is the foundation of Python plotting and what you’ll use most in this course, Google Colab provides access to several more advanced plotting libraries. These libraries offer features like interactivity, 3D visualization, and more sophisticated default styling. You’re not required to use these for coursework, but they’re worth knowing about for your own projects.</p>
+<section id="appendix-advanced-plotting-libraries">
+<h2>Appendix: Advanced Plotting Libraries<a class="headerlink" href="#appendix-advanced-plotting-libraries" title="Link to this heading">#</a></h2>
+<p>While matplotlib is the foundation of Python plotting and what you’ll use most in this course, Python has several more advanced plotting libraries. These libraries offer features like interactivity, 3D visualization, and more sophisticated default styling. You’re not required to use these for coursework, but they’re worth knowing about for your own projects.</p>
 <section id="plotly-interactive-plots">
 <h3>Plotly: Interactive Plots<a class="headerlink" href="#plotly-interactive-plots" title="Link to this heading">#</a></h3>
 <p>Plotly creates interactive plots that allow zooming, panning, hovering for data values, and toggling series on and off. This is particularly valuable for exploratory data analysis and presentations.</p>
@@ -1417,7 +1417,7 @@ document.write(`
 </section>
 <section id="interactive-parallel-coordinates-plot">
 <h4>Interactive Parallel Coordinates Plot<a class="headerlink" href="#interactive-parallel-coordinates-plot" title="Link to this heading">#</a></h4>
-<p>Plotly excels at parallel coordinates plots with full interactivity. Hovering over a line highlights it and shows all values:</p>
+<p>Plotly excels at parallel coordinates plots with full interactivity. Clicking and dragging along any axis filters the lines:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
@@ -1466,31 +1466,11 @@ document.write(`
 <span class="p">)</span>
 
 <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
-    <span class="n">title</span><span class="o">=</span><span class="s1">'Interactive, click and drag on any axis to filter (you'</span><span class="n">ll</span> <span class="n">see</span> <span class="n">a</span> <span class="n">crosshair</span><span class="p">))</span><span class="s1">',</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">"Interactive: click and drag on any axis to filter (you'll see a crosshair)"</span><span class="p">,</span>
     <span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">),</span>
     <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
     <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
     <span class="n">margin</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">l</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="p">)</span>
-
-<span class="c1"># Move axis labels to bottom</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">update_traces</span><span class="p">(</span>
-    <span class="n">dimensions</span><span class="o">=</span><span class="p">[</span>
-        <span class="nb">dict</span><span class="p">(</span>
-            <span class="n">label</span> <span class="o">=</span> <span class="s1">'Student'</span><span class="p">,</span> 
-            <span class="n">values</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
-            <span class="n">tickvals</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))),</span>
-            <span class="n">ticktext</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Student'</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-        <span class="p">),</span>
-        <span class="nb">dict</span><span class="p">(</span><span class="n">label</span> <span class="o">=</span> <span class="s1">'Math'</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Math'</span><span class="p">],</span> <span class="nb">range</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">]),</span>
-        <span class="nb">dict</span><span class="p">(</span><span class="n">label</span> <span class="o">=</span> <span class="s1">'Physics'</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Physics'</span><span class="p">],</span> <span class="nb">range</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">]),</span>
-        <span class="nb">dict</span><span class="p">(</span><span class="n">label</span> <span class="o">=</span> <span class="s1">'Programming'</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Programming'</span><span class="p">],</span> <span class="nb">range</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">]),</span>
-        <span class="nb">dict</span><span class="p">(</span><span class="n">label</span> <span class="o">=</span> <span class="s1">'Writing'</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Writing'</span><span class="p">],</span> <span class="nb">range</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">]),</span>
-        <span class="nb">dict</span><span class="p">(</span><span class="n">label</span> <span class="o">=</span> <span class="s1">'Communication'</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Communication'</span><span class="p">],</span> <span class="nb">range</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
-    <span class="p">],</span>
-    <span class="n">labelfont</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">),</span>
-    <span class="n">tickfont</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
-    <span class="n">rangefont</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 <span class="p">)</span>
 
 <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1560,6 +1540,7 @@ document.write(`
 <section id="seaborn-pair-plot">
 <h4>Seaborn Pair Plot<a class="headerlink" href="#seaborn-pair-plot" title="Link to this heading">#</a></h4>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
@@ -1607,18 +1588,19 @@ document.write(`
     <span class="n">title</span><span class="o">=</span><span class="s1">'Monthly Sales and Expenses'</span>
 <span class="p">)</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
 
-<span class="n">chart</span>
+<span class="c1"># Save the chart as a web page, then open the .html file in your browser</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">'sales_chart.html'</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="bokeh-interactive-web-ready-plots">
 <h3>Bokeh: Interactive Web-Ready Plots<a class="headerlink" href="#bokeh-interactive-web-ready-plots" title="Link to this heading">#</a></h3>
 <p>Bokeh is designed for creating interactive visualizations for web browsers. It’s particularly good for building dashboards and applications.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">bokeh.plotting</span><span class="w"> </span><span class="kn">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">output_notebook</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">bokeh.plotting</span><span class="w"> </span><span class="kn">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">output_file</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">bokeh.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">HoverTool</span>
 
-<span class="c1"># Enable output to notebook</span>
-<span class="n">output_notebook</span><span class="p">()</span>
+<span class="c1"># Send output to an .html file (show() will open it in your browser)</span>
+<span class="n">output_file</span><span class="p">(</span><span class="s1">'bokeh_plot.html'</span><span class="p">)</span>
 
 <span class="c1"># Data</span>
 <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
@@ -1696,7 +1678,7 @@ document.write(`
 </section>
 <section id="getting-started-with-these-libraries">
 <h3>Getting Started with These Libraries<a class="headerlink" href="#getting-started-with-these-libraries" title="Link to this heading">#</a></h3>
-<p>All these libraries are pre-installed in Google Colab. To use any of them:</p>
+<p>Install any of these in PyCharm the same way you installed matplotlib (Python Packages tool window, or <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">plotly</span> <span class="pre">seaborn</span> <span class="pre">altair</span> <span class="pre">bokeh</span></code> in the Terminal). Then import them:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotly</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">plotly.express</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">px</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
@@ -1708,7 +1690,7 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
 
 <span class="c1"># Bokeh</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">bokeh.plotting</span><span class="w"> </span><span class="kn">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">output_notebook</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">bokeh.plotting</span><span class="w"> </span><span class="kn">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">output_file</span>
 </pre></div>
 </div>
 <p>For your coursework, focus on mastering matplotlib first. Once you’re comfortable with the fundamentals, experiment with these libraries for personal projects or when their specific features (like interactivity) provide clear advantages for your analysis.</p>
@@ -1830,7 +1812,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-complete-example">13. A Complete Example</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-to-consider">Questions to Consider</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-terms-to-remember">Key Terms to Remember</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-advanced-plotting-libraries-in-colab">Appendix: Advanced Plotting Libraries in Colab</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-advanced-plotting-libraries">Appendix: Advanced Plotting Libraries</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotly-interactive-plots">Plotly: Interactive Plots</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-plotly-line-plot">Basic Plotly Line Plot</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-series-with-plotly">Multiple Series with Plotly</a></li>
