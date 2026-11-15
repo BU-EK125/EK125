@@ -88,6 +88,9 @@ parts:
   - caption: MATLAB
     chapters:
       - file: class/Class21
+        sections:
+          - file: gpps/Class21_GPP
+          - file: gpps/Class21_GPP_Solutions
       - file: homework/HW8
       - file: class/Class22
         sections:
