@@ -20,7 +20,11 @@ jobs:
           python-version: '3.10'
 
       - name: Install Jupyter Book and tools
-        run: pip install --force-reinstall --no-cache-dir jupyter-book==1.0.2
+        # matplotlib/numpy are required to execute the Class 21 GPP
+        # notebooks (execute_notebooks: force in _config.yml runs every
+        # notebook's code for real at build time) -- declared explicitly
+        # rather than relying on the runner image happening to have them.
+        run: pip install --force-reinstall --no-cache-dir jupyter-book==1.0.2 matplotlib numpy
 
       - name: Build the Jupyter Book
         run: jb build .
