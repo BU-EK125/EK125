@@ -533,17 +533,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named 'matplotlib'
-</pre></div>
-</div>
-</div>
 </div>
 <section id="problem-1-solution-choose-the-right-plot">
 <h2>Problem 1 Solution: Choose the Right Plot<a class="headerlink" href="#problem-1-solution-choose-the-right-plot" title="Link to this heading">#</a></h2>
@@ -588,6 +577,12 @@ values fall in numeric <em>ranges</em>; a bar chart shows one value per <em>cate
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/451195ef4308e738490d0e9df97076859918a72de11e4bab9dcf2d116a4f2461.png" src="../_images/451195ef4308e738490d0e9df97076859918a72de11e4bab9dcf2d116a4f2461.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum height from the data: 20.4 m
+</pre></div>
+</div>
+</div>
 </div>
 <p><strong>💡 Tip:</strong> Exact answer: <code class="docutils literal notranslate"><span class="pre">v0^2</span> <span class="pre">/</span> <span class="pre">(2*g)</span> <span class="pre">=</span> <span class="pre">400</span> <span class="pre">/</span> <span class="pre">19.6</span> <span class="pre">=</span> <span class="pre">20.4</span> <span class="pre">m</span></code> at
 <code class="docutils literal notranslate"><span class="pre">t</span> <span class="pre">=</span> <span class="pre">v0/g</span> <span class="pre">=</span> <span class="pre">2.04</span> <span class="pre">s</span></code> – matches the grid estimate.</p>
@@ -616,6 +611,9 @@ values fall in numeric <em>ranges</em>; a bar chart shows one value per <em>cate
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ea2b0cff6bafb6b8f16852bb3e9cedb7e93ecd107776202efd43a8f6eb5afd83.png" src="../_images/ea2b0cff6bafb6b8f16852bb3e9cedb7e93ecd107776202efd43a8f6eb5afd83.png" />
 </div>
 </div>
 <p><strong>💡 Tips:</strong></p>
@@ -648,6 +646,9 @@ slower balls below 0 m – each speed needs its own landing time.</p></li>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/c0752bf8bb04dc98718e8da3628df3a531dbd2651ca338b77d19091a0689966b.png" src="../_images/c0752bf8bb04dc98718e8da3628df3a531dbd2651ca338b77d19091a0689966b.png" />
+</div>
 </div>
 </section>
 <section id="problem-5-solution-how-many-bins-histograms-side-by-side">
@@ -678,6 +679,9 @@ slower balls below 0 m – each speed needs its own landing time.</p></li>
 <span class="c1"># so the plot looks jagged and noisy.</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/bbaec4d4da54dbf5273ec7d17c46b0931f0150a50e28b8fcce9048e088d2ec6b.png" src="../_images/bbaec4d4da54dbf5273ec7d17c46b0931f0150a50e28b8fcce9048e088d2ec6b.png" />
 </div>
 </div>
 <p><strong>💡 Tip:</strong> <code class="docutils literal notranslate"><span class="pre">plt.subplot(rows,</span> <span class="pre">cols,</span> <span class="pre">index)</span></code> numbers panels starting at 1,
@@ -731,6 +735,12 @@ not 0 – <code class="docutils literal notranslate"><span class="pre">plt.subpl
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/78004fab8125414553ad5e69e2809cbcd11010eba8a249f545ed1102f2b0838e.png" src="../_images/78004fab8125414553ad5e69e2809cbcd11010eba8a249f545ed1102f2b0838e.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Residuals (V): [ 0.03 -0.03  0.06 -0.05  0.04  0.02]
+</pre></div>
+</div>
+</div>
 </div>
 <p><strong>💡 Tips:</strong></p>
 <ul class="simple">
@@ -773,6 +783,9 @@ theoretical line – otherwise the shapes don’t match.</p></li>
 <span class="c1"># criteria is correct.</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4927da6723caf9344ce4d352833401d08e889ad6e13771d350bf8249c5734ba0.png" src="../_images/4927da6723caf9344ce4d352833401d08e889ad6e13771d350bf8249c5734ba0.png" />
 </div>
 </div>
 </section>

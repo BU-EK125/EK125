@@ -716,6 +716,16 @@ slot for this content.</p>
 ground-up MyST rewrite (<code class="docutils literal notranslate"><span class="pre">myst.yml</span></code>, new CLI) that does NOT work with this
 repo’s classic <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code>/<code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code> Sphinx-book-theme format. Always
 pin <code class="docutils literal notranslate"><span class="pre">jupyter-book&lt;2</span></code> (currently built against 1.0.4).</p>
+<p><code class="docutils literal notranslate"><span class="pre">_config.yml</span></code> sets <code class="docutils literal notranslate"><span class="pre">execute_notebooks:</span> <span class="pre">force</span></code>, so every <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> actually
+runs its code at build time – any package a notebook imports must be
+installed first, in CI and locally. Until the Class 21 GPP
+(<code class="docutils literal notranslate"><span class="pre">gpps/Class21_GPP.ipynb</span></code>/<code class="docutils literal notranslate"><span class="pre">Class21_GPP_Solutions.ipynb</span></code>, added
+2026-11-15), no notebook in this repo needed anything beyond plain
+Python, so this had never come up: <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> and <code class="docutils literal notranslate"><span class="pre">numpy</span></code> are now
+explicitly installed alongside <code class="docutils literal notranslate"><span class="pre">jupyter-book</span></code> in both
+<code class="docutils literal notranslate"><span class="pre">.github/workflows/deploy.yml</span></code> and <code class="docutils literal notranslate"><span class="pre">pr-check.yml</span></code> – don’t let that
+silently drift back to implicit/missing the next time a notebook adds a
+new import.</p>
 </section>
 <section id="build-breaking-trap-link-only-headings">
 <h2>Build-breaking trap: link-only headings<a class="headerlink" href="#build-breaking-trap-link-only-headings" title="Link to this heading">#</a></h2>
