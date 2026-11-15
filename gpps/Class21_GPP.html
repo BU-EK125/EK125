@@ -568,6 +568,7 @@ f) How many times each of 6 vending machines broke down this year</p>
 <li><p>e)</p></li>
 <li><p>f)</p></li>
 </ul>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class21.html#different-plot-types">Different Plot Types</a> and <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class21.html#best-practices-summary">Best Practices Summary</a> sections for a refresher.</p>
 </section>
 <section id="problem-2-a-complete-line-plot-with-numpy">
 <h2>Problem 2: A Complete Line Plot with NumPy<a class="headerlink" href="#problem-2-a-complete-line-plot-with-numpy" title="Link to this heading">#</a></h2>
@@ -581,6 +582,7 @@ f) How many times each of 6 vending machines broke down this year</p>
 <li><p>Using the grid, ESTIMATE the maximum height and when it occurs. Write
 your estimates in a comment. Then check with <code class="docutils literal notranslate"><span class="pre">max(height)</span></code>.</p></li>
 </ol>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class21.html#creating-your-first-plot">Creating Your First Plot</a> and <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class21.html#working-with-numpy-arrays">Working with NumPy Arrays</a> sections for a refresher.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO: Your code here</span>
@@ -610,6 +612,7 @@ so no curve goes below the ground</p></li>
 </ul>
 <p><strong>Hint:</strong> you need the SAME position in two lists (speeds and line styles).
 What kind of loop gives you an index you can use for both?</p>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class21.html#line-styles-and-colors">Line Styles and Colors</a> and <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class21.html#multiple-lines-on-one-plot">Multiple Lines on One Plot</a> sections for a refresher.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">launch_speeds_mps</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
@@ -634,6 +637,7 @@ complete example).</p></li>
 (<code class="docutils literal notranslate"><span class="pre">plt.grid(axis='y')</span></code>).</p></li>
 <li><p>Answer in a comment: which metals count as “light”?</p></li>
 </ol>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class21.html#bar-charts">Bar Charts</a> section, and <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class21.html#a-complete-example">A Complete Example</a> for how <code class="docutils literal notranslate"><span class="pre">plt.axhline</span></code> is used there, for a refresher.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">metals</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Aluminum'</span><span class="p">,</span> <span class="s1">'Titanium'</span><span class="p">,</span> <span class="s1">'Steel'</span><span class="p">,</span> <span class="s1">'Copper'</span><span class="p">,</span> <span class="s1">'Lead'</span><span class="p">]</span>
@@ -664,6 +668,7 @@ bins=15. Use black bar edges.</p></li>
 <li><p>Discuss as a team and answer in a comment: which bin count shows the
 shape of the data best? What goes wrong with too FEW bins? Too MANY?</p></li>
 </ol>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class21.html#histograms">Histograms</a> and <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class21.html#subplots-multiple-plots-in-one-figure">Subplots: Multiple Plots in One Figure</a> sections for a refresher.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resistance_ohm</span> <span class="o">=</span> <span class="p">[</span><span class="mf">99.2</span><span class="p">,</span> <span class="mf">100.5</span><span class="p">,</span> <span class="mf">101.1</span><span class="p">,</span> <span class="mf">98.7</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">,</span> <span class="mf">99.8</span><span class="p">,</span> <span class="mf">100.9</span><span class="p">,</span> <span class="mf">101.6</span><span class="p">,</span> <span class="mf">99.5</span><span class="p">,</span>
@@ -704,6 +709,7 @@ values from 0 to 0.5 A (label <code class="docutils literal notranslate"><span c
 <p>Then save the figure as <code class="docutils literal notranslate"><span class="pre">'ohms_law.png'</span></code> (dpi=300, bbox_inches=’tight’).
 Print the residuals, and answer in a comment: is the error random, or does
 it show a pattern?</p>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class21.html#a-complete-example">A Complete Example</a> section – this problem follows the same pattern.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">current_a</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
@@ -727,6 +733,7 @@ it show a pattern?</p>
 <p>Using the radar chart example in the Class 21 reading, plot both designs on
 one radar chart with a legend and the radial axis from 0 to 10. Which design
 would you pick for a delivery robot, and why?</p>
+<p>See the reading’s <a class="reference external" href="https://BU-EK125.github.io/EK125/class/Class21.html#comparing-multiple-subjects-on-a-radar-chart">Comparing Multiple Subjects on a Radar Chart</a> section for the pattern this problem practices.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">criteria</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Speed'</span><span class="p">,</span> <span class="s1">'Battery life'</span><span class="p">,</span> <span class="s1">'Payload'</span><span class="p">,</span> <span class="s1">'Cost'</span><span class="p">,</span> <span class="s1">'Reliability'</span><span class="p">]</span>
