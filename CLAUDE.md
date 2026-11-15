@@ -188,6 +188,17 @@ ground-up MyST rewrite (`myst.yml`, new CLI) that does NOT work with this
 repo's classic `_config.yml`/`_toc.yml` Sphinx-book-theme format. Always
 pin `jupyter-book<2` (currently built against 1.0.4).
 
+`_config.yml` sets `execute_notebooks: force`, so every `.ipynb` actually
+runs its code at build time -- any package a notebook imports must be
+installed first, in CI and locally. Until the Class 21 GPP
+(`gpps/Class21_GPP.ipynb`/`Class21_GPP_Solutions.ipynb`, added
+2026-11-15), no notebook in this repo needed anything beyond plain
+Python, so this had never come up: `matplotlib` and `numpy` are now
+explicitly installed alongside `jupyter-book` in both
+`.github/workflows/deploy.yml` and `pr-check.yml` -- don't let that
+silently drift back to implicit/missing the next time a notebook adds a
+new import.
+
 ## Build-breaking trap: link-only headings
 
 A Markdown/MyST heading whose entire text is a link -- e.g. `## [HW5.py
