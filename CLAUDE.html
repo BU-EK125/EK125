@@ -479,6 +479,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fitness-tracker-team-project-ported-2026-10-23">The Fitness Tracker team project (ported 2026-10-23)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#renumbering-2026-10-23-classes-displaced-by-the-fitness-tracker-project">Renumbering (2026-10-23): Classes displaced by the Fitness Tracker project</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#toolchain-trap">Toolchain trap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-a-reading-to-an-executed-notebook">Converting a reading to an executed notebook</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-breaking-trap-link-only-headings">Build-breaking trap: link-only headings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pii-lesson-critical">PII lesson (critical)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orphaned-legacy-files">Orphaned legacy files</a></li>
@@ -720,12 +721,62 @@ pin <code class="docutils literal notranslate"><span class="pre">jupyter-book&lt
 runs its code at build time – any package a notebook imports must be
 installed first, in CI and locally. Until the Class 21 GPP
 (<code class="docutils literal notranslate"><span class="pre">gpps/Class21_GPP.ipynb</span></code>/<code class="docutils literal notranslate"><span class="pre">Class21_GPP_Solutions.ipynb</span></code>, added
-2026-11-15), no notebook in this repo needed anything beyond plain
-Python, so this had never come up: <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> and <code class="docutils literal notranslate"><span class="pre">numpy</span></code> are now
+2026-11-15) and the Class 21 reading itself (<code class="docutils literal notranslate"><span class="pre">class/Class21.ipynb</span></code>,
+converted from <code class="docutils literal notranslate"><span class="pre">.md</span></code> on 2026-11-16 so its plots actually render –
+see “Converting a reading to an executed notebook” below), no notebook
+in this repo needed anything beyond plain Python, so this had never
+come up: <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, and <code class="docutils literal notranslate"><span class="pre">folium</span></code> are now
 explicitly installed alongside <code class="docutils literal notranslate"><span class="pre">jupyter-book</span></code> in both
 <code class="docutils literal notranslate"><span class="pre">.github/workflows/deploy.yml</span></code> and <code class="docutils literal notranslate"><span class="pre">pr-check.yml</span></code> – don’t let that
 silently drift back to implicit/missing the next time a notebook adds a
 new import.</p>
+</section>
+<section id="converting-a-reading-to-an-executed-notebook">
+<h2>Converting a reading to an executed notebook<a class="headerlink" href="#converting-a-reading-to-an-executed-notebook" title="Link to this heading">#</a></h2>
+<p>A plain <code class="docutils literal notranslate"><span class="pre">.md</span></code> reading’s fenced <code class="docutils literal notranslate"><span class="pre">```python</span></code> code blocks are just
+syntax-highlighted static text – they never run, so no figures ever
+render, no matter how much plotting code the page shows. Only <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>
+pages actually execute (per <code class="docutils literal notranslate"><span class="pre">execute_notebooks:</span> <span class="pre">force</span></code>). <code class="docutils literal notranslate"><span class="pre">class/Class21.md</span></code>
+was converted to <code class="docutils literal notranslate"><span class="pre">class/Class21.ipynb</span></code> on 2026-11-16 for exactly this
+reason (students asked why none of its matplotlib examples showed real
+plots). Lessons from that conversion, for the next reading that needs it:</p>
+<ul class="simple">
+<li><p><strong>Preserve every heading’s exact text.</strong> Anything already linking to
+this page’s anchors (e.g. a GPP’s cross-reference links) depends on
+MyST generating the same slugified <code class="docutils literal notranslate"><span class="pre">id</span></code>s it did as a <code class="docutils literal notranslate"><span class="pre">.md</span></code> file –
+verify this by grepping the rebuilt HTML for every anchor other pages
+link to, the same way you’d verify them when writing new links.</p></li>
+<li><p><strong>Split “BAD vs. GOOD” comparison snippets into two cells, each with
+its own <code class="docutils literal notranslate"><span class="pre">plt.figure()</span></code></strong>, and supply minimal placeholder data if the
+original snippet used undefined variables for illustration only (this
+repo’s own “Common Mistakes” section had exactly this – <code class="docutils literal notranslate"><span class="pre">time</span></code>/
+<code class="docutils literal notranslate"><span class="pre">distance</span></code> and <code class="docutils literal notranslate"><span class="pre">x1</span></code>..<code class="docutils literal notranslate"><span class="pre">y4</span></code> were never defined anywhere, so the original
+<code class="docutils literal notranslate"><span class="pre">.md</span></code> prose got away with it, but real execution needs real data).
+Never try to execute genuinely undefined pseudocode as-is; that needs
+a <code class="docutils literal notranslate"><span class="pre">skip-execution</span></code> cell tag, not invented data, if there’s no sensible
+placeholder to add.</p></li>
+<li><p><strong>A “forgetting to call <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code>” example doesn’t work as written
+in a notebook</strong>: Jupyter’s inline backend auto-displays any figure
+still open at the end of a cell regardless of whether <code class="docutils literal notranslate"><span class="pre">show()</span></code> was
+called, so the “BAD” example will display anyway. Say so explicitly in
+a markdown cell rather than silently losing the lesson – the point
+still holds for a plain <code class="docutils literal notranslate"><span class="pre">.py</span></code> script (e.g. in PyCharm), just not here.</p></li>
+<li><p><strong>Tag genuinely optional/enrichment sections <code class="docutils literal notranslate"><span class="pre">skip-execution</span></code></strong> rather
+than installing their dependencies. Class 21’s own “Appendix: Advanced
+Plotting Libraries” explicitly says students aren’t required to use
+Plotly/Seaborn/Altair/Bokeh for coursework – executing it for real
+would have meant four more CI dependencies for content nobody has to
+run. The cells still render as reference code, just without output.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">plt.savefig()</span></code> and similar (e.g. folium’s <code class="docutils literal notranslate"><span class="pre">.save()</span></code>) write real
+files into the source tree on every build</strong>, since
+<code class="docutils literal notranslate"><span class="pre">execution_in_temp:</span> <span class="pre">false</span></code>. Add the specific output filenames to
+<code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> (see the ones already there) rather than letting them
+show up as untracked files after every local build.</p></li>
+<li><p>A library like <code class="docutils literal notranslate"><span class="pre">folium</span></code> whose objects only have an HTML
+representation (maps, not images) needs that object as the cell’s
+trailing bare expression to actually display inline – calling only
+<code class="docutils literal notranslate"><span class="pre">.save('file.html')</span></code> produces a file on disk but no visible output.</p></li>
+</ul>
 </section>
 <section id="build-breaking-trap-link-only-headings">
 <h2>Build-breaking trap: link-only headings<a class="headerlink" href="#build-breaking-trap-link-only-headings" title="Link to this heading">#</a></h2>
@@ -917,6 +968,7 @@ fine but don’t show up in the sidebar, check this first.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fitness-tracker-team-project-ported-2026-10-23">The Fitness Tracker team project (ported 2026-10-23)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#renumbering-2026-10-23-classes-displaced-by-the-fitness-tracker-project">Renumbering (2026-10-23): Classes displaced by the Fitness Tracker project</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#toolchain-trap">Toolchain trap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-a-reading-to-an-executed-notebook">Converting a reading to an executed notebook</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-breaking-trap-link-only-headings">Build-breaking trap: link-only headings</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pii-lesson-critical">PII lesson (critical)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orphaned-legacy-files">Orphaned legacy files</a></li>

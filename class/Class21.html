@@ -372,6 +372,37 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/BU-EK125/EK125/blob/main/class/Class21.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-download-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
@@ -380,7 +411,7 @@
       
       
       
-      <li><a href="../_sources/class/Class21.md" target="_blank"
+      <li><a href="../_sources/class/Class21.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -390,7 +421,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -590,9 +621,13 @@ document.write(`
 <p>Matplotlib is Python’s most widely-used plotting library. It provides both simple commands for quick plots and detailed control for publication-quality figures.</p>
 <section id="importing-matplotlib">
 <h3>Importing matplotlib<a class="headerlink" href="#importing-matplotlib" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import at the start of your script</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import at the start of your script</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </pre></div>
+</div>
+</div>
 </div>
 <p>The convention is to import matplotlib’s pyplot module as <code class="docutils literal notranslate"><span class="pre">plt</span></code>. You’ll see this pattern everywhere in Python data visualization code. In PyCharm, matplotlib must be installed in your project once before you can import it: open the <strong>Python Packages</strong> tool window and install <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> (or run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">matplotlib</span></code> in PyCharm’s Terminal). The same applies to the other libraries in this reading, such as <code class="docutils literal notranslate"><span class="pre">folium</span></code>.</p>
 </section>
@@ -601,7 +636,9 @@ document.write(`
 <h2>3. Creating Your First Plot<a class="headerlink" href="#creating-your-first-plot" title="Link to this heading">#</a></h2>
 <section id="basic-line-plot">
 <h3>Basic Line Plot<a class="headerlink" href="#basic-line-plot" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="c1"># Data</span>
 <span class="n">xValues</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
@@ -612,12 +649,19 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/0fefda7fc39725f391c837c07e05c414cfcaeb1eb67e24ccb1b64e2ec33b7a3d.png" src="../_images/0fefda7fc39725f391c837c07e05c414cfcaeb1eb67e24ccb1b64e2ec33b7a3d.png" />
+</div>
+</div>
 <p>This creates a simple line plot connecting the points (1,2), (2,4), (3,6), (4,8), and (5,10).</p>
 </section>
 <section id="adding-labels-and-titles">
 <h3>Adding Labels and Titles<a class="headerlink" href="#adding-labels-and-titles" title="Link to this heading">#</a></h3>
 <p>Good plots always include context:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">xValues</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="n">yValues</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
@@ -629,6 +673,11 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2f345395f9f4dff967e20038059bdacecff640313cc7d03b463ef8ea576c5a9e.png" src="../_images/2f345395f9f4dff967e20038059bdacecff640313cc7d03b463ef8ea576c5a9e.png" />
+</div>
+</div>
 <p><strong>Critical principle</strong>: Every axis needs a label with units. Every plot needs a title that describes what is being shown.</p>
 </section>
 </section>
@@ -636,7 +685,9 @@ document.write(`
 <h2>4. Customizing Plot Appearance<a class="headerlink" href="#customizing-plot-appearance" title="Link to this heading">#</a></h2>
 <section id="line-styles-and-colors">
 <h3>Line Styles and Colors<a class="headerlink" href="#line-styles-and-colors" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">time</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="n">temperature</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
@@ -649,6 +700,11 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/81b3b66f62da4115cc8bc350323c09ea438dab900b58c985f6016180003d4fe2.png" src="../_images/81b3b66f62da4115cc8bc350323c09ea438dab900b58c985f6016180003d4fe2.png" />
+</div>
+</div>
 <p>Common options:</p>
 <ul class="simple">
 <li><p><strong>Colors</strong>: <code class="docutils literal notranslate"><span class="pre">'red'</span></code>, <code class="docutils literal notranslate"><span class="pre">'blue'</span></code>, <code class="docutils literal notranslate"><span class="pre">'green'</span></code>, <code class="docutils literal notranslate"><span class="pre">'black'</span></code>, or hex codes like <code class="docutils literal notranslate"><span class="pre">'#FF5733'</span></code></p></li>
@@ -658,13 +714,20 @@ document.write(`
 </section>
 <section id="grid-lines">
 <h3>Grid Lines<a class="headerlink" href="#grid-lines" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xValues</span><span class="p">,</span> <span class="n">yValues</span><span class="p">)</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xValues</span><span class="p">,</span> <span class="n">yValues</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'X axis'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Y axis'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Plot with Grid'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/a65d9325e24a866822977fc0fda998c3cf466f8c0ffd6382673b2b1b65cfbd07.png" src="../_images/a65d9325e24a866822977fc0fda998c3cf466f8c0ffd6382673b2b1b65cfbd07.png" />
+</div>
 </div>
 <p>Grid lines help readers extract quantitative values from your plots.</p>
 </section>
@@ -674,7 +737,9 @@ document.write(`
 <section id="scatter-plots">
 <h3>Scatter Plots<a class="headerlink" href="#scatter-plots" title="Link to this heading">#</a></h3>
 <p>Use scatter plots when you want to show individual data points without connecting them:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">heights</span> <span class="o">=</span> <span class="p">[</span><span class="mi">160</span><span class="p">,</span> <span class="mi">165</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">185</span><span class="p">]</span>
 <span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="mi">60</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">85</span><span class="p">]</span>
@@ -686,12 +751,19 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/d222dc24bdfcf768dcede121c80c0661caddddb53297f7e708ceb83185fd012b.png" src="../_images/d222dc24bdfcf768dcede121c80c0661caddddb53297f7e708ceb83185fd012b.png" />
+</div>
+</div>
 <p>The <code class="docutils literal notranslate"><span class="pre">s</span></code> parameter controls the size of the markers.</p>
 </section>
 <section id="bar-charts">
 <h3>Bar Charts<a class="headerlink" href="#bar-charts" title="Link to this heading">#</a></h3>
 <p>Use bar charts for categorical data or discrete comparisons:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">students</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Alice'</span><span class="p">,</span> <span class="s1">'Bob'</span><span class="p">,</span> <span class="s1">'Charlie'</span><span class="p">,</span> <span class="s1">'Diana'</span><span class="p">]</span>
 <span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">95</span><span class="p">]</span>
@@ -703,11 +775,18 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ff5b9bf9b48a5eec3eb4aa49af58b8d9b0c094cafe7e009df42194ca1b9c4ed2.png" src="../_images/ff5b9bf9b48a5eec3eb4aa49af58b8d9b0c094cafe7e009df42194ca1b9c4ed2.png" />
+</div>
+</div>
 </section>
 <section id="histograms">
 <h3>Histograms<a class="headerlink" href="#histograms" title="Link to this heading">#</a></h3>
 <p>Use histograms to show the distribution of a dataset:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="c1"># Simulated test scores</span>
 <span class="n">testScores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">78</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> 
@@ -720,12 +799,19 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/8a2e8e1fc409493b7ce1ee165a966074336776160e62e8a9727250a82779202b.png" src="../_images/8a2e8e1fc409493b7ce1ee165a966074336776160e62e8a9727250a82779202b.png" />
+</div>
+</div>
 <p>The <code class="docutils literal notranslate"><span class="pre">bins</span></code> parameter controls how many ranges to divide the data into.</p>
 </section>
 <section id="radar-charts">
 <h3>Radar Charts<a class="headerlink" href="#radar-charts" title="Link to this heading">#</a></h3>
 <p>Use radar charts (also called spider charts) to compare multiple variables for one or more subjects:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># Skills assessment data</span>
@@ -760,11 +846,18 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/6f25e7cf2f6875f4b2df2cee2086e1c422bcd0043018aa4b8727d53d426b64e3.png" src="../_images/6f25e7cf2f6875f4b2df2cee2086e1c422bcd0043018aa4b8727d53d426b64e3.png" />
+</div>
+</div>
 <p>Radar charts are particularly useful when you want to show performance across multiple dimensions on the same scale. They work best with 3-8 variables.</p>
 </section>
 <section id="comparing-multiple-subjects-on-a-radar-chart">
 <h3>Comparing Multiple Subjects on a Radar Chart<a class="headerlink" href="#comparing-multiple-subjects-on-a-radar-chart" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">categories</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Math'</span><span class="p">,</span> <span class="s1">'Physics'</span><span class="p">,</span> <span class="s1">'Programming'</span><span class="p">,</span> <span class="s1">'Writing'</span><span class="p">,</span> <span class="s1">'Communication'</span><span class="p">]</span>
@@ -798,11 +891,18 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/939e7bb341354a90092893a9703731eb578e677163c413b748f03ff9396b882c.png" src="../_images/939e7bb341354a90092893a9703731eb578e677163c413b748f03ff9396b882c.png" />
+</div>
+</div>
 </section>
 <section id="geographic-heatmaps">
 <h3>Geographic Heatmaps<a class="headerlink" href="#geographic-heatmaps" title="Link to this heading">#</a></h3>
 <p>Use geographic heatmaps to visualize spatial data on real maps. The <code class="docutils literal notranslate"><span class="pre">folium</span></code> library integrates OpenStreetMap with Python and includes heatmap capabilities:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">folium</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">folium</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">folium.plugins</span><span class="w"> </span><span class="kn">import</span> <span class="n">HeatMap</span>
 
 <span class="c1"># Create base map centered on Boston</span>
@@ -825,10 +925,138 @@ document.write(`
 
 <span class="c1"># Save the map as a web page, then open the .html file in your browser</span>
 <span class="n">bostonMap</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">'boston_heatmap.html'</span><span class="p">)</span>
+<span class="n">bostonMap</span>  <span class="c1"># display inline</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/&gt;
+    
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
+            &lt;style&gt;
+                #map_ab28a39795195cdff3182b6bd91c79a7 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            &lt;/style&gt;
+
+            &lt;style&gt;html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            &lt;/style&gt;
+
+            &lt;style&gt;#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            &lt;/style&gt;
+
+            &lt;script&gt;
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            &lt;/script&gt;
+
+        
+    &lt;script src=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    
+    
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_ab28a39795195cdff3182b6bd91c79a7&quot; &gt;&lt;/div&gt;
+        
+&lt;/body&gt;
+&lt;script&gt;
+    
+    
+            var map_ab28a39795195cdff3182b6bd91c79a7 = L.map(
+                &quot;map_ab28a39795195cdff3182b6bd91c79a7&quot;,
+                {
+                    center: [42.3601, -71.0589],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  &quot;zoom&quot;: 13,
+  &quot;zoomControl&quot;: true,
+  &quot;preferCanvas&quot;: false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_45dd616c52f4f293adaa89d46f09919a = L.tileLayer(
+                &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
+                {
+  &quot;minZoom&quot;: 0,
+  &quot;maxZoom&quot;: 19,
+  &quot;maxNativeZoom&quot;: 19,
+  &quot;noWrap&quot;: false,
+  &quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors&quot;,
+  &quot;subdomains&quot;: &quot;abc&quot;,
+  &quot;detectRetina&quot;: false,
+  &quot;tms&quot;: false,
+  &quot;opacity&quot;: 1,
+}
+
+            );
+        
+    
+            tile_layer_45dd616c52f4f293adaa89d46f09919a.addTo(map_ab28a39795195cdff3182b6bd91c79a7);
+        
+    
+            var heat_map_90a18b6969d1319fb97b5548452bdb7a = L.heatLayer(
+                [[42.3601, -71.0589, 0.8], [42.3611, -71.0599, 0.6], [42.3621, -71.0609, 0.9], [42.3595, -71.0575, 0.7], [42.3615, -71.0585, 0.5], [42.3605, -71.0595, 0.8], [42.3625, -71.0605, 0.4]],
+                {
+  &quot;minOpacity&quot;: 0.5,
+  &quot;maxZoom&quot;: 1,
+  &quot;radius&quot;: 15,
+  &quot;blur&quot;: 25,
+}
+            );
+        
+    
+            heat_map_90a18b6969d1319fb97b5548452bdb7a.addTo(map_ab28a39795195cdff3182b6bd91c79a7);
+        
+    
+            tile_layer_45dd616c52f4f293adaa89d46f09919a.addTo(map_ab28a39795195cdff3182b6bd91c79a7);
+        
+    
+            heat_map_90a18b6969d1319fb97b5548452bdb7a.addTo(map_ab28a39795195cdff3182b6bd91c79a7);
+        
+&lt;/script&gt;
+&lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
+</div>
 <p>The intensity value (third element in each list) is optional. If omitted, all points are weighted equally:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">folium</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">folium</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">folium.plugins</span><span class="w"> </span><span class="kn">import</span> <span class="n">HeatMap</span>
 
 <span class="c1"># Map centered on Boston University campus</span>
@@ -847,7 +1075,133 @@ document.write(`
 <span class="n">HeatMap</span><span class="p">(</span><span class="n">studyLocations</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">buMap</span><span class="p">)</span>
 
 <span class="n">buMap</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">'bu_study_heatmap.html'</span><span class="p">)</span>
+<span class="n">buMap</span>  <span class="c1"># display inline</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/&gt;
+    
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
+            &lt;style&gt;
+                #map_6877dcb4da3bf6ef9932dbc995397e8e {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            &lt;/style&gt;
+
+            &lt;style&gt;html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            &lt;/style&gt;
+
+            &lt;style&gt;#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            &lt;/style&gt;
+
+            &lt;script&gt;
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            &lt;/script&gt;
+
+        
+    &lt;script src=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    
+    
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_6877dcb4da3bf6ef9932dbc995397e8e&quot; &gt;&lt;/div&gt;
+        
+&lt;/body&gt;
+&lt;script&gt;
+    
+    
+            var map_6877dcb4da3bf6ef9932dbc995397e8e = L.map(
+                &quot;map_6877dcb4da3bf6ef9932dbc995397e8e&quot;,
+                {
+                    center: [42.3505, -71.1054],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  &quot;zoom&quot;: 15,
+  &quot;zoomControl&quot;: true,
+  &quot;preferCanvas&quot;: false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_b8e1283e68bc2d6139c23c0a47ee2c64 = L.tileLayer(
+                &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
+                {
+  &quot;minZoom&quot;: 0,
+  &quot;maxZoom&quot;: 19,
+  &quot;maxNativeZoom&quot;: 19,
+  &quot;noWrap&quot;: false,
+  &quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors&quot;,
+  &quot;subdomains&quot;: &quot;abc&quot;,
+  &quot;detectRetina&quot;: false,
+  &quot;tms&quot;: false,
+  &quot;opacity&quot;: 1,
+}
+
+            );
+        
+    
+            tile_layer_b8e1283e68bc2d6139c23c0a47ee2c64.addTo(map_6877dcb4da3bf6ef9932dbc995397e8e);
+        
+    
+            var heat_map_94e725598b582a9e78a98088c18c3f16 = L.heatLayer(
+                [[42.3505, -71.1054], [42.3498, -71.1065], [42.3512, -71.1048], [42.3495, -71.107], [42.3508, -71.1045]],
+                {
+  &quot;minOpacity&quot;: 0.5,
+  &quot;maxZoom&quot;: 18,
+  &quot;radius&quot;: 20,
+  &quot;blur&quot;: 15,
+}
+            );
+        
+    
+            heat_map_94e725598b582a9e78a98088c18c3f16.addTo(map_6877dcb4da3bf6ef9932dbc995397e8e);
+        
+    
+            tile_layer_b8e1283e68bc2d6139c23c0a47ee2c64.addTo(map_6877dcb4da3bf6ef9932dbc995397e8e);
+        
+    
+            heat_map_94e725598b582a9e78a98088c18c3f16.addTo(map_6877dcb4da3bf6ef9932dbc995397e8e);
+        
+&lt;/script&gt;
+&lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
 </div>
 <p>Parameters for <code class="docutils literal notranslate"><span class="pre">HeatMap()</span></code>:</p>
 <ul class="simple">
@@ -869,7 +1223,9 @@ document.write(`
 <section id="parallel-coordinates-plots">
 <h3>Parallel Coordinates Plots<a class="headerlink" href="#parallel-coordinates-plots" title="Link to this heading">#</a></h3>
 <p>Use parallel coordinates plots to visualize multivariate data, where each variable gets its own vertical axis and each data point is represented as a line connecting its values across all axes. This is excellent for comparing multiple subjects across several dimensions:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pandas.plotting</span><span class="w"> </span><span class="kn">import</span> <span class="n">parallel_coordinates</span>
 
@@ -896,6 +1252,11 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/462291a4a434877767f73f52a8b0c2a4c0665ee0074cac73790411ae1a11c2b5.png" src="../_images/462291a4a434877767f73f52a8b0c2a4c0665ee0074cac73790411ae1a11c2b5.png" />
+</div>
 </div>
 <p>This plot makes it easy to identify patterns:</p>
 <ul class="simple">
@@ -924,7 +1285,9 @@ document.write(`
 <section id="multiple-lines-on-one-plot">
 <h2>6. Multiple Lines on One Plot<a class="headerlink" href="#multiple-lines-on-one-plot" title="Link to this heading">#</a></h2>
 <p>Often you need to compare multiple datasets:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">time</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="n">object1Position</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
@@ -939,12 +1302,19 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2487d6e73e13a4d92bec1b6ba971078658319d887e25d84511612f76f209b15a.png" src="../_images/2487d6e73e13a4d92bec1b6ba971078658319d887e25d84511612f76f209b15a.png" />
+</div>
+</div>
 <p>The <code class="docutils literal notranslate"><span class="pre">legend()</span></code> function creates a legend box showing which line corresponds to which dataset. Always use legends when plotting multiple series.</p>
 </section>
 <section id="subplots-multiple-plots-in-one-figure">
 <h2>7. Subplots: Multiple Plots in One Figure<a class="headerlink" href="#subplots-multiple-plots-in-one-figure" title="Link to this heading">#</a></h2>
 <p>Sometimes you need to show several related plots side by side:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">time</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="n">position</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
@@ -971,12 +1341,19 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/0aa0fa5957cababbcf661e51454f9b4b963845633e6d0395f6571abce5ba0856.png" src="../_images/0aa0fa5957cababbcf661e51454f9b4b963845633e6d0395f6571abce5ba0856.png" />
+</div>
+</div>
 <p>The <code class="docutils literal notranslate"><span class="pre">subplot(rows,</span> <span class="pre">columns,</span> <span class="pre">plotNumber)</span></code> function specifies the layout. For example, <code class="docutils literal notranslate"><span class="pre">subplot(1,</span> <span class="pre">2,</span> <span class="pre">1)</span></code> creates a layout with 1 row and 2 columns, and selects the first subplot.</p>
 </section>
 <section id="saving-figures">
 <h2>8. Saving Figures<a class="headerlink" href="#saving-figures" title="Link to this heading">#</a></h2>
 <p>To save a plot instead of displaying it:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 
 <span class="n">xValues</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="n">yValues</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
@@ -991,6 +1368,11 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/5b2ce8cf6690d973345308027ecc86ddadff42f28a5577132397743d91c7f2ea.png" src="../_images/5b2ce8cf6690d973345308027ecc86ddadff42f28a5577132397743d91c7f2ea.png" />
+</div>
+</div>
 <p>Parameters:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">dpi=300</span></code>: Sets resolution (300 is good for publications)</p></li>
@@ -1001,7 +1383,9 @@ document.write(`
 <section id="working-with-numpy-arrays">
 <h2>9. Working with NumPy Arrays<a class="headerlink" href="#working-with-numpy-arrays" title="Link to this heading">#</a></h2>
 <p>While you can plot lists, matplotlib works seamlessly with NumPy arrays, which you’ll use increasingly as datasets grow:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># Create evenly-spaced data</span>
@@ -1016,6 +1400,11 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/dce698f7d4940ba234c1bafdbc4c12e436966423e9701b076fd350cf4ef9c16f.png" src="../_images/dce698f7d4940ba234c1bafdbc4c12e436966423e9701b076fd350cf4ef9c16f.png" />
+</div>
+</div>
 <p>This creates smooth curves because we use 100 points instead of just a few.</p>
 </section>
 <section id="working-with-pandas-dataframes">
@@ -1023,7 +1412,9 @@ document.write(`
 <p>As datasets grow larger and more complex, you’ll often work with data stored in Pandas DataFrames. Matplotlib integrates seamlessly with Pandas, making it easy to visualize tabular data.</p>
 <section id="basic-dataframe-plotting">
 <h3>Basic DataFrame Plotting<a class="headerlink" href="#basic-dataframe-plotting" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="c1"># Create a simple DataFrame</span>
@@ -1045,11 +1436,18 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/7b14291c17762c4c5659df91a5939122431df21920b7ce54bd400dd69b5abe44.png" src="../_images/7b14291c17762c4c5659df91a5939122431df21920b7ce54bd400dd69b5abe44.png" />
+</div>
+</div>
 </section>
 <section id="using-dataframe-s-built-in-plot-method">
 <h3>Using DataFrame’s Built-in Plot Method<a class="headerlink" href="#using-dataframe-s-built-in-plot-method" title="Link to this heading">#</a></h3>
 <p>Pandas DataFrames have a convenient <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method that simplifies many common plotting tasks:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
@@ -1073,10 +1471,17 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/0bf902705b6da808c0ee5754bc27612f8b549202ff35e278e3904ee0201fb7ff.png" src="../_images/0bf902705b6da808c0ee5754bc27612f8b549202ff35e278e3904ee0201fb7ff.png" />
+</div>
+</div>
 </section>
 <section id="different-plot-types-with-dataframes">
 <h3>Different Plot Types with DataFrames<a class="headerlink" href="#different-plot-types-with-dataframes" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="c1"># Student grades data</span>
@@ -1100,10 +1505,17 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/7b1e6c1d68fc17308bd43b70405a3a48989bc6d3fe681b72c9057a24b58a3b89.png" src="../_images/7b1e6c1d68fc17308bd43b70405a3a48989bc6d3fe681b72c9057a24b58a3b89.png" />
+</div>
+</div>
 </section>
 <section id="scatter-plots-from-dataframes">
 <h3>Scatter Plots from DataFrames<a class="headerlink" href="#scatter-plots-from-dataframes" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="c1"># Study time vs test score data</span>
@@ -1123,10 +1535,17 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ee0e1f2214e8321ec5c22dcb6c92967a50347a0d836c0274819f24fca4342f81.png" src="../_images/ee0e1f2214e8321ec5c22dcb6c92967a50347a0d836c0274819f24fca4342f81.png" />
+</div>
+</div>
 </section>
 <section id="plotting-multiple-subplots-from-a-dataframe">
 <h3>Plotting Multiple Subplots from a DataFrame<a class="headerlink" href="#plotting-multiple-subplots-from-a-dataframe" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
@@ -1160,10 +1579,17 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/04ee74163812e58e773060cf7cfa3f2f91bc7118d4eb656d45e929cf3d113f20.png" src="../_images/04ee74163812e58e773060cf7cfa3f2f91bc7118d4eb656d45e929cf3d113f20.png" />
+</div>
+</div>
 </section>
 <section id="grouped-bar-charts-from-dataframes">
 <h3>Grouped Bar Charts from DataFrames<a class="headerlink" href="#grouped-bar-charts-from-dataframes" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="c1"># Quarterly sales data</span>
@@ -1187,6 +1613,11 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/3cb1c3cfce94b1c9e464b9698c2eab128b56273e3a5d873be44555ad02ca0e1c.png" src="../_images/3cb1c3cfce94b1c9e464b9698c2eab128b56273e3a5d873be44555ad02ca0e1c.png" />
+</div>
+</div>
 </section>
 <section id="key-points-about-pandas-integration">
 <h3>Key Points About Pandas Integration<a class="headerlink" href="#key-points-about-pandas-integration" title="Link to this heading">#</a></h3>
@@ -1203,11 +1634,26 @@ document.write(`
 <h2>11. Common Mistakes to Avoid<a class="headerlink" href="#common-mistakes-to-avoid" title="Link to this heading">#</a></h2>
 <section id="missing-labels-or-units">
 <h3>Missing Labels or Units<a class="headerlink" href="#missing-labels-or-units" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># BAD: No labels or units</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">distance</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">28</span><span class="p">]</span>
+
+<span class="c1"># BAD: No labels or units</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">distance</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="c1"># GOOD: Clear labels with units</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/71d66ab269352f98e07920feb951e6873770eb5f02106fd66f3446c47cec017a.png" src="../_images/71d66ab269352f98e07920feb951e6873770eb5f02106fd66f3446c47cec017a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># GOOD: Clear labels with units</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">distance</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'Time (seconds)'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Distance (meters)'</span><span class="p">)</span>
@@ -1215,32 +1661,86 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/08fbd5c4094d49d3b7b55780e59e041bd7f572a1dc05d8265fa8d717d490005e.png" src="../_images/08fbd5c4094d49d3b7b55780e59e041bd7f572a1dc05d8265fa8d717d490005e.png" />
+</div>
+</div>
 </section>
 <section id="too-many-colors-or-styles">
 <h3>Too Many Colors or Styles<a class="headerlink" href="#too-many-colors-or-styles" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># BAD: Confusing and hard to read</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x1</span> <span class="o">=</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">x3</span> <span class="o">=</span> <span class="n">x4</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="n">y3</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="n">y4</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+
+<span class="c1"># BAD: Confusing and hard to read</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'--'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'blue'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">':'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'s'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x3</span><span class="p">,</span> <span class="n">y3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'green'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'-.'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'^'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x4</span><span class="p">,</span> <span class="n">y4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'purple'</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">'-'</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">'*'</span><span class="p">)</span>
-
-<span class="c1"># GOOD: Consistent style, vary one aspect</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/bc10277549255b92a8c28ca8fa8c8c937ac763e9a7bc2562ed4ac204be0f14fd.png" src="../_images/bc10277549255b92a8c28ca8fa8c8c937ac763e9a7bc2562ed4ac204be0f14fd.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># GOOD: Consistent style, vary one aspect</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="s1">'o-'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Series 1'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="s1">'s-'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Series 2'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x3</span><span class="p">,</span> <span class="n">y3</span><span class="p">,</span> <span class="s1">'^-'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'Series 3'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/7215d5483b9339405660333894353cd8f583e82cb7a1b4accb4cd2f883391e21.png" src="../_images/7215d5483b9339405660333894353cd8f583e82cb7a1b4accb4cd2f883391e21.png" />
+</div>
 </div>
 </section>
 <section id="forgetting-to-call-show">
 <h3>Forgetting to Call show()<a class="headerlink" href="#forgetting-to-call-show" title="Link to this heading">#</a></h3>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># BAD: Plot won't display</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xValues</span><span class="p">,</span> <span class="n">yValues</span><span class="p">)</span>
+<p><strong>Note:</strong> in a notebook, matplotlib’s inline backend auto-displays any figure still open at the end of a cell, even without <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> – that’s a notebook-specific convenience. In a plain <code class="docutils literal notranslate"><span class="pre">.py</span></code> script (like in PyCharm), nothing appears unless you call <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code>. The two cells below still show the difference it makes to call it explicitly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xValues</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">yValues</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 
-<span class="c1"># GOOD: Plot displays</span>
+<span class="c1"># BAD: in a plain .py script, this plot would never display</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xValues</span><span class="p">,</span> <span class="n">yValues</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7822804fa050&gt;]
+</pre></div>
+</div>
+<img alt="../_images/0fefda7fc39725f391c837c07e05c414cfcaeb1eb67e24ccb1b64e2ec33b7a3d.png" src="../_images/0fefda7fc39725f391c837c07e05c414cfcaeb1eb67e24ccb1b64e2ec33b7a3d.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># GOOD: explicit plt.show() always displays the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xValues</span><span class="p">,</span> <span class="n">yValues</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/0fefda7fc39725f391c837c07e05c414cfcaeb1eb67e24ccb1b64e2ec33b7a3d.png" src="../_images/0fefda7fc39725f391c837c07e05c414cfcaeb1eb67e24ccb1b64e2ec33b7a3d.png" />
+</div>
 </div>
 </section>
 </section>
@@ -1266,7 +1766,9 @@ document.write(`
 <section id="a-complete-example">
 <h2>13. A Complete Example<a class="headerlink" href="#a-complete-example" title="Link to this heading">#</a></h2>
 <p>Here’s a complete example incorporating multiple concepts:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># Generate sample data</span>
@@ -1301,6 +1803,11 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">'experimentAnalysis.png'</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">'tight'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/1b451a1d63ec3f8d623f609425bd62e2a5c1ebf512ef2fc5afb4d53bdc533c18.png" src="../_images/1b451a1d63ec3f8d623f609425bd62e2a5c1ebf512ef2fc5afb4d53bdc533c18.png" />
+</div>
 </div>
 </section>
 <section id="questions-to-consider">
@@ -1337,7 +1844,9 @@ document.write(`
 <p>Plotly creates interactive plots that allow zooming, panning, hovering for data values, and toggling series on and off. This is particularly valuable for exploratory data analysis and presentations.</p>
 <section id="basic-plotly-line-plot">
 <h4>Basic Plotly Line Plot<a class="headerlink" href="#basic-plotly-line-plot" title="Link to this heading">#</a></h4>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
 
 <span class="c1"># Data</span>
 <span class="n">time</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
@@ -1357,10 +1866,14 @@ document.write(`
 <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+</div>
 </section>
 <section id="multiple-series-with-plotly">
 <h4>Multiple Series with Plotly<a class="headerlink" href="#multiple-series-with-plotly" title="Link to this heading">#</a></h4>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
 
 <span class="n">time</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="n">object1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
@@ -1384,10 +1897,14 @@ document.write(`
 <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+</div>
 </section>
 <section id="plotly-3d-surface-plot">
 <h4>Plotly 3D Surface Plot<a class="headerlink" href="#plotly-3d-surface-plot" title="Link to this heading">#</a></h4>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># Create mesh grid</span>
@@ -1415,10 +1932,14 @@ document.write(`
 <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+</div>
 </section>
 <section id="plotly-with-pandas-dataframes">
 <h4>Plotly with Pandas DataFrames<a class="headerlink" href="#plotly-with-pandas-dataframes" title="Link to this heading">#</a></h4>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">plotly.express</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">px</span>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">plotly.express</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">px</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="c1"># Sample data</span>
@@ -1437,11 +1958,15 @@ document.write(`
 <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+</div>
 </section>
 <section id="interactive-parallel-coordinates-plot">
 <h4>Interactive Parallel Coordinates Plot<a class="headerlink" href="#interactive-parallel-coordinates-plot" title="Link to this heading">#</a></h4>
 <p>Plotly excels at parallel coordinates plots with full interactivity. Clicking and dragging along any axis filters the lines:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="c1"># Student performance data</span>
@@ -1499,6 +2024,8 @@ document.write(`
 <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+</div>
 <p>This interactive plot allows you to:</p>
 <ul class="simple">
 <li><p>Click and drag on any axis to filter the data range (selected lines stay colored, others fade to gray)</p></li>
@@ -1514,7 +2041,9 @@ document.write(`
 <p>Seaborn builds on matplotlib but provides more sophisticated statistical visualizations with better default aesthetics. It’s particularly good for statistical relationships and distributions.</p>
 <section id="seaborn-distribution-plot">
 <h4>Seaborn Distribution Plot<a class="headerlink" href="#seaborn-distribution-plot" title="Link to this heading">#</a></h4>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
@@ -1530,10 +2059,14 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+</div>
 </section>
 <section id="seaborn-correlation-heatmap">
 <h4>Seaborn Correlation Heatmap<a class="headerlink" href="#seaborn-correlation-heatmap" title="Link to this heading">#</a></h4>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -1559,10 +2092,14 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+</div>
 </section>
 <section id="seaborn-pair-plot">
 <h4>Seaborn Pair Plot<a class="headerlink" href="#seaborn-pair-plot" title="Link to this heading">#</a></h4>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -1583,12 +2120,16 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+</div>
 </section>
 </section>
 <section id="altair-declarative-visualization">
 <h3>Altair: Declarative Visualization<a class="headerlink" href="#altair-declarative-visualization" title="Link to this heading">#</a></h3>
 <p>Altair uses a declarative approach where you describe what you want to visualize rather than how to draw it. It’s excellent for creating complex visualizations with minimal code.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="c1"># Sample data</span>
@@ -1615,11 +2156,15 @@ document.write(`
 <span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">'sales_chart.html'</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+</div>
 </section>
 <section id="bokeh-interactive-web-ready-plots">
 <h3>Bokeh: Interactive Web-Ready Plots<a class="headerlink" href="#bokeh-interactive-web-ready-plots" title="Link to this heading">#</a></h3>
 <p>Bokeh is designed for creating interactive visualizations for web browsers. It’s particularly good for building dashboards and applications.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">bokeh.plotting</span><span class="w"> </span><span class="kn">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">output_file</span>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">bokeh.plotting</span><span class="w"> </span><span class="kn">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">output_file</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">bokeh.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">HoverTool</span>
 
 <span class="c1"># Send output to an .html file (show() will open it in your browser)</span>
@@ -1645,6 +2190,8 @@ document.write(`
 
 <span class="n">show</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="comparison-when-to-use-each-library">
@@ -1702,7 +2249,9 @@ document.write(`
 <section id="getting-started-with-these-libraries">
 <h3>Getting Started with These Libraries<a class="headerlink" href="#getting-started-with-these-libraries" title="Link to this heading">#</a></h3>
 <p>Install any of these in PyCharm the same way you installed matplotlib (Python Packages tool window, or <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">plotly</span> <span class="pre">seaborn</span> <span class="pre">altair</span> <span class="pre">bokeh</span></code> in the Terminal). Then import them:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotly</span>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotly</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">plotly.express</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">px</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">plotly.graph_objects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">go</span>
 
@@ -1715,6 +2264,8 @@ document.write(`
 <span class="c1"># Bokeh</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">bokeh.plotting</span><span class="w"> </span><span class="kn">import</span> <span class="n">figure</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">output_file</span>
 </pre></div>
+</div>
+</div>
 </div>
 <p>For your coursework, focus on mastering matplotlib first. Once you’re comfortable with the fundamentals, experiment with these libraries for personal projects or when their specific features (like interactivity) provide clear advantages for your analysis.</p>
 </section>
