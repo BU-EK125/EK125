@@ -297,14 +297,21 @@ it; check `_toc.yml` to see what's actually published.
   2026-10-23 Fitness Tracker renumbering** -- Class 15 (the number) now
   refers to a completely different reading than either of those; see
   "The Fitness Tracker team project" above.
-- **Class 21's plotting add-on has no draft content yet.** The Fitness
-  Tracker Project Overview and the Class 19 Team Activity's homework note
-  both describe Class 21 (Mon 11/16) as "each teammate adds one plotting
-  function to their project," and the live `class/Class21.md` (renumbered
-  from old Class 15) already covers matplotlib -- but no `Class21
-  _TeamActivity`-equivalent exists yet, because `EK125-Instructors/F26/New
-  Material Drafts/` only has folders for Classes 15-19. Check there again
-  before Class 21's actual date approaches.
+- ~~Class 21's plotting add-on has no draft content yet.~~ **Resolved
+  2026-11-15/16.** The real Class 21 GPP (`gpps/Class21_GPP.ipynb`/
+  `Class21_GPP_Solutions.ipynb`) was found -- first via a mislabeled
+  duplicate in Drive (see the GPP-solutions scope history below for that
+  trap), then the genuine file, confirmed by the instructor and verified
+  against the Class 21 reading for both correctness and topical overlap.
+  Published as executed notebooks (the first in this repo to need
+  matplotlib/numpy -- see "Toolchain trap" above) with per-problem
+  cross-reference links to the reading. Also moved in `_toc.yml` out of
+  the "MATLAB" caption into "Team Project: Fitness Tracker" (where
+  `homework/HW8` now sits too) -- Class 21 is pure Python plotting, not
+  MATLAB; the MATLAB caption now starts at Class 22, which is the actual
+  Python-to-MATLAB bridge class. Still open: **Classes 24-26 have no
+  homework in the source material** -- Homework 8 (Classes 21-23) is the
+  last one that exists so far.
 - **Old Class 22 ("Useful MATLAB Toolboxes") is sitting in `archive/`
   with no confirmed new slot** (see "Renumbering" above) -- the official
   schedule's last class is 27 ("Exam 3 practice"), which doesn't match

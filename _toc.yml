@@ -85,13 +85,13 @@ parts:
       - file: class/Class19
         sections:
           - file: gpps/Class19_TeamActivity
-  - caption: MATLAB
-    chapters:
       - file: class/Class21
         sections:
           - file: gpps/Class21_GPP
           - file: gpps/Class21_GPP_Solutions
       - file: homework/HW8
+  - caption: MATLAB
+    chapters:
       - file: class/Class22
         sections:
           - file: gpps/Class22_GPP
