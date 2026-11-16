@@ -2,3 +2,12 @@
 .DS_Store
 _build/
 .claude/
+
+# Build-time byproducts: notebooks that call plt.savefig()/folium's .save()
+# write these into the source tree on every `jb build` (execution_in_temp:
+# false in _config.yml). Not build output to publish -- just local noise.
+class/myPlot.png
+class/experimentAnalysis.png
+class/boston_heatmap.html
+class/bu_study_heatmap.html
+gpps/ohms_law.png

@@ -192,12 +192,61 @@ pin `jupyter-book<2` (currently built against 1.0.4).
 runs its code at build time -- any package a notebook imports must be
 installed first, in CI and locally. Until the Class 21 GPP
 (`gpps/Class21_GPP.ipynb`/`Class21_GPP_Solutions.ipynb`, added
-2026-11-15), no notebook in this repo needed anything beyond plain
-Python, so this had never come up: `matplotlib` and `numpy` are now
+2026-11-15) and the Class 21 reading itself (`class/Class21.ipynb`,
+converted from `.md` on 2026-11-16 so its plots actually render --
+see "Converting a reading to an executed notebook" below), no notebook
+in this repo needed anything beyond plain Python, so this had never
+come up: `matplotlib`, `numpy`, `pandas`, and `folium` are now
 explicitly installed alongside `jupyter-book` in both
 `.github/workflows/deploy.yml` and `pr-check.yml` -- don't let that
 silently drift back to implicit/missing the next time a notebook adds a
 new import.
+
+## Converting a reading to an executed notebook
+
+A plain `.md` reading's fenced ` ```python ` code blocks are just
+syntax-highlighted static text -- they never run, so no figures ever
+render, no matter how much plotting code the page shows. Only `.ipynb`
+pages actually execute (per `execute_notebooks: force`). `class/Class21.md`
+was converted to `class/Class21.ipynb` on 2026-11-16 for exactly this
+reason (students asked why none of its matplotlib examples showed real
+plots). Lessons from that conversion, for the next reading that needs it:
+
+- **Preserve every heading's exact text.** Anything already linking to
+  this page's anchors (e.g. a GPP's cross-reference links) depends on
+  MyST generating the same slugified `id`s it did as a `.md` file --
+  verify this by grepping the rebuilt HTML for every anchor other pages
+  link to, the same way you'd verify them when writing new links.
+- **Split "BAD vs. GOOD" comparison snippets into two cells, each with
+  its own `plt.figure()`**, and supply minimal placeholder data if the
+  original snippet used undefined variables for illustration only (this
+  repo's own "Common Mistakes" section had exactly this -- `time`/
+  `distance` and `x1`..`y4` were never defined anywhere, so the original
+  `.md` prose got away with it, but real execution needs real data).
+  Never try to execute genuinely undefined pseudocode as-is; that needs
+  a `skip-execution` cell tag, not invented data, if there's no sensible
+  placeholder to add.
+- **A "forgetting to call `plt.show()`" example doesn't work as written
+  in a notebook**: Jupyter's inline backend auto-displays any figure
+  still open at the end of a cell regardless of whether `show()` was
+  called, so the "BAD" example will display anyway. Say so explicitly in
+  a markdown cell rather than silently losing the lesson -- the point
+  still holds for a plain `.py` script (e.g. in PyCharm), just not here.
+- **Tag genuinely optional/enrichment sections `skip-execution`** rather
+  than installing their dependencies. Class 21's own "Appendix: Advanced
+  Plotting Libraries" explicitly says students aren't required to use
+  Plotly/Seaborn/Altair/Bokeh for coursework -- executing it for real
+  would have meant four more CI dependencies for content nobody has to
+  run. The cells still render as reference code, just without output.
+- **`plt.savefig()` and similar (e.g. folium's `.save()`) write real
+  files into the source tree on every build**, since
+  `execution_in_temp: false`. Add the specific output filenames to
+  `.gitignore` (see the ones already there) rather than letting them
+  show up as untracked files after every local build.
+- A library like `folium` whose objects only have an HTML
+  representation (maps, not images) needs that object as the cell's
+  trailing bare expression to actually display inline -- calling only
+  `.save('file.html')` produces a file on disk but no visible output.
 
 ## Build-breaking trap: link-only headings
 
